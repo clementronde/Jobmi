@@ -1,0 +1,17 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/a-propos/page": "app/a-propos/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/cgu/page": "app/cgu/page.js",
+  "/inscription/page": "app/inscription/page.js",
+  "/page": "app/page.js",
+  "/mention-legales/page": "app/mention-legales/page.js",
+  "/me-connecter/page": "app/me-connecter/page.js",
+  "/politique-de-confidentialite/page": "app/politique-de-confidentialite/page.js",
+  "/profile/page": "app/profile/page.js",
+  "/test/page": "app/test/page.js",
+  "/stage-et-formation/page": "app/stage-et-formation/page.js",
+  "/blog/[slug]/page": "app/blog/[slug]/page.js"
+}

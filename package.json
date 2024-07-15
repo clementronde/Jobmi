@@ -1,0 +1,40 @@
+{
+  "name": "jobmi",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.19",
+    "axios": "^1.7.2",
+    "next": "^14.2.4",
+    "next-auth": "^4.24.7",
+    "nodemailer": "^6.9.14",
+    "react": "^18.3.1",
+    "react-countup": "^6.5.3",
+    "react-device-detect": "^2.2.3",
+    "react-dnd-touch-backend": "^16.0.1",
+    "react-dom": "^18.3.1",
+    "react-fast-marquee": "^1.6.5",
+    "react-icons": "^5.2.1",
+    "react-owl-carousel": "^2.3.3",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1",
+    "sortablejs": "^1.15.2"
+  },
+  "devDependencies": {
+    "@types/next-auth": "^3.15.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5"
+  }
+}
+
