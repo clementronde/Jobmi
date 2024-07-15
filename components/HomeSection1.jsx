@@ -11,7 +11,7 @@ export const HomeSection1 = () => {
           <img
             src="/media/Rectangle4.svg"
             alt="rectangle"
-            className="absolute top-[200px] left-1/2 transform -translate-x-1/2 sm:translate-x-0 sm:left-[70px] h-[100px] w-[250px]"
+            className="absolute top-[200px] left-1/2 transform -translate-x-1/2 sm:translate-x-0 sm:left-[70px] h-[100px] w-[250px] hidden sm:block"
           />
           <img
             src="/media/Rectangle5.svg"
