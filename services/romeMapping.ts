@@ -105,7 +105,7 @@ export const getRomeCodes = (metiers: string[]): RomeMapping[] => {
  */
 export const getUniqueRomeCodes = (metiers: string[]): string[] => {
   const codes = getRomeCodes(metiers).map(m => m.codeRome);
-  return [...new Set(codes)];
+  return Array.from(new Set(codes));
 };
 
 /**
