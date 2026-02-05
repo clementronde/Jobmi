@@ -28,6 +28,7 @@ const QuizComponent = () => {
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userName, setUserName] = useState('');
+  const [userDepartement, setUserDepartement] = useState('');
   const [results, setResults] = useState(null);
   const [resultImage, setResultImage] = useState('');
   const [progress, setProgress] = useState(0);
@@ -135,6 +136,10 @@ const QuizComponent = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     setUserName(e.target['user-name'].value);
+    // Extraire le code département (2 premiers chiffres ou le code complet)
+    const deptInput = e.target['user-departement'].value;
+    const deptCode = deptInput.replace(/\D/g, '').substring(0, 2) || deptInput;
+    setUserDepartement(deptCode);
     document.getElementById('start-screen').style.display = 'none';
     document.getElementById('title-part').style.display = 'none';
     document.getElementById('time-call').style.display = 'none';
@@ -297,7 +302,7 @@ const QuizComponent = () => {
 
             </div>
             <div id="result-screen" className="result-screen" style={{ display: 'none' }}>
-              {results && <ResultatComponent results={results} image={resultImage} />}
+              {results && <ResultatComponent results={results} image={resultImage} departement={userDepartement} />}
             </div>
           </div>
         </div>
