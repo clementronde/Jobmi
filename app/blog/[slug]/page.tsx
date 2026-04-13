@@ -23,8 +23,8 @@ export async function generateStaticParams() {
   }
 }
 
-const ArticlePage = async ({ params }: { params: any }) => {
-  const { slug } = params;
+const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params;
   const data = await getData(slug);
 
   
