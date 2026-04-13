@@ -1,16 +1,20 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "baseUrl": ".",
     "plugins": [
@@ -19,9 +23,29 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
-    }
+      "@/*": [
+        "./*"
+      ]
+    },
+    "target": "ES2017"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/CategoryList.jsx", "components/Pagination.jsx", "components/Navbar.jsx", "components/CardList.jsx", "components/AuthLinks.jsx", "components/Featured.jsx", "components/Footer.jsx", "components/Menu.jsx", "app/blog/[slug]/page.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "components/CategoryList.jsx",
+    "components/Pagination.jsx",
+    "components/Navbar.jsx",
+    "components/CardList.jsx",
+    "components/AuthLinks.jsx",
+    "components/Featured.jsx",
+    "components/Footer.jsx",
+    "components/Menu.jsx",
+    "app/blog/[slug]/page.tsx",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
