@@ -10,6 +10,17 @@ const nextConfig = {
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
   },
+  async redirects() {
+    return [
+      // www → non-www (permanent 301)
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.jobmi.fr' }],
+        destination: 'https://jobmi.fr/:path*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
