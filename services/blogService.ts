@@ -28,6 +28,6 @@ export const getRelatedArticles = async (
   category: string
 ): Promise<Article[]> => {
   return articles.filter(
-    (a) => a._id !== currentArticleId && a.category === category
+    (a) => a._id !== currentArticleId && a.category === category && isPublished(a)
   );
 };
