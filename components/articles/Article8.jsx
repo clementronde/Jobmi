@@ -100,7 +100,7 @@ export const Article8 = () => {
           </div>
           <div className='bg-gray-100 p-4 rounded-lg'>
             <h3 className='font-bold'>Commerce & Immobilier</h3>
-            <p>Commercial, agent immobilier, conseiller clientèle. Mérite et résultats > diplômes dans ces secteurs.</p>
+            <p>Commercial, agent immobilier, conseiller clientèle. Mérite et résultats &gt; diplômes dans ces secteurs.</p>
           </div>
           <div className='bg-gray-100 p-4 rounded-lg'>
             <h3 className='font-bold'>Artisanat & BTP</h3>

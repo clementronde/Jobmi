@@ -1,12 +1,15 @@
 import { articles } from '../data/articles';
 import { Article } from '../models/Article';
 
+const isPublished = (article: Article): boolean =>
+  new Date(article.datePublished) <= new Date();
+
 export const getArticles = async (): Promise<Article[]> => {
-  return articles;
+  return articles.filter(isPublished);
 };
 
 export const getAllArticleSlugs = async (): Promise<string[]> => {
-  return articles.map((a) => a.slug);
+  return articles.filter(isPublished).map((a) => a.slug);
 };
 
 export const getArticleBySlug = async (slug: string): Promise<Article> => {
@@ -16,7 +19,8 @@ export const getArticleBySlug = async (slug: string): Promise<Article> => {
 };
 
 export const getLatestArticle = async (): Promise<Article> => {
-  return articles[articles.length - 1];
+  const published = articles.filter(isPublished);
+  return published[published.length - 1];
 };
 
 export const getRelatedArticles = async (
