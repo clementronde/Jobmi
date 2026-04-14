@@ -4,6 +4,16 @@ import Link from 'next/link';
 import { Article1 } from '../../../components/articles/Article1';
 import { Article2 } from '../../../components/articles/Article2';
 import { Article3 } from '../../../components/articles/Article3';
+import { Article4 } from '../../../components/articles/Article4';
+import { Article5 } from '../../../components/articles/Article5';
+import { Article6 } from '../../../components/articles/Article6';
+import { Article7 } from '../../../components/articles/Article7';
+import { Article8 } from '../../../components/articles/Article8';
+import { Article9 } from '../../../components/articles/Article9';
+import { Article10 } from '../../../components/articles/Article10';
+import { Article11 } from '../../../components/articles/Article11';
+import { Article12 } from '../../../components/articles/Article12';
+import { Article13 } from '../../../components/articles/Article13';
 import { RelatedArticles } from '../../../components/RelatedArticles';
 
 const BASE_URL = 'https://jobmi.fr';
@@ -124,6 +134,16 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
       {slug === "comment-commencer-ta-reconversion-professionnelle" && <Article1 />}
       {slug === "comment-trouver-le-job-de-tes-reves-a-20-ans-guide-ultime-pour-jeunes-en-reconversion" && <Article2 />}
       {slug === "top-10-des-metiers-cool-pour-2024-que-tu-dois-connaitre" && <Article3 />}
+      {slug === "reconversion-professionnelle-20-ans-guide-complet" && <Article4 />}
+      {slug === "metiers-sans-diplome-qui-paient-bien" && <Article5 />}
+      {slug === "bilan-de-competences-gratuit-guide" && <Article6 />}
+      {slug === "financer-sa-formation-sans-cpf" && <Article7 />}
+      {slug === "se-reconvertir-apres-bac-plus-2" && <Article8 />}
+      {slug === "alternance-ou-formation-continue-que-choisir" && <Article9 />}
+      {slug === "metiers-avenir-2025-qui-recrutent" && <Article10 />}
+      {slug === "devenir-developpeur-web-sans-diplome" && <Article11 />}
+      {slug === "utiliser-cpf-compte-personnel-formation" && <Article12 />}
+      {slug === "trouver-stage-reconversion-methode" && <Article13 />}
 
       <div className="sm:mx-[200px] mb-16">
         <RelatedArticles articles={related} />
