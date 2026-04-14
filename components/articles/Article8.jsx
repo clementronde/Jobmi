@@ -64,7 +64,7 @@ export const Article8 = () => {
         <div>
           <h3 className='text-2xl font-bold mb-3'>Chemin 5 — L'immersion terrain + auto-formation</h3>
           <p className='mb-3'>
-            Dans les secteurs tech, créatifs et commerciaux, un portfolio solide > un diplôme. Commence par travailler sur des projets personnels, contribuer à des projets open source, ou te former via YouTube et des certifications gratuites. Puis envoie ton travail, pas ton CV.
+            Dans les secteurs tech, créatifs et commerciaux, un portfolio solide &gt; un diplôme. Commence par travailler sur des projets personnels, contribuer à des projets open source, ou te former via YouTube et des certifications gratuites. Puis envoie ton travail, pas ton CV.
           </p>
           <p>Ce chemin est le plus long mais le moins coûteux. Il fonctionne très bien pour le développement web, le design, le marketing digital et le contenu.</p>
         </div>
