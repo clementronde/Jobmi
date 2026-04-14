@@ -6,9 +6,67 @@ import Provider from '@/components/Provider';
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
+const BASE_URL = 'https://jobmi.fr';
+
 export const metadata: Metadata = {
-  title: "Jobmi",
-  description: "Une application pour vous trouver une voie professionnelle",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: 'Jobmi — Orientation et Réorientation Professionnelle',
+    template: '%s | Jobmi',
+  },
+  description:
+    "Jobmi aide les 18-25 ans à trouver leur voie : tests d'orientation, guides de reconversion, métiers d'avenir et formations adaptées à ton profil.",
+  keywords: [
+    'orientation professionnelle',
+    'reconversion professionnelle',
+    'métiers d\'avenir',
+    'trouver sa voie',
+    'bilan de compétences',
+    'formation jeunes',
+    'emploi 20 ans',
+    'jobmi',
+  ],
+  authors: [{ name: 'Jobmi', url: BASE_URL }],
+  creator: 'Jobmi',
+  publisher: 'Jobmi',
+  alternates: {
+    canonical: BASE_URL,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    url: BASE_URL,
+    siteName: 'Jobmi',
+    title: 'Jobmi — Orientation et Réorientation Professionnelle',
+    description:
+      "Jobmi aide les 18-25 ans à trouver leur voie : tests d'orientation, guides de reconversion et métiers d'avenir.",
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Jobmi — Trouve ta voie professionnelle',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Jobmi — Orientation et Réorientation Professionnelle',
+    description:
+      "Jobmi aide les 18-25 ans à trouver leur voie : tests d'orientation, guides de reconversion et métiers d'avenir.",
+    images: ['/og-image.png'],
+    creator: '@jobmifr',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     apple: { url: '/favicons/apple-touch-icon.png', sizes: '180x180' },
     icon: [
@@ -24,6 +82,42 @@ type RootLayoutProps = {
   children: React.ReactNode;
 };
 
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://jobmi.fr/#organization',
+      name: 'Jobmi',
+      url: 'https://jobmi.fr',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://jobmi.fr/favicons/favicon-32x32.png',
+      },
+      sameAs: [
+        'https://www.instagram.com/jobmifr',
+        'https://www.tiktok.com/@jobmifr',
+        'https://www.linkedin.com/company/jobmipro/',
+      ],
+      description:
+        "Jobmi aide les 18-25 ans à trouver leur voie : tests d'orientation, guides de reconversion et métiers d'avenir.",
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://jobmi.fr/#website',
+      url: 'https://jobmi.fr',
+      name: 'Jobmi',
+      publisher: { '@id': 'https://jobmi.fr/#organization' },
+      inLanguage: 'fr-FR',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: 'https://jobmi.fr/blog?q={search_term_string}',
+        'query-input': 'required name=search_term_string',
+      },
+    },
+  ],
+};
+
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="fr">
@@ -31,6 +125,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
       </head>
       <body>
         {/* Google Tag Manager (noscript) */}
