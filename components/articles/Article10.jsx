@@ -80,7 +80,7 @@ export const Article10 = () => {
         <div className='border-l-4 border-violet pl-4'>
           <h3 className='font-bold text-xl'>9. UX/UI designer</h3>
           <p><strong>Secteur :</strong> Design / Tech | <strong>Formation :</strong> 3-9 mois | <strong>Salaire junior :</strong> 30 000-45 000 €</p>
-          <p className='mt-2'>Chaque application, site web et service digital a besoin d'UX. Figma s'apprend en quelques mois. Le portfolio > le diplôme dans ce secteur.</p>
+          <p className='mt-2'>Chaque application, site web et service digital a besoin d'UX. Figma s'apprend en quelques mois. Le portfolio &gt; le diplôme dans ce secteur.</p>
         </div>
 
         <div className='border-l-4 border-violet pl-4'>
