@@ -13,7 +13,7 @@ export const getAllArticleSlugs = async (): Promise<string[]> => {
 };
 
 export const getArticleBySlug = async (slug: string): Promise<Article> => {
-  const article = articles.find((a) => a.slug === slug);
+  const article = articles.find((a) => a.slug === slug && isPublished(a));
   if (!article) throw new Error(`Article introuvable : ${slug}`);
   return article;
 };

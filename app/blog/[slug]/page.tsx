@@ -18,6 +18,8 @@ import { RelatedArticles } from '../../../components/RelatedArticles';
 
 const BASE_URL = 'https://jobmi.fr';
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   try {
     const slugs = await getAllArticleSlugs();
@@ -140,7 +142,7 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
       {slug === "financer-sa-formation-sans-cpf" && <Article7 />}
       {slug === "se-reconvertir-apres-bac-plus-2" && <Article8 />}
       {slug === "alternance-ou-formation-continue-que-choisir" && <Article9 />}
-      {slug === "metiers-avenir-2025-qui-recrutent" && <Article10 />}
+      {slug === "metiers-avenir-2026-qui-recrutent" && <Article10 />}
       {slug === "devenir-developpeur-web-sans-diplome" && <Article11 />}
       {slug === "utiliser-cpf-compte-personnel-formation" && <Article12 />}
       {slug === "trouver-stage-reconversion-methode" && <Article13 />}
