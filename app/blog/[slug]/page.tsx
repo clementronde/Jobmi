@@ -15,6 +15,7 @@ import { Article11 } from '../../../components/articles/Article11';
 import { Article12 } from '../../../components/articles/Article12';
 import { Article13 } from '../../../components/articles/Article13';
 import { RelatedArticles } from '../../../components/RelatedArticles';
+import ArticleTOC from '../../../components/ArticleTOC';
 
 const BASE_URL = 'https://jobmi.fr';
 
@@ -133,19 +134,24 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
         <p><span className='font-bold'>{data.readingTime} min</span> de lecture</p>
       </div>
 
-      {slug === "comment-commencer-ta-reconversion-professionnelle" && <Article1 />}
-      {slug === "comment-trouver-le-job-de-tes-reves-a-20-ans-guide-ultime-pour-jeunes-en-reconversion" && <Article2 />}
-      {slug === "top-10-des-metiers-cool-pour-2024-que-tu-dois-connaitre" && <Article3 />}
-      {slug === "reconversion-professionnelle-20-ans-guide-complet" && <Article4 />}
-      {slug === "metiers-sans-diplome-qui-paient-bien" && <Article5 />}
-      {slug === "bilan-de-competences-gratuit-guide" && <Article6 />}
-      {slug === "financer-sa-formation-sans-cpf" && <Article7 />}
-      {slug === "se-reconvertir-apres-bac-plus-2" && <Article8 />}
-      {slug === "alternance-ou-formation-continue-que-choisir" && <Article9 />}
-      {slug === "metiers-avenir-2026-qui-recrutent" && <Article10 />}
-      {slug === "devenir-developpeur-web-sans-diplome" && <Article11 />}
-      {slug === "utiliser-cpf-compte-personnel-formation" && <Article12 />}
-      {slug === "trouver-stage-reconversion-methode" && <Article13 />}
+      <div className="flex gap-8 items-start">
+        <ArticleTOC />
+        <div id="article-content" className="flex-1 min-w-0">
+          {slug === "comment-commencer-ta-reconversion-professionnelle" && <Article1 />}
+          {slug === "comment-trouver-le-job-de-tes-reves-a-20-ans-guide-ultime-pour-jeunes-en-reconversion" && <Article2 />}
+          {slug === "top-10-des-metiers-cool-pour-2024-que-tu-dois-connaitre" && <Article3 />}
+          {slug === "reconversion-professionnelle-20-ans-guide-complet" && <Article4 />}
+          {slug === "metiers-sans-diplome-qui-paient-bien" && <Article5 />}
+          {slug === "bilan-de-competences-gratuit-guide" && <Article6 />}
+          {slug === "financer-sa-formation-sans-cpf" && <Article7 />}
+          {slug === "se-reconvertir-apres-bac-plus-2" && <Article8 />}
+          {slug === "alternance-ou-formation-continue-que-choisir" && <Article9 />}
+          {slug === "metiers-avenir-2026-qui-recrutent" && <Article10 />}
+          {slug === "devenir-developpeur-web-sans-diplome" && <Article11 />}
+          {slug === "utiliser-cpf-compte-personnel-formation" && <Article12 />}
+          {slug === "trouver-stage-reconversion-methode" && <Article13 />}
+        </div>
+      </div>
 
       <div className="sm:mx-[200px] mb-16">
         <RelatedArticles articles={related} />
