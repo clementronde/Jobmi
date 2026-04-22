@@ -8,7 +8,7 @@ const steps = [
     titleOddlini: "Test d'orientation",
     titleSept: "& gratuit !",
     tag: "15 min · Gratuit",
-    body: "Réponds à quelques questions sur tes valeurs et ton style de travail. Découvre les métiers qui te correspondent — méthode RIASEC.",
+    body: "Réponds à quelques questions sur tes valeurs et ton style de travail. Découvre les métiers qui te correspondent (méthode RIASEC).",
     href: "/test",
   },
   {
@@ -24,7 +24,7 @@ const steps = [
     titleOddlini: "Immersion ",
     titleSept: "en vrai",
     tag: "1 jour à 2 semaines",
-    body: "Une journée dans un vrai environnement de travail — atelier découverte, stage d'observation ou jobshadowing.",
+    body: "Une journée dans un vrai environnement de travail : atelier découverte, stage d'observation ou jobshadowing.",
     href: "/stage-et-formation",
   },
 ];

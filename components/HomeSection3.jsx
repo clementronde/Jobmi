@@ -17,7 +17,7 @@ const stats = [
   {
     value: "1 jour",
     label: "d'immersion suffit pour savoir si un métier est fait pour toi",
-    detail: "Tester en vrai, c'est la méthode la plus fiable — et c'est ce que propose Jobmi.",
+    detail: "Tester en vrai, c'est la méthode la plus fiable et c'est ce que propose Jobmi.",
     source: "Retours d'expérience Jobmi",
   },
 ];
