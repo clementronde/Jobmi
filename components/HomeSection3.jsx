@@ -1,128 +1,46 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
-import CountUp from 'react-countup';
+import React from "react";
 
-export const HomeSection3 = () => {
-  const [hovered, setHovered] = useState([false, false, false]);
-  const statsRef = useRef([]);
+const stats = [
+  {
+    value: "29%",
+    label: "des étudiants abandonnent leur première année de licence",
+    detail: "Souvent par manque d'orientation adaptée avant le bac.",
+    source: "Ministère de l'Enseignement Supérieur, 2023",
+  },
+  {
+    value: "1 sur 3",
+    label: "jeunes se réoriente dans les 2 ans après son premier choix",
+    detail: "Un signe que l'orientation scolaire traditionnelle ne suffit plus.",
+    source: "Céreq, Enquête Génération 2021",
+  },
+  {
+    value: "1 jour",
+    label: "d'immersion suffit pour savoir si un métier est fait pour toi",
+    detail: "Tester en vrai, c'est la méthode la plus fiable — et c'est ce que propose Jobmi.",
+    source: "Retours d'expérience Jobmi",
+  },
+];
 
-  const stats = [
-    { value: 80, description: 'des reconvertis sont plus satisfaits au travail' },
-    { value: 50, description: 'des reconvertis ont eu une augmentation' },
-    { value: 95, description: 'des reconvertis recommandent de changer de métier' },
-  ];
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = statsRef.current.indexOf(entry.target);
-            statsRef.current.forEach((_, i) => {
-              setTimeout(() => {
-                setHovered((prev) => {
-                  const newHovered = [...prev];
-                  newHovered[i] = true;
-                  return newHovered;
-                });
-              }, i * 800);
-            });
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    statsRef.current.forEach((stat) => {
-      if (stat) {
-        observer.observe(stat);
-      }
-    });
-
-    return () => {
-      if (statsRef.current) {
-        statsRef.current.forEach((stat) => {
-          if (stat) {
-            observer.unobserve(stat);
-          }
-        });
-      }
-    };
-  }, []);
-
+const HomeSection3 = () => {
   return (
-    <div className='mx-2'>
-      <div className="home-section-3 bg-[#14213d] text-white mt-16 rounded-xl py-10 px-4 sm:px-8 sm:h-[400px] flex justify-center items-center">
-        <div className="container max-w-screen-xl mx-auto">
-          <h2 className="text-center text-4xl font-bold mb-8">
-            Les <span className='underline-tilted decoration-[#a29bfe]'>chiffres</span> parlent d'eux-mêmes !
+    <div className="mx-2 my-16">
+      <div className="bg-[#14213d] text-white rounded-xl py-14 px-6 sm:px-12">
+        <div className="max-w-screen-xl mx-auto">
+          <h2 className="text-center text-3xl sm:text-4xl font-bold mb-3">
+            Pourquoi l'orientation, c'est{" "}
+            <span className="underline-tilted decoration-[#a29bfe]">maintenant</span> ?
           </h2>
-          <div className="stats-grid grid gap-8 mt-8 sm:grid-cols-3">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                ref={(el) => (statsRef.current[index] = el)}
-                className="stat-item text-center relative"
-              >
-                <h3 className="text-6xl font-bold">
-                  <CountUp
-                    start={0}
-                    end={hovered[index] ? stat.value : 0}
-                    duration={2}
-                  />
-                  %
-                  {index === 0 && (
-                    <img 
-                      src="/media/chiffredegauche.svg"
-                      alt=""
-                      className="absolute left-[120px] top-[40px] w-20 h-40"
-                    />
-                  )}
-                  {index === 1 && (
-                    <img 
-                      src="/media/Chiffredumilieu.svg"
-                      alt=""
-                      className="absolute left-1/2 transform -translate-x-1/2 top-[-50px] w-60 h-40"
-                    />
-                  )}
-                  {index === 2 && (
-                    <img 
-                      src="/media/chiffrededroite.svg"
-                      alt=""
-                      className="absolute right-[120px] top-[55px] w-40 h-40"
-                    />
-                  )}
-                </h3>
-                <p className="mt-4 text-lg">
-                  {stat.description.split(' ').map((word, i) => {
-                    if (index === 0 && word === 'satisfaits') {
-                      return (
-                        <React.Fragment key={i}>
-                          <br />
-                          <span className=" decoration-[#a29bfe] relative">
-                            {word}
-                          </span>{' '}
-                        </React.Fragment>
-                      );
-                    } else if (index === 2 && word === 'recommandent') {
-                      return (
-                        <React.Fragment key={i}>
-                          {word} <br />
-                        </React.Fragment>
-                      );
-                    } else if (index === 2 && word === 'métier') {
-                      return (
-                        <React.Fragment key={i}>
-                          <span className="decoration-[#a29bfe] relative">
-                            {word}
-                          </span>{' '}
-                        </React.Fragment>
-                      );
-                    } else {
-                      return word + ' ';
-                    }
-                  })}
-                </p>
+          <p className="text-center text-gray-400 max-w-xl mx-auto mb-12 text-lg">
+            Chaque année, des milliers de jeunes perdent du temps et de l'argent par manque de clarté sur leur voie.
+          </p>
+          <div className="grid sm:grid-cols-3 gap-10">
+            {stats.map((item, i) => (
+              <div key={i} className="text-center flex flex-col items-center">
+                <p className="text-5xl sm:text-6xl font-bold text-white mb-3">{item.value}</p>
+                <p className="text-base text-gray-200 mb-2">{item.label}</p>
+                <p className="text-sm text-[#a29bfe] mb-3">{item.detail}</p>
+                <p className="text-xs text-gray-500 italic">{item.source}</p>
               </div>
             ))}
           </div>

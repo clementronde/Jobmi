@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/react';
 import { useState, useEffect } from 'react';
 import { getUserData } from '@/services/userService';
 
-const Profile = () => {
+const profil = () => {
   const { data: session, status } = useSession();
   const [formData, setFormData] = useState({
     firstName: '',
@@ -80,4 +80,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default profil;

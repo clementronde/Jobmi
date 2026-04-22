@@ -9,16 +9,16 @@ import HomeSection6 from '../components/HomeSection6';
 const BASE_URL = 'https://jobmi.fr';
 
 export const metadata: Metadata = {
-  title: "Orientation & reconversion pour les 18–25 ans — Teste un métier en vrai | Jobmi",
+  title: "Test d'orientation gratuit pour trouver ta voie | Jobmi",
   description:
-    "Jobmi aide les 18–25 ans à trouver leur voie : test d'orientation gratuit (RIASEC), immersions métier, stages et formations adaptées à ton profil. Choisis sans te tromper.",
+    "Jobmi aide les 18–25 ans à trouver leur voie : test d'orientation gratuit, guides de reconversion, métiers d'avenir et formations adaptées à ton profil.",
   alternates: { canonical: BASE_URL },
   openGraph: {
     type: 'website',
     url: BASE_URL,
-    title: "Orientation & reconversion pour les 18–25 ans — Teste un métier en vrai | Jobmi",
+    title: "Test d'orientation gratuit pour trouver ta voie | Jobmi",
     description:
-      "Test d'orientation gratuit, immersions métier et stages pour les 18–25 ans. Trouve ta voie, teste-la en vrai.",
+      "Test d'orientation gratuit, guides de reconversion et métiers d'avenir pour les 18–25 ans.",
   },
 };
 
@@ -27,9 +27,9 @@ const webPageJsonLd = {
   '@type': 'WebPage',
   '@id': `${BASE_URL}/#webpage`,
   url: BASE_URL,
-  name: "Orientation & reconversion pour les 18–25 ans — Teste un métier en vrai | Jobmi",
+  name: "Test d'orientation gratuit pour trouver ta voie | Jobmi",
   description:
-    "Jobmi aide les 18–25 ans à trouver leur voie : test d'orientation gratuit (RIASEC), immersions métier, stages et formations adaptées à leur profil.",
+    "Jobmi aide les 18–25 ans à trouver leur voie : test d'orientation gratuit, guides de reconversion et métiers d'avenir.",
   isPartOf: { '@id': `${BASE_URL}/#website` },
   inLanguage: 'fr-FR',
 };
