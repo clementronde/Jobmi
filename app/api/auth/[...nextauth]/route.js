@@ -1,5 +1,6 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google";
+import AppleProvider from "next-auth/providers/apple";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 const API_URL = "https://lp-jobmi-ab6b9d72e9ba.herokuapp.com/api";
@@ -18,6 +19,10 @@ const handler = NextAuth({
                 },
             },
         }),
+        ...(process.env.APPLE_ID ? [AppleProvider({
+            clientId: process.env.APPLE_ID,
+            clientSecret: process.env.APPLE_SECRET,
+        })] : []),
         CredentialsProvider({
             name: "Credentials",
             async authorize(credentials, req) {

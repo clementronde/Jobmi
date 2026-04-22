@@ -1,13 +1,9 @@
-import { NextPage } from 'next';
-import dynamic from 'next/dynamic';
-import QuizComponent  from '../../components/QuizComponent.jsx';
+import RiasecTestComponent from '@/components/RiasecTestComponent';
 
-const Test: NextPage = () => {
+export default function TestPage() {
   return (
-    <div className='mt-[90px]'>
-      <QuizComponent />
+    <div className="mt-[90px]">
+      <RiasecTestComponent />
     </div>
   );
-};
-
-export default Test;
+}
