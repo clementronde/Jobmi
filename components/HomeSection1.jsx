@@ -24,12 +24,12 @@ export const HomeSection1 = () => {
             Trouve ta voie.
           </h1>
           <p className="font-september text-[50px] sm:text-[68px] text-[#6500FF] leading-none mb-8 -rotate-[2deg] origin-left">
-            Teste-la en vrai.
+            Teste-la en vrai avant de t'engager.
           </p>
 
           {/* Body */}
           <p className="text-gray-500 text-base sm:text-lg max-w-sm leading-relaxed mb-10">
-            Test d'orientation, immersions métier et stages — tout ce qu'il te faut pour choisir
+            Test d'orientation, immersions métier et stages. Tout ce qu'il te faut pour choisir ton futur métier
             sans te tromper.
           </p>
 
