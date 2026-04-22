@@ -8,7 +8,7 @@ export const Article6 = () => {
         <div className='flex flex-col md:flex-row items-start gap-4'>
           <p className='font-bold whitespace-nowrap'>Bilan de compétences :</p>
           <p className='text-justify'>
-            Tu entends parler du bilan de compétences partout, mais tu ne sais pas vraiment ce que c'est, si tu y as droit et comment ça se passe concrètement ? Ce guide complet répond à toutes tes questions — y compris comment en obtenir un gratuitement.
+            Tu entends parler du bilan de compétences partout, mais tu ne sais pas vraiment ce que c'est, si tu y as droit et comment ça se passe concrètement ? Ce guide complet répond à toutes tes questions, y compris comment en obtenir un gratuitement.
           </p>
         </div>
       </div>
@@ -120,15 +120,15 @@ export const Article6 = () => {
         <p className='mb-6'>Un bilan se déroule en 3 phases réglementaires :</p>
         <div className='space-y-4'>
           <div className='bg-gray-100 p-4 rounded-lg'>
-            <h3 className='font-bold'>Phase 1 — Préliminaire (1-2 séances)</h3>
+            <h3 className='font-bold'>Phase 1 - Préliminaire (1-2 séances)</h3>
             <p>Définir tes attentes, confirmer ton engagement, expliquer le déroulement. Tu peux encore choisir de ne pas continuer.</p>
           </div>
           <div className='bg-gray-100 p-4 rounded-lg'>
-            <h3 className='font-bold'>Phase 2 — Investigation (12-18 heures)</h3>
+            <h3 className='font-bold'>Phase 2 - Investigation (12-18 heures)</h3>
             <p>Tests psychométriques, entretiens approfondis, exploration de métiers, enquêtes terrain. C'est le cœur du bilan.</p>
           </div>
           <div className='bg-gray-100 p-4 rounded-lg'>
-            <h3 className='font-bold'>Phase 3 — Conclusion (1-2 séances)</h3>
+            <h3 className='font-bold'>Phase 3 - Conclusion (1-2 séances)</h3>
             <p>Remise du document de synthèse, validation de ton projet professionnel, plan d'action concret.</p>
           </div>
         </div>
@@ -149,7 +149,7 @@ export const Article6 = () => {
             Le bilan de compétences est un processus long (2-3 mois) et accompagné. Le test d'orientation est un outil rapide pour avoir une première direction.
           </p>
           <p className='mb-4'>
-            Si tu ne sais pas encore si tu as besoin d'un bilan complet, commence par <Link href="/test" className='underline font-semibold'>le test d'orientation Jobmi</Link> — il te donnera des pistes en 5 minutes. Tu pourras ensuite décider si un bilan approfondi est nécessaire.
+            Si tu ne sais pas encore si tu as besoin d'un bilan complet, commence par <Link href="/test" className='underline font-semibold'>le test d'orientation Jobmi</Link>, il te donnera des pistes en 5 minutes. Tu pourras ensuite décider si un bilan approfondi est nécessaire.
           </p>
         </div>
         <div className='lg:w-1/3 flex items-center'>

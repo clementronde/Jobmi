@@ -8,7 +8,7 @@ export const Article4 = () => {
         <div className='flex flex-col md:flex-row items-start gap-4'>
           <p className='font-bold whitespace-nowrap'>Reconversion à 20 ans :</p>
           <p className='text-justify'>
-            Changer de voie à 20 ans, c'est possible — et c'est même l'un des meilleurs moments pour le faire. Tu as peu de contraintes, beaucoup d'énergie, et le marché du travail est en pleine transformation. Ce guide te donne toutes les étapes pour réussir ta reconversion professionnelle à 20 ans, sans te perdre.
+            Changer de voie à 20 ans, c'est possible et c'est même l'un des meilleurs moments pour le faire. Tu as peu de contraintes, beaucoup d'énergie, et le marché du travail est en pleine transformation. Ce guide te donne toutes les étapes pour réussir ta reconversion professionnelle à 20 ans, sans te perdre.
           </p>
         </div>
       </div>
@@ -26,7 +26,7 @@ export const Article4 = () => {
       <div className='font-sans my-10 sm:py-20 py-2 mx-auto max-w-[700px] relative'>
         <img className='absolute top-0 -right-10 w-16' src="/media/arrow-blog-h2.svg" alt="Flèche" />
         <h2 className='text-4xl font-bold text-center'>
-          Étape 1 — Comprendre pourquoi tu veux changer
+          Étape 1 - Comprendre pourquoi tu veux changer
         </h2>
       </div>
 
@@ -41,7 +41,7 @@ export const Article4 = () => {
           </div>
           <div className='bg-gray-100 p-4 rounded-lg'>
             <h3 className='font-bold'>Qu'est-ce qui te donne de l'énergie naturellement ?</h3>
-            <p>Pas ce que tu es "bon à faire" — ce qui te fait perdre la notion du temps. C'est souvent là que se cache ta voie.</p>
+            <p>Pas ce que tu es "bon à faire", ce qui te fait perdre la notion du temps. C'est souvent là que se cache ta voie.</p>
           </div>
           <div className='bg-gray-100 p-4 rounded-lg'>
             <h3 className='font-bold'>As-tu besoin de salaire immédiatement ou peux-tu te former d'abord ?</h3>
@@ -49,13 +49,13 @@ export const Article4 = () => {
           </div>
         </div>
         <p className='mt-6'>
-          Pour t'aider à répondre à ces questions, tu peux <Link href="/test" className='underline font-semibold'>passer le test d'orientation Jobmi</Link> — il prend 5 minutes et te donne des pistes concrètes basées sur ton profil.
+          Pour t'aider à répondre à ces questions, tu peux <Link href="/test" className='underline font-semibold'>passer le test d'orientation Jobmi</Link>, il prend 5 minutes et te donne des pistes concrètes basées sur ton profil.
         </p>
       </div>
 
       <div className='font-sans my-10 sm:py-20 py-2 mx-auto max-w-[700px]'>
         <h2 className='text-4xl font-bold text-center'>
-          Étape 2 — Identifier les métiers accessibles
+          Étape 2 - Identifier les métiers accessibles
         </h2>
         <span>
           <img className='sm:w-[400px] w-[200px] mx-auto' src="/media/trait-article-titre-h2.svg" alt="Trait" />
@@ -91,7 +91,7 @@ export const Article4 = () => {
             </div>
             <div className='lg:w-8/12'>
               <p className='font-bold mb-2'>Métiers nécessitant 3 ans ou plus :</p>
-              <p>Médecin, avocat, architecte. Si tu vises ces secteurs à 20 ans, tu as largement le temps — mais sois réaliste sur l'investissement.</p>
+              <p>Médecin, avocat, architecte. Si tu vises ces secteurs à 20 ans, tu as largement le temps mais sois réaliste sur l'investissement.</p>
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@ export const Article4 = () => {
 
       <div className='font-sans my-10 sm:py-20 py-2 mx-auto max-w-[700px]'>
         <h2 className='text-4xl font-bold text-center'>
-          Étape 3 — Financer ta reconversion
+          Étape 3 - Financer ta reconversion
         </h2>
         <span>
           <img className='sm:w-[300px] w-[200px] mx-auto' src="/media/trait-article-titre-h2.svg" alt="Trait" />
@@ -121,14 +121,14 @@ export const Article4 = () => {
           </div>
           <div className='bg-gray-100 p-4 rounded-lg'>
             <h3 className='font-bold'>Aides régionales</h3>
-            <p>Chaque région finance des formations spécifiques. Renseigne-toi auprès de ta région — certaines offrent des formations gratuites dans les secteurs en tension (numérique, santé, BTP).</p>
+            <p>Chaque région finance des formations spécifiques. Renseigne-toi auprès de ta région, certaines offrent des formations gratuites dans les secteurs en tension (numérique, santé, BTP).</p>
           </div>
         </div>
       </div>
 
       <div className='font-sans my-10 sm:py-20 py-2 mx-auto max-w-[700px]'>
         <h2 className='text-4xl font-bold text-center'>
-          Étape 4 — Passer à l'action sans attendre
+          Étape 4 - Passer à l'action sans attendre
         </h2>
         <span>
           <img className='sm:w-[370px] w-[250px] mx-auto' src="/media/trait-article-titre-h2.svg" alt="Trait" />
@@ -156,7 +156,7 @@ export const Article4 = () => {
       </div>
 
       <div className='font-sans my-10 sm:py-20 py-2 mx-auto max-w-[700px]'>
-        <h2 className='text-4xl font-bold text-center'>FAQ — Reconversion à 20 ans</h2>
+        <h2 className='text-4xl font-bold text-center'>FAQ - Reconversion à 20 ans</h2>
         <span>
           <img className='sm:w-[300px] w-[200px] mx-auto' src="/media/trait-article-titre-h2.svg" alt="Trait" />
         </span>

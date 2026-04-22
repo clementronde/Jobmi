@@ -15,7 +15,7 @@ export const Article5 = () => {
 
       <div className='font-sans mx-auto sm:mx-20'>
         <p>
-          Ce guide te donne 15 idées de métiers accessibles sans diplôme universitaire, avec des salaires corrects et de vraies perspectives d'évolution — à condition d'être prêt à te former et à prouver tes compétences.
+          Ce guide te donne 15 idées de métiers accessibles sans diplôme universitaire, avec des salaires corrects et de vraies perspectives d'évolution, à condition d'être prêt à te former et à prouver tes compétences.
         </p>
       </div>
 
@@ -313,7 +313,7 @@ export const Article5 = () => {
       </div>
 
       <div className='font-sans my-10 sm:py-20 py-2 mx-auto max-w-[700px]'>
-        <h2 className='text-4xl font-bold text-center'>FAQ — Métiers sans diplôme</h2>
+        <h2 className='text-4xl font-bold text-center'>FAQ Métiers sans diplôme</h2>
         <span>
           <img className='sm:w-[300px] w-[150px] mx-auto' src="/media/trait-article-titre-h2.svg" alt="Trait" />
         </span>
@@ -326,7 +326,7 @@ export const Article5 = () => {
         </div>
         <div>
           <h3 className='font-bold text-lg'>Quel métier sans diplôme paie le mieux ?</h3>
-          <p>Les métiers à fort variable (commercial B2B, immobilier) ou à forte expertise pratique (plombier, développeur web expérimenté, maintenance industrielle, cybersécurité) peuvent dépasser largement les salaires de certains jobs de cadres — mais il faut du temps, des résultats, et souvent une part de risque (indépendant, freelance).</p>
+          <p>Les métiers à fort variable (commercial B2B, immobilier) ou à forte expertise pratique (plombier, développeur web expérimenté, maintenance industrielle, cybersécurité) peuvent dépasser largement les salaires de certains jobs de cadres mais il faut du temps, des résultats, et souvent une part de risque (indépendant, freelance).</p>
         </div>
         <div>
           <h3 className='font-bold text-lg'>Comment se former rapidement sans diplôme ?</h3>
