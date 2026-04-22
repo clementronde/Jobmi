@@ -94,8 +94,10 @@ const handler = NextAuth({
                     return true;
 
                 } catch (err) {
-                    console.log("Error checking if user exists: ", err.message);
-                    return false;
+                    // Log mais ne bloque pas le login — l'utilisateur peut se connecter
+                    // même si la sync backend échoue momentanément
+                    console.error("[NextAuth/google-signin] Backend sync failed:", err.message);
+                    return true;
                 }
             }
 

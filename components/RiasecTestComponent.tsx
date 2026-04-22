@@ -1,7 +1,10 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
+import { useSession, signIn } from 'next-auth/react';
+import { FcGoogle } from 'react-icons/fc';
+import { FaApple } from 'react-icons/fa';
 import { RIASEC_QUESTIONS, JOB_FAMILIES, JOBS, DIMENSION_LABELS } from '@/data/riasecData';
 import { computeTestResult } from '@/services/riasecService';
 import type { RiasecAnswer, TestResult, JobFamily, Job, RiasecDimension } from '@/types/riasec';
@@ -9,7 +12,7 @@ import type { RiasecAnswer, TestResult, JobFamily, Job, RiasecDimension } from '
 const QUESTIONS_PER_PAGE = 8;
 const TOTAL_PAGES = Math.ceil(RIASEC_QUESTIONS.length / QUESTIONS_PER_PAGE);
 
-type Step = 'intro' | 'questions' | 'email' | 'results';
+type Step = 'intro' | 'questions' | 'email' | 'results' | 'resume';
 
 const LIKERT_LABELS = ['Pas du tout moi', 'Plutôt non', 'Neutre', 'Plutôt oui', 'Tout à fait moi'];
 
@@ -19,71 +22,47 @@ function TestIntro({ onStart }: { onStart: (name: string) => void }) {
   const [name, setName] = useState('');
 
   return (
-    <div className="max-w-2xl mx-auto px-5 py-10">
-      <div className="text-center mb-8">
-        <p className="text-[#6500FF] font-semibold mb-2 text-sm uppercase tracking-wide">
-          Test d'orientation RIASEC
+    <div className="font-sans">
+      <div className="bg-[#F3F3F3] px-6 sm:px-16 lg:px-20 pt-14 pb-16">
+        <p className="text-[#6500FF] font-semibold text-xs uppercase tracking-widest mb-5">
+          Test d'orientation · Modèle RIASEC
         </p>
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-[#04192F]">
-          Découvre les métiers qui te correspondent vraiment
+        <h1 className="font-oddlini uppercase text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#04192F] mb-5 max-w-3xl">
+          Trouve les métiers qui te ressemblent vraiment
         </h1>
-        <p className="text-gray-500 text-lg">
-          Un questionnaire basé sur le modèle de John Holland — utilisé par des milliers de
-          conseillers d'orientation dans le monde.
+        <p className="text-gray-500 text-base sm:text-lg max-w-xl mb-2">
+          48 questions · 10 à 15 minutes · Aucune bonne ou mauvaise réponse.
+          Réponds selon ce que tu ressens, pas ce que tu crois qu'il faut répondre.
         </p>
-      </div>
+        <p className="text-gray-400 text-sm mb-10 max-w-xl">
+          Ce test est une aide à la réflexion. Il ne remplace pas un entretien avec un conseiller d'orientation.
+        </p>
 
-      <div className="grid grid-cols-3 gap-3 mb-6">
-        {[
-          { icon: '⏱', label: '10–15 min' },
-          { icon: '📝', label: '48 questions' },
-          { icon: '📱', label: 'Mobile friendly' },
-        ].map(({ icon, label }) => (
-          <div
-            key={label}
-            className="bg-[#FAFAFA] rounded-xl p-4 text-center border border-gray-100"
+        <div className="flex flex-col sm:flex-row gap-3 max-w-lg">
+          <input
+            type="text"
+            value={name}
+            onChange={e => setName(e.target.value)}
+            onKeyDown={e => e.key === 'Enter' && onStart(name)}
+            placeholder="Ton prénom (optionnel)"
+            className="flex-1 px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#6500FF] focus:border-transparent text-gray-800"
+          />
+          <button
+            onClick={() => onStart(name)}
+            className="rounded-xl px-5 py-3 flex items-center justify-center gap-2 bg-[#04192F] text-white font-semibold whitespace-nowrap hover:opacity-90 transition-opacity"
           >
-            <div className="text-2xl mb-1">{icon}</div>
-            <div className="text-sm font-semibold text-gray-700">{label}</div>
-          </div>
-        ))}
+            Commencer
+            <img src="/media/cta-blog-arrow.svg" alt="" className="w-6" />
+          </button>
+        </div>
       </div>
 
-      <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 text-sm text-amber-800">
-        <p className="font-semibold mb-1">Avant de commencer</p>
-        <p>
-          Ce test est une <strong>aide à la réflexion</strong>, pas un diagnostic psychologique. Il
-          s'inspire du modèle scientifique RIASEC mais ne remplace pas un entretien avec un
-          conseiller d'orientation. Les résultats sont des <strong>pistes à explorer</strong>, pas
-          des décisions à suivre aveuglément.
-        </p>
+      <div className="px-6 sm:px-16 lg:px-20 py-4 flex flex-wrap gap-x-8 gap-y-1 text-sm text-gray-400 border-b border-gray-100">
+        <span>10–15 minutes</span>
+        <span>48 questions</span>
+        <span>Résultats instantanés</span>
+        <span>Sans inscription</span>
       </div>
-
-      <div className="mb-6">
-        <label className="block font-semibold mb-2 text-[#04192F]">
-          Ton prénom{' '}
-          <span className="font-normal text-gray-400 text-sm">(optionnel)</span>
-        </label>
-        <input
-          type="text"
-          value={name}
-          onChange={e => setName(e.target.value)}
-          onKeyDown={e => e.key === 'Enter' && onStart(name)}
-          placeholder="Ex : Léa"
-          className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#6500FF] focus:border-transparent"
-        />
-      </div>
-
-      <button
-        onClick={() => onStart(name)}
-        className="w-full py-4 bg-[#6500FF] text-white font-bold rounded-xl text-lg hover:bg-purple-800 transition-colors"
-      >
-        Commencer le test →
-      </button>
-
-      <p className="text-center text-xs text-gray-400 mt-4">
-        Aucune inscription requise · Résultats instantanés
-      </p>
     </div>
   );
 }
@@ -468,13 +447,16 @@ function EmailGate({
   dominantCode,
   userName,
   onSubmit,
+  onOAuthSignIn,
 }: {
   dominantCode: string;
   userName: string;
   onSubmit: (email: string) => void;
+  onOAuthSignIn: (provider: string) => void;
 }) {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
+  const [oauthLoading, setOauthLoading] = useState<string | null>(null);
   const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -492,55 +474,119 @@ function EmailGate({
         body: JSON.stringify({ email, name: userName, dominantCode }),
       });
     } catch {
-      // Non-bloquant : on affiche les résultats même si la sauvegarde échoue
+      // Non-bloquant
     }
     setLoading(false);
     onSubmit(email);
   };
 
+  const handleOAuth = (provider: string) => {
+    setOauthLoading(provider);
+    onOAuthSignIn(provider);
+  };
+
   return (
-    <div className="max-w-2xl mx-auto px-5 py-16 text-center">
-      <p className="text-[#6500FF] font-semibold text-sm uppercase tracking-wide mb-3">
-        Presque là !
-      </p>
-      <h1 className="text-3xl sm:text-4xl font-bold text-[#04192F] mb-4">
-        {userName ? `${userName}, ton` : 'Ton'} code dominant est…
-      </h1>
+    <div className="font-sans">
+      <div className="bg-[#F3F3F3] px-6 sm:px-16 lg:px-20 pt-14 pb-16">
+        <p className="text-[#6500FF] font-semibold text-xs uppercase tracking-widest mb-5">
+          Presque là !
+        </p>
+        <h1 className="font-oddlini uppercase text-4xl sm:text-5xl font-bold leading-tight text-[#04192F] mb-3 max-w-2xl">
+          {userName ? `${userName}, ton` : 'Ton'} code dominant est
+        </h1>
+        <p className="font-oddlini text-7xl sm:text-8xl font-bold text-[#6500FF] mb-6 tracking-widest">
+          {dominantCode}
+        </p>
+        <p className="text-gray-500 text-base sm:text-lg max-w-lg mb-8">
+          Connecte-toi ou entre ton email pour accéder au détail de ton profil et aux métiers qui
+          te correspondent.
+        </p>
 
-      {/* Teaser du code */}
-      <div className="inline-flex items-center justify-center w-40 h-40 rounded-full bg-[#6500FF]/10 mb-6">
-        <span className="text-5xl font-bold text-[#6500FF] tracking-widest">{dominantCode}</span>
+        {/* OAuth */}
+        <div className="flex flex-col sm:flex-row gap-3 max-w-sm mb-5">
+          <button
+            type="button"
+            onClick={() => handleOAuth('google')}
+            disabled={oauthLoading !== null || loading}
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white border border-gray-200 rounded-xl font-semibold text-gray-700 hover:bg-gray-50 transition-colors disabled:opacity-50"
+          >
+            <FcGoogle className="text-xl shrink-0" />
+            {oauthLoading === 'google' ? 'Chargement…' : 'Google'}
+          </button>
+          <button
+            type="button"
+            onClick={() => handleOAuth('apple')}
+            disabled={oauthLoading !== null || loading}
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-[#04192F] rounded-xl font-semibold text-white hover:opacity-90 transition-opacity disabled:opacity-50"
+          >
+            <FaApple className="text-xl shrink-0" />
+            {oauthLoading === 'apple' ? 'Chargement…' : 'Apple'}
+          </button>
+        </div>
+
+        {/* Divider */}
+        <div className="flex items-center gap-4 max-w-sm mb-5">
+          <div className="flex-1 h-px bg-gray-300" />
+          <span className="text-sm text-gray-400">ou</span>
+          <div className="flex-1 h-px bg-gray-300" />
+        </div>
+
+        {/* Email */}
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-sm">
+          <input
+            type="email"
+            value={email}
+            onChange={e => { setEmail(e.target.value); setError(''); }}
+            placeholder="ton@email.com"
+            required
+            className="flex-1 px-4 py-3 border border-gray-200 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-[#6500FF] focus:border-transparent"
+          />
+          <button
+            type="submit"
+            disabled={loading || oauthLoading !== null}
+            className="rounded-xl px-5 py-3 flex items-center justify-center gap-2 bg-[#04192F] text-white font-semibold whitespace-nowrap hover:opacity-90 transition-opacity disabled:opacity-50"
+          >
+            {loading ? 'Chargement…' : (
+              <>Voir mes résultats <img src="/media/cta-blog-arrow.svg" alt="" className="w-5" /></>
+            )}
+          </button>
+        </form>
+        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+        <p className="text-xs text-gray-400 mt-4">Pas de spam · Désinscription à tout moment</p>
       </div>
+    </div>
+  );
+}
 
-      <p className="text-gray-500 text-lg mb-8">
-        Entre ton adresse email pour découvrir le détail de ton profil et les métiers qui te
-        correspondent.
-      </p>
+// ── Resume (fallback : connecté mais pas de réponses en attente) ──────────────
 
-      <form onSubmit={handleSubmit} className="space-y-3 max-w-sm mx-auto">
-        <input
-          type="email"
-          value={email}
-          onChange={e => { setEmail(e.target.value); setError(''); }}
-          placeholder="ton@email.com"
-          required
-          className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#6500FF] focus:border-transparent text-center text-lg"
-        />
-        {error && <p className="text-red-500 text-sm">{error}</p>}
+function ResumeScreen({
+  userName,
+  onRestart,
+}: {
+  userName: string;
+  onRestart: () => void;
+}) {
+  return (
+    <div className="font-sans">
+      <div className="bg-[#F3F3F3] px-6 sm:px-16 lg:px-20 pt-14 pb-16">
+        <p className="text-[#6500FF] font-semibold text-xs uppercase tracking-widest mb-5">
+          Bon retour !
+        </p>
+        <h1 className="font-oddlini uppercase text-4xl sm:text-5xl font-bold leading-tight text-[#04192F] mb-5 max-w-2xl">
+          {userName ? `Content de te revoir, ${userName}` : 'Content de te revoir'}
+        </h1>
+        <p className="text-gray-500 text-base sm:text-lg max-w-lg mb-10">
+          Tes réponses précédentes ne sont plus disponibles. Lance un nouveau test pour obtenir ton profil RIASEC à jour.
+        </p>
         <button
-          type="submit"
-          disabled={loading}
-          className={`w-full py-4 font-bold rounded-xl text-white text-lg transition-colors ${
-            loading ? 'bg-gray-300 cursor-not-allowed' : 'bg-[#6500FF] hover:bg-purple-800'
-          }`}
+          onClick={onRestart}
+          className="rounded-xl px-5 py-3 flex items-center gap-2 bg-[#04192F] text-white font-semibold hover:opacity-90 transition-opacity"
         >
-          {loading ? 'Chargement…' : 'Voir mes résultats →'}
+          Refaire le test
+          <img src="/media/cta-blog-arrow.svg" alt="" className="w-6" />
         </button>
-      </form>
-
-      <p className="text-xs text-gray-400 mt-4">
-        Pas de spam · Tu peux te désinscrire à tout moment
-      </p>
+      </div>
     </div>
   );
 }
@@ -548,11 +594,44 @@ function EmailGate({
 // ── Orchestrator ──────────────────────────────────────────────────────────────
 
 export default function RiasecTestComponent() {
+  const { data: session, status } = useSession();
   const [step, setStep] = useState<Step>('intro');
   const [userName, setUserName] = useState('');
   const [currentPage, setCurrentPage] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [result, setResult] = useState<TestResult | null>(null);
+
+  // Detect return from OAuth redirect — restore quiz answers from localStorage
+  // localStorage is used only for temporary quiz state across the OAuth redirect,
+  // NOT for session management (that's handled by next-auth).
+  useEffect(() => {
+    if (status !== 'authenticated' || step !== 'intro') return;
+
+    const raw = localStorage.getItem('jobmi_riasec_answers');
+
+    if (raw) {
+      // Pending answers found → compute result, clean up immediately, show results
+      try {
+        const saved: Record<string, number> = JSON.parse(raw);
+        localStorage.removeItem('jobmi_riasec_answers'); // always clean up first
+        const answerArray: RiasecAnswer[] = Object.entries(saved).map(
+          ([questionId, score]) => ({ questionId, score })
+        );
+        if (answerArray.length > 0) {
+          setAnswers(saved);
+          setResult(computeTestResult(answerArray, RIASEC_QUESTIONS));
+          setUserName(prev => prev || session?.user?.name?.split(' ')[0] || '');
+          setStep('results');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      } catch {
+        localStorage.removeItem('jobmi_riasec_answers'); // corrupted data — discard
+      }
+    } else {
+      // User is authenticated but no pending quiz — show resume prompt
+      setStep('resume');
+    }
+  }, [status]);
 
   const handleStart = useCallback((name: string) => {
     setUserName(name.trim());
@@ -573,16 +652,24 @@ export default function RiasecTestComponent() {
         questionId,
         score,
       }));
-      setResult(computeTestResult(answerArray, RIASEC_QUESTIONS));
-      setStep('email');
+      const computed = computeTestResult(answerArray, RIASEC_QUESTIONS);
+      setResult(computed);
+      // Skip email gate if already authenticated
+      setStep(status === 'authenticated' ? 'results' : 'email');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }, [currentPage, answers]);
+  }, [currentPage, answers, status]);
 
   const handleEmailSubmit = useCallback(() => {
     setStep('results');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
+
+  // Save answers to localStorage then redirect to OAuth provider
+  const handleOAuthSignIn = useCallback((provider: string) => {
+    localStorage.setItem('jobmi_riasec_answers', JSON.stringify(answers));
+    signIn(provider, { callbackUrl: '/test' });
+  }, [answers]);
 
   const handleBack = useCallback(() => {
     if (currentPage > 0) {
@@ -616,7 +703,11 @@ export default function RiasecTestComponent() {
           dominantCode={result.profile.dominantCode}
           userName={userName}
           onSubmit={handleEmailSubmit}
+          onOAuthSignIn={handleOAuthSignIn}
         />
+      )}
+      {step === 'resume' && (
+        <ResumeScreen userName={userName} onRestart={handleRestart} />
       )}
       {step === 'results' && result && (
         <TestResults result={result} userName={userName} onRestart={handleRestart} />
