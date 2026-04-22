@@ -38,7 +38,7 @@ export const HomeSection1 = () => {
             href="/test"
             className="w-fit rounded-xl px-6 py-3.5 bg-[#04192F] text-white font-bold text-sm flex items-center gap-3 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 mb-7"
           >
-            Passer le test d'orientation — gratuit
+            Passer le test d'orientation gratuit
             <img src="/media/cta-blog-arrow.svg" alt="" className="w-6 flex-shrink-0" />
           </Link>
 
