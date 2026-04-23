@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Featured } from '../../components/Featured';
-import { CardList } from '../../components/CardList';
+import { BlogArticleExplorer } from '../../components/BlogArticleExplorer';
 import { getArticles, getLatestArticle } from '../../services/blogService';
 
 export const metadata: Metadata = {
@@ -42,7 +42,7 @@ export default async function Blog() {
         </div>
       </div>
       <Featured article={lastArticle} />
-      <CardList articles={otherArticles} />
+      <BlogArticleExplorer articles={otherArticles} />
     </div>
   );
 }

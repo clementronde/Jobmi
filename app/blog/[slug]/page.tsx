@@ -16,6 +16,7 @@ import { Article12 } from '../../../components/articles/Article12';
 import { Article13 } from '../../../components/articles/Article13';
 import { RelatedArticles } from '../../../components/RelatedArticles';
 import ArticleTOC from '../../../components/ArticleTOC';
+import { ArticleAuthorBox, ARTICLE_AUTHOR } from '../../../components/ArticleAuthorBox';
 
 const BASE_URL = 'https://jobmi.fr';
 
@@ -49,7 +50,7 @@ export async function generateMetadata(
         description: article.metaDescription,
         publishedTime: article.datePublished,
         modifiedTime: article.updatedAt,
-        authors: ['https://jobmi.fr'],
+        authors: [ARTICLE_AUTHOR.name],
         tags: article.tags,
         images: [
           {
@@ -84,8 +85,10 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
     datePublished: data.datePublished,
     dateModified: data.updatedAt,
     author: {
-      '@type': 'Organization',
-      name: 'Jobmi',
+      '@type': 'Person',
+      name: ARTICLE_AUTHOR.name,
+      jobTitle: ARTICLE_AUTHOR.role,
+      description: ARTICLE_AUTHOR.bio,
       url: BASE_URL,
     },
     publisher: {
@@ -133,6 +136,8 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
 
         <p><span className='font-bold'>{data.readingTime} min</span> de lecture</p>
       </div>
+
+      <ArticleAuthorBox />
 
       <div className="flex gap-8 items-start">
         <ArticleTOC />

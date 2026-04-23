@@ -1,27 +1,28 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import StageGridClient from '../../components/StageGridClient';
 
 const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/stage-et-formation`;
+const WAITINGLIST_URL =
+  'https://626063d8.sibforms.com/serve/MUIFACI_ugihEQiP7m7SmyLz7QszuC5wEK0W_nn2cHLbezW92oq3Gi_M7-5mIHV3oA9bk8VpaPa5q5OmsC4xxwhAAIDAz5LafA4Of6WYGOVAYgPggEk5SH6YYlarS5QAKTm_pucc1dXASOy6scm8cBdqdnUuW0Ms3FUJBfgzGv9XucQ_FwwJIFFVrEDqaJu_1batPvIPyrYuxn4K';
 
 export const metadata: Metadata = {
-  title: "Stages et formations pour tester un métier — Toutes les offres | Jobmi",
+  title: "Immersions métier et pistes de formation | Jobmi",
   description:
-    "Découvre des stages de découverte et des formations courtes dans tous les secteurs : tech, santé, design, marketing, ingénierie. Trouve l'expérience qui correspond à ton projet.",
+    "Découvre les secteurs à explorer, les formats d'immersion métier et les étapes pour tester une voie avant de choisir ta formation.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: 'website',
     url: PAGE_URL,
-    title: "Stages et formations pour tester un métier | Jobmi",
+    title: "Immersions métier et pistes de formation | Jobmi",
     description:
-      "Stages de 2 à 6 mois dans tous les secteurs pour explorer un métier avant de t'engager dans une formation.",
+      "Jobmi prépare ses premières immersions avec des entreprises partenaires. En attendant, explore les secteurs et les bonnes étapes pour tester un métier.",
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Stages et formations | Jobmi",
+    title: "Immersions métier et formation | Jobmi",
     description:
-      "Stages et formations courtes dans tous les secteurs pour tester un métier avant de choisir.",
+      "Explore les formats d'immersion et les pistes de formation pour choisir avec plus de concret.",
   },
 };
 
@@ -30,24 +31,65 @@ const collectionJsonLd = {
   '@type': 'CollectionPage',
   '@id': `${PAGE_URL}/#webpage`,
   url: PAGE_URL,
-  name: 'Stages et formations pour tester un métier | Jobmi',
+  name: 'Immersions métier et pistes de formation | Jobmi',
   description:
-    'Sélection de stages et formations courtes dans tous les secteurs professionnels.',
+    "Ressources pour découvrir les secteurs, préparer une immersion métier et choisir une formation avec plus de concret.",
   isPartOf: { '@id': `${BASE_URL}/#website` },
   inLanguage: 'fr-FR',
 };
 
-const secteurs = [
-  'Sciences & Biotechnologies',
-  'Design & Graphisme',
-  'Tech & Développement',
-  'Santé',
-  'Data & Finance',
-  'Communication',
-  'Marketing',
-  'Art & Culture',
-  'Tourisme & Photo',
-  'Ingénierie',
+const sectorCards = [
+  {
+    title: 'Tech & data',
+    description:
+      "Observer le quotidien d'un dev, d'un data analyst ou d'un profil cybersécurité pour comprendre les missions réelles derrière les intitulés.",
+    jobs: ['Développeur web', 'Data analyst', 'Cybersécurité'],
+  },
+  {
+    title: 'Santé & social',
+    description:
+      "Découvrir la relation avec les patients, le rythme d'équipe et la dimension humaine avant de s'engager dans une voie exigeante.",
+    jobs: ['Infirmier', 'Psychologue', 'Assistant social'],
+  },
+  {
+    title: 'Création & communication',
+    description:
+      "Voir comment une idée devient une campagne, une interface ou un contenu concret dans une équipe créative.",
+    jobs: ['UX/UI designer', 'Graphiste', 'Community manager'],
+  },
+  {
+    title: 'Commerce & marketing',
+    description:
+      "Comprendre la vente, la relation client, l'analyse de marché et la gestion de projet au contact d'une équipe business.",
+    jobs: ['Commercial', 'Chef de projet', 'Responsable marketing'],
+  },
+  {
+    title: 'Artisanat & terrain',
+    description:
+      "Tester des métiers concrets où le geste, l'environnement et la réalité physique du travail comptent autant que la formation.",
+    jobs: ['Menuisier', 'Électricien', 'Technicien'],
+  },
+  {
+    title: 'Environnement & impact',
+    description:
+      "Explorer les métiers qui mêlent terrain, analyse et transition écologique pour vérifier si le quotidien correspond à tes valeurs.",
+    jobs: ['Écologue', 'Paysagiste', 'RSE'],
+  },
+];
+
+const steps = [
+  {
+    title: "1. Clarifie ton profil",
+    text: "Commence par identifier tes intérêts, tes forces et les environnements dans lesquels tu te projettes le mieux.",
+  },
+  {
+    title: "2. Explore les métiers",
+    text: "Compare plusieurs pistes avant de te fixer sur une formation : missions, rythme, contraintes, débouchés.",
+  },
+  {
+    title: "3. Passe au concret",
+    text: "Quand les premières immersions Jobmi seront disponibles, tu pourras tester une voie sur le terrain avant de t'engager.",
+  },
 ];
 
 export default function StageEtFormation() {
@@ -58,50 +100,162 @@ export default function StageEtFormation() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
       />
 
-      <div className="mt-[120px]">
-        {/* ── EN-TÊTE SEO ── */}
-        <div className="my-10 mx-auto max-w-[700px] text-center px-4">
-          <h1 className="font-sans text-5xl font-bold">
-            Stages et Formations
-          </h1>
+      <div className="mt-[120px] font-sans">
+        <section className="mx-auto max-w-screen-xl px-6 pb-12 pt-4 sm:px-10">
+          <div className="mx-auto max-w-[820px] text-center">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.22em] text-[#6500FF]">
+              Immersions bientôt disponibles
+            </p>
+            <h1 className="text-4xl font-bold leading-tight text-[#04192F] sm:text-5xl lg:text-6xl">
+              Teste un métier avant de choisir ta formation
+            </h1>
           <img
             src="/media/home-temoignage-soulignage-titre.svg"
             alt="Trait soulignant le titre"
-            className="mx-auto mt-2"
+              className="mx-auto mt-3"
           />
-          <p className="font-sans text-gray-500 text-lg mt-6 leading-relaxed max-w-xl mx-auto">
-            Explore des stages de 2 à 6 mois et des formations courtes dans tous
-            les secteurs. Une façon concrète de tester un métier avant de
-            t'engager dans une formation longue.
-          </p>
-        </div>
-
-        {/* ── SECTEURS ── */}
-        <div className="max-w-4xl mx-auto px-6 mb-10">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {secteurs.map((s) => (
-              <span
-                key={s}
-                className="font-sans text-sm px-4 py-1.5 rounded-full border border-gray-200 text-gray-600 bg-white"
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
+              Jobmi construit son réseau d'entreprises partenaires. En attendant
+              les premières immersions, découvre les secteurs à explorer et les
+              étapes pour avancer sans choisir à l'aveugle.
+            </p>
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <a
+                href={WAITINGLIST_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex w-full items-center justify-center rounded-xl bg-[#6500FF] px-6 py-3 font-bold text-white shadow-[0_14px_30px_rgba(101,0,255,0.24)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#5200cc] sm:w-fit"
               >
-                {s}
-              </span>
+                Être prévenu des premières immersions
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex w-full items-center justify-center rounded-xl border-2 border-[#04192F] px-6 py-3 font-semibold text-[#04192F] transition-all duration-300 hover:-translate-y-1 hover:bg-[#04192F] hover:text-white sm:w-fit"
+              >
+                Je suis une entreprise
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#F7F6FF] px-6 py-14 sm:px-10">
+          <div className="mx-auto max-w-screen-xl">
+            <div className="mb-8 max-w-2xl">
+              <p className="mb-2 text-sm font-bold uppercase tracking-[0.18em] text-[#6500FF]">
+                Secteurs à explorer
+              </p>
+              <h2 className="text-3xl font-bold text-[#04192F] sm:text-4xl">
+                Des pistes concrètes, sans fausses promesses
+              </h2>
+              <p className="mt-4 text-gray-600">
+                Pas de catalogue d'offres périmées : ces cartes servent à
+                comprendre ce que tu pourrais observer pendant une immersion.
+              </p>
+            </div>
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {sectorCards.map((sector) => (
+                <article
+                  key={sector.title}
+                  className="rounded-lg border border-[#04192F]/8 bg-white p-6 shadow-[0_14px_35px_rgba(4,25,47,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(101,0,255,0.12)]"
+                >
+                  <h3 className="text-xl font-bold text-[#04192F]">
+                    {sector.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                    {sector.description}
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {sector.jobs.map((job) => (
+                      <span
+                        key={job}
+                        className="rounded-full bg-[#6500FF]/8 px-3 py-1 text-xs font-semibold text-[#6500FF]"
+                      >
+                        {job}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto grid max-w-screen-xl gap-8 px-6 py-16 sm:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <p className="mb-2 text-sm font-bold uppercase tracking-[0.18em] text-[#6500FF]">
+              Que faire maintenant ?
+            </p>
+            <h2 className="text-3xl font-bold text-[#04192F] sm:text-4xl">
+              Avance par étapes, pas par pression
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-gray-600">
+              Même sans offre disponible aujourd'hui, tu peux déjà réduire le
+              flou : comprendre ton profil, explorer plusieurs métiers et
+              préparer une immersion utile.
+            </p>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="/test"
+                className="inline-flex w-full items-center justify-center rounded-xl bg-[#04192F] px-6 py-3 font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#6500FF] sm:w-fit"
+              >
+                Passer le test gratuit
+              </Link>
+              <Link
+                href="/tester-un-metier"
+                className="inline-flex w-full items-center justify-center rounded-xl border-2 border-[#04192F] px-6 py-3 font-semibold text-[#04192F] transition-all duration-300 hover:-translate-y-1 hover:bg-[#04192F] hover:text-white sm:w-fit"
+              >
+                Voir les formats d'immersion
+              </Link>
+            </div>
+          </div>
+          <div className="grid gap-4">
+            {steps.map((step) => (
+              <div
+                key={step.title}
+                className="rounded-lg border border-gray-200 bg-white p-6 shadow-[0_14px_35px_rgba(4,25,47,0.05)]"
+              >
+                <h3 className="text-lg font-bold text-[#04192F]">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                  {step.text}
+                </p>
+              </div>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* ── GRILLE (client) ── */}
-        <StageGridClient />
+        <section className="mx-auto max-w-screen-xl px-6 pb-8 sm:px-10">
+          <div className="grid overflow-hidden rounded-2xl bg-[#04192F] text-white lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="p-8 sm:p-10">
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#a29bfe]">
+                Entreprises partenaires
+              </p>
+              <h2 className="text-3xl font-bold sm:text-4xl">
+                Vous pouvez faire découvrir un métier ?
+              </h2>
+              <p className="mt-4 max-w-2xl leading-relaxed text-white/75">
+                Jobmi recherche des entreprises, associations et professionnels
+                prêts à accueillir des jeunes pour une découverte métier claire,
+                courte et encadrée.
+              </p>
+              <Link
+                href="/contact"
+                className="mt-8 inline-flex rounded-xl bg-white px-6 py-3 font-bold text-[#04192F] transition-all duration-300 hover:-translate-y-1 hover:bg-[#a29bfe]"
+              >
+                Proposer une immersion
+              </Link>
+            </div>
+            <div className="min-h-[260px] bg-[url('/media/group_people.png')] bg-cover bg-center" />
+          </div>
+        </section>
 
-        {/* ── BLOC SEO BAS DE PAGE ── */}
-        <section className="max-w-4xl mx-auto px-6 py-16 font-sans">
+        <section className="mx-auto max-w-4xl px-6 py-16">
           <h2 className="font-bold text-2xl text-[#04192F] mb-4">
-            Pourquoi faire un stage avant de choisir une formation ?
+            Pourquoi tester un métier avant de choisir une formation ?
           </h2>
           <div className="text-gray-600 space-y-4 text-base leading-relaxed max-w-3xl">
             <p>
-              Choisir une formation sans avoir jamais testé le métier, c'est
-              prendre un risque inutile. Un stage de 2 à 6 mois te permet de
+              Choisir une formation sans avoir jamais vu le métier, c'est
+              prendre un risque inutile. Une immersion courte te permet de
               découvrir le quotidien réel d'un secteur : les missions, le
               rythme, les contraintes et ce qui te plaît vraiment ou pas.
             </p>
@@ -114,23 +268,9 @@ export default function StageEtFormation() {
             <p>
               Si tu ne sais pas encore vers quel secteur t'orienter, commence
               par le test d'orientation Jobmi — il t'aide à identifier les
-              familles de métiers qui correspondent à ton profil avant de
-              choisir un stage.
+              familles de métiers qui correspondent à ton profil avant de passer
+              au terrain.
             </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            <Link
-              href="/test"
-              className="font-sans inline-flex items-center gap-2 px-6 py-3 bg-[#6500FF] text-white rounded-xl font-bold hover:bg-purple-700 transition w-fit"
-            >
-              Passer le test d'orientation
-            </Link>
-            <Link
-              href="/tester-un-metier"
-              className="font-sans inline-flex items-center px-6 py-3 border-2 border-[#04192F] text-[#04192F] rounded-xl font-semibold hover:bg-[#04192F] hover:text-white transition w-fit"
-            >
-              Découvrir les formats d'immersion
-            </Link>
           </div>
         </section>
       </div>
