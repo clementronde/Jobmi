@@ -25,11 +25,12 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 })
   }
 
-  const { email, name, dominantCode, scores } = body as {
+  const { email, name, dominantCode, scores, answers } = body as {
     email?: string
     name?: string
     dominantCode?: string
     scores?: Record<string, number>
+    answers?: { questionId: string; score: number }[]
   }
 
   if (!email || !email.includes('@')) {
@@ -42,6 +43,7 @@ export async function POST(req: NextRequest) {
       name: name ?? '',
       riasec_code: dominantCode ?? '',
       scores: scores ?? null,
+      answers: answers ?? null,
       source: 'riasec-test',
     }),
     notifyByEmail(email, name ?? '', dominantCode ?? ''),

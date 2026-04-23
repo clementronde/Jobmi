@@ -4,27 +4,27 @@ export const HomeSection4 = () => {
 
   const testimonials = [
     {
-      name: "Hugo",
-      age: 24,
-      text: "Je ne m’épanouissais plus dans mon travail de manip radio, j’ai décidé d’écouter mon coeur et changer ! Meilleurs décision.",
+      name: "Camille",
+      age: 19,
+      text: "J'hésitais entre une licence éco et une école de com. Le test m'a donné des pistes, puis une journée d'immersion m'a aidée à choisir sans partir au hasard.",
       image: "/media/hugo-image.svg",
     },
     {
-      name: "Ben",
-      age: 25,
-      text: "Sans diplome je suis passée d’employé polyvalent à designer d’intérieur. Ma reconversion à été le meilleur choix !",
+      name: "Nora",
+      age: 18,
+      text: "Je pensais vouloir travailler dans le soin. En observant le quotidien d'une pro, j'ai compris ce qui me plaisait vraiment et ce que je ne voulais pas.",
       image: "/media/ben-image.svg",
     },
     {
-      name: "Ian",
-      age: 22,
-      text: "J’étais perdu dans mon changement. Un outil comme Jobmi est pour moi d’une grande utilité.",
+      name: "Yanis",
+      age: 21,
+      text: "Après une première année qui ne me correspondait pas, Jobmi m'a aidé à remettre de l'ordre dans mes envies et à tester une piste concrète avant de me réinscrire.",
       image: "/media/ian-image.svg",
     },
     {
-      name: "Lia",
-      age: 25,
-      text: "Ayant eu un enfant à 20 ans, je suis devenue secrétaire médicale. Mais à 25 ans j’ai pris la décision de changer de boulot et de suivre une formation.",
+      name: "Léa",
+      age: 20,
+      text: "L'atelier découverte m'a montré le vrai rythme du métier. Ce n'était plus une idée floue : je savais enfin si je pouvais me projeter dans cette voie.",
       image: "/media/lia-image.svg",
     },
   ];
@@ -33,7 +33,7 @@ export const HomeSection4 = () => {
     <div className="py-10 font-sans w-full">
       <div className="my-10 mx-auto max-w-[700px] text-center">
         <h1 className="font-sans text-5xl font-bold">
-          Témoignages
+          Ils ont testé avant de choisir
         </h1>
         <img src="/media/home-temoignage-soulignage-titre.svg" alt="Trait soulignant le titre de l'article" className="mx-auto mt-2" />
       </div>

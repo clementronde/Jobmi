@@ -24,13 +24,13 @@ export const HomeSection5 = () => {
               className="absolute -top-4 left-1/2 transform -translate-x-1/2 sm:translate-x-0 sm:left-[200px] h-[60px] w-[150px]"
             />
             <h2 className="sm:text-4xl text-3xl font-bold font-oddlini  relative z-10">
-              Enterprise, recrutez !
+              Entreprises, proposez une immersion
             </h2>
           </div>
           <p className="text-md sm:text-md text-black mb-4 mt-4 sm:w-[450px]">
-            Vous cherchez à accueillir des stagiaires motivés ? Contactez-nous
-            pour proposer vos stages et découvrir de véritables talents
-            passionnés.
+            Accueillez des jeunes motivés pour leur faire découvrir votre métier,
+            vos équipes et la réalité du terrain avant qu'ils choisissent une
+            formation.
           </p>
           <Link
             href="/contact"
@@ -46,7 +46,7 @@ export const HomeSection5 = () => {
         </div>
         <div className="col-span-12 sm:col-span-6 ml-16">
           <h2 className="text-2xl sm:text-4xl font-bold text-black mb-4">
-            Jetez un oeil
+            À lire pour
           </h2>
           <div className="relative sm:w-[450px] w-full text-center sm:text-left">
             <img
@@ -55,7 +55,7 @@ export const HomeSection5 = () => {
               className="absolute -top-4 left-1/2 transform -translate-x-1/2 sm:translate-x-0 sm:left-[-10px] h-[60px] w-[150px]"
             />
             <h2 className="sm:text-4xl text-3xl font-bold font-oddlini  relative z-10">
-            à l’actualité
+            mieux choisir
             </h2>
           </div>
         </div>
@@ -72,7 +72,7 @@ export const HomeSection5 = () => {
           </div>
           <div className="relative z-10">
             <h2 className="text-xl sm:text-4xl font-bold text-white mt-[150px] mb-2 w-[300px] ml-9">
-              Comment commencer ta reconversion professionnel ?
+              Comment commencer ta reconversion professionnelle ?
             </h2>
             <Link
             target="_blank"

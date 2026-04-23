@@ -446,12 +446,14 @@ function TestResults({
 function EmailGate({
   dominantCode,
   scores,
+  answers,
   userName,
   onSubmit,
   onOAuthSignIn,
 }: {
   dominantCode: string;
   scores: RiasecScores;
+  answers: RiasecAnswer[];
   userName: string;
   onSubmit: (email: string) => void;
   onOAuthSignIn: (provider: string) => void;
@@ -473,7 +475,7 @@ function EmailGate({
       await fetch('/api/test-riasec/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, name: userName, dominantCode, scores }),
+        body: JSON.stringify({ email, name: userName, dominantCode, scores, answers }),
       });
     } catch {
       // Non-bloquant
@@ -665,6 +667,7 @@ export default function RiasecTestComponent() {
             name: session.user.name ?? userName,
             dominantCode: computed.profile.dominantCode,
             scores: computed.profile.normalizedScores,
+            answers: answerArray,
           }),
         }).catch(() => {});
         setStep('results');
@@ -717,6 +720,7 @@ export default function RiasecTestComponent() {
         <EmailGate
           dominantCode={result.profile.dominantCode}
           scores={result.profile.normalizedScores}
+          answers={Object.entries(answers).map(([questionId, score]) => ({ questionId, score }))}
           userName={userName}
           onSubmit={handleEmailSubmit}
           onOAuthSignIn={handleOAuthSignIn}
