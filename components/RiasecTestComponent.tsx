@@ -654,11 +654,23 @@ export default function RiasecTestComponent() {
       }));
       const computed = computeTestResult(answerArray, RIASEC_QUESTIONS);
       setResult(computed);
-      // Skip email gate if already authenticated
-      setStep(status === 'authenticated' ? 'results' : 'email');
+      if (status === 'authenticated' && session?.user?.email) {
+        fetch('/api/test-riasec/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: session.user.email,
+            name: session.user.name ?? userName,
+            dominantCode: computed.profile.dominantCode,
+          }),
+        }).catch(() => {});
+        setStep('results');
+      } else {
+        setStep('email');
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }, [currentPage, answers, status]);
+  }, [currentPage, answers, status, session, userName]);
 
   const handleEmailSubmit = useCallback(() => {
     setStep('results');
