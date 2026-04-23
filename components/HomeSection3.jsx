@@ -7,13 +7,16 @@ const stats = [
     value: "29%",
     label: "des étudiants abandonnent leur première année de licence",
     detail: "Un mauvais choix d'orientation peut coûter une année entière.",
-    source: "Ministère de l'Enseignement Supérieur, 2023",
+    source: "Source : MESR – EESR",
+    sourceHref:
+      "https://publication.enseignementsup-recherche.gouv.fr/eesr/FR/EESR13_ES_20/les_parcours_et_la_reussite_en_licence_licence_professionnelle_et_master_a_l_universite/",
   },
   {
-    value: "1 sur 3",
-    label: "jeunes se réoriente dans les 2 ans après son premier choix d'orientation",
-    detail: "Un signe que l'orientation scolaire traditionnelle ne suffit plus.",
-    source: "Céreq, Enquête Génération 2021",
+    value: "1 jeune sur 4",
+    label: "a envisagé de changer de voie et engagé des démarches",
+    detail: "La réorientation peut arriver très tôt dans un parcours professionnel.",
+    source: "Céreq Bref n°467, enquête 2023 auprès de la Génération 2017",
+    sourceHref: "https://www.cereq.fr/reorientation-reconversion-precoce-jeune",
   },
   {
     value: "1 jour",
@@ -26,6 +29,28 @@ const stats = [
 const HomeSection3 = () => {
   return (
     <div className="mx-2 my-16">
+      <style>{`
+        .link-underline {
+          position: relative;
+        }
+
+        .link-underline::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -3px;
+          width: 100%;
+          height: 2px;
+          background: currentColor;
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 220ms ease;
+        }
+
+        .link-underline:hover::after {
+          transform: scaleX(1);
+        }
+      `}</style>
       <div className="bg-[#14213d] text-white rounded-xl py-14 px-6 sm:px-12">
         <div className="max-w-screen-xl mx-auto">
           <h2 className="text-center text-3xl sm:text-4xl font-bold mb-3">
@@ -41,7 +66,18 @@ const HomeSection3 = () => {
                 <p className="text-5xl sm:text-6xl font-bold text-white mb-3">{item.value}</p>
                 <p className="text-base text-gray-200 mb-2">{item.label}</p>
                 <p className="text-sm text-[#a29bfe] mb-3">{item.detail}</p>
-                <p className="text-xs text-gray-500 italic">{item.source}</p>
+                {item.sourceHref ? (
+                  <a
+                    href={item.sourceHref}
+                    target="_blank"
+                    rel="noopener"
+                    className="link-underline text-xs text-gray-400 italic hover:text-white transition-colors"
+                  >
+                    {item.source}
+                  </a>
+                ) : (
+                  <p className="text-xs text-gray-500 italic">{item.source}</p>
+                )}
               </div>
             ))}
           </div>

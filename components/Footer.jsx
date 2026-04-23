@@ -3,6 +3,9 @@
 import Link from 'next/link';
 import { FaInstagram, FaTiktok, FaLinkedinIn } from "react-icons/fa";
 
+const footerLinkClass =
+  "relative inline-block text-sm text-gray-400 transition-colors duration-200 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-200 hover:text-white hover:after:scale-x-100";
+
 export const Footer = () => {
   return (
     <footer className="bg-[#04192F] text-white font-sans">
@@ -63,7 +66,7 @@ export const Footer = () => {
                 { href: '/orientation/test-orientation-jeunes', label: 'Test d\'orientation' },
               ].map(({ href, label }) => (
                 <li key={href}>
-                  <Link href={href} className="text-sm text-gray-400 hover:text-white transition-colors duration-200">
+                  <Link href={href} className={footerLinkClass}>
                     {label}
                   </Link>
                 </li>
@@ -87,7 +90,7 @@ export const Footer = () => {
                   <Link
                     href={href}
                     {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                    className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
+                    className={footerLinkClass}
                   >
                     {label}
                   </Link>
@@ -113,7 +116,10 @@ export const Footer = () => {
             </a>
             <p className="text-xs text-gray-600 mt-4 leading-relaxed">
               En soumettant votre e-mail, vous acceptez notre{' '}
-              <Link href="/politique-de-confidentialite" className="underline hover:text-gray-400 transition-colors">
+              <Link
+                href="/politique-de-confidentialite"
+                className="relative inline-block text-gray-500 transition-colors duration-200 after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-200 hover:text-gray-300 hover:after:scale-x-100"
+              >
                 politique de confidentialité
               </Link>
               .

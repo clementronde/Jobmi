@@ -16,7 +16,6 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
-    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
@@ -33,16 +32,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
     ".next/types/**/*.ts",
-    "components/CategoryList.jsx",
-    "components/Pagination.jsx",
-    "components/Navbar.jsx",
-    "components/CardList.jsx",
-    "components/AuthLinks.jsx",
-    "components/Featured.jsx",
-    "components/Footer.jsx",
-    "components/Menu.jsx",
-    "app/blog/[slug]/page.tsx",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [

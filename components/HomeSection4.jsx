@@ -1,6 +1,10 @@
-import React from 'react';
+"use client";
+
+import React, { useRef, useState } from 'react';
 
 export const HomeSection4 = () => {
+  const carouselRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const testimonials = [
     {
@@ -29,34 +33,75 @@ export const HomeSection4 = () => {
     },
   ];
 
+  const handleScroll = () => {
+    if (!carouselRef.current) return;
+
+    const carousel = carouselRef.current;
+    const firstCard = carousel.querySelector("[data-testimonial-card]");
+    if (!firstCard) return;
+
+    const cardWidth = firstCard.offsetWidth;
+    const gap = parseFloat(window.getComputedStyle(carousel).columnGap || "0");
+    const nextIndex = Math.round(carousel.scrollLeft / (cardWidth + gap));
+
+    setActiveIndex(Math.max(0, Math.min(testimonials.length - 1, nextIndex)));
+  };
+
+  const scrollToTestimonial = (index) => {
+    if (!carouselRef.current) return;
+
+    const card = carouselRef.current.querySelectorAll("[data-testimonial-card]")[index];
+    card?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  };
+
   return (
-    <div className="py-10 font-sans w-full">
-      <div className="my-10 mx-auto max-w-[700px] text-center">
-        <h1 className="font-sans text-5xl font-bold">
+    <div className="w-full py-10 font-sans">
+      <div className="mx-auto my-10 max-w-[700px] px-5 text-center">
+        <h1 className="font-sans text-4xl font-bold sm:text-5xl">
           Ils ont testé avant de choisir
         </h1>
         <img src="/media/home-temoignage-soulignage-titre.svg" alt="Trait soulignant le titre de l'article" className="mx-auto mt-2" />
       </div>
 
-      <div className="font-sans flex flex-col lg:flex-row items-center justify-around my-10 sm:mx-20 p-5">
+      <div
+        ref={carouselRef}
+        onScroll={handleScroll}
+        className="mb-4 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-6 font-sans [scrollbar-width:none] sm:gap-6 sm:px-8 lg:mx-20 lg:mb-10 lg:grid lg:grid-cols-4 lg:items-start lg:overflow-visible lg:p-5 [&::-webkit-scrollbar]:hidden"
+      >
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className={`bg-[#FCFCFC] px-6 m-3 rounded-lg max-w-xs sm:w-[40%] lg:w-[25%] ${index % 2 === 0 ? 'mt-[-50px]' : 'mt-[50px]'}`}
+            data-testimonial-card
+            className={`relative flex min-h-[390px] w-[82vw] shrink-0 snap-center flex-col rounded-lg bg-[#FCFCFC] px-6 py-6 shadow-[0_14px_35px_rgba(4,25,47,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(101,0,255,0.12)] sm:w-[44vw] lg:w-auto lg:min-h-[430px] lg:max-w-xs ${index % 2 === 0 ? 'lg:-mt-[50px]' : 'lg:mt-[50px]'}`}
           >
-            <p className="absolute text-purple-600 text-[90px] mt-0">“</p>
-            <div className="justify-end">
-              <img src={testimonial.image} alt={testimonial.name} className="mx-auto w-24 object-cover" />
+            <p className="absolute left-5 top-2 text-[88px] leading-none text-purple-600/80">“</p>
+            <div className="relative z-10 flex justify-end">
+              <img src={testimonial.image} alt={testimonial.name} className="mx-auto h-24 w-24 object-contain" />
             </div>
             
-            <p className="text-[#B07DFF] text-base mb-4 ">{testimonial.text}</p>
+            <p className="relative z-10 mb-4 mt-3 text-base leading-relaxed text-[#B07DFF]">{testimonial.text}</p>
             
-            <div className="text-right mt-4">
-              <p className="text-[#B07DFF] font-september text-6xl">{testimonial.name}, {testimonial.age} ans</p>
-              <p className="text-purple-600 text-[90px] text-right leading-none">”</p>
+            <div className="relative z-10 mt-auto text-right">
+              <p className="font-september text-5xl text-[#B07DFF] sm:text-6xl">{testimonial.name}, {testimonial.age} ans</p>
+              <p className="text-right text-[82px] leading-none text-purple-600/80">”</p>
             </div>
             
           </div>
+        ))}
+      </div>
+      <div className="flex items-center justify-center gap-2 lg:hidden">
+        {testimonials.map((testimonial, index) => (
+          <button
+            key={testimonial.name}
+            type="button"
+            aria-label={`Voir le témoignage de ${testimonial.name}`}
+            onClick={() => scrollToTestimonial(index)}
+            className={`h-2.5 rounded-full transition-all duration-300 ${
+              activeIndex === index
+                ? "w-8 bg-[#6500FF]"
+                : "w-2.5 bg-[#6500FF]/25 hover:bg-[#6500FF]/50"
+            }`}
+          />
         ))}
       </div>
     </div>
