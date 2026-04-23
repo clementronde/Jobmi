@@ -20,7 +20,7 @@ export const articles: Article[] = [
   },
   {
     _id: '2',
-    title: 'Comment trouver le job de tes rêves à 20 ans — guide ultime pour jeunes en reconversion',
+    title: 'Comment trouver le job de tes rêves à 20 ans : guide ultime pour jeunes en reconversion',
     slug: 'comment-trouver-le-job-de-tes-reves-a-20-ans-guide-ultime-pour-jeunes-en-reconversion',
     author: 'Jobmi',
     excerpt: 'À 20 ans, trouver sa voie professionnelle peut sembler complexe. Découvre notre guide ultime pour identifier ta passion, développer tes compétences et décrocher le job de tes rêves.',
@@ -71,7 +71,7 @@ export const articles: Article[] = [
   },
   {
     _id: '5',
-    title: 'Métiers sans diplôme qui paient bien en 2026 — Top 15',
+    title: 'Top 15 des métiers sans diplôme qui paient bien en 2026',
     slug: 'metiers-sans-diplome-qui-paient-bien',
     author: 'Jobmi',
     excerpt: 'Un bon salaire sans bac+5, c\'est possible. Découvrez les 15 métiers accessibles sans diplôme universitaire les mieux rémunérés en France en 2026.',

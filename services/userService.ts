@@ -1,71 +1,41 @@
-import axios from 'axios';
-
-const API_URL = "https://lp-jobmi-ab6b9d72e9ba.herokuapp.com/api";
-
 export const registerUser = async (userData: {
-  firstName: string;
-  lastName: string;
-  email: string;
-  city: string;
-  password: string;
-  phone: string;
-  googleId?: string; // Rendre googleId facultatif
+  firstName: string
+  lastName: string
+  email: string
+  city: string
+  password: string
+  phone: string
 }) => {
-  try {
-    // Faire une copie des données utilisateur
-    const dataToSend = { ...userData };
-    
-    // Vérifier si googleId existe et est vide, si oui, le supprimer
-    if (dataToSend.googleId === '') {
-      delete dataToSend.googleId;
-    }
+  const res = await fetch('/api/auth/register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(userData),
+  })
+  const data = await res.json()
+  if (!res.ok) throw new Error(data.error || 'Inscription échouée')
+  return data
+}
 
-    const response = await axios.post(`${API_URL}/users/register`, dataToSend);
-    return response.data;
-  } catch (error) {
-    console.error('Erreur lors de l\'inscription de l\'utilisateur:', error);
-    throw error;
-  }
-};
+export const getUserData = async (_email: string) => {
+  const res = await fetch('/api/user')
+  if (!res.ok) throw new Error('Récupération du profil échouée')
+  return res.json()
+}
 
-export const loginUser = async (userData: {
-  email: string;
-  password: string;
-}) => {
-  try {
-    const response = await axios.post(`${API_URL}/users/login`, userData);
-    return response.data;
-  } catch (error) {
-    console.error('Erreur lors de la connexion de l\'utilisateur:', error);
-    throw error;
-  }
-};
+export const updateUserData = async (_email: string, userData: Record<string, string>) => {
+  const res = await fetch('/api/user', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(userData),
+  })
+  if (!res.ok) throw new Error('Mise à jour du profil échouée')
+  return res.json()
+}
 
 export const subscribeToNewsletter = async (email: string) => {
-    try {
-      await axios.post(`${API_URL}/newsletter/subscribe`, { email });
-    } catch (error) {
-      console.error('Erreur lors de la souscription à la newsletter:', error);
-      throw error;
-    }
-};
-
-export const getUserData = async (email: string) => {
-  try {
-    const response = await axios.get(`${API_URL}/users/${email}`);
-    return response.data;
-  } catch (error) {
-    console.error('Erreur lors de la récupération des informations de l\'utilisateur:', error);
-    throw error;
-  }
-};
-
-export const updateUserData = async (email: string, userData: any) => {
-  try {
-    const response = await axios.put(`${API_URL}/users/${email}`, userData);
-    return response.data;
-  } catch (error) {
-    console.error('Erreur lors de la mise à jour des informations de l\'utilisateur:', error);
-    throw error;
-  }
-};
+  await fetch('/api/newsletter', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email }),
+  })
+}
