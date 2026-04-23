@@ -7,7 +7,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { FaApple } from 'react-icons/fa';
 import { RIASEC_QUESTIONS, JOB_FAMILIES, JOBS, DIMENSION_LABELS } from '@/data/riasecData';
 import { computeTestResult } from '@/services/riasecService';
-import type { RiasecAnswer, TestResult, JobFamily, Job, RiasecDimension } from '@/types/riasec';
+import type { RiasecAnswer, TestResult, JobFamily, Job, RiasecDimension, RiasecScores } from '@/types/riasec';
 
 const QUESTIONS_PER_PAGE = 8;
 const TOTAL_PAGES = Math.ceil(RIASEC_QUESTIONS.length / QUESTIONS_PER_PAGE);
@@ -445,11 +445,13 @@ function TestResults({
 
 function EmailGate({
   dominantCode,
+  scores,
   userName,
   onSubmit,
   onOAuthSignIn,
 }: {
   dominantCode: string;
+  scores: RiasecScores;
   userName: string;
   onSubmit: (email: string) => void;
   onOAuthSignIn: (provider: string) => void;
@@ -471,7 +473,7 @@ function EmailGate({
       await fetch('/api/test-riasec/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, name: userName, dominantCode }),
+        body: JSON.stringify({ email, name: userName, dominantCode, scores }),
       });
     } catch {
       // Non-bloquant
@@ -662,6 +664,7 @@ export default function RiasecTestComponent() {
             email: session.user.email,
             name: session.user.name ?? userName,
             dominantCode: computed.profile.dominantCode,
+            scores: computed.profile.normalizedScores,
           }),
         }).catch(() => {});
         setStep('results');
@@ -713,6 +716,7 @@ export default function RiasecTestComponent() {
       {step === 'email' && result && (
         <EmailGate
           dominantCode={result.profile.dominantCode}
+          scores={result.profile.normalizedScores}
           userName={userName}
           onSubmit={handleEmailSubmit}
           onOAuthSignIn={handleOAuthSignIn}
