@@ -48,6 +48,10 @@ const handler = NextAuth({
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
+  pages: {
+    signIn: '/me-connecter',
+    error: '/me-connecter',
+  },
   callbacks: {
     async jwt({ token, user }) {
       if (user) token.id = user.id
