@@ -17,6 +17,8 @@ import { Article13 } from '../../../components/articles/Article13';
 import { RelatedArticles } from '../../../components/RelatedArticles';
 import ArticleTOC from '../../../components/ArticleTOC';
 import { ArticleAuthorBox, ARTICLE_AUTHOR } from '../../../components/ArticleAuthorBox';
+import { InternalLinksSection } from '../../../components/InternalLinksSection';
+import { getInternalLinksForArticle } from '../../../data/internalLinks';
 
 const BASE_URL = 'https://jobmi.fr';
 
@@ -75,6 +77,7 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
   const { slug } = await params;
   const data = await getArticleBySlug(slug);
   const related = await getRelatedArticles(data._id, data.category);
+  const internalLinks = getInternalLinksForArticle(data);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -184,6 +187,13 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
       </div>
 
       <div className="mx-auto max-w-[980px]">
+        <InternalLinksSection
+          className="px-0"
+          eyebrow="Pour avancer"
+          title="Les ressources utiles après cet article"
+          description="Une sélection de guides et pages piliers pour continuer dans le bon ordre, selon ton projet."
+          links={internalLinks}
+        />
         <RelatedArticles articles={related} />
       </div>
     </div>

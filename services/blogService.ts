@@ -27,7 +27,32 @@ export const getRelatedArticles = async (
   currentArticleId: string,
   category: string
 ): Promise<Article[]> => {
-  return articles.filter(
-    (a) => a._id !== currentArticleId && a.category === category && isPublished(a)
+  const currentArticle = articles.find((a) => a._id === currentArticleId);
+  if (!currentArticle) return [];
+
+  const currentTags = new Set(
+    [currentArticle.category, ...(currentArticle.tags || [])].map((tag) =>
+      tag.toLowerCase()
+    )
   );
+
+  return articles
+    .filter((a) => a._id !== currentArticleId && isPublished(a))
+    .map((article) => {
+      const tags = [article.category, ...(article.tags || [])].map((tag) =>
+        tag.toLowerCase()
+      );
+      const sharedTags = tags.filter((tag) => currentTags.has(tag)).length;
+      const categoryScore = article.category === category ? 4 : 0;
+      const tagScore = sharedTags * 2;
+
+      return {
+        article,
+        score: categoryScore + tagScore,
+      };
+    })
+    .filter(({ score }) => score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 4)
+    .map(({ article }) => article);
 };

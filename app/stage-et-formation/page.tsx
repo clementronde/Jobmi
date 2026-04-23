@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { InternalLinksSection } from '../../components/InternalLinksSection';
+import { getInternalLinksForContext } from '../../data/internalLinks';
 
 const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/stage-et-formation`;
@@ -93,6 +95,8 @@ const steps = [
 ];
 
 export default function StageEtFormation() {
+  const internalLinks = getInternalLinksForContext('formation', '/stage-et-formation');
+
   return (
     <>
       <script
@@ -247,6 +251,14 @@ export default function StageEtFormation() {
             <div className="min-h-[260px] bg-[url('/media/group_people.png')] bg-cover bg-center" />
           </div>
         </section>
+
+        <InternalLinksSection
+          className="bg-[#F8F7FF]"
+          eyebrow="Formation & financement"
+          title="Guides utiles avant de choisir une formation"
+          description="Un bon parcours commence par une piste claire, puis un format réaliste : alternance, CPF, formation courte ou immersion."
+          links={internalLinks}
+        />
 
         <section className="mx-auto max-w-4xl px-6 py-16">
           <h2 className="font-bold text-2xl text-[#04192F] mb-4">

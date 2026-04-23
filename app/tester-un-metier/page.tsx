@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { InternalLinksSection } from '../../components/InternalLinksSection';
+import { getInternalLinksForContext } from '../../data/internalLinks';
 
 const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/tester-un-metier`;
@@ -172,6 +174,8 @@ const heroStats = [
 ];
 
 export default function TesterUnMetierPage() {
+  const internalLinks = getInternalLinksForContext('metiers', '/tester-un-metier');
+
   return (
     <>
       <script
@@ -759,6 +763,14 @@ export default function TesterUnMetierPage() {
           </div>
         </div>
       </section>
+
+      <InternalLinksSection
+        className="fade-up bg-[#F8F7FF]"
+        eyebrow="Avant de choisir"
+        title="Guides utiles pour valider ton idée de métier"
+        description="Des contenus pour comparer les pistes, comprendre les débouchés et choisir une formation seulement après avoir confronté ton projet au réel."
+        links={internalLinks}
+      />
 
       {/* ── FAQ ── */}
       <section className="bg-[#F3F3F3] py-20 px-6 sm:px-10">

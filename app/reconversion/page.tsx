@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { InternalLinksSection } from '../../components/InternalLinksSection';
+import { getInternalLinksForContext } from '../../data/internalLinks';
 
 const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/reconversion`;
@@ -175,6 +177,8 @@ const checklist = [
 ];
 
 export default function ReconversionPage() {
+  const internalLinks = getInternalLinksForContext('reconversion', '/reconversion');
+
   return (
     <>
       <script
@@ -602,6 +606,14 @@ export default function ReconversionPage() {
           </div>
         </div>
       </section>
+
+      <InternalLinksSection
+        className="fade-up bg-[#F8F7FF]"
+        eyebrow="Guides reconversion"
+        title="Continue avec les bons contenus"
+        description="Des ressources liées à cette page pour passer du doute au plan d'action : bilan, métiers, test terrain et premières étapes."
+        links={internalLinks}
+      />
 
       {/* ── FAQ ── */}
       <section className="bg-[#F3F3F3] py-20 px-6 sm:px-10">

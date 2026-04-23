@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { InternalLinksSection } from '../../../components/InternalLinksSection';
+import { getInternalLinksForContext } from '../../../data/internalLinks';
 
 const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/orientation/test-orientation-jeunes`;
@@ -173,6 +175,11 @@ const temoignages = [
 ];
 
 export default function TestOrientationJeunesPage() {
+  const internalLinks = getInternalLinksForContext(
+    'orientation',
+    '/orientation/test-orientation-jeunes'
+  );
+
   return (
     <>
       <script
@@ -556,6 +563,14 @@ export default function TestOrientationJeunesPage() {
           </div>
         </div>
       </section>
+
+      <InternalLinksSection
+        className="fade-up bg-[#F8F7FF]"
+        eyebrow="Après le test"
+        title="Les meilleurs contenus pour transformer tes résultats en action"
+        description="Une fois tes pistes identifiées, ces guides t'aident à comparer, tester et avancer sans choisir par défaut."
+        links={internalLinks}
+      />
 
       {/* ── FAQ ── */}
       <section className="bg-[#F3F3F3] py-20 px-6 sm:px-10">
