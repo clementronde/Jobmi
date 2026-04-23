@@ -1,15 +1,10 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import CredentialsProvider from "next-auth/providers/credentials"
-import { SupabaseAdapter } from "@next-auth/supabase-adapter"
 import bcrypt from "bcryptjs"
 import supabaseAdmin from "@/lib/supabaseAdmin"
 
 const handler = NextAuth({
-  adapter: SupabaseAdapter({
-    url: process.env.SUPABASE_URL,
-    secret: process.env.SUPABASE_SERVICE_ROLE_KEY,
-  }),
   session: { strategy: "jwt" },
   providers: [
     GoogleProvider({
@@ -53,6 +48,25 @@ const handler = NextAuth({
     error: '/me-connecter',
   },
   callbacks: {
+    async signIn({ user, account }) {
+      // Upsert user in Supabase on Google sign-in
+      if (account?.provider === "google") {
+        const { data: existing } = await supabaseAdmin
+          .from("users")
+          .select("id")
+          .eq("email", user.email)
+          .single()
+
+        if (!existing) {
+          await supabaseAdmin.from("users").insert({
+            email: user.email,
+            name: user.name,
+            image: user.image,
+          })
+        }
+      }
+      return true
+    },
     async jwt({ token, user }) {
       if (user) token.id = user.id
       return token
