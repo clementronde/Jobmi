@@ -2,7 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['zupimages.net'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'zupimages.net',
+      },
+    ],
   },
   env: {
     GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
