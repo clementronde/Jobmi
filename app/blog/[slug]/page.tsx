@@ -109,39 +109,64 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
     timeRequired: `PT${data.readingTime}M`,
   };
 
+  const formattedDate = new Intl.DateTimeFormat('fr-FR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(new Date(data.datePublished));
+
   return (
-    <div className='mt-[100px] mx-5'>
+    <div className="article-page mt-[90px] bg-[linear-gradient(180deg,#F7F6FF_0%,#FFFFFF_420px)] px-5 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className='my-10 mx-auto max-w-[700px]'>
-        <h1 className="font-sans text-5xl font-bold text-center">{data.title}</h1>
-        <span className='items-center'>
-          <img src="/media/trait-article-titre.svg" alt="Trait soulignant le titre de l'article" />
-        </span>
-      </div>
-
-      <div className='flex flex-col sm:flex-row items-center justify-between sm:mx-[200px] my-10 font-sans space-y-4 sm:space-y-0'>
-        <Link href="/blog" className='flex gap-2'>
-          <img className='w-5' src="/media/CTA-blog-retour.svg" alt="Flèche vers la gauche qui mène à la page précédente" />
-          Retour
+      <header className="mx-auto max-w-[980px] pb-8 pt-12 text-center font-sans">
+        <Link
+          href="/blog"
+          className="motion-underline mb-8 inline-flex items-center gap-2 text-sm font-semibold text-[#6500FF]"
+        >
+          <img className="w-5" src="/media/CTA-blog-retour.svg" alt="" />
+          Retour au blog
         </Link>
-
-        <p className='flex gap-2 items-center'>
-          <img className='w-[30px]' src="/media/rond-blog-auteur.svg" alt="Image d'un rond violet" />
-          {data.author}
+        <div className="mb-5 flex flex-wrap items-center justify-center gap-3">
+          <span className="rounded-full bg-white px-4 py-1.5 text-sm font-bold text-[#6500FF] shadow-[0_10px_24px_rgba(101,0,255,0.08)]">
+            {data.category}
+          </span>
+          <span className="text-sm font-semibold text-gray-500">
+            {formattedDate}
+          </span>
+          <span className="text-sm font-semibold text-gray-500">
+            {data.readingTime} min de lecture
+          </span>
+        </div>
+        <h1 className="mx-auto max-w-[880px] text-4xl font-bold leading-tight text-[#04192F] sm:text-5xl lg:text-6xl">
+          {data.title}
+        </h1>
+        <img
+          src="/media/trait-article-titre.svg"
+          alt=""
+          className="mx-auto mt-4 max-w-[360px]"
+        />
+        <p className="mx-auto mt-7 max-w-[760px] text-lg leading-relaxed text-gray-600">
+          {data.excerpt}
         </p>
+      </header>
 
-        <p><span className='font-bold'>{data.readingTime} min</span> de lecture</p>
+      <div className="mx-auto flex max-w-screen-xl gap-8">
+        <div className="hidden w-[220px] shrink-0 xl:block" aria-hidden="true" />
+        <div className="min-w-0 flex-1">
+          <ArticleAuthorBox />
+        </div>
       </div>
 
-      <ArticleAuthorBox />
-
-      <div className="flex gap-8 items-start">
+      <div className="mx-auto flex max-w-screen-xl gap-8 items-start">
         <ArticleTOC />
-        <div id="article-content" className="flex-1 min-w-0">
+        <article
+          id="article-content"
+          className="article-content flex-1 min-w-0 rounded-2xl bg-white px-4 py-8 shadow-[0_18px_55px_rgba(4,25,47,0.06)] sm:px-8 lg:px-10"
+        >
           {slug === "comment-commencer-ta-reconversion-professionnelle" && <Article1 />}
           {slug === "comment-trouver-le-job-de-tes-reves-a-20-ans-guide-ultime-pour-jeunes-en-reconversion" && <Article2 />}
           {slug === "top-10-des-metiers-cool-pour-2024-que-tu-dois-connaitre" && <Article3 />}
@@ -155,10 +180,10 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
           {slug === "devenir-developpeur-web-sans-diplome" && <Article11 />}
           {slug === "utiliser-cpf-compte-personnel-formation" && <Article12 />}
           {slug === "trouver-stage-reconversion-methode" && <Article13 />}
-        </div>
+        </article>
       </div>
 
-      <div className="sm:mx-[200px] mb-16">
+      <div className="mx-auto max-w-[980px]">
         <RelatedArticles articles={related} />
       </div>
     </div>

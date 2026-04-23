@@ -2,6 +2,7 @@
 
 import React, { useMemo, useState } from "react";
 import Link from "next/link";
+import { ArticlePreviewVisual } from "./ArticlePreviewVisual";
 
 const cocoons = [
   {
@@ -125,11 +126,7 @@ export const BlogArticleExplorer = ({ articles }) => {
               key={article._id}
               className="overflow-hidden rounded-lg bg-[#F3F3F3] shadow-[0_14px_35px_rgba(4,25,47,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(101,0,255,0.12)]"
             >
-              <img
-                className="h-[260px] w-full object-cover"
-                src={article.imageCover}
-                alt={article.imageAlt}
-              />
+              <ArticlePreviewVisual article={article} className="h-[210px]" />
               <div className="p-5">
                 <div className="mb-3 flex flex-wrap items-center gap-2">
                   <span className="rounded-full bg-white px-3 py-1 text-xs font-bold text-[#6500FF]">

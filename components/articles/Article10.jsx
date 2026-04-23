@@ -128,9 +128,8 @@ export const Article10 = () => {
           </p>
         </div>
         <div className='lg:w-1/3 flex items-center'>
-          <Link href="/test" className='flex gap-2 font-semibold underline'>
+          <Link href="/test" className='article-cta-link'>
             Trouver mon métier d'avenir
-            <img className='sm:ml-2 w-5' src="/media/blog-CTA-fleche.svg" alt="Flèche" />
           </Link>
         </div>
       </div>

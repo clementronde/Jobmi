@@ -63,33 +63,33 @@ export const Article4 = () => {
       </div>
 
       <div className='font-sans sm:mx-20 my-10'>
-        <p className='mb-10'>
-          Tous les métiers ne sont pas accessibles au même rythme. Voici comment les classer selon ton profil :
+        <p className='mb-8'>
+          Tous les métiers ne sont pas accessibles au même rythme. Voici comment les classer selon ton profil.
         </p>
-        <div className='space-y-10 sm:mx-20 mx-5'>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
-              <p className='text-5xl font-thin text-gray-400'>01</p>
+        <div className='space-y-4'>
+          <div className='grid gap-4 rounded-2xl border border-[#E9E1FF] bg-[#F8F7FF] p-5 sm:grid-cols-[72px_minmax(0,1fr)] sm:p-6'>
+            <div>
+              <p className='flex h-12 w-12 items-center justify-center rounded-full bg-white text-lg font-bold text-[#6500FF] shadow-sm'>01</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div>
               <p className='font-bold mb-2'>Métiers accessibles en moins de 6 mois :</p>
               <p>Commercial, community manager, assistant RH, monteur vidéo, graphiste junior. Ces métiers valorisent les soft skills et les portfolios plus que les diplômes.</p>
             </div>
           </div>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
-              <p className='text-5xl font-thin text-gray-400'>02</p>
+          <div className='grid gap-4 rounded-2xl border border-[#E9E1FF] bg-[#F8F7FF] p-5 sm:grid-cols-[72px_minmax(0,1fr)] sm:p-6'>
+            <div>
+              <p className='flex h-12 w-12 items-center justify-center rounded-full bg-white text-lg font-bold text-[#6500FF] shadow-sm'>02</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div>
               <p className='font-bold mb-2'>Métiers accessibles en 1-2 ans :</p>
               <p>Développeur web, UX designer, infirmier, électricien, plombier. Une formation courte sufffit, souvent financée par le CPF ou France Travail.</p>
             </div>
           </div>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
-              <p className='text-5xl font-thin text-gray-400'>03</p>
+          <div className='grid gap-4 rounded-2xl border border-[#E9E1FF] bg-[#F8F7FF] p-5 sm:grid-cols-[72px_minmax(0,1fr)] sm:p-6'>
+            <div>
+              <p className='flex h-12 w-12 items-center justify-center rounded-full bg-white text-lg font-bold text-[#6500FF] shadow-sm'>03</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div>
               <p className='font-bold mb-2'>Métiers nécessitant 3 ans ou plus :</p>
               <p>Médecin, avocat, architecte. Si tu vises ces secteurs à 20 ans, tu as largement le temps mais sois réaliste sur l'investissement.</p>
             </div>
@@ -148,9 +148,8 @@ export const Article4 = () => {
           </p>
         </div>
         <div className='lg:w-1/3 flex items-center'>
-          <Link href="/test" className='flex gap-2 text-1xl font-semibold underline'>
+          <Link href="/test" className='article-cta-link'>
             Passe le test d'orientation
-            <img className='sm:ml-2 w-5' src="/media/blog-CTA-fleche.svg" alt="Flèche" />
           </Link>
         </div>
       </div>
