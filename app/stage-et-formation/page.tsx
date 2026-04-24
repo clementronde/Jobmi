@@ -40,6 +40,61 @@ const collectionJsonLd = {
   inLanguage: 'fr-FR',
 };
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: "Comment savoir si j’ai besoin d’une immersion avant de choisir une formation ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Si tu hésites encore sur le métier visé, une immersion est souvent plus utile qu’une inscription précipitée. Elle te permet de vérifier le quotidien réel du secteur, le rythme, les contraintes et l’ambiance de travail. Tu n’as pas besoin d’attendre d’être sûr à 100 % pour tester ; au contraire, c’est souvent le terrain qui clarifie les choses. Quand une voie reste floue, mieux vaut observer d’abord que signer trop vite.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Quelle différence entre une immersion, un stage d’observation et une formation ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Une immersion ou un stage d’observation sert surtout à découvrir un métier et à voir si tu peux t’y projeter. Une formation, elle, te fait monter en compétences pour accéder réellement au secteur. Les deux ne répondent donc pas au même besoin. En général, commencer par une expérience terrain réduit beaucoup le risque de choisir une mauvaise formation.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Est-ce que je peux trouver une immersion même si je n’ai pas encore d’idée précise ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Oui, mais il vaut mieux réduire un minimum le champ avant de chercher. Tu n’as pas besoin d’avoir un métier exact en tête, mais au moins une famille de métiers ou un environnement de travail qui t’attire. Sinon, tu risques de chercher dans tous les sens et de perdre du temps. Le bon point de départ est souvent de clarifier ton profil, puis de tester 1 ou 2 pistes réalistes.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Comment financer une formation quand on est jeune et qu’on n’a pas beaucoup de moyens ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Tout dépend de ta situation, mais plusieurs options existent : alternance, CPF si tu as déjà travaillé, aides régionales, Missions Locales, ou accompagnement France Travail dans certains cas. Le plus important est de comparer les formats avant de t’engager. Une formation finançable n’est pas forcément la plus adaptée. Vérifie toujours qu’elle correspond vraiment au métier que tu veux viser.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Faut-il choisir une formation courte ou des études plus longues ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Il n’y a pas de bonne réponse universelle. Certains métiers demandent un parcours long et réglementé, d’autres sont accessibles via l’alternance, un BTS, un CAP, un titre pro ou une formation courte. Le bon critère n’est pas la durée seule, mais l’écart entre ton point de départ et le métier visé. Avant de repartir pour plusieurs années, vérifie s’il existe une voie plus concrète et plus progressive.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Est-ce que je dois m’inscrire tout de suite dans une formation pour ne pas perdre de temps ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Pas forcément. Quelques semaines ou quelques mois de clarification valent souvent mieux qu’une orientation subie pendant un ou deux ans. Si tu peux, prends d’abord le temps de comprendre ton profil, de comparer plusieurs pistes et de tester un métier sur le terrain. Tu avanceras ensuite avec un projet plus solide et beaucoup moins de regrets.",
+      },
+    },
+  ],
+};
+
 const sectorCards = [
   {
     title: 'Tech & data',
@@ -103,6 +158,10 @@ export default function StageEtFormation() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
 
       <div className="mt-[120px] font-sans">
         <section className="mx-auto max-w-screen-xl px-6 pb-12 pt-4 sm:px-10">
@@ -121,7 +180,15 @@ export default function StageEtFormation() {
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
               Jobmi construit son réseau d'entreprises partenaires. En attendant
               les premières immersions, découvre les secteurs à explorer et les
-              étapes pour avancer sans choisir à l'aveugle.
+              étapes pour avancer sans choisir à l'aveugle. Si tu pars encore
+              de trop loin, le plus simple est souvent de{' '}
+              <Link
+                href="/test"
+                className="font-semibold text-[#6500FF] underline underline-offset-4"
+              >
+                commencer par le test d’orientation
+              </Link>{' '}
+              pour clarifier la direction avant de chercher une immersion.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
@@ -195,7 +262,15 @@ export default function StageEtFormation() {
             <p className="mt-4 text-base leading-relaxed text-gray-600">
               Même sans offre disponible aujourd'hui, tu peux déjà réduire le
               flou : comprendre ton profil, explorer plusieurs métiers et
-              préparer une immersion utile.
+              préparer une immersion utile. Et si tu veux d’abord voir comment
+              on confronte une idée à la réalité, tu peux aussi{' '}
+              <Link
+                href="/tester-un-metier"
+                className="font-semibold text-[#6500FF] underline underline-offset-4"
+              >
+                tester un métier sur le terrain
+              </Link>{' '}
+              avant de choisir une formation.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
@@ -269,20 +344,75 @@ export default function StageEtFormation() {
               Choisir une formation sans avoir jamais vu le métier, c'est
               prendre un risque inutile. Une immersion courte te permet de
               découvrir le quotidien réel d'un secteur : les missions, le
-              rythme, les contraintes et ce qui te plaît vraiment ou pas.
+              rythme, les contraintes et ce qui te plaît vraiment ou pas. Si tu
+              hésites encore entre plusieurs pistes, commence par{' '}
+              <Link
+                href="/test"
+                className="font-semibold text-[#6500FF] underline underline-offset-4"
+              >
+                le test d’orientation Jobmi
+              </Link>{' '}
+              avant de regarder les formats de formation.
             </p>
             <p>
               Que tu hésites entre la tech, la santé, le design ou le
               marketing, une expérience terrain est souvent ce qui fait la
               différence entre une bonne orientation et une réorientation
-              subie deux ans plus tard.
+              subie deux ans plus tard. Pour comparer les options concrètes,
+              tu peux aussi lire notre guide{' '}
+              <Link
+                href="/blog/alternance-ou-formation-continue-que-choisir"
+                className="font-semibold text-[#6500FF] underline underline-offset-4"
+              >
+                alternance ou formation continue
+              </Link>{' '}
+              si tu veux choisir un format adapté à ta situation.
             </p>
             <p>
               Si tu ne sais pas encore vers quel secteur t'orienter, commence
               par le test d'orientation Jobmi — il t'aide à identifier les
               familles de métiers qui correspondent à ton profil avant de passer
-              au terrain.
+              au terrain. Et si la question du budget te freine déjà, tu peux
+              consulter aussi notre article sur{' '}
+              <Link
+                href="/blog/financer-sa-formation-sans-cpf"
+                className="font-semibold text-[#6500FF] underline underline-offset-4"
+              >
+                le financement d’une formation sans CPF
+              </Link>
+              .
             </p>
+          </div>
+        </section>
+
+        <section className="bg-[#F3F3F3] px-6 py-16 sm:px-10">
+          <div className="mx-auto max-w-4xl">
+            <div className="max-w-3xl">
+              <h2 className="font-bold text-2xl text-[#04192F] mb-8 sm:text-3xl">
+                Questions fréquentes sur les immersions et les formations
+              </h2>
+
+              <div className="space-y-3">
+                {faqJsonLd.mainEntity.map((item) => (
+                  <details
+                    key={item.name}
+                    className="group rounded-2xl bg-white overflow-hidden shadow-[0_14px_35px_rgba(4,25,47,0.05)]"
+                  >
+                    <summary className="cursor-pointer list-none px-6 py-5 font-semibold text-[#04192F] transition hover:bg-gray-50 sm:px-7">
+                      <div className="flex items-center justify-between gap-4">
+                        <span>{item.name}</span>
+                        <span className="text-xl font-bold text-[#6500FF] transition-transform duration-300 group-open:rotate-45">
+                          +
+                        </span>
+                      </div>
+                    </summary>
+                    <p className="border-t border-gray-100 px-6 py-5 leading-relaxed text-gray-600 sm:px-7">
+                      {item.acceptedAnswer.text}
+                    </p>
+                  </details>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       </div>

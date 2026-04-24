@@ -31,39 +31,39 @@ export const Article12 = () => {
       </div>
 
       <div className='font-sans sm:mx-20 my-10'>
-        <div className='space-y-10 sm:mx-10 mx-5'>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+        <div className='article-step-list sm:mx-10 mx-5'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>01</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Créer ton compte sur moncompteformation.gouv.fr</p>
               <p>Va sur <a className='underline' href="https://www.moncompteformation.gouv.fr" target="_blank" rel="noopener noreferrer">moncompteformation.gouv.fr</a> et connecte-toi avec France Connect (impôts, Ameli, etc.). Tu verras immédiatement ton solde disponible.</p>
             </div>
           </div>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>02</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Rechercher une formation éligible</p>
               <p>Utilise le moteur de recherche du site. Tu peux filtrer par métier, domaine, durée et format (présentiel, distanciel, mixte). Seules les formations de prestataires certifiés Qualiopi apparaissent.</p>
             </div>
           </div>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>03</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Faire une demande de formation</p>
               <p>Une fois la formation choisie, soumets ta demande directement depuis l'application. L'organisme de formation a 11 jours ouvrés pour accepter ou refuser.</p>
             </div>
           </div>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>04</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Gérer le reste à charge (depuis 2024)</p>
               <p>Depuis mai 2024, un reste à charge de 100 € est appliqué sur toutes les formations CPF (sauf exceptions). Si tu es demandeur d'emploi ou si ton employeur abonde, ce reste à charge est supprimé.</p>
             </div>

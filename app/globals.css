@@ -273,20 +273,6 @@
   font-weight: 800;
 }
 
-.article-content > div > li,
-.article-content div:not(:has(ul)):not(:has(ol)) > li {
-  display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr);
-  gap: 1.5rem;
-  list-style: none;
-  margin: 1.25rem 0;
-}
-
-.article-content > div > li::marker,
-.article-content div:not(:has(ul)):not(:has(ol)) > li::marker {
-  content: "";
-}
-
 .article-content a {
   color: #6500ff;
   font-weight: 700;
@@ -336,6 +322,45 @@
 .article-content .bg-gray-50 {
   border: 1px solid rgba(4, 25, 47, 0.08);
   box-shadow: 0 12px 30px rgba(4, 25, 47, 0.04);
+}
+
+.article-content .article-step-list {
+  display: grid;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.article-content .article-step-item {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+}
+
+.article-content .article-step-index {
+  min-width: 0;
+}
+
+.article-content .article-step-index p {
+  margin: 0;
+  color: #6b7280;
+  font-size: clamp(2rem, 3vw, 3.25rem);
+  line-height: 1;
+  font-weight: 300;
+}
+
+.article-content .article-step-body {
+  min-width: 0;
+}
+
+.article-content .article-step-body > *:first-child {
+  margin-top: 0;
+}
+
+@media (min-width: 1024px) {
+  .article-content .article-step-item {
+    grid-template-columns: 96px minmax(0, 1fr);
+    column-gap: 2.25rem;
+  }
 }
 
 @media (max-width: 640px) {

@@ -29,9 +29,9 @@ export const Article5 = () => {
       <div className='font-sans sm:mx-20'>
         <p className='mb-4'>On entend souvent : "Sans diplôme, tu ne trouveras jamais un bon job". Dans les faits, beaucoup d'entreprises cherchent surtout :</p>
         <ul className='space-y-2 mb-4'>
-          <li>• des personnes motivées,</li>
-          <li>• capables d'apprendre vite,</li>
-          <li>• qui ont déjà montré quelque chose (stage, projet, expérience terrain).</li>
+          <li>des personnes motivées,</li>
+          <li>capables d'apprendre vite,</li>
+          <li>qui ont déjà montré quelque chose (stage, projet, expérience terrain).</li>
         </ul>
         <p className='mb-4'>
           Les secteurs en tension — commerce, logistique, BTP, hôtellerie‑restauration, transport, services à la personne, industrie, numérique — recrutent massivement sans exiger de diplôme long.
@@ -78,9 +78,9 @@ export const Article5 = () => {
           <div className='bg-gray-100 p-4 rounded-lg'>
             <p className='font-bold mb-2'>Pour démarrer sans diplôme :</p>
             <ul className='space-y-1'>
-              <li>• suivre une formation courte/bootcamp,</li>
-              <li>• construire un portfolio (projets perso, petits freelances),</li>
-              <li>• participer à des hackathons / projets associatifs.</li>
+              <li>suivre une formation courte/bootcamp,</li>
+              <li>construire un portfolio (projets perso, petits freelances),</li>
+              <li>participer à des hackathons / projets associatifs.</li>
             </ul>
           </div>
         </div>
@@ -92,8 +92,8 @@ export const Article5 = () => {
           <div className='bg-gray-100 p-4 rounded-lg'>
             <p className='font-bold mb-2'>Pour démarrer sans diplôme :</p>
             <ul className='space-y-1'>
-              <li>• viser un CAP en alternance (cuisine, plomberie, électricité, etc.),</li>
-              <li>• tester le métier via un stage d'observation ou une PMSMP.</li>
+              <li>viser un CAP en alternance (cuisine, plomberie, électricité, etc.),</li>
+              <li>tester le métier via un stage d'observation ou une PMSMP.</li>
             </ul>
           </div>
         </div>
@@ -105,9 +105,9 @@ export const Article5 = () => {
           <div className='bg-gray-100 p-4 rounded-lg'>
             <p className='font-bold mb-2'>Pour démarrer sans diplôme :</p>
             <ul className='space-y-1'>
-              <li>• premiers postes en téléprospection / vente magasin,</li>
-              <li>• auto‑formation (livres, vidéos, formations courtes),</li>
-              <li>• évoluer vers la vente B2B une fois que tu as des résultats à montrer.</li>
+              <li>premiers postes en téléprospection / vente magasin,</li>
+              <li>auto‑formation (livres, vidéos, formations courtes),</li>
+              <li>évoluer vers la vente B2B une fois que tu as des résultats à montrer.</li>
             </ul>
           </div>
         </div>
@@ -119,9 +119,9 @@ export const Article5 = () => {
           <div className='bg-gray-100 p-4 rounded-lg'>
             <p className='font-bold mb-2'>Pour démarrer sans diplôme :</p>
             <ul className='space-y-1'>
-              <li>• gérer les réseaux d'une asso / d'un petit commerce,</li>
-              <li>• obtenir une ou deux certifications gratuites (Google, Meta),</li>
-              <li>• construire un portfolio (posts, campagnes, stats avant/après).</li>
+              <li>gérer les réseaux d'une asso / d'un petit commerce,</li>
+              <li>obtenir une ou deux certifications gratuites (Google, Meta),</li>
+              <li>construire un portfolio (posts, campagnes, stats avant/après).</li>
             </ul>
           </div>
         </div>
@@ -133,9 +133,9 @@ export const Article5 = () => {
           <div className='bg-gray-100 p-4 rounded-lg'>
             <p className='font-bold mb-2'>Pour démarrer sans diplôme :</p>
             <ul className='space-y-1'>
-              <li>• apprendre un logiciel (Premiere Pro, DaVinci Resolve, After Effects),</li>
-              <li>• remonter des vidéos pour des YouTubeurs, associations, PME,</li>
-              <li>• publier tes réalisations sur un portfolio en ligne.</li>
+              <li>apprendre un logiciel (Premiere Pro, DaVinci Resolve, After Effects),</li>
+              <li>remonter des vidéos pour des YouTubeurs, associations, PME,</li>
+              <li>publier tes réalisations sur un portfolio en ligne.</li>
             </ul>
           </div>
         </div>
@@ -147,9 +147,9 @@ export const Article5 = () => {
           <div className='bg-gray-100 p-4 rounded-lg'>
             <p className='font-bold mb-2'>Pour démarrer sans diplôme :</p>
             <ul className='space-y-1'>
-              <li>• entrer dans le BTP sur un poste d'ouvrier (avec ou sans CAP),</li>
-              <li>• suivre des formations courtes en gestion de chantier,</li>
-              <li>• évoluer progressivement vers la conduite de travaux.</li>
+              <li>entrer dans le BTP sur un poste d'ouvrier (avec ou sans CAP),</li>
+              <li>suivre des formations courtes en gestion de chantier,</li>
+              <li>évoluer progressivement vers la conduite de travaux.</li>
             </ul>
           </div>
         </div>
@@ -161,8 +161,8 @@ export const Article5 = () => {
           <div className='bg-gray-100 p-4 rounded-lg'>
             <p className='font-bold mb-2'>Pour démarrer sans long diplôme :</p>
             <ul className='space-y-1'>
-              <li>• viser un titre pro ou un BTS maintenance (en alternance si possible),</li>
-              <li>• accepter un premier poste dans une usine / entrepôt pour se faire l'expérience.</li>
+              <li>viser un titre pro ou un BTS maintenance (en alternance si possible),</li>
+              <li>accepter un premier poste dans une usine / entrepôt pour se faire l'expérience.</li>
             </ul>
           </div>
         </div>
@@ -174,8 +174,8 @@ export const Article5 = () => {
           <div className='bg-gray-100 p-4 rounded-lg'>
             <p className='font-bold mb-2'>Pour démarrer sans diplôme universitaire :</p>
             <ul className='space-y-1'>
-              <li>• se renseigner sur les concours / sélections et les aides régionales,</li>
-              <li>• faire une immersion (PMSMP, stage d'observation) pour confirmer que le quotidien te convient.</li>
+              <li>se renseigner sur les concours / sélections et les aides régionales,</li>
+              <li>faire une immersion (PMSMP, stage d'observation) pour confirmer que le quotidien te convient.</li>
             </ul>
           </div>
         </div>
@@ -187,9 +187,9 @@ export const Article5 = () => {
           <div className='bg-gray-100 p-4 rounded-lg'>
             <p className='font-bold mb-2'>Pour démarrer :</p>
             <ul className='space-y-1'>
-              <li>• suivre une formation certifiante (titre RNCP) en paie,</li>
-              <li>• faire un stage ou une alternance en cabinet comptable / service RH,</li>
-              <li>• capitaliser sur la pénurie de profils.</li>
+              <li>suivre une formation certifiante (titre RNCP) en paie,</li>
+              <li>faire un stage ou une alternance en cabinet comptable / service RH,</li>
+              <li>capitaliser sur la pénurie de profils.</li>
             </ul>
           </div>
         </div>
@@ -201,9 +201,9 @@ export const Article5 = () => {
           <div className='bg-gray-100 p-4 rounded-lg'>
             <p className='font-bold mb-2'>Pour démarrer :</p>
             <ul className='space-y-1'>
-              <li>• se former en ligne (MOOC, certifications),</li>
-              <li>• faire des projets concrets (tableaux de bord, analyses pour une asso/PME),</li>
-              <li>• constituer un portfolio GitHub/Notion.</li>
+              <li>se former en ligne (MOOC, certifications),</li>
+              <li>faire des projets concrets (tableaux de bord, analyses pour une asso/PME),</li>
+              <li>constituer un portfolio GitHub/Notion.</li>
             </ul>
           </div>
         </div>
@@ -215,9 +215,9 @@ export const Article5 = () => {
           <div className='bg-gray-100 p-4 rounded-lg'>
             <p className='font-bold mb-2'>Pour démarrer :</p>
             <ul className='space-y-1'>
-              <li>• rejoindre une agence en tant que commercial,</li>
-              <li>• se former progressivement (carte T, formations internes),</li>
-              <li>• utiliser les réseaux sociaux pour se faire connaître.</li>
+              <li>rejoindre une agence en tant que commercial,</li>
+              <li>se former progressivement (carte T, formations internes),</li>
+              <li>utiliser les réseaux sociaux pour se faire connaître.</li>
             </ul>
           </div>
         </div>
@@ -229,9 +229,9 @@ export const Article5 = () => {
           <div className='bg-gray-100 p-4 rounded-lg'>
             <p className='font-bold mb-2'>Pour démarrer :</p>
             <ul className='space-y-1'>
-              <li>• CAP cuisine / pâtisserie, idéalement en alternance,</li>
-              <li>• stages, saisons, extras pour gagner de l'expérience,</li>
-              <li>• viser des établissements qui forment (brasserie, bistronomie, etc.).</li>
+              <li>CAP cuisine / pâtisserie, idéalement en alternance,</li>
+              <li>stages, saisons, extras pour gagner de l'expérience,</li>
+              <li>viser des établissements qui forment (brasserie, bistronomie, etc.).</li>
             </ul>
           </div>
         </div>
@@ -243,9 +243,9 @@ export const Article5 = () => {
           <div className='bg-gray-100 p-4 rounded-lg'>
             <p className='font-bold mb-2'>Pour démarrer :</p>
             <ul className='space-y-1'>
-              <li>• apprendre Figma / Canva Pro / Adobe Suite,</li>
-              <li>• créer un portfolio (Behance, site perso),</li>
-              <li>• travailler d'abord pour des assos, freelances, petites entreprises.</li>
+              <li>apprendre Figma / Canva Pro / Adobe Suite,</li>
+              <li>créer un portfolio (Behance, site perso),</li>
+              <li>travailler d'abord pour des assos, freelances, petites entreprises.</li>
             </ul>
           </div>
         </div>
@@ -257,8 +257,8 @@ export const Article5 = () => {
           <div className='bg-gray-100 p-4 rounded-lg'>
             <p className='font-bold mb-2'>Pour démarrer :</p>
             <ul className='space-y-1'>
-              <li>• passer les permis via des dispositifs financés (France Travail, régions),</li>
-              <li>• débuter en messagerie, livraison locale, puis évoluer vers d'autres lignes.</li>
+              <li>passer les permis via des dispositifs financés (France Travail, régions),</li>
+              <li>débuter en messagerie, livraison locale, puis évoluer vers d'autres lignes.</li>
             </ul>
           </div>
         </div>
@@ -270,9 +270,9 @@ export const Article5 = () => {
           <div className='bg-gray-100 p-4 rounded-lg'>
             <p className='font-bold mb-2'>Pour démarrer :</p>
             <ul className='space-y-1'>
-              <li>• se former en ligne (labs, plateformes de type TryHackMe, HackTheBox),</li>
-              <li>• obtenir une ou deux certifications reconnues,</li>
-              <li>• participer à des CTF, projets open source.</li>
+              <li>se former en ligne (labs, plateformes de type TryHackMe, HackTheBox),</li>
+              <li>obtenir une ou deux certifications reconnues,</li>
+              <li>participer à des CTF, projets open source.</li>
             </ul>
           </div>
         </div>
@@ -295,9 +295,9 @@ export const Article5 = () => {
         <div className='bg-gray-100 p-4 rounded-lg mb-6'>
           <p className='font-bold mb-2'>Quelques questions utiles :</p>
           <ul className='space-y-2'>
-            <li>• Est‑ce que je me vois faire ce métier au moins 2–3 ans ?</li>
-            <li>• Est‑ce que je suis prêt·e à accepter ses contraintes réelles (horaires, rythme, contact humain, physique…) ?</li>
-            <li>• Est‑ce que j'ai envie d'en parler quand je rentre chez moi, ou est‑ce que ça me vide totalement ?</li>
+            <li>Est‑ce que je me vois faire ce métier au moins 2–3 ans ?</li>
+            <li>Est‑ce que je suis prêt·e à accepter ses contraintes réelles (horaires, rythme, contact humain, physique…) ?</li>
+            <li>Est‑ce que j'ai envie d'en parler quand je rentre chez moi, ou est‑ce que ça me vide totalement ?</li>
           </ul>
         </div>
 

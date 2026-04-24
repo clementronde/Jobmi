@@ -67,39 +67,39 @@ export const Article11 = () => {
       </div>
 
       <div className='font-sans sm:mx-20 my-10'>
-        <div className='space-y-10 sm:mx-10 mx-5'>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+        <div className='article-step-list sm:mx-10 mx-5'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>01</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Les fondamentaux (2-3 mois)</p>
               <p>HTML, CSS, JavaScript vanilla. Sans ça, rien ne tient. Ces bases sont indispensables et s'apprennent gratuitement sur MDN, freeCodeCamp ou The Odin Project.</p>
             </div>
           </div>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>02</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Un framework frontend (2-3 mois)</p>
               <p>React est le plus demandé en 2025. Vue.js ou Angular sont des alternatives valables. Apprends-en un seul à fond plutôt que trois en surface.</p>
             </div>
           </div>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>03</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Le backend et les bases de données (2-3 mois)</p>
               <p>Node.js (JavaScript) ou Python (Django/Flask). SQL pour les bases de données. Ce niveau te rend "fullstack" — le profil le plus recherché.</p>
             </div>
           </div>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>04</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Git et le déploiement (1 mois)</p>
               <p>GitHub, Vercel, Netlify, hébergement. Les recruteurs regardent ton GitHub. Un profil actif avec des projets réels vaut 10 lignes de CV.</p>
             </div>

@@ -18,6 +18,15 @@ export function InternalLinksSection({
 }: InternalLinksSectionProps) {
   if (!links.length) return null;
 
+  const gridClassName =
+    links.length === 1
+      ? 'mx-auto max-w-xl grid-cols-1'
+      : links.length === 2
+        ? 'mx-auto max-w-4xl grid-cols-1 md:grid-cols-2'
+        : links.length === 3
+          ? 'mx-auto max-w-6xl grid-cols-1 md:grid-cols-2 xl:grid-cols-3'
+          : 'grid-cols-1 md:grid-cols-2 xl:grid-cols-4';
+
   return (
     <section className={`px-6 py-14 sm:px-10 ${className}`}>
       <div className="mx-auto max-w-screen-xl">
@@ -35,7 +44,7 @@ export function InternalLinksSection({
           ) : null}
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className={`grid gap-4 ${gridClassName}`}>
           {links.map((link) => (
             <Link
               key={link.href}

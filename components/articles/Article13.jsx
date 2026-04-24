@@ -31,48 +31,48 @@ export const Article13 = () => {
       </div>
 
       <div className='font-sans sm:mx-20 my-10'>
-        <div className='space-y-10 sm:mx-10 mx-5'>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+        <div className='article-step-list sm:mx-10 mx-5'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>01</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Construire un projet professionnel clair</p>
               <p>Avant de contacter une entreprise, tu dois pouvoir répondre à "pourquoi tu te reconvertis dans ce secteur" en 30 secondes. Un projet flou = un refus immédiat. Si tu cherches encore ta direction, <Link href="/test" className='underline font-semibold'>commence par le test d'orientation Jobmi</Link>.</p>
             </div>
           </div>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>02</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Cibler les bonnes entreprises</p>
               <p>PME et startups &gt; grands groupes pour les stages en reconversion. Les grandes entreprises ont des processus rigides qui défavorisent les profils atypiques. Dans une startup, ta motivation et tes compétences transférables auront plus de poids.</p>
             </div>
           </div>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>03</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Personnaliser chaque candidature</p>
               <p>Une lettre de motivation générique = poubelle. Montre que tu connais l'entreprise, ses problèmes, et comment tes compétences actuelles (même d'un autre secteur) peuvent aider. Les compétences transférables sont un vrai atout.</p>
             </div>
           </div>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>04</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Utiliser le réseau avant les plateformes</p>
               <p>80 % des stages se trouvent par le réseau, pas sur les annonces. LinkedIn, événements sectoriels, anciens collègues, formateurs de ta formation — tous peuvent te mettre en relation avec la bonne personne.</p>
             </div>
           </div>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>05</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>La candidature spontanée ciblée</p>
               <p>Identifie 20 entreprises qui correspondent exactement à ton projet, contacte-les directement (email + LinkedIn). Un message personnalisé sur LinkedIn au responsable du département visé est souvent plus efficace qu'une candidature via un ATS.</p>
             </div>

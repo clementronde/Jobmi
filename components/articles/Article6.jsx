@@ -67,39 +67,39 @@ export const Article6 = () => {
         <p className='mb-8'>
           Voici les 4 chemins pour financer ou obtenir gratuitement un bilan de compétences :
         </p>
-        <div className='space-y-10 sm:mx-20 mx-5'>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+        <div className='article-step-list sm:mx-20 mx-5'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>01</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Via le CPF (Compte Personnel de Formation)</p>
               <p>Si tu as travaillé, tu as des droits. Un bilan de compétences coûte en moyenne 1 500 à 3 000 €, souvent intégralement couverts par le CPF. Vérifie ton solde sur <a className='underline' href="https://www.moncompteformation.gouv.fr" target="_blank" rel="noopener noreferrer">moncompteformation.gouv.fr</a>.</p>
             </div>
           </div>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>02</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Via ton employeur (plan de formation)</p>
               <p>Tu peux demander à ton employeur de financer le bilan sur le temps de travail (congé de bilan de compétences). Il ne peut pas le refuser si tu remplis les conditions d'ancienneté.</p>
             </div>
           </div>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>03</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Via France Travail (si tu es demandeur d'emploi)</p>
               <p>France Travail peut financer intégralement le bilan. Demande à ton conseiller de l'intégrer dans ton PPAE (Projet Personnalisé d'Accès à l'Emploi).</p>
             </div>
           </div>
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>04</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-2'>Via les missions locales (moins de 26 ans)</p>
               <p>Si tu as moins de 26 ans et que tu n'es pas en emploi, contacte la mission locale de ta ville. Des bilans simplifiés sont proposés gratuitement ou à tarif très réduit.</p>
             </div>

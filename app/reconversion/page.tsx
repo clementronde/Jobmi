@@ -32,42 +32,58 @@ const faqJsonLd = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: "Est-ce que je peux me reconvertir si je n'ai pas encore de diplôme ?",
+      name: "Je n’ai pas de diplôme, est-ce que je peux quand même me reconvertir à 20 ans ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Oui. Une reconversion à 20 ans ne passe pas forcément par un long diplôme. L'alternance, les CAP, certains BTS, les formations professionnalisantes et certains dispositifs publics permettent d'entrer dans une nouvelle voie sans avoir déjà un parcours “parfait”. L'important est surtout d'identifier une piste réaliste, de la tester sur le terrain et de choisir une formation adaptée à ton niveau de départ.",
+        text: "Oui, clairement. À 20 ans, beaucoup de reconversions passent par des formats accessibles comme l’alternance, les CAP, certains BTS, les titres professionnels ou les formations courtes. Le plus important n’est pas d’avoir déjà le “bon” diplôme, mais de choisir une piste réaliste, de vérifier qu’elle te correspond et de construire un plan crédible. Si tu veux changer de voie, avance étape par étape au lieu de chercher la solution parfaite d’un coup.",
       },
     },
     {
       '@type': 'Question',
-      name: "J'ai un CDD en cours, est-ce que je peux me reconvertir maintenant ?",
+      name: "Comment savoir si je suis vraiment prêt·e pour une reconversion ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Oui. Tu peux préparer ta reconversion avant même la fin de ton contrat : passer un test d'orientation, explorer les métiers, faire des immersions, identifier des formations et vérifier tes aides possibles. Beaucoup de reconversions se construisent progressivement, en parallèle de la situation actuelle. Le plus important est de ne pas attendre le dernier moment pour réfléchir à la suite.",
+        text: "Tu n’as pas besoin d’être sûr à 100 % pour commencer, mais tu dois être assez lucide pour poser un cadre. Si ta voie actuelle te vide, que tu n’arrives pas à te projeter et que certaines pistes reviennent souvent dans ta tête, c’est déjà un signal utile. Le bon réflexe est ensuite de clarifier ton profil, de parler avec des pros et de tester un métier avant de tout bouleverser. Être prêt, ce n’est pas ne plus douter ; c’est accepter d’avancer avec méthode.",
       },
     },
     {
       '@type': 'Question',
-      name: "Comment expliquer ma reconversion à un recruteur ?",
+      name: "Combien de temps prend une reconversion quand on a 18–25 ans ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Le plus convaincant est de montrer une démarche claire : ce qui ne te convenait plus, ce que tu as compris sur toi, ce que tu as fait pour valider ta nouvelle direction et ce que tu apportes déjà. Une reconversion bien expliquée montre de la maturité, de la lucidité et de la motivation. Si tu as testé le métier sur le terrain, ton discours devient tout de suite beaucoup plus crédible.",
+        text: "Ça dépend du métier visé, de ton point de départ et du format choisi. Pour certains secteurs, quelques mois peuvent suffire pour clarifier une piste, tester le terrain et entrer en formation courte ou en alternance. Pour d’autres, il faut un parcours plus long et plus structuré. Le vrai risque n’est pas de prendre quelques mois pour décider, mais de te précipiter dans une mauvaise direction qui te ferait perdre plusieurs années.",
       },
     },
     {
       '@type': 'Question',
-      name: "Est-ce qu'une reconversion à 20 ans peut me fermer des portes ?",
+      name: "Comment financer ma reconversion quand je suis jeune ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Dans la majorité des cas, non. À 20 ans, changer de voie est souvent perçu comme une décision logique quand elle est réfléchie. Ce qui peut freiner, ce n'est pas le changement lui-même, mais l'absence de projet clair. Une reconversion préparée, testée et cohérente peut au contraire montrer que tu apprends vite et que tu sais prendre de meilleures décisions pour ton avenir.",
+        text: "Tu peux regarder plusieurs pistes : le CPF si tu as déjà travaillé, l’alternance pour te former en étant rémunéré, les Missions Locales, certaines aides régionales, ou des organismes comme France Travail selon ta situation. Tout ne sera pas finançable, donc il faut comparer les formats avant de t’engager. Ne choisis pas une formation uniquement parce qu’elle est finançable ; vérifie d’abord qu’elle te rapproche vraiment du métier visé. Si besoin, fais-toi accompagner pour éviter de monter un projet fragile.",
       },
     },
     {
       '@type': 'Question',
-      name: "Comment savoir si ma nouvelle idée de métier est vraiment meilleure ?",
+      name: "Est-ce que je dois forcément reprendre des études longues pour me reconvertir ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "En la confrontant à la réalité. Lis, échange, regarde des vidéos, mais surtout teste le métier : atelier, stage d'observation, PMSMP, journée découverte, immersion en école. Si tu arrives à te projeter dans le quotidien, que tu acceptes les contraintes réelles du métier et que tu ressors avec plus d'énergie que de doute, c'est souvent un très bon signe. Une vraie immersion vaut bien plus que des recherches théoriques seules.",
+        text: "Non, pas du tout. Certaines reconversions demandent des études longues, mais beaucoup passent par des formations professionnalisantes, des titres reconnus, l’alternance ou une montée en compétences progressive. Ce qui compte, c’est l’écart entre ton point de départ et le métier visé. Avant de repartir pour plusieurs années, vérifie s’il existe un chemin plus court, plus concret et mieux adapté à ton profil.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Faut-il quitter mon job ou ma formation actuelle avant d’être sûr·e de ma nouvelle voie ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Dans la plupart des cas, non. Essaie d’abord de clarifier ton projet, de tester le métier et d’identifier les solutions de financement ou de formation avant de couper les ponts. Quitter trop tôt sans plan peut te mettre sous pression et te pousser vers une décision précipitée. Quand c’est possible, prépare ta reconversion en parallèle de ta situation actuelle, puis bascule seulement quand ton projet devient plus solide.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Comment expliquer ma reconversion à un recruteur ou à une école ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Le plus convaincant, c’est de montrer une démarche claire. Explique ce qui ne te convenait plus, ce que tu as compris sur toi, ce que tu as testé et pourquoi cette nouvelle direction est cohérente. Une reconversion bien racontée montre de la maturité, pas de l’instabilité. Si tu as déjà fait une immersion, un stage ou une journée découverte, ton discours devient tout de suite beaucoup plus crédible.",
       },
     },
   ],
@@ -375,7 +391,7 @@ export default function ReconversionPage() {
               </p>
 
               <p>
-                L’enjeu n’est pas d’avoir un parcours parfait. L’enjeu, c’est de prendre une meilleure décision maintenant plutôt que de rester bloqué plusieurs années dans une voie qui ne te correspond pas.
+                L’enjeu n’est pas d’avoir un parcours parfait. L’enjeu, c’est de prendre une meilleure décision maintenant plutôt que de rester bloqué plusieurs années dans une voie qui ne te correspond pas. En général, le bon point de départ est de <Link href="/test" className="font-semibold text-[#6500FF] underline underline-offset-4">passer un test d’orientation</Link> pour clarifier ce que tu veux vraiment avant de chercher une formation.
               </p>
             </div>
           </div>
@@ -455,7 +471,7 @@ export default function ReconversionPage() {
                 </p>
 
                 <p>
-                  Une bonne reconversion ne repose pas sur un fantasme. Elle repose sur une idée testée, réaliste, et compatible avec ta façon de vivre et de travailler.
+                  Une bonne reconversion ne repose pas sur un fantasme. Elle repose sur une idée testée, réaliste, et compatible avec ta façon de vivre et de travailler. Avant de t’engager dans une nouvelle voie, prends le temps de <Link href="/tester-un-metier" className="font-semibold text-[#6500FF] underline underline-offset-4">tester le métier en vrai</Link> pendant quelques jours si tu peux.
                 </p>
               </div>
             </div>
@@ -485,7 +501,7 @@ export default function ReconversionPage() {
 
             <div className="max-w-3xl space-y-4">
               <p className="font-sans text-gray-600 text-lg leading-relaxed">
-                Avant de t’inscrire dans une nouvelle formation, essaie de confronter ton idée à la réalité. Selon ta ville, tu peux trouver des ateliers, stages d’observation, PMSMP ou journées découvertes pour mieux comprendre un métier.
+                Avant de t’inscrire dans une nouvelle formation, essaie de confronter ton idée à la réalité. Selon ta ville, tu peux trouver des ateliers, stages d’observation, PMSMP ou journées découvertes pour mieux comprendre un métier. Tu peux aussi chercher un <Link href="/stage-et-formation" className="font-semibold text-[#6500FF] underline underline-offset-4">stage d’observation, une PMSMP ou une immersion</Link> pour vérifier que le quotidien te correspond vraiment.
               </p>
 
               <p className="font-sans text-gray-600 text-lg leading-relaxed">
@@ -533,6 +549,27 @@ export default function ReconversionPage() {
                 )}
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 max-w-3xl space-y-4 font-sans text-gray-600 text-lg leading-relaxed">
+            <p>
+              Tu n’as pas forcément besoin de repartir dans des études longues
+              pour changer de voie. Selon le métier visé, une alternance, un
+              titre professionnel, un CAP, un BTS ou une formation courte
+              peuvent suffire pour repartir sur quelque chose de plus concret.
+            </p>
+            <p>
+              Si tu cherches des pistes accessibles sans parcours académique
+              long, tu peux lire notre guide des{' '}
+              <Link
+                href="/blog/metiers-sans-diplome-qui-paient-bien"
+                className="font-semibold text-[#6500FF] underline underline-offset-4"
+              >
+                métiers sans diplôme qui paient bien en 2026
+              </Link>
+              . Ça peut t’aider à comparer des options réalistes avant de
+              financer une nouvelle étape.
+            </p>
           </div>
         </div>
       </section>
@@ -620,7 +657,7 @@ export default function ReconversionPage() {
         <div className="max-w-4xl mx-auto">
           <div className="max-w-3xl">
             <h2 className="fade-up font-sans font-bold text-3xl text-[#04192F] mb-10">
-              FAQ reconversion à 20 ans
+              Questions fréquentes sur la reconversion à 20 ans
             </h2>
 
             <div className="space-y-3">

@@ -14,6 +14,7 @@ import { Article10 } from '../../../components/articles/Article10';
 import { Article11 } from '../../../components/articles/Article11';
 import { Article12 } from '../../../components/articles/Article12';
 import { Article13 } from '../../../components/articles/Article13';
+import { Article14 } from '../../../components/articles/Article14';
 import { RelatedArticles } from '../../../components/RelatedArticles';
 import ArticleTOC from '../../../components/ArticleTOC';
 import { ArticleAuthorBox, ARTICLE_AUTHOR } from '../../../components/ArticleAuthorBox';
@@ -21,6 +22,51 @@ import { InternalLinksSection } from '../../../components/InternalLinksSection';
 import { getInternalLinksForArticle } from '../../../data/internalLinks';
 
 const BASE_URL = 'https://jobmi.fr';
+const articleSeoTitleOverrides: Record<string, string> = {
+  'pmsmp-18-25-tester-metier-immersion':
+    'PMSMP 18–25 ans : comment tester un métier en immersion avant de te reconvertir | Jobmi',
+};
+
+const articleFaqSchemaBySlug: Record<string, { '@context': string; '@type': string; mainEntity: Array<{ '@type': string; name: string; acceptedAnswer: { '@type': string; text: string } }> }> = {
+  'pmsmp-18-25-tester-metier-immersion': {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: "Quelle est la durée d’une PMSMP quand on a 18–25 ans ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "La durée dépend du projet, de la structure d’accueil et de l’organisme qui prescrit l’immersion. L’idée est de prévoir un format assez clair pour observer le métier dans de bonnes conditions, pas de rester longtemps sans objectif précis.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Est-ce qu’on est payé pendant une PMSMP ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "La PMSMP n’est pas un contrat de travail classique. En général, tu n’es donc pas rémunéré comme un salarié, mais selon ta situation tu peux conserver certaines aides ou allocations déjà en place. Il faut toujours vérifier ce point avec la Mission Locale, France Travail ou l’organisme qui t’accompagne.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Comment demander une PMSMP quand on est suivi par une Mission Locale ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Le plus simple est d’arriver avec une idée de métier ou au moins une famille de métiers à tester. Ton conseiller peut ensuite t’aider à voir si la PMSMP est adaptée, à cadrer l’objectif de l’immersion et à préparer la convention avec la structure d’accueil.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Quelle différence entre une PMSMP et un stage d’observation ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Les deux servent à découvrir un métier, mais ils ne relèvent pas du même cadre. La PMSMP est un dispositif officiel lié à l’insertion et à l’orientation professionnelle, alors que le stage d’observation dépend plus souvent d’un établissement scolaire ou de formation.",
+        },
+      },
+    ],
+  },
+};
 
 export const dynamicParams = false;
 
@@ -41,14 +87,15 @@ export async function generateMetadata(
   try {
     const article = await getArticleBySlug(slug);
     const url = `${BASE_URL}/blog/${slug}`;
+    const seoTitle = articleSeoTitleOverrides[slug] || article.title;
     return {
-      title: article.title,
+      title: seoTitle,
       description: article.metaDescription,
       alternates: { canonical: url },
       openGraph: {
         type: 'article',
         url,
-        title: article.title,
+        title: seoTitle,
         description: article.metaDescription,
         publishedTime: article.datePublished,
         modifiedTime: article.updatedAt,
@@ -63,7 +110,7 @@ export async function generateMetadata(
       },
       twitter: {
         card: 'summary_large_image',
-        title: article.title,
+        title: seoTitle,
         description: article.metaDescription,
         images: [article.imageCover],
       },
@@ -78,6 +125,7 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
   const data = await getArticleBySlug(slug);
   const related = await getRelatedArticles(data._id, data.category);
   const internalLinks = getInternalLinksForArticle(data);
+  const faqJsonLd = articleFaqSchemaBySlug[slug];
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -124,6 +172,12 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      ) : null}
 
       <header className="mx-auto max-w-[980px] pb-8 pt-12 text-center font-sans">
         <Link
@@ -183,6 +237,7 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
           {slug === "devenir-developpeur-web-sans-diplome" && <Article11 />}
           {slug === "utiliser-cpf-compte-personnel-formation" && <Article12 />}
           {slug === "trouver-stage-reconversion-methode" && <Article13 />}
+          {slug === "pmsmp-18-25-tester-metier-immersion" && <Article14 />}
         </article>
       </div>
 

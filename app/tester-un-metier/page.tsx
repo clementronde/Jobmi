@@ -140,15 +140,6 @@ const temoignages = [
   },
 ];
 
-const villes = [
-  { slug: 'paris', label: 'Paris' },
-  { slug: 'lyon', label: 'Lyon' },
-  { slug: 'marseille', label: 'Marseille' },
-  { slug: 'nantes', label: 'Nantes' },
-  { slug: 'toulouse', label: 'Toulouse' },
-  { slug: 'bordeaux', label: 'Bordeaux' },
-];
-
 const heroStats = [
   {
     n: '29 %',
@@ -736,29 +727,217 @@ export default function TesterUnMetierPage() {
         </div>
       </section>
 
-      {/* ── VILLES ── */}
+      {/* ── GEO ── */}
       <section className="fade-up py-16 px-6 sm:px-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-[#F8F7FF] border border-[#E9E1FF] rounded-3xl p-8 sm:p-10">
+        <div className="max-w-5xl mx-auto">
+          <div className="rounded-3xl border border-[#E9E1FF] bg-[#F8F7FF] p-8 sm:p-10">
             <h2 className="font-sans font-bold text-3xl sm:text-4xl text-[#04192F] mb-5">
-              Expériences disponibles près de chez toi
+              Tester un métier près de chez toi
             </h2>
 
-            <p className="font-sans text-gray-500 text-lg leading-relaxed mb-8 max-w-2xl">
-              Tu veux tester un métier près de chez toi ? Découvre les ateliers,
-              stages d’observation, PMSMP et journées découvertes dans ta ville.
+            <p className="max-w-4xl font-sans text-gray-600 text-lg leading-relaxed">
+              Ateliers découverte, stages d’observation, PMSMP, journées école
+              ou visites d’entreprise : ces formats existent un peu partout en
+              France. Ce qui change selon l’endroit où tu vis, ce sont surtout
+              les relais à activer, le type de structures présentes autour de
+              toi et la manière de chercher une expérience utile.
             </p>
 
-            <div className="flex flex-wrap gap-3">
-              {villes.map((v) => (
-                <Link
-                  key={v.slug}
-                  href={`/metiers/${v.slug}`}
-                  className="btn-lift font-sans px-5 py-2.5 border-2 border-[#04192F] text-[#04192F] rounded-full font-semibold hover:bg-[#04192F] hover:text-white transition duration-200 text-sm"
-                >
-                  {v.label}
-                </Link>
-              ))}
+            <div className="mt-10 space-y-10">
+              <section>
+                <h3 className="font-sans text-2xl font-bold text-[#04192F]">
+                  Comment trouver des expériences près de chez toi ?
+                </h3>
+
+                <div className="mt-6 space-y-4">
+                  <div className="rounded-2xl bg-white p-6 shadow-sm">
+                    <h4 className="font-sans text-lg font-bold text-[#04192F]">
+                      1. Clarifie le métier à tester et ta situation
+                    </h4>
+                    <p className="mt-3 font-sans text-base leading-relaxed text-gray-600">
+                      Commence par définir une famille de métiers réaliste :
+                      santé, digital, artisanat, commerce, industrie, social…
+                      Puis précise ton point de départ : lycéen, étudiant,
+                      demandeur d’emploi, jeune diplômé ou en réorientation.
+                      Les bons formats ne sont pas toujours les mêmes selon ton
+                      statut.
+                    </p>
+                    <p className="mt-3 font-sans text-base leading-relaxed text-gray-600">
+                      Si tu hésites encore entre plusieurs pistes, commence par{' '}
+                      <Link
+                        href="/test"
+                        className="font-semibold text-[#6500FF] underline underline-offset-4"
+                      >
+                        le test Jobmi
+                      </Link>{' '}
+                      pour arriver avec des idées plus claires.
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl bg-white p-6 shadow-sm">
+                    <h4 className="font-sans text-lg font-bold text-[#04192F]">
+                      2. Active les bons relais
+                    </h4>
+                    <ul className="mt-4 space-y-3 font-sans text-base leading-relaxed text-gray-600">
+                      <li>
+                        <span className="font-bold text-[#04192F]">
+                          Missions Locales
+                        </span>{' '}
+                        : si tu as entre 16 et 25 ans, c’est souvent le relais
+                        le plus utile pour cadrer ton projet et repérer des
+                        opportunités locales. Tu peux commencer sur{' '}
+                        <a
+                          href="https://www.missionslocales.org"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-[#6500FF] underline underline-offset-4"
+                        >
+                          missionslocales.org
+                        </a>
+                        .
+                      </li>
+                      <li>
+                        <span className="font-bold text-[#04192F]">
+                          France Travail
+                        </span>{' '}
+                        : si tu es demandeur d’emploi, regarde la page officielle
+                        sur{' '}
+                        <a
+                          href="https://www.francetravail.fr/candidat/votre-projet-professionnel/definir-votre-projet-professionn/realiser-une-immersion-professionnelle-en-entreprise.html"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-[#6500FF] underline underline-offset-4"
+                        >
+                          l’immersion professionnelle / PMSMP
+                        </a>
+                        .
+                      </li>
+                      <li>
+                        <span className="font-bold text-[#04192F]">
+                          Ton établissement
+                        </span>{' '}
+                        : lycée, fac, école ou centre de formation peuvent aussi
+                        proposer ou relayer des stages d’observation, journées
+                        découverte et contacts entreprises.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="rounded-2xl bg-white p-6 shadow-sm">
+                    <h4 className="font-sans text-lg font-bold text-[#04192F]">
+                      3. Cherche aussi par toi-même
+                    </h4>
+                    <p className="mt-3 font-sans text-base leading-relaxed text-gray-600">
+                      Tu peux contacter directement des entreprises, artisans,
+                      associations, écoles ou structures locales qui t’attirent.
+                      Un message simple, honnête et ciblé vaut souvent mieux
+                      qu’une recherche trop large.
+                    </p>
+                    <p className="mt-3 font-sans text-base leading-relaxed text-gray-600">
+                      Avant ça, tu peux aussi jeter un œil à{' '}
+                      <Link
+                        href="/stage-et-formation"
+                        className="font-semibold text-[#6500FF] underline underline-offset-4"
+                      >
+                        notre page sur les formats d’immersion et les pistes de
+                        formation
+                      </Link>{' '}
+                      pour savoir ce que tu cherches exactement.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <h3 className="font-sans text-2xl font-bold text-[#04192F]">
+                  Quelques exemples selon où tu habites
+                </h3>
+
+                <div className="mt-6 grid gap-4 md:grid-cols-3">
+                  <div className="rounded-2xl bg-white p-6 shadow-sm">
+                    <h4 className="font-sans text-lg font-bold text-[#04192F]">
+                      Si tu es à Paris ou en région parisienne
+                    </h4>
+                    <p className="mt-3 font-sans text-sm leading-relaxed text-gray-600">
+                      Tu trouveras souvent plus d’options en digital, santé,
+                      commerce, communication ou événementiel. Le vrai enjeu est
+                      surtout de sélectionner des structures qui correspondent à
+                      ton idée de métier, pas juste de multiplier les pistes.
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl bg-white p-6 shadow-sm">
+                    <h4 className="font-sans text-lg font-bold text-[#04192F]">
+                      Si tu es dans une grande métropole
+                    </h4>
+                    <p className="mt-3 font-sans text-sm leading-relaxed text-gray-600">
+                      Dans des villes comme Lyon, Lille ou Bordeaux, tu peux
+                      souvent croiser ateliers métiers, CFA, salons,
+                      entreprises, écoles et structures d’insertion. C’est
+                      pratique pour tester aussi des voies plus concrètes comme
+                      l’artisanat, l’industrie ou la logistique.
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl bg-white p-6 shadow-sm">
+                    <h4 className="font-sans text-lg font-bold text-[#04192F]">
+                      Si tu es dans une ville moyenne ou en zone rurale
+                    </h4>
+                    <p className="mt-3 font-sans text-sm leading-relaxed text-gray-600">
+                      Il y a parfois moins de formats “prêts à l’emploi”, mais
+                      souvent plus d’accès direct à des PME, artisans,
+                      agriculteurs, commerces, associations ou structures de
+                      soin. Dans ces cas-là, le réseau local et les relais
+                      publics font vraiment la différence.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <h3 className="font-sans text-2xl font-bold text-[#04192F]">
+                  Et Jobmi dans tout ça ?
+                </h3>
+
+                <div className="mt-6 rounded-2xl bg-white p-6 shadow-sm">
+                  <p className="font-sans text-base leading-relaxed text-gray-600">
+                    Jobmi t’aide à clarifier ton profil, à repérer des familles
+                    de métiers cohérentes et à comprendre quels formats
+                    d’expérience peuvent être utiles pour toi. Quand des
+                    ateliers, immersions ou pistes concrètes existent, on t’aide
+                    aussi à les identifier plus vite.
+                  </p>
+                  <p className="mt-3 font-sans text-base leading-relaxed text-gray-600">
+                    L’objectif n’est pas de remplacer la Mission Locale, France
+                    Travail ou une école, mais de t’aider à arriver mieux
+                    préparé, avec une demande plus claire et un projet déjà un
+                    peu cadré.
+                  </p>
+
+                  <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                    <Link
+                      href="/test"
+                      className="btn-lift inline-flex items-center justify-center rounded-xl bg-[#04192F] px-5 py-3 font-sans font-bold text-white transition hover:bg-black"
+                    >
+                      Commencer par le test
+                    </Link>
+                    <Link
+                      href="/stage-et-formation"
+                      className="btn-lift inline-flex items-center justify-center rounded-xl border border-[#04192F] px-5 py-3 font-sans font-bold text-[#04192F] transition hover:bg-[#04192F] hover:text-white"
+                    >
+                      Voir les formats d’immersion
+                    </Link>
+                    <a
+                      href="https://www.paysdelaloire.fr/jeunesse-et-orientation/mon-orientation/jexperimente/je-trouve-un-stage-je-decouvre-le-monde-de-lentreprise-et-ses-metiers"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-lift inline-flex items-center justify-center rounded-xl border border-[#E9E1FF] bg-[#F8F7FF] px-5 py-3 font-sans font-semibold text-[#6500FF] transition hover:border-[#6500FF]/40"
+                    >
+                      Voir un exemple de ressource régionale
+                    </a>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         </div>

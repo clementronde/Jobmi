@@ -113,13 +113,13 @@ export const Article1 = () => {
             Après avoir identifié tes compétences et tes intérêts, il est temps de chercher des métiers qui correspondent à ton profil. Pour cela, plusieurs méthodes peuvent être utilisées :
         </p>
         </div>
-        <div className='space-y-10 sm:mx-20 mx-5'>
+        <div className='article-step-list sm:mx-20 mx-5'>
           {/* Method 1 */}
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>01</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold mb-4'>
                 Tests de carrière en ligne : <span className='font-normal'>Utilisez des plateformes comme Jobmi pour passer des tests qui vous orientent vers des métiers adaptés à vos compétences et intérêts.</span>
               </p>
@@ -129,22 +129,22 @@ export const Article1 = () => {
             <img className='w-full mx-auto lg:max-w-[600px]' src="/media/img-article-interface-test.svg" alt="Interface de test de carrière sur jobmi + lien follow" />
           </div>
           {/* <!-- Method 2 --> */}
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>02</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold'>
                 Recherche en ligne : <span className='font-normal'>Utilise des sites de recherche d'emploi, des forums et des blogs pour découvrir des métiers intéressants.</span>
               </p>
             </div>
           </div>
           {/* <!-- Method 3 --> */}
-          <div className='flex flex-col lg:flex-row items-start'>
-            <div className='lg:w-4/12'>
+          <div className='article-step-item'>
+            <div className='article-step-index'>
               <p className='text-5xl font-thin text-gray-400'>03</p>
             </div>
-            <div className='lg:w-8/12'>
+            <div className='article-step-body'>
               <p className='font-bold'>
                 Formations professionnelles : <span className='font-normal'>Cherchez des formations financées par France Travail ou des organismes de formation continue.</span>
               </p>

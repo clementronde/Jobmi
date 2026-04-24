@@ -65,9 +65,9 @@ export const internalLinkGroups = {
       label: 'Page pilier',
     },
     {
-      href: blogPath('comment-commencer-ta-reconversion-professionnelle'),
-      title: 'Comment commencer ta reconversion professionnelle',
-      description: 'Le point de départ pour structurer ton projet et passer à l’action.',
+      href: blogPath('pmsmp-18-25-tester-metier-immersion'),
+      title: 'PMSMP 18–25 ans : tester un métier en immersion',
+      description: 'Le guide concret pour comprendre, demander et utiliser une PMSMP.',
       label: 'Guide',
     },
     {
@@ -103,10 +103,10 @@ export const internalLinkGroups = {
       label: 'Financement',
     },
     {
-      href: blogPath('utiliser-cpf-compte-personnel-formation'),
-      title: 'Utiliser son CPF intelligemment',
-      description: 'Les étapes et les pièges à éviter avant de choisir une formation.',
-      label: 'Financement',
+      href: blogPath('pmsmp-18-25-tester-metier-immersion'),
+      title: 'PMSMP 18–25 ans : tester un métier en immersion',
+      description: 'Un dispositif utile pour valider une piste avant de financer une formation.',
+      label: 'Terrain',
     },
   ],
   metiers: [
@@ -129,10 +129,10 @@ export const internalLinkGroups = {
       label: 'Métiers',
     },
     {
-      href: blogPath('devenir-developpeur-web-sans-diplome'),
-      title: 'Devenir développeur web sans diplôme',
-      description: 'Roadmap, formations possibles et erreurs à éviter.',
-      label: 'Métier tech',
+      href: blogPath('pmsmp-18-25-tester-metier-immersion'),
+      title: 'PMSMP 18–25 ans : tester un métier en immersion',
+      description: 'Pour comprendre comment observer un métier en conditions réelles.',
+      label: 'Terrain',
     },
   ],
 };
@@ -171,5 +171,5 @@ export const getInternalLinksForArticle = (article: Article): InternalLinkItem[]
   return uniqueLinks(
     groups.flatMap((group) => internalLinkGroups[group]),
     blogPath(article.slug)
-  ).slice(0, 5);
+  ).slice(0, 3);
 };
