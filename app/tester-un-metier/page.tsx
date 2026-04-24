@@ -864,6 +864,12 @@ export default function TesterUnMetierPage() {
                       surtout de sélectionner des structures qui correspondent à
                       ton idée de métier, pas juste de multiplier les pistes.
                     </p>
+                    <Link
+                      href="/tester-metiers-paris"
+                      className="mt-4 inline-block font-sans text-sm font-bold text-[#6500FF] underline underline-offset-4"
+                    >
+                      Voir le guide pour tester des métiers à Paris
+                    </Link>
                   </div>
 
                   <div className="rounded-2xl bg-white p-6 shadow-sm">

@@ -61,6 +61,7 @@ export const Footer = () => {
               {[
                 { href: '/blog', label: 'Blog' },
                 { href: '/tester-un-metier', label: 'Tester un métier' },
+                { href: '/tester-metiers-paris', label: 'Tester des métiers à Paris' },
                 { href: '/reconversion', label: 'Reconversion' },
                 { href: '/stage-et-formation', label: 'Stages & formations' },
                 { href: '/orientation/test-orientation-jeunes', label: 'Test d\'orientation' },
