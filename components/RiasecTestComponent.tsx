@@ -2,17 +2,24 @@
 
 import React, { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
-import { useSession, signIn } from 'next-auth/react';
-import { FcGoogle } from 'react-icons/fc';
-import { FaApple } from 'react-icons/fa';
-import { RIASEC_QUESTIONS, JOB_FAMILIES, JOBS, DIMENSION_LABELS } from '@/data/riasecData';
+import { useSession } from 'next-auth/react';
+import { RIASEC_QUESTIONS, JOBS, DIMENSION_LABELS } from '@/data/riasecData';
 import { computeTestResult } from '@/services/riasecService';
-import type { RiasecAnswer, TestResult, JobFamily, Job, RiasecDimension, RiasecScores } from '@/types/riasec';
+import { InfoCallout } from '@/components/ui/InfoCallout';
+import { RiasecRadarChart } from '@/components/ui/RiasecRadarChart';
+import type {
+  RiasecAnswer,
+  TestResult,
+  JobFamily,
+  Job,
+  RiasecDimension,
+  ScoredJob,
+} from '@/types/riasec';
 
-const QUESTIONS_PER_PAGE = 8;
+const QUESTIONS_PER_PAGE = 6;
 const TOTAL_PAGES = Math.ceil(RIASEC_QUESTIONS.length / QUESTIONS_PER_PAGE);
 
-type Step = 'intro' | 'questions' | 'email' | 'results' | 'resume';
+type Step = 'intro' | 'questions' | 'results' | 'resume';
 
 const LIKERT_LABELS = ['Pas du tout moi', 'Plutôt non', 'Neutre', 'Plutôt oui', 'Tout à fait moi'];
 
@@ -31,7 +38,7 @@ function TestIntro({ onStart }: { onStart: (name: string) => void }) {
           Trouve les métiers qui te ressemblent vraiment
         </h1>
         <p className="text-gray-500 text-base sm:text-lg max-w-xl mb-2">
-          48 questions · 10 à 15 minutes · Aucune bonne ou mauvaise réponse.
+          30 questions concrètes · 6 à 8 minutes · Aucune bonne ou mauvaise réponse.
           Réponds selon ce que tu ressens, pas ce que tu crois qu'il faut répondre.
         </p>
         <p className="text-gray-400 text-sm mb-10 max-w-xl">
@@ -58,8 +65,8 @@ function TestIntro({ onStart }: { onStart: (name: string) => void }) {
       </div>
 
       <div className="px-6 sm:px-16 lg:px-20 py-4 flex flex-wrap gap-x-8 gap-y-1 text-sm text-gray-400 border-b border-gray-100">
-        <span>10–15 minutes</span>
-        <span>48 questions</span>
+        <span>6–8 minutes</span>
+        <span>30 questions</span>
         <span>Résultats instantanés</span>
         <span>Sans inscription</span>
       </div>
@@ -343,6 +350,55 @@ function JobRow({ job }: { job: Job }) {
   );
 }
 
+function RankedJobRow({ job, rank }: { job: ScoredJob; rank: number }) {
+  return (
+    <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+        <div className="flex min-w-0 flex-1 gap-3">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#6500FF]/10 text-sm font-bold text-[#6500FF]">
+            {String(rank).padStart(2, '0')}
+          </div>
+          <div className="min-w-0">
+            <div className="mb-1 flex flex-wrap items-center gap-2">
+              <h3 className="text-base font-semibold text-gray-800">{job.name}</h3>
+              <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-700">
+                Match {job.matchScore}%
+              </span>
+              <span className="text-xs text-gray-400">{job.formationLevel}</span>
+            </div>
+            <p className="mb-2 text-sm text-gray-600">{job.description}</p>
+            <div className="flex flex-wrap gap-1.5">
+              {job.riasecTags.map(tag => (
+                <span
+                  key={tag}
+                  className="rounded px-2 py-0.5 text-xs font-bold text-white"
+                  style={{ backgroundColor: DIMENSION_LABELS[tag].color, opacity: 0.85 }}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="flex shrink-0 flex-wrap gap-2 sm:flex-col">
+          <Link
+            href={job.links.experience}
+            className="rounded-lg bg-[#6500FF] px-3 py-2 text-center text-xs font-semibold text-white transition-colors hover:bg-purple-800"
+          >
+            Tester ce métier
+          </Link>
+          <Link
+            href={job.links.formation}
+            className="rounded-lg bg-[#04192F] px-3 py-2 text-center text-xs font-semibold text-white transition-opacity hover:opacity-85"
+          >
+            Voir les parcours
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Results ───────────────────────────────────────────────────────────────────
 
 function TestResults({
@@ -354,7 +410,9 @@ function TestResults({
   userName: string;
   onRestart: () => void;
 }) {
-  const { profile, topFamilies } = result;
+  const { profile, topFamilies, suggestedJobs, allJobs } = result;
+  const [showAllJobs, setShowAllJobs] = useState(false);
+  const jobsToDisplay = showAllJobs ? allJobs : suggestedJobs;
 
   return (
     <div className="max-w-2xl mx-auto px-5 py-8">
@@ -375,21 +433,59 @@ function TestResults({
       </div>
 
       {/* Disclaimer */}
-      <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-8 text-sm text-amber-800">
-        <p className="font-semibold mb-1">À garder en tête</p>
+      <InfoCallout title="À garder en tête" className="mb-8">
         <p>
           Ces résultats sont des <strong>suggestions à explorer</strong>, pas des ordres. L'étape
           la plus précieuse est de <strong>tester ces métiers en vrai</strong> — via un atelier,
           une immersion ou un stage — avant d'investir du temps et de l'argent dans une formation.
         </p>
-      </div>
+      </InfoCallout>
 
       {/* RIASEC Profile */}
       <section className="mb-10">
         <h2 className="text-xl font-bold text-[#04192F] mb-5">Ton profil RIASEC</h2>
-        {profile.sortedDimensions.map((dim, i) => (
-          <DimensionBar key={dim} dim={dim} score={profile.normalizedScores[dim]} rank={i + 1} />
-        ))}
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:items-start">
+          <RiasecRadarChart scores={profile.normalizedScores} />
+          <div className="rounded-[1.5rem] border border-[#E9E1FF] bg-white p-5 shadow-[0_18px_45px_rgba(4,25,47,0.06)]">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
+              Lecture détaillée
+            </p>
+            {profile.sortedDimensions.map((dim, i) => (
+              <DimensionBar
+                key={dim}
+                dim={dim}
+                score={profile.normalizedScores[dim]}
+                rank={i + 1}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mb-10">
+        <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 className="text-xl font-bold text-[#04192F]">Métiers à explorer en priorité</h2>
+            <p className="mt-1 text-sm text-gray-500">
+              On te montre d'abord les pistes les plus probables, puis tu peux ouvrir la liste
+              complète si tu veux élargir.
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => setShowAllJobs(value => !value)}
+            className="rounded-xl border border-[#6500FF]/20 bg-[#6500FF]/5 px-4 py-2 text-sm font-semibold text-[#6500FF] transition-colors hover:bg-[#6500FF]/10"
+          >
+            {showAllJobs
+              ? 'Afficher seulement les meilleures pistes'
+              : `Voir la liste complète (${allJobs.length} métiers)`}
+          </button>
+        </div>
+        <div className="space-y-3">
+          {jobsToDisplay.map((job, index) => (
+            <RankedJobRow key={job.id} job={job} rank={index + 1} />
+          ))}
+        </div>
       </section>
 
       {/* Top families */}
@@ -441,127 +537,6 @@ function TestResults({
   );
 }
 
-// ── Email gate ────────────────────────────────────────────────────────────────
-
-function EmailGate({
-  dominantCode,
-  scores,
-  answers,
-  userName,
-  onSubmit,
-  onOAuthSignIn,
-}: {
-  dominantCode: string;
-  scores: RiasecScores;
-  answers: RiasecAnswer[];
-  userName: string;
-  onSubmit: (email: string) => void;
-  onOAuthSignIn: (provider: string) => void;
-}) {
-  const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [oauthLoading, setOauthLoading] = useState<string | null>(null);
-  const [error, setError] = useState('');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.includes('@') || !email.includes('.')) {
-      setError('Entre une adresse email valide');
-      return;
-    }
-    setLoading(true);
-    setError('');
-    try {
-      await fetch('/api/test-riasec/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, name: userName, dominantCode, scores, answers }),
-      });
-    } catch {
-      // Non-bloquant
-    }
-    setLoading(false);
-    onSubmit(email);
-  };
-
-  const handleOAuth = (provider: string) => {
-    setOauthLoading(provider);
-    onOAuthSignIn(provider);
-  };
-
-  return (
-    <div className="font-sans">
-      <div className="bg-[#F3F3F3] px-6 sm:px-16 lg:px-20 pt-14 pb-16">
-        <p className="text-[#6500FF] font-semibold text-xs uppercase tracking-widest mb-5">
-          Presque là !
-        </p>
-        <h1 className="font-oddlini uppercase text-4xl sm:text-5xl font-bold leading-tight text-[#04192F] mb-3 max-w-2xl">
-          {userName ? `${userName}, ton` : 'Ton'} code dominant est
-        </h1>
-        <p className="font-oddlini text-7xl sm:text-8xl font-bold text-[#6500FF] mb-6 tracking-widest">
-          {dominantCode}
-        </p>
-        <p className="text-gray-500 text-base sm:text-lg max-w-lg mb-8">
-          Connecte-toi ou entre ton email pour accéder au détail de ton profil et aux métiers qui
-          te correspondent.
-        </p>
-
-        {/* OAuth */}
-        <div className="flex flex-col sm:flex-row gap-3 max-w-sm mb-5">
-          <button
-            type="button"
-            onClick={() => handleOAuth('google')}
-            disabled={oauthLoading !== null || loading}
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white border border-gray-200 rounded-xl font-semibold text-gray-700 hover:bg-gray-50 transition-colors disabled:opacity-50"
-          >
-            <FcGoogle className="text-xl shrink-0" />
-            {oauthLoading === 'google' ? 'Chargement…' : 'Google'}
-          </button>
-          <button
-            type="button"
-            onClick={() => handleOAuth('apple')}
-            disabled={oauthLoading !== null || loading}
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-[#04192F] rounded-xl font-semibold text-white hover:opacity-90 transition-opacity disabled:opacity-50"
-          >
-            <FaApple className="text-xl shrink-0" />
-            {oauthLoading === 'apple' ? 'Chargement…' : 'Apple'}
-          </button>
-        </div>
-
-        {/* Divider */}
-        <div className="flex items-center gap-4 max-w-sm mb-5">
-          <div className="flex-1 h-px bg-gray-300" />
-          <span className="text-sm text-gray-400">ou</span>
-          <div className="flex-1 h-px bg-gray-300" />
-        </div>
-
-        {/* Email */}
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-sm">
-          <input
-            type="email"
-            value={email}
-            onChange={e => { setEmail(e.target.value); setError(''); }}
-            placeholder="ton@email.com"
-            required
-            className="flex-1 px-4 py-3 border border-gray-200 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-[#6500FF] focus:border-transparent"
-          />
-          <button
-            type="submit"
-            disabled={loading || oauthLoading !== null}
-            className="rounded-xl px-5 py-3 flex items-center justify-center gap-2 bg-[#04192F] text-white font-semibold whitespace-nowrap hover:opacity-90 transition-opacity disabled:opacity-50"
-          >
-            {loading ? 'Chargement…' : (
-              <>Voir mes résultats <img src="/media/cta-blog-arrow.svg" alt="" className="w-5" /></>
-            )}
-          </button>
-        </form>
-        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-        <p className="text-xs text-gray-400 mt-4">Pas de spam · Désinscription à tout moment</p>
-      </div>
-    </div>
-  );
-}
-
 // ── Resume (fallback : connecté mais pas de réponses en attente) ──────────────
 
 function ResumeScreen({
@@ -605,19 +580,15 @@ export default function RiasecTestComponent() {
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [result, setResult] = useState<TestResult | null>(null);
 
-  // Detect return from OAuth redirect — restore quiz answers from localStorage
-  // localStorage is used only for temporary quiz state across the OAuth redirect,
-  // NOT for session management (that's handled by next-auth).
   useEffect(() => {
     if (status !== 'authenticated' || step !== 'intro') return;
 
     const raw = localStorage.getItem('jobmi_riasec_answers');
 
     if (raw) {
-      // Pending answers found → compute result, clean up immediately, show results
       try {
         const saved: Record<string, number> = JSON.parse(raw);
-        localStorage.removeItem('jobmi_riasec_answers'); // always clean up first
+        localStorage.removeItem('jobmi_riasec_answers');
         const answerArray: RiasecAnswer[] = Object.entries(saved).map(
           ([questionId, score]) => ({ questionId, score })
         );
@@ -629,13 +600,10 @@ export default function RiasecTestComponent() {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       } catch {
-        localStorage.removeItem('jobmi_riasec_answers'); // corrupted data — discard
+        localStorage.removeItem('jobmi_riasec_answers');
       }
-    } else {
-      // User is authenticated but no pending quiz — show resume prompt
-      setStep('resume');
     }
-  }, [status]);
+  }, [status, step, session?.user?.name]);
 
   const handleStart = useCallback((name: string) => {
     setUserName(name.trim());
@@ -670,24 +638,11 @@ export default function RiasecTestComponent() {
             answers: answerArray,
           }),
         }).catch(() => {});
-        setStep('results');
-      } else {
-        setStep('email');
       }
+      setStep('results');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [currentPage, answers, status, session, userName]);
-
-  const handleEmailSubmit = useCallback(() => {
-    setStep('results');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
-  // Save answers to localStorage then redirect to OAuth provider
-  const handleOAuthSignIn = useCallback((provider: string) => {
-    localStorage.setItem('jobmi_riasec_answers', JSON.stringify(answers));
-    signIn(provider, { callbackUrl: '/test' });
-  }, [answers]);
 
   const handleBack = useCallback(() => {
     if (currentPage > 0) {
@@ -714,16 +669,6 @@ export default function RiasecTestComponent() {
           onAnswer={handleAnswer}
           onNext={handleNext}
           onBack={handleBack}
-        />
-      )}
-      {step === 'email' && result && (
-        <EmailGate
-          dominantCode={result.profile.dominantCode}
-          scores={result.profile.normalizedScores}
-          answers={Object.entries(answers).map(([questionId, score]) => ({ questionId, score }))}
-          userName={userName}
-          onSubmit={handleEmailSubmit}
-          onOAuthSignIn={handleOAuthSignIn}
         />
       )}
       {step === 'resume' && (

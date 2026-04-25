@@ -6,13 +6,12 @@ import type {
   RiasecScores,
   JobFamily,
   Job,
+  ScoredJob,
   TestResult,
 } from '@/types/riasec';
 import { JOB_FAMILIES, JOBS } from '@/data/riasecData';
 
 const DIMENSIONS: RiasecDimension[] = ['R', 'I', 'A', 'S', 'E', 'C'];
-const QUESTIONS_PER_DIM = 8;
-const MAX_SCORE_PER_DIM = QUESTIONS_PER_DIM * 5; // 40
 
 // Pure function: aggregate answers into a RIASEC profile
 export function scoreAnswers(
@@ -20,6 +19,13 @@ export function scoreAnswers(
   questions: RiasecQuestion[]
 ): RiasecProfile {
   const rawScores: RiasecScores = { R: 0, I: 0, A: 0, S: 0, E: 0, C: 0 };
+  const questionsPerDimension = DIMENSIONS.reduce(
+    (acc, dim) => ({
+      ...acc,
+      [dim]: questions.filter(question => question.dimension === dim).length,
+    }),
+    {} as Record<RiasecDimension, number>
+  );
 
   for (const answer of answers) {
     const question = questions.find(q => q.id === answer.questionId);
@@ -30,7 +36,10 @@ export function scoreAnswers(
 
   const normalizedScores = {} as RiasecScores;
   for (const dim of DIMENSIONS) {
-    normalizedScores[dim] = Math.round((rawScores[dim] / MAX_SCORE_PER_DIM) * 100);
+    const maxScoreForDimension = questionsPerDimension[dim] * 5;
+    normalizedScores[dim] = maxScoreForDimension
+      ? Math.round((rawScores[dim] / maxScoreForDimension) * 100)
+      : 0;
   }
 
   const sortedDimensions = (DIMENSIONS.slice() as RiasecDimension[]).sort(
@@ -66,10 +75,45 @@ export function getFamilies(
     .map(({ family }) => family);
 }
 
-// Pure function: collect jobs belonging to the given families
-export function getJobs(topFamilies: JobFamily[], allJobs: Job[] = JOBS): Job[] {
-  const familyIds = new Set(topFamilies.map(f => f.id));
-  return allJobs.filter(job => familyIds.has(job.familyId));
+// Rank all jobs by proximity to the full profile, with a bonus for the family fit.
+export function getRankedJobs(
+  profile: RiasecProfile,
+  allJobs: Job[] = JOBS,
+  families: JobFamily[] = JOB_FAMILIES
+): ScoredJob[] {
+  const familyMap = new Map(families.map((family) => [family.id, family]));
+  const familyWeights = [1, 0.8, 0.6];
+
+  return allJobs
+    .map((job) => {
+      const family = familyMap.get(job.familyId);
+      const jobTagScore =
+        job.riasecTags.reduce((sum, tag) => sum + profile.normalizedScores[tag], 0) /
+        job.riasecTags.length;
+
+      const familyScore = family
+        ? family.riasecCodes.reduce(
+            (sum, code, index) =>
+              sum + profile.normalizedScores[code] * (familyWeights[index] ?? 0.4),
+            0
+          ) /
+          familyWeights.slice(0, family.riasecCodes.length).reduce((sum, value) => sum + value, 0)
+        : jobTagScore;
+
+      const dominantBonus = profile.sortedDimensions
+        .slice(0, 3)
+        .reduce(
+          (sum, code, index) =>
+            sum + (job.riasecTags.includes(code) ? (index === 0 ? 8 : index === 1 ? 5 : 3) : 0),
+          0
+        );
+
+      return {
+        ...job,
+        matchScore: Math.round(jobTagScore * 0.72 + familyScore * 0.28 + dominantBonus),
+      };
+    })
+    .sort((a, b) => b.matchScore - a.matchScore);
 }
 
 // Convenience: run the full pipeline from raw answers to a TestResult
@@ -79,6 +123,7 @@ export function computeTestResult(
 ): TestResult {
   const profile = scoreAnswers(answers, questions);
   const topFamilies = getFamilies(profile);
-  const suggestedJobs = getJobs(topFamilies);
-  return { profile, topFamilies, suggestedJobs };
+  const allJobs = getRankedJobs(profile);
+  const suggestedJobs = allJobs.slice(0, 5);
+  return { profile, topFamilies, suggestedJobs, allJobs };
 }

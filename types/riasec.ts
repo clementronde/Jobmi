@@ -50,8 +50,13 @@ export interface Job {
   };
 }
 
+export interface ScoredJob extends Job {
+  matchScore: number;
+}
+
 export interface TestResult {
   profile: RiasecProfile;
   topFamilies: JobFamily[];
-  suggestedJobs: Job[];
+  suggestedJobs: ScoredJob[];
+  allJobs: ScoredJob[];
 }

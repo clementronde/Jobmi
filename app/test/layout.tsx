@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Test d\'orientation professionnelle — Trouve ta voie en 5 minutes',
+  title: 'Test d\'orientation professionnelle — Trouve ta voie en 6 minutes',
   description:
-    'Passe le test d\'orientation Jobmi et découvre les métiers et formations qui correspondent à ta personnalité, tes valeurs et tes ambitions. Gratuit, sans inscription.',
+    'Passe le test d\'orientation Jobmi et découvre des métiers qui correspondent à ta personnalité. Gratuit, sans inscription, résultats en quelques minutes.',
   alternates: {
     canonical: 'https://jobmi.fr/test',
   },
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     url: 'https://jobmi.fr/test',
     title: 'Test d\'orientation professionnelle — Jobmi',
     description:
-      'Découvre les métiers et formations qui te correspondent en 5 minutes. Test gratuit et sans inscription.',
+      'Découvre les métiers et formations qui te correspondent en quelques minutes. Test gratuit et sans inscription.',
   },
 };
 

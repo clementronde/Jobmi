@@ -36,67 +36,49 @@ export const DIMENSION_LABELS: Record<
   },
 };
 
-// 48 questions originales — 8 par dimension RIASEC
+// 30 questions concrètes — 5 par dimension RIASEC
 export const RIASEC_QUESTIONS: RiasecQuestion[] = [
   // ── R · Réaliste ──────────────────────────────────────────────────────────
-  { id: 'r1', dimension: 'R', text: "J'aime réparer ou assembler des objets de mes mains" },
-  { id: 'r2', dimension: 'R', text: "Je me sens à l'aise quand je travaille avec des outils ou des machines" },
-  { id: 'r3', dimension: 'R', text: "Je préfère être en mouvement ou travailler dans un espace physique plutôt que derrière un bureau" },
-  { id: 'r4', dimension: 'R', text: "Je trouve plus de satisfaction à fabriquer quelque chose de concret qu'à en discuter" },
-  { id: 'r5', dimension: 'R', text: "J'aime comprendre comment fonctionnent les appareils ou les mécanismes" },
-  { id: 'r6', dimension: 'R', text: "Les métiers techniques ou artisanaux m'ont toujours attiré(e)" },
-  { id: 'r7', dimension: 'R', text: "Je préfère résoudre un problème concret plutôt qu'un problème purement théorique" },
-  { id: 'r8', dimension: 'R', text: "Je suis à l'aise pour suivre des instructions techniques précises pas à pas" },
+  { id: 'r1', dimension: 'R', text: "Réparer un objet ou un appareil du quotidien me plairait" },
+  { id: 'r2', dimension: 'R', text: "Je me sentirais plus utile dans un métier concret que dans un travail très théorique" },
+  { id: 'r3', dimension: 'R', text: "Travailler avec des outils, des machines ou du matériel technique pourrait me convenir" },
+  { id: 'r4', dimension: 'R', text: "Je préfère souvent voir un résultat concret à la fin de ma journée" },
+  { id: 'r5', dimension: 'R', text: "Les environnements de terrain, d’atelier ou d’intervention m’attirent" },
 
   // ── I · Investigateur ────────────────────────────────────────────────────
-  { id: 'i1', dimension: 'I', text: "J'adore chercher des explications aux phénomènes qui m'entourent" },
-  { id: 'i2', dimension: 'I', text: "Je passe du temps à lire ou regarder des contenus sur des sujets complexes" },
-  { id: 'i3', dimension: 'I', text: "Je me sens stimulé(e) face à un problème difficile à résoudre" },
-  { id: 'i4', dimension: 'I', text: "J'aime analyser des informations pour en tirer des conclusions" },
-  { id: 'i5', dimension: 'I', text: "Je préfère comprendre le 'pourquoi' avant de passer à l'action" },
-  { id: 'i6', dimension: 'I', text: "Les questions scientifiques, tech ou philosophiques m'intéressent vraiment" },
-  { id: 'i7', dimension: 'I', text: "Je trouve satisfaisant de trouver une solution logique à un problème complexe" },
-  { id: 'i8', dimension: 'I', text: "Je suis naturellement curieux(se) et j'explore volontiers de nouveaux savoirs" },
+  { id: 'i1', dimension: 'I', text: "Analyser un problème complexe jusqu’à trouver une solution me stimule" },
+  { id: 'i2', dimension: 'I', text: "J’aime comprendre comment et pourquoi les choses fonctionnent" },
+  { id: 'i3', dimension: 'I', text: "Chercher, enquêter ou faire de la veille sur un sujet m’intéresserait" },
+  { id: 'i4', dimension: 'I', text: "Je préfère souvent réfléchir avant d’agir" },
+  { id: 'i5', dimension: 'I', text: "Les domaines scientifiques, tech, data ou recherche m’attirent" },
 
   // ── A · Artistique ────────────────────────────────────────────────────────
-  { id: 'a1', dimension: 'A', text: "J'adore créer des visuels, des designs ou des vidéos" },
-  { id: 'a2', dimension: 'A', text: "Je me sens à l'aise pour exprimer mes émotions ou mes idées de façon créative" },
-  { id: 'a3', dimension: 'A', text: "J'aime imaginer de nouvelles choses — histoires, images, sons, concepts" },
-  { id: 'a4', dimension: 'A', text: "Je préfère les activités où je peux m'exprimer librement, sans cadre trop rigide" },
-  { id: 'a5', dimension: 'A', text: "L'esthétique, le style et la mise en forme ont beaucoup d'importance pour moi" },
-  { id: 'a6', dimension: 'A', text: "Je me sens pleinement vivant(e) quand je crée quelque chose qui n'existait pas avant" },
-  { id: 'a7', dimension: 'A', text: "Les arts, la musique, la littérature ou le cinéma font partie de mes grandes passions" },
-  { id: 'a8', dimension: 'A', text: "J'ai souvent des idées originales, différentes de celles des gens qui m'entourent" },
+  { id: 'a1', dimension: 'A', text: "Créer des visuels, du contenu, des idées ou des ambiances me plairait" },
+  { id: 'a2', dimension: 'A', text: "J’aime imaginer des concepts ou des solutions originales" },
+  { id: 'a3', dimension: 'A', text: "L’esthétique, le style et la mise en forme comptent beaucoup pour moi" },
+  { id: 'a4', dimension: 'A', text: "Je me sens bien dans les activités où je peux m’exprimer librement" },
+  { id: 'a5', dimension: 'A', text: "Je serais attiré(e) par un métier où la créativité a une vraie place" },
 
   // ── S · Social ────────────────────────────────────────────────────────────
-  { id: 's1', dimension: 'S', text: "J'aime aider les autres à résoudre leurs problèmes personnels" },
-  { id: 's2', dimension: 'S', text: "Je suis à l'aise pour écouter quelqu'un qui traverse une période difficile" },
-  { id: 's3', dimension: 'S', text: "J'aime enseigner, expliquer ou transmettre des connaissances à d'autres" },
-  { id: 's4', dimension: 'S', text: "Je préfère travailler avec des gens plutôt que seul(e) devant un écran" },
-  { id: 's5', dimension: 'S', text: "Les relations humaines sont au cœur de ce qui compte pour moi dans un travail" },
-  { id: 's6', dimension: 'S', text: "Je suis attiré(e) par des métiers qui améliorent le bien-être des personnes" },
-  { id: 's7', dimension: 'S', text: "Je me sens utile et accompli(e) quand je contribue au bien-être d'un groupe" },
-  { id: 's8', dimension: 'S', text: "Je mets facilement les gens à l'aise et j'arrive à créer de la confiance rapidement" },
+  { id: 's1', dimension: 'S', text: "Aider quelqu’un à avancer ou à résoudre un problème me motive" },
+  { id: 's2', dimension: 'S', text: "J’aime expliquer, transmettre ou accompagner" },
+  { id: 's3', dimension: 'S', text: "Je préfère souvent travailler avec des personnes plutôt que seul(e)" },
+  { id: 's4', dimension: 'S', text: "Je pourrais me voir dans un métier utile pour le bien-être ou l’apprentissage des autres" },
+  { id: 's5', dimension: 'S', text: "Créer un climat de confiance me semble naturel" },
 
   // ── E · Entreprenant ──────────────────────────────────────────────────────
-  { id: 'e1', dimension: 'E', text: "J'aime convaincre les autres ou défendre mes idées avec enthousiasme" },
-  { id: 'e2', dimension: 'E', text: "Je me sens à l'aise pour prendre des initiatives et lancer des projets" },
-  { id: 'e3', dimension: 'E', text: "Je me fixe des objectifs ambitieux et je mets tout en œuvre pour les atteindre" },
-  { id: 'e4', dimension: 'E', text: "J'aime négocier, vendre ou promouvoir quelque chose en quoi je crois" },
-  { id: 'e5', dimension: 'E', text: "Je préfère prendre les décisions plutôt qu'attendre que quelqu'un me dise quoi faire" },
-  { id: 'e6', dimension: 'E', text: "L'idée de créer ou de gérer une équipe m'attire vraiment" },
-  { id: 'e7', dimension: 'E', text: "J'aime les environnements dynamiques où je peux me dépasser et prendre des risques calculés" },
-  { id: 'e8', dimension: 'E', text: "Je suis attiré(e) par les rôles de leader, de responsable ou d'entrepreneur" },
+  { id: 'e1', dimension: 'E', text: "Prendre des initiatives et lancer des projets me stimule" },
+  { id: 'e2', dimension: 'E', text: "Convaincre, vendre ou défendre une idée me plairait" },
+  { id: 'e3', dimension: 'E', text: "Je préfère souvent décider plutôt qu’attendre des consignes" },
+  { id: 'e4', dimension: 'E', text: "Les environnements rapides et ambitieux m’attirent" },
+  { id: 'e5', dimension: 'E', text: "Je pourrais me voir gérer un projet, une équipe ou une activité" },
 
   // ── C · Conventionnel ────────────────────────────────────────────────────
-  { id: 'c1', dimension: 'C', text: "J'aime quand les choses sont bien organisées, rangées et classifiées" },
-  { id: 'c2', dimension: 'C', text: "Je me sens efficace quand je suis des procédures claires et des règles définies" },
-  { id: 'c3', dimension: 'C', text: "Je préfère les tâches avec des étapes bien définies à celles qui sont floues" },
-  { id: 'c4', dimension: 'C', text: "J'aime travailler avec des chiffres, des tableaux ou des données structurées" },
-  { id: 'c5', dimension: 'C', text: "Je fais attention aux détails et à l'exactitude — les erreurs me dérangent" },
-  { id: 'c6', dimension: 'C', text: "J'aime planifier mes journées et organiser mes projets à l'avance" },
-  { id: 'c7', dimension: 'C', text: "Je préfère un environnement de travail stable et prévisible à l'improvisation constante" },
-  { id: 'c8', dimension: 'C', text: "J'apprécie les processus qui fonctionnent de façon fiable et reproductible" },
+  { id: 'c1', dimension: 'C', text: "J’aime quand les choses sont bien organisées et structurées" },
+  { id: 'c2', dimension: 'C', text: "Je suis à l’aise avec des procédures claires et un cadre précis" },
+  { id: 'c3', dimension: 'C', text: "Travailler avec des données, des chiffres ou des tableaux pourrait me convenir" },
+  { id: 'c4', dimension: 'C', text: "Je fais attention aux détails et aux erreurs" },
+  { id: 'c5', dimension: 'C', text: "Je préfère souvent un environnement stable à l’improvisation permanente" },
 ];
 
 export const JOB_FAMILIES: JobFamily[] = [
