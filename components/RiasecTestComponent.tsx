@@ -415,7 +415,7 @@ function TestResults({
   const jobsToDisplay = showAllJobs ? allJobs : suggestedJobs;
 
   return (
-    <div className="max-w-2xl mx-auto px-5 py-8">
+    <div className="mx-auto max-w-2xl px-5 py-8 lg:max-w-[1120px] lg:px-8">
       {/* Header */}
       <div className="text-center mb-8">
         <p className="text-[#6500FF] font-semibold text-sm uppercase tracking-wide mb-2">
@@ -444,9 +444,9 @@ function TestResults({
       {/* RIASEC Profile */}
       <section className="mb-10">
         <h2 className="text-xl font-bold text-[#04192F] mb-5">Ton profil RIASEC</h2>
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:items-start">
+        <div className="grid gap-6 lg:grid-cols-[minmax(420px,480px)_minmax(0,1fr)] lg:gap-8 lg:items-start">
           <RiasecRadarChart scores={profile.normalizedScores} />
-          <div className="rounded-[1.5rem] border border-[#E9E1FF] bg-white p-5 shadow-[0_18px_45px_rgba(4,25,47,0.06)]">
+          <div className="rounded-[1.5rem] border border-[#E9E1FF] bg-white p-5 shadow-[0_18px_45px_rgba(4,25,47,0.06)] lg:p-7">
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
               Lecture détaillée
             </p>
