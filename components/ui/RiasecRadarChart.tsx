@@ -28,6 +28,7 @@ export function RiasecRadarChart({ scores }: { scores: RiasecScores }) {
     E: 0,
     C: 0,
   });
+  const [hoveredDimension, setHoveredDimension] = useState<RiasecDimension | null>(null);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -70,6 +71,9 @@ export function RiasecRadarChart({ scores }: { scores: RiasecScores }) {
   );
 
   const polygonPoints = radarPoints.map(point => `${point.x},${point.y}`).join(' ');
+  const hoveredPoint = hoveredDimension
+    ? radarPoints.find(point => point.dimension === hoveredDimension)
+    : null;
 
   return (
     <div className="relative overflow-hidden rounded-[1.6rem] border border-[#E9E1FF] bg-[radial-gradient(circle_at_top,rgba(101,0,255,0.12),transparent_42%),linear-gradient(180deg,#FFFFFF_0%,#F8F7FF_100%)] p-5 shadow-[0_22px_55px_rgba(4,25,47,0.08)]">
@@ -98,18 +102,25 @@ export function RiasecRadarChart({ scores }: { scores: RiasecScores }) {
           ))}
 
           {DIMENSIONS.map((_, index) => {
+            const dimension = DIMENSIONS[index];
             const angle = (360 / DIMENSIONS.length) * index;
             const outerPoint = polarToCartesian(center, center, maxRadius, angle);
+            const isHovered = hoveredDimension === dimension;
+            const isMuted = hoveredDimension !== null && !isHovered;
 
             return (
               <line
-                key={index}
+                key={dimension}
                 x1={center}
                 y1={center}
                 x2={outerPoint.x}
                 y2={outerPoint.y}
-                stroke="rgba(4,25,47,0.12)"
-                strokeWidth="1"
+                stroke={isHovered ? DIMENSION_LABELS[dimension].color : 'rgba(4,25,47,0.12)'}
+                strokeWidth={isHovered ? '2.5' : '1'}
+                style={{
+                  opacity: isMuted ? 0.25 : 1,
+                  transition: 'all 220ms ease',
+                }}
               />
             );
           })}
@@ -119,24 +130,85 @@ export function RiasecRadarChart({ scores }: { scores: RiasecScores }) {
             fill="rgba(101,0,255,0.22)"
             stroke="#6500FF"
             strokeWidth="3"
-            style={{ transition: 'all 700ms ease' }}
+            style={{
+              transition: 'all 700ms ease',
+              opacity: hoveredDimension ? 0.88 : 1,
+              filter: hoveredDimension ? 'drop-shadow(0 0 12px rgba(101,0,255,0.18))' : 'none',
+            }}
           />
 
           {radarPoints.map(point => (
-            <g key={point.dimension}>
-              <circle cx={point.x} cy={point.y} r="5.5" fill="#6500FF" />
-              <circle cx={point.x} cy={point.y} r="10" fill="rgba(101,0,255,0.12)" />
+            <g
+              key={point.dimension}
+              onMouseEnter={() => setHoveredDimension(point.dimension)}
+              onMouseLeave={() => setHoveredDimension(null)}
+              style={{
+                cursor: 'pointer',
+                opacity:
+                  hoveredDimension !== null && hoveredDimension !== point.dimension ? 0.35 : 1,
+                transition: 'opacity 220ms ease',
+              }}
+            >
+              <circle
+                cx={point.x}
+                cy={point.y}
+                r={hoveredDimension === point.dimension ? '8' : '5.5'}
+                fill={DIMENSION_LABELS[point.dimension].color}
+                style={{ transition: 'all 220ms ease' }}
+              />
+              <circle
+                cx={point.x}
+                cy={point.y}
+                r={hoveredDimension === point.dimension ? '16' : '10'}
+                fill="rgba(101,0,255,0.12)"
+                style={{ transition: 'all 220ms ease' }}
+              />
               <text
                 x={point.labelPoint.x}
                 y={point.labelPoint.y}
                 textAnchor="middle"
                 dominantBaseline="middle"
                 className="fill-[#04192F] text-[12px] font-bold"
+                style={{
+                  opacity:
+                    hoveredDimension !== null && hoveredDimension !== point.dimension ? 0.45 : 1,
+                  transition: 'opacity 220ms ease',
+                }}
               >
                 {point.dimension}
               </text>
             </g>
           ))}
+
+          {hoveredPoint ? (
+            <g pointerEvents="none">
+              <rect
+                x={center - 62}
+                y={16}
+                width={124}
+                height={40}
+                rx={14}
+                fill="#04192F"
+                opacity="0.95"
+              />
+              <text
+                x={center}
+                y={31}
+                textAnchor="middle"
+                className="fill-white text-[11px] font-semibold"
+              >
+                {DIMENSION_LABELS[hoveredPoint.dimension].label}
+              </text>
+              <text
+                x={center}
+                y={46}
+                textAnchor="middle"
+                className="fill-[#C4B5FD] text-[12px] font-bold"
+              >
+                {scores[hoveredPoint.dimension]}%
+              </text>
+            </g>
+          ) : null}
         </svg>
       </div>
 
@@ -144,7 +216,21 @@ export function RiasecRadarChart({ scores }: { scores: RiasecScores }) {
         {DIMENSIONS.map(dimension => (
           <div
             key={dimension}
-            className="rounded-xl border border-white/80 bg-white/80 px-3 py-2 backdrop-blur"
+            onMouseEnter={() => setHoveredDimension(dimension)}
+            onMouseLeave={() => setHoveredDimension(null)}
+            className="rounded-xl border border-white/80 bg-white/80 px-3 py-2 backdrop-blur transition-all duration-200 hover:-translate-y-0.5"
+            style={{
+              borderColor:
+                hoveredDimension === dimension ? `${DIMENSION_LABELS[dimension].color}55` : undefined,
+              boxShadow:
+                hoveredDimension === dimension
+                  ? `0 12px 26px ${DIMENSION_LABELS[dimension].color}22`
+                  : undefined,
+              background:
+                hoveredDimension === dimension
+                  ? 'linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,247,255,1))'
+                  : undefined,
+            }}
           >
             <p className="text-xs font-semibold text-gray-500">
               {DIMENSION_LABELS[dimension].label}

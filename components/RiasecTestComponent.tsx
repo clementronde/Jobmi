@@ -467,7 +467,7 @@ function TestResults({
           <div>
             <h2 className="text-xl font-bold text-[#04192F]">Métiers à explorer en priorité</h2>
             <p className="mt-1 text-sm text-gray-500">
-              On te montre d'abord les pistes les plus probables, puis tu peux ouvrir la liste
+              On te montre d'abord tes 5 pistes les plus probables, puis tu peux ouvrir la liste
               complète si tu veux élargir.
             </p>
           </div>
