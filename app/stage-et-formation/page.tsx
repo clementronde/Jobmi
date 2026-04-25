@@ -286,6 +286,17 @@ export default function StageEtFormation() {
                 Voir les formats d'immersion
               </Link>
             </div>
+            <p className="mt-5 max-w-xl text-sm leading-relaxed text-gray-500">
+              Et si ton vrai frein, c&apos;est la peur d&apos;avoir déjà pris du retard, prends
+              2 minutes pour ouvrir{' '}
+              <Link
+                href="/outil/temps-devant-toi"
+                className="font-semibold text-[#6500FF] underline underline-offset-4"
+              >
+                l&apos;outil qui remet ton timing à l&apos;échelle
+              </Link>
+              .
+            </p>
           </div>
           <div className="grid gap-4">
             {steps.map((step) => (

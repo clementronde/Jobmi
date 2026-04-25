@@ -23,7 +23,7 @@ export const HomeSection1 = () => {
           <h1 className="font-oddlini uppercase text-[50px] sm:text-[68px] font-bold text-[#04192F] leading-none mb-1">
             Trouve ta voie.
           </h1>
-          <p className="font-september text-[50px] sm:text-[68px] text-[#6500FF] leading-none mb-8 -rotate-[2deg] origin-left">
+          <p className="font-september text-[56px] sm:text-[72px] text-[#6500FF] leading-none mb-8 -rotate-[2deg] origin-left">
             Teste-la en vrai avant de t'engager.
           </p>
 

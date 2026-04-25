@@ -572,6 +572,40 @@ export default function TestOrientationJeunesPage() {
         links={internalLinks}
       />
 
+      <section className="bg-white px-6 py-16 sm:px-10">
+        <div className="mx-auto grid max-w-5xl gap-6 rounded-[2rem] border border-[#04192F]/8 bg-[#F8F7FF] p-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[#6500FF]">
+              Outil mental
+            </p>
+            <h2 className="font-sans text-3xl font-bold leading-tight text-[#04192F] sm:text-4xl">
+              Tu as peur d&apos;être déjà en retard ?
+            </h2>
+            <p className="mt-4 font-sans text-base leading-relaxed text-gray-600">
+              Avant de te juger trop vite, regarde ton parcours mois par mois. L&apos;outil
+              montre visuellement qu&apos;à 18, 20 ou 24 ans, un détour d&apos;un an ou deux reste
+              souvent très petit face au temps qu&apos;il te reste pour construire une voie plus juste.
+            </p>
+          </div>
+          <div className="rounded-[1.6rem] border border-[#6500FF]/12 bg-white p-6 shadow-sm">
+            <p className="jobmi-script-accent text-[#6500FF]">
+              Temps devant toi
+            </p>
+            <p className="mt-4 font-sans text-sm leading-6 text-gray-600">
+              Entre ton âge, le temps déjà investi et la durée d&apos;une nouvelle voie, tu
+              peux enfin voir les choses en grand au lieu de subir la pression du moment.
+            </p>
+            <Link
+              href="/outil/temps-devant-toi"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#04192F] px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#6500FF]"
+            >
+              Ouvrir l&apos;outil
+              <img src="/media/cta-blog-arrow.svg" alt="" className="w-5 invert" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── FAQ ── */}
       <section className="bg-[#F3F3F3] py-20 px-6 sm:px-10">
         <div className="max-w-4xl mx-auto">

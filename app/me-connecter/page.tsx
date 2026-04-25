@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useEffect, useState, FormEvent } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 
@@ -9,8 +10,18 @@ export default function Connexion() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [callbackUrl, setCallbackUrl] = useState("/");
+  const [fromRiasec, setFromRiasec] = useState(false);
 
   const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      setCallbackUrl(params.get("callbackUrl") || "/");
+      setFromRiasec(params.get("from") === "riasec");
+    }
+  }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,10 +31,11 @@ export default function Connexion() {
         redirect: false,
         email,
         password,
+        callbackUrl,
       });
 
       if (response?.ok) {
-        router.push("/");
+        router.push(callbackUrl);
       } else if (response?.error) {
         setError("Invalid email or password. Please try again!");
       }
@@ -34,7 +46,7 @@ export default function Connexion() {
   };
 
   const loginWithGoogle = () => {
-    signIn("google", { callbackUrl: "/" });
+    signIn("google", { callbackUrl });
   };
 
   return (
@@ -47,12 +59,24 @@ export default function Connexion() {
         </span>
       </div>
 
+      {fromRiasec && (
+        <div className="mx-auto mb-8 max-w-[760px] rounded-2xl border border-[#E9E1FF] bg-white/85 p-5 text-center shadow-[0_18px_45px_rgba(4,25,47,0.06)]">
+          <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
+            Après ton test
+          </p>
+          <p className="text-sm leading-6 text-[#465160]">
+            Connecte-toi ou crée ton compte pour retrouver ton score RIASEC et les métiers qui te
+            correspondent directement dans ton profil.
+          </p>
+        </div>
+      )}
+
       <p className="bg-violet p-2 text-center w-fit mx-auto text-white rotate-[5deg] font-bold text-2xl ">Passioné de maintenant</p>
       <div className="bg-[#D9D9D9]/[21%] mx-auto lg:max-w-[800px] sm:max-w-[600px] max-w-[95%] rounded-lg p-5 mb-10">
         <div>
           <div className="mx-auto flex flex-col items-center">
             <p className="text-center my-2">
-              Tu n'as pas de compte ? <a href="/inscription" className='cursor-pointer'>Inscris-toi</a>
+              Tu n'as pas de compte ? <Link href={`/inscription?callbackUrl=${encodeURIComponent(callbackUrl)}&from=${fromRiasec ? 'riasec' : 'default'}`} className='cursor-pointer'>Inscris-toi</Link>
             </p>
             <button type="button" className="google cursor-pointer" onClick={loginWithGoogle}> 
               <img src="/media/google-icon.svg" alt="Icone du logo Google" className="w-[20px]" />

@@ -76,7 +76,7 @@ export function RiasecRadarChart({ scores }: { scores: RiasecScores }) {
     : null;
 
   return (
-    <div className="relative overflow-hidden rounded-[1.6rem] border border-[#E9E1FF] bg-[radial-gradient(circle_at_top,rgba(101,0,255,0.12),transparent_42%),linear-gradient(180deg,#FFFFFF_0%,#F8F7FF_100%)] p-5 shadow-[0_22px_55px_rgba(4,25,47,0.08)]">
+    <div className="relative overflow-hidden rounded-[1.6rem] border border-[#E9E1FF] bg-[radial-gradient(circle_at_top,rgba(101,0,255,0.12),transparent_42%),linear-gradient(180deg,#FFFFFF_0%,#F8F7FF_100%)] p-5 shadow-[0_22px_55px_rgba(4,25,47,0.08)] lg:p-7">
       <div className="mb-4 flex items-end justify-between gap-3">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
@@ -89,7 +89,7 @@ export function RiasecRadarChart({ scores }: { scores: RiasecScores }) {
         </div>
       </div>
 
-      <div className="mx-auto max-w-[320px]">
+      <div className="mx-auto max-w-[320px] lg:max-w-[420px]">
         <svg viewBox={`0 0 ${size} ${size}`} className="h-auto w-full">
           {gridPolygons.map((points, index) => (
             <polygon

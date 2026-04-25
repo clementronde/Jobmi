@@ -920,6 +920,23 @@ export default function TesterUnMetierPage() {
                     peu cadré.
                   </p>
 
+                  <div className="mt-5 rounded-2xl border border-[#6500FF]/12 bg-[#F8F7FF] p-5">
+                    <p className="jobmi-script-accent text-[#6500FF]">
+                      Pas trop tard
+                    </p>
+                    <p className="mt-3 font-sans text-sm leading-relaxed text-gray-600">
+                      Si tu bloques parce que tu as l&apos;impression d&apos;avoir déjà perdu du
+                      temps, ouvre aussi{' '}
+                      <Link
+                        href="/outil/temps-devant-toi"
+                        className="font-semibold text-[#6500FF] underline underline-offset-4"
+                      >
+                        notre outil pour visualiser le temps qu&apos;il te reste vraiment
+                      </Link>
+                      . C&apos;est souvent le déclic qu&apos;il manquait avant de passer à l&apos;action.
+                    </p>
+                  </div>
+
                   <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                     <Link
                       href="/test"

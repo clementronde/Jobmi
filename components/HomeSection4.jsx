@@ -82,7 +82,7 @@ export const HomeSection4 = () => {
             <p className="relative z-10 mb-4 mt-3 text-base leading-relaxed text-[#B07DFF]">{testimonial.text}</p>
             
             <div className="relative z-10 mt-auto text-right">
-              <p className="font-september text-5xl text-[#B07DFF] sm:text-6xl">{testimonial.name}, {testimonial.age} ans</p>
+              <p className="font-september text-[4rem] text-[#B07DFF] sm:text-[4.5rem]">{testimonial.name}, {testimonial.age} ans</p>
               <p className="text-right text-[82px] leading-none text-purple-600/80">”</p>
             </div>
             

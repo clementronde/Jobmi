@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { getServerSession } from 'next-auth'
 import supabaseAdmin from '@/lib/supabaseAdmin'
+import { RIASEC_QUESTIONS } from '@/data/riasecData'
+import { computeTestResult } from '@/services/riasecService'
+import type { RiasecAnswer } from '@/types/riasec'
 
 export async function GET() {
   const session = await getServerSession()
@@ -19,6 +22,36 @@ export async function GET() {
     return NextResponse.json({ error: 'Utilisateur non trouvé' }, { status: 404 })
   }
 
+  const { data: latestLead } = await supabaseAdmin
+    .from('leads')
+    .select('riasec_code, scores, answers, created_at')
+    .eq('email', session.user.email)
+    .eq('source', 'riasec-test')
+    .order('created_at', { ascending: false })
+    .limit(1)
+    .maybeSingle()
+
+  let riasec = null
+
+  if (latestLead?.answers && Array.isArray(latestLead.answers)) {
+    const computed = computeTestResult(latestLead.answers as RiasecAnswer[], RIASEC_QUESTIONS)
+    riasec = {
+      dominantCode: computed.profile.dominantCode,
+      scores: computed.profile.normalizedScores,
+      jobs: computed.suggestedJobs,
+      allJobs: computed.allJobs,
+      testedAt: latestLead.created_at ?? null,
+    }
+  } else if (latestLead?.scores && latestLead?.riasec_code) {
+    riasec = {
+      dominantCode: latestLead.riasec_code,
+      scores: latestLead.scores,
+      jobs: [],
+      allJobs: [],
+      testedAt: latestLead.created_at ?? null,
+    }
+  }
+
   return NextResponse.json({
     firstName: user.first_name ?? '',
     lastName: user.last_name ?? '',
@@ -26,6 +59,7 @@ export async function GET() {
     city: user.city ?? '',
     phone: user.phone ?? '',
     image: user.image ?? '',
+    riasec,
   })
 }
 

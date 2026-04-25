@@ -409,6 +409,17 @@ export default function TesterMetiersParisPage() {
                 </Link>
                 .
               </p>
+              <p>
+                Et si tu sens que ton vrai blocage, ce n&apos;est pas Paris mais le
+                sentiment d&apos;être déjà “en retard”, prends deux minutes pour ouvrir{' '}
+                <Link
+                  href="/outil/temps-devant-toi"
+                  className="font-semibold text-[#6500FF] underline underline-offset-4"
+                >
+                  l&apos;outil qui visualise le temps qu&apos;il te reste vraiment
+                </Link>
+                . Ça aide souvent à redescendre la pression avant de faire le premier pas.
+              </p>
             </div>
           </div>
         </section>

@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { RIASEC_QUESTIONS, JOBS, DIMENSION_LABELS } from '@/data/riasecData';
 import { computeTestResult } from '@/services/riasecService';
@@ -13,15 +14,43 @@ import type {
   JobFamily,
   Job,
   RiasecDimension,
+  RiasecScores,
   ScoredJob,
 } from '@/types/riasec';
 
 const QUESTIONS_PER_PAGE = 6;
 const TOTAL_PAGES = Math.ceil(RIASEC_QUESTIONS.length / QUESTIONS_PER_PAGE);
 
-type Step = 'intro' | 'questions' | 'results' | 'resume';
+type Step = 'intro' | 'questions' | 'capture' | 'results' | 'resume';
 
 const LIKERT_LABELS = ['Pas du tout moi', 'Plutôt non', 'Neutre', 'Plutôt oui', 'Tout à fait moi'];
+
+function getProfileSummary(profile: TestResult['profile']) {
+  const [first, second, third] = profile.sortedDimensions;
+  const firstLabel = DIMENSION_LABELS[first].label.toLowerCase();
+  const secondLabel = DIMENSION_LABELS[second].label.toLowerCase();
+  const thirdLabel = DIMENSION_LABELS[third].label.toLowerCase();
+
+  const intros: Record<RiasecDimension, string> = {
+    R: "Tu sembles avoir besoin d’un quotidien concret, où tu peux agir, manipuler et voir rapidement l’effet de ce que tu fais.",
+    I: "Tu sembles être stimulé(e) par les environnements où il faut comprendre, analyser et résoudre des problèmes avec méthode.",
+    A: "Tu sembles chercher un cadre où tu peux créer, imaginer, proposer des idées et laisser une vraie place à ton expression.",
+    S: "Tu sembles avoir besoin d’un métier utile aux autres, avec du contact humain, de l’écoute et une dimension d’accompagnement.",
+    E: "Tu sembles être à l’aise dans les contextes où il faut initier, convaincre, décider et faire avancer des projets.",
+    C: "Tu sembles te sentir bien dans les environnements structurés, où l’organisation, la rigueur et la fiabilité comptent vraiment.",
+  };
+
+  const bridges: Record<RiasecDimension, string> = {
+    R: "Tu risques de te lasser dans des rôles trop abstraits ou trop déconnectés du terrain.",
+    I: "Tu as sans doute besoin de sens, de logique et d’un minimum de profondeur intellectuelle dans ce que tu fais.",
+    A: "Tu risques de vite t’éteindre dans un cadre trop rigide ou purement exécutant.",
+    S: "Le relationnel semble être un vrai moteur, pas juste un bonus dans ton travail.",
+    E: "Tu as probablement besoin d’énergie, d’autonomie et d’un peu de mouvement pour rester engagé(e).",
+    C: "Tu sembles apprécier les missions claires, les repères nets et les responsabilités bien tenues.",
+  };
+
+  return `${intros[first]} Ton profil mélange surtout des dimensions ${firstLabel}, ${secondLabel} et ${thirdLabel}. ${bridges[second]} C’est souvent un bon signal pour viser des métiers où cette combinaison peut vraiment s’exprimer, puis confirmer ça sur le terrain avant de choisir une formation.`;
+}
 
 // ── Intro ─────────────────────────────────────────────────────────────────────
 
@@ -42,7 +71,8 @@ function TestIntro({ onStart }: { onStart: (name: string) => void }) {
           Réponds selon ce que tu ressens, pas ce que tu crois qu'il faut répondre.
         </p>
         <p className="text-gray-400 text-sm mb-10 max-w-xl">
-          Ce test est une aide à la réflexion. Il ne remplace pas un entretien avec un conseiller d'orientation.
+          Ce test est une aide à la réflexion. À la fin, on te proposera de sauvegarder ton résultat
+          avec Google ou ton email pour que tu puisses le retrouver.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 max-w-lg">
@@ -68,7 +98,142 @@ function TestIntro({ onStart }: { onStart: (name: string) => void }) {
         <span>6–8 minutes</span>
         <span>30 questions</span>
         <span>Résultats instantanés</span>
-        <span>Sans inscription</span>
+        <span>Sauvegarde par email ou Google</span>
+      </div>
+    </div>
+  );
+}
+
+function CaptureGate({
+  userName,
+  dominantCode,
+  scores,
+  answers,
+  onEmailSaved,
+  onAuthRedirect,
+}: {
+  userName: string;
+  dominantCode: string;
+  scores: RiasecScores;
+  answers: RiasecAnswer[];
+  onEmailSaved: (email: string) => void;
+  onAuthRedirect: () => void;
+}) {
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setError('');
+
+    if (!email.includes('@') || !email.includes('.')) {
+      setError('Entre une adresse email valide.');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch('/api/test-riasec/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          name: userName,
+          dominantCode,
+          scores,
+          answers,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('save_failed');
+      }
+
+      onEmailSaved(email);
+    } catch {
+      setError("Impossible d'enregistrer ton résultat pour l'instant.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="font-sans">
+      <div className="bg-[#F3F3F3] px-6 sm:px-16 lg:px-20 pt-14 pb-16">
+        <p className="text-[#6500FF] font-semibold text-xs uppercase tracking-widest mb-5">
+          Sauvegarde ton résultat
+        </p>
+        <h1 className="font-oddlini uppercase text-4xl sm:text-5xl font-bold leading-tight text-[#04192F] mb-3 max-w-3xl">
+          On garde ton profil en mémoire avant de t'afficher le détail
+        </h1>
+        <p className="text-gray-500 text-base sm:text-lg max-w-2xl mb-8">
+          Choisis soit la connexion Google pour retrouver ton test dans ton profil, soit une
+          adresse email pour qu'on enregistre ton résultat dans notre base.
+        </p>
+        <div className="mb-8 flex max-w-2xl flex-wrap gap-3 text-sm text-gray-500">
+          <span className="rounded-full border border-[#E9E1FF] bg-white px-4 py-2">
+            Google : résultat visible dans ton profil
+          </span>
+          <span className="rounded-full border border-[#E9E1FF] bg-white px-4 py-2">
+            Email : résultat enregistré en base
+          </span>
+          <span className="rounded-full border border-[#E9E1FF] bg-white px-4 py-2">
+            Pas de résultat perdu
+          </span>
+        </div>
+
+        <div className="max-w-xl rounded-[1.6rem] border border-[#E9E1FF] bg-white p-6 shadow-[0_18px_45px_rgba(4,25,47,0.06)]">
+          <div className="mb-6 flex items-center gap-3">
+            <span className="rounded-full bg-[#6500FF]/10 px-4 py-2 text-2xl font-bold tracking-widest text-[#6500FF]">
+              {dominantCode}
+            </span>
+            <p className="text-sm text-gray-500">
+              {userName ? `${userName}, ` : ''}ton code dominant est prêt.
+            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            <button
+              type="button"
+              onClick={onAuthRedirect}
+              className="flex items-center justify-center rounded-xl border border-gray-200 bg-white px-4 py-3 font-semibold text-[#04192F] transition-colors hover:border-[#6500FF] hover:text-[#6500FF]"
+            >
+              Se connecter ou créer un compte
+            </button>
+            <div className="rounded-xl border border-[#E9E1FF] bg-[#F8F7FF] px-4 py-3 text-sm text-[#465160]">
+              Tu pourras ensuite continuer avec Google ou avec ton email depuis la page de connexion.
+            </div>
+          </div>
+
+          <div className="my-5 flex items-center gap-4">
+            <div className="h-px flex-1 bg-gray-200" />
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-400">
+              ou
+            </span>
+            <div className="h-px flex-1 bg-gray-200" />
+          </div>
+
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
+            <input
+              type="email"
+              value={email}
+              onChange={event => setEmail(event.target.value)}
+              placeholder="Ton adresse mail"
+              className="flex-1 rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#6500FF] focus:border-transparent"
+              required
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              className="rounded-xl bg-[#04192F] px-5 py-3 font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
+            >
+              {loading ? 'Enregistrement…' : 'Voir mes résultats'}
+            </button>
+          </form>
+
+          {error ? <p className="mt-3 text-sm text-red-500">{error}</p> : null}
+        </div>
       </div>
     </div>
   );
@@ -413,6 +578,7 @@ function TestResults({
   const { profile, topFamilies, suggestedJobs, allJobs } = result;
   const [showAllJobs, setShowAllJobs] = useState(false);
   const jobsToDisplay = showAllJobs ? allJobs : suggestedJobs;
+  const profileSummary = getProfileSummary(profile);
 
   return (
     <div className="mx-auto max-w-2xl px-5 py-8 lg:max-w-[1120px] lg:px-8">
@@ -450,14 +616,24 @@ function TestResults({
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
               Lecture détaillée
             </p>
-            {profile.sortedDimensions.map((dim, i) => (
-              <DimensionBar
-                key={dim}
-                dim={dim}
-                score={profile.normalizedScores[dim]}
-                rank={i + 1}
-              />
-            ))}
+            <div className="lg:grid lg:grid-cols-2 lg:gap-x-5">
+              {profile.sortedDimensions.map((dim, i) => (
+                <DimensionBar
+                  key={dim}
+                  dim={dim}
+                  score={profile.normalizedScores[dim]}
+                  rank={i + 1}
+                />
+              ))}
+            </div>
+            <div className="mt-5 rounded-2xl border border-[#E9E1FF] bg-[linear-gradient(180deg,rgba(248,247,255,0.96),rgba(255,255,255,0.98))] p-4 lg:mt-6 lg:p-5">
+              <p className="jobmi-script-accent text-[#6500FF]">
+                En clair
+              </p>
+              <p className="mt-2 text-sm leading-7 text-[#465160] lg:text-[0.98rem]">
+                {profileSummary}
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -481,7 +657,7 @@ function TestResults({
               : `Voir la liste complète (${allJobs.length} métiers)`}
           </button>
         </div>
-        <div className="space-y-3">
+        <div className="space-y-3 xl:grid xl:grid-cols-2 xl:gap-4 xl:space-y-0">
           {jobsToDisplay.map((job, index) => (
             <RankedJobRow key={job.id} job={job} rank={index + 1} />
           ))}
@@ -573,6 +749,7 @@ function ResumeScreen({
 // ── Orchestrator ──────────────────────────────────────────────────────────────
 
 export default function RiasecTestComponent() {
+  const router = useRouter();
   const { data: session, status } = useSession();
   const [step, setStep] = useState<Step>('intro');
   const [userName, setUserName] = useState('');
@@ -580,30 +757,59 @@ export default function RiasecTestComponent() {
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [result, setResult] = useState<TestResult | null>(null);
 
+  const submitLead = useCallback(
+    async (email: string, computedResult: TestResult, answerArray: RiasecAnswer[], name: string) => {
+      await fetch('/api/test-riasec/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          name,
+          dominantCode: computedResult.profile.dominantCode,
+          scores: computedResult.profile.normalizedScores,
+          answers: answerArray,
+        }),
+      });
+    },
+    []
+  );
+
   useEffect(() => {
     if (status !== 'authenticated' || step !== 'intro') return;
 
     const raw = localStorage.getItem('jobmi_riasec_answers');
+    const rawName = localStorage.getItem('jobmi_riasec_name');
 
     if (raw) {
       try {
         const saved: Record<string, number> = JSON.parse(raw);
         localStorage.removeItem('jobmi_riasec_answers');
+        localStorage.removeItem('jobmi_riasec_name');
         const answerArray: RiasecAnswer[] = Object.entries(saved).map(
           ([questionId, score]) => ({ questionId, score })
         );
         if (answerArray.length > 0) {
+          const computed = computeTestResult(answerArray, RIASEC_QUESTIONS);
           setAnswers(saved);
-          setResult(computeTestResult(answerArray, RIASEC_QUESTIONS));
-          setUserName(prev => prev || session?.user?.name?.split(' ')[0] || '');
+          setResult(computed);
+          setUserName(prev => prev || rawName || session?.user?.name?.split(' ')[0] || '');
+          if (session?.user?.email) {
+            submitLead(
+              session.user.email,
+              computed,
+              answerArray,
+              rawName || session.user.name?.split(' ')[0] || ''
+            ).catch(() => {});
+          }
           setStep('results');
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       } catch {
         localStorage.removeItem('jobmi_riasec_answers');
+        localStorage.removeItem('jobmi_riasec_name');
       }
     }
-  }, [status, step, session?.user?.name]);
+  }, [status, step, session?.user?.name, session?.user?.email, submitLead]);
 
   const handleStart = useCallback((name: string) => {
     setUserName(name.trim());
@@ -627,22 +833,25 @@ export default function RiasecTestComponent() {
       const computed = computeTestResult(answerArray, RIASEC_QUESTIONS);
       setResult(computed);
       if (status === 'authenticated' && session?.user?.email) {
-        fetch('/api/test-riasec/lead', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email: session.user.email,
-            name: session.user.name ?? userName,
-            dominantCode: computed.profile.dominantCode,
-            scores: computed.profile.normalizedScores,
-            answers: answerArray,
-          }),
-        }).catch(() => {});
+        submitLead(session.user.email, computed, answerArray, session.user.name ?? userName).catch(() => {});
+        setStep('results');
+      } else {
+        setStep('capture');
       }
-      setStep('results');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }, [currentPage, answers, status, session, userName]);
+  }, [currentPage, answers, status, session, userName, submitLead]);
+
+  const handleEmailSaved = useCallback(() => {
+    setStep('results');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  const handleAuthRedirect = useCallback(() => {
+    localStorage.setItem('jobmi_riasec_answers', JSON.stringify(answers));
+    localStorage.setItem('jobmi_riasec_name', userName);
+    router.push('/me-connecter?callbackUrl=/test&from=riasec');
+  }, [answers, userName, router]);
 
   const handleBack = useCallback(() => {
     if (currentPage > 0) {
@@ -669,6 +878,16 @@ export default function RiasecTestComponent() {
           onAnswer={handleAnswer}
           onNext={handleNext}
           onBack={handleBack}
+        />
+      )}
+      {step === 'capture' && result && (
+        <CaptureGate
+          userName={userName}
+          dominantCode={result.profile.dominantCode}
+          scores={result.profile.normalizedScores}
+          answers={Object.entries(answers).map(([questionId, score]) => ({ questionId, score }))}
+          onEmailSaved={handleEmailSaved}
+          onAuthRedirect={handleAuthRedirect}
         />
       )}
       {step === 'resume' && (

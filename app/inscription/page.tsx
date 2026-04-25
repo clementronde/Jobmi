@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { registerUser, subscribeToNewsletter } from '../../services/userService';
 import { signIn } from "next-auth/react";
@@ -19,11 +20,21 @@ export default function Inscription() {
 
   const [subscribe, setSubscribe] = useState(false);
   const [passwordMatch, setPasswordMatch] = useState(true);
+  const [callbackUrl, setCallbackUrl] = useState('/');
+  const [fromRiasec, setFromRiasec] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     setPasswordMatch(formData.password === formData.confirmPassword);
   }, [formData.password, formData.confirmPassword]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      setCallbackUrl(params.get('callbackUrl') || '/');
+      setFromRiasec(params.get('from') === 'riasec');
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -55,7 +66,7 @@ export default function Inscription() {
         await subscribeToNewsletter(formData.email);
       }
       
-      router.push("/me-connecter");
+      router.push(`/me-connecter?callbackUrl=${encodeURIComponent(callbackUrl)}${fromRiasec ? '&from=riasec' : ''}`);
     } catch (error) {
       console.error('Erreur pour l\'enregistrement de l\'utilisateur', error);
     }
@@ -63,7 +74,7 @@ export default function Inscription() {
 
 
   const loginWithGoogle = () => {
-    signIn("google", { callbackUrl: "/" });
+    signIn("google", { callbackUrl });
   };
 
   return (
@@ -76,12 +87,24 @@ export default function Inscription() {
         </span>
       </div>
 
+      {fromRiasec && (
+        <div className="mx-auto mb-8 max-w-[760px] rounded-2xl border border-[#E9E1FF] bg-white/85 p-5 text-center shadow-[0_18px_45px_rgba(4,25,47,0.06)]">
+          <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
+            Sauvegarder mon test
+          </p>
+          <p className="text-sm leading-6 text-[#465160]">
+            Crée ton compte pour récupérer ton résultat RIASEC, ton score et les métiers qui te
+            correspondent dans ton profil Jobmi.
+          </p>
+        </div>
+      )}
+
       <p className="bg-violet p-2 text-center w-fit mx-auto text-white rotate-[5deg] font-bold text-2xl ">Futur passioné</p>
       <div className="bg-[#D9D9D9]/[21%] mx-auto lg:max-w-[800px] sm:max-w-[600px] max-w-[95%] rounded-lg p-5 mb-10">
         <div>
           <div className="mx-auto flex flex-col items-center">
             <p className="text-center my-2">
-              Tu as un compte ? <a href="/me-connecter" className='cursor-pointer'>Connecte toi</a>
+              Tu as un compte ? <Link href={`/me-connecter?callbackUrl=${encodeURIComponent(callbackUrl)}${fromRiasec ? '&from=riasec' : ''}`} className='cursor-pointer'>Connecte toi</Link>
             </p>
             <button type="button" onClick={loginWithGoogle} className="google cursor-pointer"> 
               <img src="/media/google-icon.svg" alt="Icone du logo Google" className="w-[20px]" />

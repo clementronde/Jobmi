@@ -413,6 +413,41 @@ export default function ReconversionPage() {
         </div>
       </section>
 
+      <section className="bg-[#04192F] px-6 py-16 sm:px-10">
+        <div className="mx-auto grid max-w-5xl gap-8 rounded-[2rem] border border-white/10 bg-white/6 p-8 text-white backdrop-blur lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:p-10">
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[#C4B5FD]">
+              Outil visuel
+            </p>
+            <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
+              Remets ton timing à l&apos;échelle
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-white/72">
+              Si tu as peur d&apos;avoir déjà perdu trop de temps, ouvre l&apos;outil qui
+              visualise ta vie mois par mois. Tu verras vite qu&apos;un détour de 1 ou 2 ans
+              reste souvent minuscule face au temps qu&apos;il te reste pour vivre et
+              travailler dans une voie qui te correspond mieux.
+            </p>
+          </div>
+          <div className="rounded-[1.6rem] border border-white/10 bg-[#0C2744] p-6">
+            <p className="jobmi-script-accent text-[#C4B5FD]">
+              Temps devant toi
+            </p>
+            <p className="mt-4 text-sm leading-6 text-white/70">
+              Âge, années déjà investies, durée de la nouvelle voie : tout se recolore en
+              direct pour t&apos;aider à relativiser.
+            </p>
+            <Link
+              href="/outil/temps-devant-toi"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-[#04192F] transition hover:-translate-y-0.5 hover:bg-[#EDE9FE]"
+            >
+              Ouvrir l&apos;outil
+              <img src="/media/cta-blog-arrow.svg" alt="" className="w-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── PAR OÙ COMMENCER ── */}
       <section className="bg-[#F3F3F3] py-20 px-6 sm:px-10">
         <div className="max-w-4xl mx-auto">

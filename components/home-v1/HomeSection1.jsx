@@ -43,7 +43,7 @@ export const HomeSection1 = () => {
                 alt="card-arrow"
                 className="w-15 mb-2"
               />
-              <p className="font-september font-bold w-[200px] text-center text-[#B384FF] sm:text-5xl text-[40px] leading-none -rotate-[11deg]">
+              <p className="font-september font-bold w-[220px] text-center text-[#B384FF] sm:text-[3.9rem] text-[54px] leading-none -rotate-[11deg]">
                 PS : On a déjà écrit ta lettre de démission (et pour de vrai)
               </p>
             </div>

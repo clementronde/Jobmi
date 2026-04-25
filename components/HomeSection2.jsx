@@ -51,10 +51,10 @@ export const HomeSection2 = () => {
             <React.Fragment key={i}>
               <Link
                 href={step.href}
-                className="group flex items-center gap-5 sm:gap-10 py-7 sm:py-8 px-5 -mx-5 rounded-2xl hover:bg-[#6500FF] transition-all duration-300"
+                className="group grid grid-cols-[2.25rem_minmax(0,1fr)_auto] items-start gap-x-4 gap-y-3 py-7 sm:grid-cols-[3rem_minmax(0,1fr)_auto] sm:gap-x-8 sm:gap-y-0 sm:py-8 px-5 -mx-5 rounded-2xl hover:bg-[#6500FF] transition-all duration-300"
               >
                 {/* Numéro */}
-                <span className="font-oddlini text-[#6500FF] group-hover:text-white/40 text-lg sm:text-xl font-bold w-8 flex-shrink-0 transition-colors duration-300">
+                <span className="pt-1 font-oddlini text-[#6500FF] group-hover:text-white/40 text-lg sm:text-xl font-bold transition-colors duration-300">
                   {step.num}
                 </span>
 
@@ -62,7 +62,7 @@ export const HomeSection2 = () => {
                 <div className="flex-1 min-w-0">
                   <h3 className="font-oddlini uppercase text-[#04192F] group-hover:text-white text-2xl sm:text-4xl font-bold leading-tight transition-colors duration-300 flex flex-wrap items-baseline gap-x-2">
                     <span>{step.titleOddlini}</span>
-                    <span className="font-september normal-case text-xl sm:text-3xl text-[#6500FF] group-hover:text-white/80 -rotate-[3deg] inline-block transition-colors duration-300">
+                    <span className="font-september font-normal normal-case text-[2.45rem] sm:text-[3.15rem] text-[#6500FF] group-hover:text-white/80 -rotate-[3deg] inline-block transition-colors duration-300">
                       {step.titleSept}
                     </span>
                   </h3>
@@ -72,7 +72,7 @@ export const HomeSection2 = () => {
                 </div>
 
                 {/* Tag + flèche */}
-                <div className="flex items-center gap-4 flex-shrink-0">
+                <div className="flex items-center gap-4 self-start">
                   <span className="hidden sm:block text-[10px] font-bold uppercase tracking-widest text-gray-300 group-hover:text-white/60 transition-colors duration-300">
                     {step.tag}
                   </span>

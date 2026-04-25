@@ -36,7 +36,7 @@ export default async function Blog() {
           <h1 className="font-sans text-5xl font-bold text-center">
             Les blogs pour dénicher des{' '}
             <span className="relative inline-block">
-              <span className="relative z-20 font-september font-normal text-9xl text-violet">pépites</span>
+              <span className="relative z-20 font-september font-normal text-[7.8rem] sm:text-[8rem] lg:text-[9.5rem] text-violet">pépites</span>
             </span>
           </h1>
         </div>
