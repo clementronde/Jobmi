@@ -5,7 +5,7 @@ const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/tester-metiers-paris`;
 
 export const metadata: Metadata = {
-  title: 'Tester des métiers à Paris quand tu as 18–25 ans | Jobmi',
+  title: 'Tester des métiers à Paris quand tu as 18–25 ans',
   description:
     "Découvre comment tester des métiers à Paris quand tu as 18–25 ans : ateliers, PMSMP, stages d’observation, journées d’immersion en école, et accompagnement par Jobmi.",
   alternates: { canonical: PAGE_URL },

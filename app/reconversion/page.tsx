@@ -7,7 +7,7 @@ const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/reconversion`;
 
 export const metadata: Metadata = {
-  title: "Reconversion professionnelle à 20 ans — Guide complet pour jeunes | Jobmi",
+  title: "Reconversion professionnelle à 20 ans — Guide complet pour jeunes",
   description:
     "Changer de voie à 20 ans, c'est possible et souvent le meilleur moment. Guide complet : par où commencer, comment financer, erreurs à éviter.",
   alternates: { canonical: PAGE_URL },

@@ -11,8 +11,8 @@ export const Article3 = () => {
       <div className='font-sans mx-auto sm:mx-20 mt-10'>
         <h2 className='font-bold text-2xl'>Introduction</h2>
         <p>
-        En 2024, de nombreux métiers cool émergent et se développent, offrant aux jeunes professionnels des opportunités passionnantes et enrichissantes <br />
-        Que tu sois en pleine reconversion professionnelle ou que tu cherches simplement à entrer dans le monde du travail, connaître les métiers d'avenir est essentiel. Cet article te présente les 10 métiers cool pour 2024 que tu dois absolument connaître. Prêt à découvrir ces nouvelles carrières passionnantes ? <br />
+        En 2026, de nombreux métiers cool émergent et se développent, offrant aux jeunes professionnels des opportunités passionnantes et enrichissantes <br />
+        Que tu sois en pleine reconversion professionnelle ou que tu cherches simplement à entrer dans le monde du travail, connaître les métiers d'avenir est essentiel. Cet article te présente les 10 métiers cool pour 2026 que tu dois absolument connaître. Prêt à découvrir ces nouvelles carrières passionnantes ? <br />
         C'est parti !
         </p>
       </div>
@@ -21,7 +21,7 @@ export const Article3 = () => {
         <img className='absolute top-0 -right-10 w-16' src="/media/arrow-blog-h2.svg" alt="Flèche pointant vers le titre" />
         <h2 className='text-4xl font-bold text-center uppercase'>
           La liste des 10 métiers cool 
-        que tu dois connaitre en 2024
+        que tu dois connaitre en 2026
         </h2>
       </div>
 
@@ -466,7 +466,7 @@ export const Article3 = () => {
             <p className='font-bold text-[#04192F] group-hover:text-[#6500FF] transition text-sm'>Stages et formations disponibles</p>
             <p className='text-xs text-gray-500 mt-1'>Toutes les offres par secteur pour te lancer concrètement.</p>
           </Link>
-          <Link href="/orientation/test-orientation-jeunes" className='flex-1 bg-white border border-gray-100 rounded-xl p-5 hover:border-[#6500FF] transition group'>
+          <Link href="/test-orientation" className='flex-1 bg-white border border-gray-100 rounded-xl p-5 hover:border-[#6500FF] transition group'>
             <p className='font-bold text-[#04192F] group-hover:text-[#6500FF] transition text-sm'>Test d'orientation gratuit</p>
             <p className='text-xs text-gray-500 mt-1'>Tu ne sais pas lequel de ces métiers te correspond ? Le test t'aide à y voir clair.</p>
           </Link>

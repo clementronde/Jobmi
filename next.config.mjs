@@ -24,6 +24,16 @@ const nextConfig = {
         destination: 'https://jobmi.fr/:path*',
         permanent: true,
       },
+      {
+        source: '/orientation/test-orientation-jeunes',
+        destination: '/test-orientation',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-10-des-metiers-cool-pour-2024-que-tu-dois-connaitre',
+        destination: '/blog/top-10-des-metiers-cool-pour-2026-que-tu-dois-connaitre',
+        permanent: true,
+      },
     ];
   },
 };

@@ -6,7 +6,7 @@ const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/outil/temps-devant-toi`;
 
 export const metadata: Metadata = {
-  title: 'Combien de temps te reste-t-il vraiment pour changer de voie ? | Jobmi',
+  title: 'Combien de temps te reste-t-il vraiment pour changer de voie ?',
   description:
     "Visualise ton temps de vie mois par mois pour comprendre qu'une réorientation à 18, 20 ou 25 ans n'arrive pas trop tard.",
   alternates: { canonical: PAGE_URL },

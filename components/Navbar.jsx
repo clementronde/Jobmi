@@ -42,6 +42,12 @@ export const Navbar = () => {
           </button>
         </div>
         <div className={`menu-links absolute left-0 top-16 flex w-full flex-col items-center gap-5 overflow-hidden border-b border-[#04192F]/10 bg-white shadow-[0_18px_40px_rgba(4,25,47,0.12)] transition-all duration-300 lg:relative lg:left-auto lg:top-auto lg:flex lg:max-h-none lg:w-auto lg:flex-row lg:overflow-visible lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none ${isMenuOpen ? 'max-h-96 translate-y-0 p-6 opacity-100' : 'pointer-events-none max-h-0 -translate-y-2 p-0 opacity-0'} lg:pointer-events-auto lg:translate-y-0 lg:opacity-100`}>
+          <Link href="/tester-un-metier" className={navLinkClass} onClick={() => setIsMenuOpen(false)}>
+            Tester un métier
+          </Link>
+          <Link href="/reconversion" className={navLinkClass} onClick={() => setIsMenuOpen(false)}>
+            Reconversion
+          </Link>
           <Link href="/stage-et-formation" className={navLinkClass} onClick={() => setIsMenuOpen(false)}>
             Stage et formation
           </Link>
@@ -52,7 +58,7 @@ export const Navbar = () => {
             Contact
           </Link>
           <Link
-            href="/test"
+            href="/test-orientation"
             className="menu-item rounded-lg bg-[#04192F] px-4 py-2 text-sm font-semibold text-white shadow-md shadow-[#04192F]/15 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#6500FF] hover:shadow-lg hover:shadow-[#6500FF]/25 active:translate-y-0"
             onClick={() => setIsMenuOpen(false)}
           >

@@ -65,7 +65,7 @@ export const Footer = () => {
                 { href: '/outil/temps-devant-toi', label: 'Outil temps devant toi' },
                 { href: '/reconversion', label: 'Reconversion' },
                 { href: '/stage-et-formation', label: 'Stages & formations' },
-                { href: '/orientation/test-orientation-jeunes', label: 'Test d\'orientation' },
+                { href: '/test-orientation', label: 'Test d\'orientation' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className={footerLinkClass}>

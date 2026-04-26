@@ -9,7 +9,7 @@ const WAITINGLIST_URL =
   'https://626063d8.sibforms.com/serve/MUIFACI_ugihEQiP7m7SmyLz7QszuC5wEK0W_nn2cHLbezW92oq3Gi_M7-5mIHV3oA9bk8VpaPa5q5OmsC4xxwhAAIDAz5LafA4Of6WYGOVAYgPggEk5SH6YYlarS5QAKTm_pucc1dXASOy6scm8cBdqdnUuW0Ms3FUJBfgzGv9XucQ_FwwJIFFVrEDqaJu_1batPvIPyrYuxn4K';
 
 export const metadata: Metadata = {
-  title: "Immersions métier et pistes de formation | Jobmi",
+  title: "Immersions métier et pistes de formation",
   description:
     "Découvre les secteurs à explorer, les formats d'immersion métier et les étapes pour tester une voie avant de choisir ta formation.",
   alternates: { canonical: PAGE_URL },

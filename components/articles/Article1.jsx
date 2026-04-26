@@ -244,7 +244,7 @@ export const Article1 = () => {
       <div className='font-sans sm:mx-20 my-12 bg-[#F8F7FF] border border-[#E9E1FF] rounded-2xl p-8'>
         <h2 className='font-bold text-xl text-[#04192F] mb-5'>Pour aller plus loin</h2>
         <div className='flex flex-col sm:flex-row gap-4'>
-          <Link href="/orientation/test-orientation-jeunes" className='flex-1 bg-white border border-gray-100 rounded-xl p-5 hover:border-[#6500FF] transition group'>
+          <Link href="/test-orientation" className='flex-1 bg-white border border-gray-100 rounded-xl p-5 hover:border-[#6500FF] transition group'>
             <p className='font-bold text-[#04192F] group-hover:text-[#6500FF] transition text-sm'>Test d'orientation gratuit</p>
             <p className='text-xs text-gray-500 mt-1'>Identifie les métiers qui correspondent à ton profil en 15 min.</p>
           </Link>

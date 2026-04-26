@@ -24,7 +24,7 @@ import { getInternalLinksForArticle } from '../../../data/internalLinks';
 const BASE_URL = 'https://jobmi.fr';
 const articleSeoTitleOverrides: Record<string, string> = {
   'pmsmp-18-25-tester-metier-immersion':
-    'PMSMP 18–25 ans : comment tester un métier en immersion avant de te reconvertir | Jobmi',
+    'PMSMP 18–25 ans : comment tester un métier en immersion avant de te reconvertir',
 };
 
 const articleFaqSchemaBySlug: Record<string, { '@context': string; '@type': string; mainEntity: Array<{ '@type': string; name: string; acceptedAnswer: { '@type': string; text: string } }> }> = {
@@ -116,7 +116,7 @@ export async function generateMetadata(
       },
     };
   } catch {
-    return { title: 'Article | Jobmi' };
+    return { title: 'Article' };
   }
 }
 
@@ -226,7 +226,7 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
         >
           {slug === "comment-commencer-ta-reconversion-professionnelle" && <Article1 />}
           {slug === "comment-trouver-le-job-de-tes-reves-a-20-ans-guide-ultime-pour-jeunes-en-reconversion" && <Article2 />}
-          {slug === "top-10-des-metiers-cool-pour-2024-que-tu-dois-connaitre" && <Article3 />}
+          {slug === "top-10-des-metiers-cool-pour-2026-que-tu-dois-connaitre" && <Article3 />}
           {slug === "reconversion-professionnelle-20-ans-guide-complet" && <Article4 />}
           {slug === "metiers-sans-diplome-qui-paient-bien" && <Article5 />}
           {slug === "bilan-de-competences-gratuit-guide" && <Article6 />}

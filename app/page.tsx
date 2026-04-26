@@ -9,7 +9,7 @@ import HomeSection6 from '../components/HomeSection6';
 const BASE_URL = 'https://jobmi.fr';
 
 export const metadata: Metadata = {
-  title: "Orientation & reconversion pour les 18–25 ans — Teste un métier en vrai | Jobmi",
+  title: "Orientation & reconversion pour les 18–25 ans — Teste un métier en vrai",
   description:
     "Jobmi aide les 18–25 ans à trouver leur voie : test d'orientation gratuit (RIASEC), immersions métier, stages et formations adaptées à ton profil. Choisis sans te tromper.",
   alternates: { canonical: BASE_URL },

@@ -7,7 +7,7 @@ const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/tester-un-metier`;
 
 export const metadata: Metadata = {
-  title: "Tester un métier avant de se lancer — Ateliers, stages et immersions | Jobmi",
+  title: "Tester un métier avant de se lancer — Ateliers, stages et immersions",
   description:
     "Comment tester un métier concrètement avant de choisir ta formation ? Ateliers, PMSMP, stages d'observation, jobshadowing : Jobmi t'aide à trouver l'expérience qu'il te faut.",
   alternates: { canonical: PAGE_URL },
