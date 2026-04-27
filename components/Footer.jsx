@@ -60,6 +60,7 @@ export const Footer = () => {
             <ul className="space-y-3">
               {[
                 { href: '/blog', label: 'Blog' },
+                { href: '/carte-orientation', label: 'Carte orientation' },
                 { href: '/tester-un-metier', label: 'Tester un métier' },
                 { href: '/tester-metiers-paris', label: 'Tester des métiers à Paris' },
                 { href: '/outil/temps-devant-toi', label: 'Outil temps devant toi' },
@@ -108,6 +109,7 @@ export const Footer = () => {
               {[
                 { href: '/test-orientation', label: 'Test RIASEC gratuit' },
                 { href: '/outil/temps-devant-toi', label: 'Calcule le temps qu\'il te reste' },
+                { href: '/outils', label: 'Tous les outils Jobmi' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className={footerLinkClass}>

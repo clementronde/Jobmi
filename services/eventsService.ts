@@ -1,11 +1,5 @@
-import {
-  eventCategoryLandings,
-  eventCityLandings,
-  orientationEvents,
-} from '@/data/events';
+import { orientationEvents } from '@/data/events';
 import type {
-  EventCategoryLanding,
-  EventCityLanding,
   JobmiAudience,
   JobmiEvent,
   JobmiEventFormat,
@@ -65,98 +59,27 @@ type EventFilterInput = {
   theme?: JobmiTheme | 'all';
 };
 
-const salonTypes: JobmiEventType[] = [
-  'salon-etudiant',
-  'salon-orientation',
-  'forum-alternance',
-  'forum-emploi',
-];
-
-const jpoTypes: JobmiEventType[] = ['journee-portes-ouvertes', 'journee-immersion'];
-
-const terrainTypes: JobmiEventType[] = [
-  'atelier-metier',
-  'journee-immersion',
-  'stage-observation',
-  'pmsmp',
-];
-
-export function getIndexableEvents() {
-  return orientationEvents.filter((event) => event.seo_indexable);
-}
-
 export function getActiveEvents(referenceDate = new Date()) {
-  return getIndexableEvents().filter((event) => {
+  return orientationEvents.filter((event) => {
+    if (!event.seo_indexable) return false;
     const endDate = new Date(event.date_end || event.date_start);
     return endDate >= new Date(referenceDate.toISOString().slice(0, 10));
   });
 }
 
-export function getEventBySlug(slug: string) {
-  return getIndexableEvents().find((event) => event.slug === slug);
-}
-
-export function getAllEventSlugs() {
-  return getIndexableEvents().map((event) => event.slug);
-}
-
-export function getCityLandingBySlug(citySlug: string): EventCityLanding | undefined {
-  return eventCityLandings.find((city) => city.city_slug === citySlug);
-}
-
-export function getAllCityLandingSlugs() {
-  return eventCityLandings.map((city) => city.city_slug);
-}
-
-export function getCategoryLanding(slug: EventCategoryLanding['slug']) {
-  return eventCategoryLandings.find((category) => category.slug === slug);
-}
-
-export function getEventsForCategory(slug: EventCategoryLanding['slug']) {
-  const events = getActiveEvents();
-  if (slug === 'salons') {
-    return events.filter((event) => salonTypes.includes(event.event_type));
-  }
-  if (slug === 'journees-portes-ouvertes') {
-    return events.filter((event) => jpoTypes.includes(event.event_type));
-  }
-  if (slug === 'ateliers-metiers') {
-    return events.filter((event) => terrainTypes.includes(event.event_type));
-  }
-  return events.filter((event) => event.format === 'distanciel' || event.online_only);
-}
-
-export function getEventsForCity(citySlug: string) {
-  return getActiveEvents().filter((event) => event.city_slug === citySlug);
-}
-
 export function filterEvents(events: JobmiEvent[], filters: EventFilterInput) {
   return events.filter((event) => {
-    if (filters.eventType && filters.eventType !== 'all' && event.event_type !== filters.eventType) {
-      return false;
-    }
-    if (filters.format && filters.format !== 'all' && event.format !== filters.format) {
-      return false;
-    }
-    if (filters.audience && filters.audience !== 'all' && !event.audience.includes(filters.audience)) {
-      return false;
-    }
-    if (filters.citySlug && filters.citySlug !== 'all' && event.city_slug !== filters.citySlug) {
-      return false;
-    }
-    if (filters.theme && filters.theme !== 'all' && !event.themes.includes(filters.theme)) {
-      return false;
-    }
+    if (filters.eventType && filters.eventType !== 'all' && event.event_type !== filters.eventType) return false;
+    if (filters.format && filters.format !== 'all' && event.format !== filters.format) return false;
+    if (filters.audience && filters.audience !== 'all' && !event.audience.includes(filters.audience)) return false;
+    if (filters.citySlug && filters.citySlug !== 'all' && event.city_slug !== filters.citySlug) return false;
+    if (filters.theme && filters.theme !== 'all' && !event.themes.includes(filters.theme)) return false;
     return true;
   });
 }
 
 export function formatEventDate(event: JobmiEvent) {
-  const formatter = new Intl.DateTimeFormat('fr-FR', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
+  const formatter = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
   const start = formatter.format(new Date(event.date_start));
   if (!event.date_end || event.date_end === event.date_start) return start;
   return `${start} - ${formatter.format(new Date(event.date_end))}`;
@@ -172,33 +95,18 @@ export function getCityOptions(events: JobmiEvent[]) {
   return Array.from(
     new Map(
       events
-        .filter((event) => event.city_slug !== 'en-ligne')
-        .map((event) => [event.city_slug, { city: event.city, city_slug: event.city_slug }])
+        .filter((e) => e.city_slug !== 'en-ligne')
+        .map((e) => [e.city_slug, { city: e.city, city_slug: e.city_slug }])
     ).values()
   );
 }
 
 export function getThemeOptions(events: JobmiEvent[]) {
-  return Array.from(new Set(events.flatMap((event) => event.themes)));
-}
-
-export function getRelatedEvents(event: JobmiEvent, limit = 3) {
-  return getActiveEvents()
-    .filter((candidate) => candidate.slug !== event.slug)
-    .map((candidate) => {
-      let score = 0;
-      if (candidate.city_slug === event.city_slug) score += 3;
-      if (candidate.event_type === event.event_type) score += 2;
-      score += candidate.themes.filter((theme) => event.themes.includes(theme)).length;
-      return { candidate, score };
-    })
-    .sort((a, b) => b.score - a.score)
-    .slice(0, limit)
-    .map((item) => item.candidate);
+  return Array.from(new Set(events.flatMap((e) => e.themes)));
 }
 
 export function getEventPrimaryCtaHref(intent: JobmiEvent['jobmi_ctas'][number]) {
-  if (intent === 'passer-le-test') return '/test';
+  if (intent === 'passer-le-test') return '/test-orientation';
   if (intent === 'tester-un-metier') return '/tester-un-metier';
   if (intent === 'explorer-formations') return '/stage-et-formation';
   return '/reconversion';

@@ -6,6 +6,46 @@
 @tailwind components;
 @tailwind utilities;
 
+.jobmi-map-pin-wrapper {
+  background: transparent;
+  border: 0;
+}
+
+.jobmi-map-pin {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px 9999px 9999px 0;
+  transform: rotate(-45deg);
+  background: var(--jobmi-pin-bg);
+  border: 2px solid var(--jobmi-pin-border);
+  box-shadow:
+    0 10px 20px rgba(4, 25, 47, 0.12),
+    0 0 0 8px var(--jobmi-pin-ring);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.jobmi-map-pin.is-active {
+  transform: rotate(-45deg) scale(1.12);
+  box-shadow:
+    0 14px 28px rgba(4, 25, 47, 0.16),
+    0 0 0 10px var(--jobmi-pin-ring);
+}
+
+.jobmi-map-pin__inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--jobmi-pin-dot);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
