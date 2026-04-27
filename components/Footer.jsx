@@ -101,31 +101,21 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Waitinglist CTA */}
+          {/* Nos outils */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-5">Rejoindre</p>
-            <p className="text-sm text-gray-400 mb-4 leading-relaxed">
-              Sois parmi les premiers à accéder à la plateforme Jobmi.
-            </p>
-            <a
-              href="https://626063d8.sibforms.com/serve/MUIFACI_ugihEQiP7m7SmyLz7QszuC5wEK0W_nn2cHLbezW92oq3Gi_M7-5mIHV3oA9bk8VpaPa5q5OmsC4xxwhAAIDAz5LafA4Of6WYGOVAYgPggEk5SH6YYlarS5QAKTm_pucc1dXASOy6scm8cBdqdnUuW0Ms3FUJBfgzGv9XucQ_FwwJIFFVrEDqaJu_1batPvIPyrYuxn4K"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-[#6500FF] hover:bg-[#5200cc] text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors duration-200"
-            >
-              Waitinglist
-              <img src="/media/arrow-icon.svg" alt="" className="w-4 h-4 invert" />
-            </a>
-            <p className="text-xs text-gray-600 mt-4 leading-relaxed">
-              En soumettant votre e-mail, vous acceptez notre{' '}
-              <Link
-                href="/politique-de-confidentialite"
-                className="relative inline-block text-gray-500 transition-colors duration-200 after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-200 hover:text-gray-300 hover:after:scale-x-100"
-              >
-                politique de confidentialité
-              </Link>
-              .
-            </p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-5">Nos outils</p>
+            <ul className="space-y-3">
+              {[
+                { href: '/test-orientation', label: 'Test RIASEC gratuit' },
+                { href: '/outil/temps-devant-toi', label: 'Calcule le temps qu\'il te reste' },
+              ].map(({ href, label }) => (
+                <li key={href}>
+                  <Link href={href} className={footerLinkClass}>
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
         </div>
