@@ -20,6 +20,13 @@ export default function Connexion() {
       const params = new URLSearchParams(window.location.search);
       setCallbackUrl(params.get("callbackUrl") || "/");
       setFromRiasec(params.get("from") === "riasec");
+
+      const authError = params.get("error");
+      if (authError === "google_auth_failed") {
+        setError("La connexion Google n'a pas pu être finalisée. Réessaie dans quelques instants.");
+      } else if (authError) {
+        setError("La connexion n'a pas abouti. Réessaie ou utilise ton email et mot de passe.");
+      }
     }
   }, []);
 

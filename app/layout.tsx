@@ -121,7 +121,7 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="fr">
+    <html lang="fr" data-scroll-behavior="smooth">
       <head>
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
