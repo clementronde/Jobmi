@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /profile
+Disallow: /profil
 Disallow: /inscription
 Disallow: /me-connecter
 Disallow: /api/
