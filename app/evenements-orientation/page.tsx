@@ -1,6 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getActiveEvents } from '@/services/eventsService';
+import {
+  EVENT_TYPE_LABELS,
+  formatEventDate,
+  getActiveEvents,
+  getUpcomingEvents,
+} from '@/services/eventsService';
 
 const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/evenements-orientation`;
@@ -26,7 +31,7 @@ const faqItems = [
 export const metadata: Metadata = {
   title: "Événements d'orientation, salons et immersions pour les 18–25 ans",
   description:
-    "Découvre la page Jobmi dédiée aux salons, journées portes ouvertes, immersions, ateliers métiers et événements utiles pour avancer dans ton orientation.",
+    "Agenda des événements d'orientation pour les 18–25 ans : salons, journées portes ouvertes, ateliers métiers, immersions et carte interactive par ville et format.",
   alternates: {
     canonical: PAGE_URL,
   },
@@ -47,6 +52,7 @@ export const metadata: Metadata = {
 
 export default function EvenementsOrientationPage() {
   const events = getActiveEvents();
+  const featuredEvents = getUpcomingEvents(5);
   const onlineCount = events.filter((event) => event.online_only).length;
   const cityCount = new Set(
     events.filter((event) => event.city_slug !== 'en-ligne').map((event) => event.city_slug)
@@ -80,13 +86,19 @@ export default function EvenementsOrientationPage() {
               Jobmi Map
             </p>
             <h1 className="mt-4 max-w-4xl text-balance text-4xl font-bold leading-tight text-[#04192F] sm:text-5xl lg:text-6xl">
-              La page pour trouver les bons événements d&apos;orientation avant d&apos;ouvrir la carte
+              Agenda des événements d&apos;orientation pour les 18–25 ans
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[#465160]">
-              Salons de l&apos;étudiant, journées portes ouvertes, ateliers métiers, forums alternance,
-              immersions, événements en ligne : cette page t&apos;aide à comprendre ce qu&apos;il faut
-              chercher, pourquoi, et à quel moment. Ensuite, tu peux ouvrir la carte Jobmi pour
-              filtrer ce qui vaut vraiment le déplacement.
+              Cette page rassemble l&apos;agenda des événements d&apos;orientation pour les 18–25 ans :
+              salons de l&apos;orientation, salons de l&apos;étudiant, journées portes ouvertes
+              d&apos;écoles, ateliers métiers, forums emploi, forums alternance et immersions. Tu peux
+              ensuite les explorer sur une carte interactive et filtrer par ville, dates et format
+              pour repérer ce qui peut vraiment t&apos;aider à avancer.
+            </p>
+            <p className="mt-4 max-w-3xl text-base leading-8 text-[#465160]">
+              Retrouve ici les salons d&apos;orientation 2025–2026, les forums emploi jeunes, les
+              nuits de l&apos;orientation, les journées portes ouvertes d&apos;écoles et les événements
+              en ligne partout en France.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -127,10 +139,58 @@ export default function EvenementsOrientationPage() {
           </div>
         </section>
 
+        <section className="border-b border-[#ECE7FF] bg-white px-6 py-14 sm:px-10">
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-3xl">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
+                À la une
+              </p>
+              <h2 className="mt-4 text-3xl font-bold text-[#04192F] sm:text-4xl">
+                Quelques événements orientation à venir
+              </h2>
+              <p className="mt-4 text-base leading-8 text-[#465160] sm:text-lg">
+                Un aperçu textuel des prochains événements utiles, pour que Google comme les
+                visiteurs puissent comprendre tout de suite le type d&apos;agenda proposé par Jobmi.
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
+              {featuredEvents.map((event) => (
+                <article
+                  key={event.id}
+                  className="rounded-2xl border border-[#E9E1FF] bg-[#FBFAFF] p-6 shadow-[0_14px_35px_rgba(4,25,47,0.05)]"
+                >
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#6500FF]">
+                    {EVENT_TYPE_LABELS[event.event_type]}
+                  </p>
+                  <h3 className="mt-3 text-xl font-bold leading-7 text-[#04192F]">
+                    <Link
+                      href={`/evenements/${event.slug}`}
+                      className="transition hover:text-[#6500FF]"
+                    >
+                      {event.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-[#465160]">
+                    {event.online_only ? 'En ligne' : event.city} · {formatEventDate(event)}
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-[#465160]">{event.description_short}</p>
+                  <Link
+                    href={`/evenements/${event.slug}`}
+                    className="mt-4 inline-flex text-sm font-semibold text-[#6500FF] underline underline-offset-4"
+                  >
+                    Voir la fiche événement
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="px-6 py-16 sm:px-10">
           <div className="mx-auto max-w-5xl">
             <h2 className="text-3xl font-bold text-[#04192F] sm:text-4xl">
-              Pourquoi passer par une page dédiée avant la carte ?
+              Pourquoi cette page n&apos;est pas un simple agenda d&apos;événements ?
             </h2>
             <div className="mt-6 space-y-4 text-base leading-8 text-[#465160] sm:text-lg">
               <p>
@@ -147,7 +207,10 @@ export default function EvenementsOrientationPage() {
                 curiosité en première validation.
               </p>
               <p>
-                C&apos;est pour ça qu&apos;ensuite la{' '}
+                Contrairement à un simple calendrier d&apos;événements, la carte Jobmi est pensée pour
+                les 18–25 ans en réflexion, réorientation ou reconversion. Chaque événement est
+                relié à des contenus, outils et prochaines étapes pour t&apos;aider à en tirer quelque
+                chose de concret. C&apos;est pour ça qu&apos;ensuite la{' '}
                 <Link
                   href="/carte-orientation"
                   className="font-semibold text-[#6500FF] underline underline-offset-4"
@@ -165,11 +228,14 @@ export default function EvenementsOrientationPage() {
           <div className="mx-auto max-w-6xl">
             <div className="max-w-3xl">
               <h2 className="text-3xl font-bold text-[#04192F] sm:text-4xl">
-                Ce que tu peux chercher sur la carte
+                Salons, JPO, forums, ateliers : ce que tu peux chercher sur la carte
               </h2>
               <p className="mt-4 text-base leading-8 text-[#465160] sm:text-lg">
                 La carte est pensée pour répondre à des besoins différents selon que tu sois encore
                 flou, déjà engagé dans une piste, ou en train de préparer une vraie réorientation.
+                On y retrouve des salons généralistes, des salons sectoriels, des journées portes
+                ouvertes d&apos;écoles, des ateliers métiers, des forums emploi, des formats en ligne
+                et des événements plus orientés immersion.
               </p>
             </div>
 
@@ -285,6 +351,48 @@ export default function EvenementsOrientationPage() {
                   </Link>
                 </div>
               </aside>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#F7F6FF] px-6 py-16 sm:px-10">
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-3xl">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
+                Comment utiliser la carte
+              </p>
+              <h2 className="mt-4 text-3xl font-bold text-[#04192F] sm:text-4xl">
+                4 étapes simples pour t’en servir intelligemment
+              </h2>
+            </div>
+
+            <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+              {[
+                {
+                  title: '1. Choisis une ville',
+                  text: 'Commence par ta zone ou une grande ville accessible pour toi si tu veux repérer ce qui vaut un déplacement.',
+                },
+                {
+                  title: '2. Filtre par format',
+                  text: 'Salons, JPO, ateliers, forums ou événements en ligne : choisis le niveau d’engagement qui te correspond.',
+                },
+                {
+                  title: '3. Ouvre une fiche',
+                  text: 'Clique sur une épingle ou une fiche pour comprendre pourquoi l’événement peut être utile à ton orientation.',
+                },
+                {
+                  title: '4. Passe à l’action',
+                  text: 'Garde l’événement, ouvre le site officiel et complète avec le test Jobmi ou une immersion si tu veux aller plus loin.',
+                },
+              ].map((step) => (
+                <article
+                  key={step.title}
+                  className="rounded-2xl border border-[#E9E1FF] bg-white p-6 shadow-[0_14px_35px_rgba(4,25,47,0.05)]"
+                >
+                  <h3 className="text-xl font-bold text-[#04192F]">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#465160]">{step.text}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>

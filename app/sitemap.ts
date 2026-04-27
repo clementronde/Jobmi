@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { articles } from '../data/articles';
+import { orientationEvents } from '../data/events';
 
 const isPublished = (datePublished: string) =>
   new Date(datePublished) <= new Date();
@@ -51,6 +52,48 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${baseUrl}/evenements/salons`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/evenements/journees-portes-ouvertes`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/evenements/ateliers-metiers`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/evenements/en-ligne`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/carte-orientation/paris`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/carte-orientation/lyon`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/carte-orientation/nantes`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    },
+    {
       url: `${baseUrl}/tester-metiers-paris`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -81,6 +124,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/que-faire-apres-le-bac`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/a-propos`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -103,5 +152,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     }));
 
-  return [...staticPages, ...articlePages];
+  const eventPages: MetadataRoute.Sitemap = orientationEvents
+    .filter((event) => event.seo_indexable)
+    .map((event) => ({
+      url: `${baseUrl}/evenements/${event.slug}`,
+      lastModified: new Date(event.date_end || event.date_start),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    }));
+
+  return [...staticPages, ...articlePages, ...eventPages];
 }

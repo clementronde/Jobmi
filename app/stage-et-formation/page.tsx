@@ -272,6 +272,17 @@ export default function StageEtFormation() {
               </Link>{' '}
               avant de choisir une formation.
             </p>
+            <p className="mt-4 text-base leading-relaxed text-gray-600">
+              Tu peux aussi{' '}
+              <Link
+                href="/evenements-orientation"
+                className="font-semibold text-[#6500FF] underline underline-offset-4"
+              >
+                consulter la carte des événements d’orientation Jobmi
+              </Link>{' '}
+              pour repérer des salons, journées portes ouvertes et forums utiles avant de
+              sélectionner une formation.
+            </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/test"

@@ -7,6 +7,7 @@ type InternalLinksSectionProps = {
   description?: string;
   links: InternalLinkItem[];
   className?: string;
+  containerClassName?: string;
 };
 
 export function InternalLinksSection({
@@ -15,6 +16,7 @@ export function InternalLinksSection({
   description,
   links,
   className = '',
+  containerClassName = 'max-w-screen-xl',
 }: InternalLinksSectionProps) {
   if (!links.length) return null;
 
@@ -24,12 +26,12 @@ export function InternalLinksSection({
       : links.length === 2
         ? 'mx-auto max-w-4xl grid-cols-1 md:grid-cols-2'
         : links.length === 3
-          ? 'mx-auto max-w-6xl grid-cols-1 md:grid-cols-2 xl:grid-cols-3'
-          : 'grid-cols-1 md:grid-cols-2 xl:grid-cols-4';
+          ? 'mx-auto max-w-6xl grid-cols-1 lg:grid-cols-3'
+          : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4';
 
   return (
     <section className={`px-6 py-14 sm:px-10 ${className}`}>
-      <div className="mx-auto max-w-screen-xl">
+      <div className={`mx-auto ${containerClassName}`}>
         <div className="mb-7 max-w-3xl">
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#6500FF]">
             {eyebrow}

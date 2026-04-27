@@ -919,6 +919,16 @@ export default function TesterUnMetierPage() {
                     préparé, avec une demande plus claire et un projet déjà un
                     peu cadré.
                   </p>
+                  <p className="mt-3 font-sans text-base leading-relaxed text-gray-600">
+                    Et si tu veux d’abord repérer{' '}
+                    <Link
+                      href="/evenements-orientation"
+                      className="font-semibold text-[#6500FF] underline underline-offset-4"
+                    >
+                      les salons et événements qui peuvent t’aider à t’orienter
+                    </Link>
+                    , tu peux aussi passer par la page dédiée avant d’ouvrir la carte Jobmi.
+                  </p>
 
                   <div className="mt-5 rounded-2xl border border-[#6500FF]/12 bg-[#F8F7FF] p-5">
                     <p className="jobmi-script-accent text-[#6500FF]">

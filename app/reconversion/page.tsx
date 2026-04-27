@@ -625,6 +625,17 @@ export default function ReconversionPage() {
               <p className="font-sans text-gray-600 text-lg leading-relaxed">
                 Tu peux aussi en parler à ton conseiller France Travail ou à un autre organisme d’insertion si tu es déjà accompagné.
               </p>
+              <p className="font-sans text-gray-600 text-lg leading-relaxed">
+                Si tu veux voir des occasions concrètes de comparer une voie, une école ou un
+                format avant de t’engager, consulte aussi{' '}
+                <Link
+                  href="/evenements-orientation"
+                  className="font-semibold text-[#6500FF] underline underline-offset-4"
+                >
+                  la page des salons et événements d’orientation Jobmi
+                </Link>
+                .
+              </p>
             </div>
           </div>
         </div>

@@ -67,6 +67,18 @@ export function getActiveEvents(referenceDate = new Date()) {
   });
 }
 
+export function getUpcomingEvents(limit?: number, referenceDate = new Date()) {
+  const events = [...getActiveEvents(referenceDate)].sort(
+    (a, b) => new Date(a.date_start).getTime() - new Date(b.date_start).getTime()
+  );
+
+  return typeof limit === 'number' ? events.slice(0, limit) : events;
+}
+
+export function getEventBySlug(slug: string) {
+  return orientationEvents.find((event) => event.slug === slug) ?? null;
+}
+
 export function filterEvents(events: JobmiEvent[], filters: EventFilterInput) {
   return events.filter((event) => {
     if (filters.eventType && filters.eventType !== 'all' && event.event_type !== filters.eventType) return false;
