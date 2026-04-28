@@ -5,22 +5,22 @@ const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/tester-metiers-paris`;
 
 export const metadata: Metadata = {
-  title: 'Tester des métiers à Paris quand tu as 18–25 ans',
+  title: 'Tester des métiers à Paris quand tu as 18-25 ans',
   description:
-    "Découvre comment tester des métiers à Paris quand tu as 18–25 ans : ateliers, PMSMP, stages d’observation, journées d’immersion en école, et accompagnement par Jobmi.",
+    "Découvre comment tester des métiers à Paris quand tu as 18-25 ans : ateliers, PMSMP, stages d’observation, journées d’immersion en école, et accompagnement par Jobmi.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: 'website',
     url: PAGE_URL,
-    title: 'Tester des métiers à Paris quand tu as 18–25 ans | Jobmi',
+    title: 'Tester des métiers à Paris quand tu as 18-25 ans | Jobmi',
     description:
-      "Découvre comment tester des métiers à Paris quand tu as 18–25 ans : ateliers, PMSMP, stages d’observation, journées d’immersion en école, et accompagnement par Jobmi.",
+      "Découvre comment tester des métiers à Paris quand tu as 18-25 ans : ateliers, PMSMP, stages d’observation, journées d’immersion en école, et accompagnement par Jobmi.",
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tester des métiers à Paris quand tu as 18–25 ans | Jobmi',
+    title: 'Tester des métiers à Paris quand tu as 18-25 ans | Jobmi',
     description:
-      "Découvre comment tester des métiers à Paris quand tu as 18–25 ans : ateliers, PMSMP, stages d’observation, journées d’immersion en école, et accompagnement par Jobmi.",
+      "Découvre comment tester des métiers à Paris quand tu as 18-25 ans : ateliers, PMSMP, stages d’observation, journées d’immersion en école, et accompagnement par Jobmi.",
   },
 };
 

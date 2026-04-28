@@ -9,16 +9,16 @@ import HomeSection6 from '../components/HomeSection6';
 const BASE_URL = 'https://jobmi.fr';
 
 export const metadata: Metadata = {
-  title: "Orientation & reconversion pour les 18–25 ans — Teste un métier en vrai",
+  title: "Orientation et reconversion pour les 18-25 ans | Teste un métier en vrai",
   description:
-    "Jobmi aide les 18–25 ans à trouver leur voie : test d'orientation gratuit (RIASEC), immersions métier, stages et formations adaptées à ton profil. Choisis sans te tromper.",
+    "Jobmi aide les 18-25 ans à trouver leur voie : test d'orientation gratuit (RIASEC), immersions métier, stages et formations adaptées à ton profil. Choisis sans te tromper.",
   alternates: { canonical: BASE_URL },
   openGraph: {
     type: 'website',
     url: BASE_URL,
-    title: "Orientation & reconversion pour les 18–25 ans — Teste un métier en vrai | Jobmi",
+    title: "Orientation & reconversion pour les 18-25 ans | Teste un métier en vrai | Jobmi",
     description:
-      "Test d'orientation gratuit, immersions métier et stages pour les 18–25 ans. Trouve ta voie, teste-la en vrai.",
+      "Test d'orientation gratuit, immersions métier et stages pour les 18-25 ans. Trouve ta voie, teste-la en vrai.",
   },
 };
 
@@ -27,9 +27,9 @@ const webPageJsonLd = {
   '@type': 'WebPage',
   '@id': `${BASE_URL}/#webpage`,
   url: BASE_URL,
-  name: "Orientation & reconversion pour les 18–25 ans — Teste un métier en vrai | Jobmi",
+  name: "Orientation & reconversion pour les 18-25 ans | Teste un métier en vrai | Jobmi",
   description:
-    "Jobmi aide les 18–25 ans à trouver leur voie : test d'orientation gratuit (RIASEC), immersions métier, stages et formations adaptées à leur profil.",
+    "Jobmi aide les 18-25 ans à trouver leur voie : test d'orientation gratuit (RIASEC), immersions métier, stages et formations adaptées à leur profil.",
   isPartOf: { '@id': `${BASE_URL}/#website` },
   inLanguage: 'fr-FR',
 };
