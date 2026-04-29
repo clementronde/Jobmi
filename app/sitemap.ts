@@ -1,6 +1,9 @@
 import { MetadataRoute } from 'next';
 import { articles } from '../data/articles';
 import { orientationEvents } from '../data/events';
+import { geoPages } from '../data/geoPages';
+import { immersionOffers } from '../data/immersionOffers';
+import { jobTestingPages } from '../data/jobTestingPages';
 
 const isPublished = (datePublished: string) =>
   new Date(datePublished) <= new Date();
@@ -161,5 +164,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }));
 
-  return [...staticPages, ...articlePages, ...eventPages];
+  const geoSeoPages: MetadataRoute.Sitemap = geoPages.map((page) => ({
+    url: `${baseUrl}/${page.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.72,
+  }));
+
+  const jobSeoPages: MetadataRoute.Sitemap = jobTestingPages.map((page) => ({
+    url: `${baseUrl}/tester-metier/${page.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.72,
+  }));
+
+  const immersionPages: MetadataRoute.Sitemap = immersionOffers.map((offer) => ({
+    url: `${baseUrl}/immersions/${offer.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.68,
+  }));
+
+  return [
+    ...staticPages,
+    ...articlePages,
+    ...eventPages,
+    ...geoSeoPages,
+    ...jobSeoPages,
+    ...immersionPages,
+  ];
 }

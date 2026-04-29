@@ -6,20 +6,20 @@ export const Article4 = () => {
 
       <div className='flex flex-col items-center mx-auto my-10 font-sans max-w-[900px]'>
         <div className='flex flex-col md:flex-row items-start gap-4'>
-          <p className='font-bold whitespace-nowrap'>Reconversion à 20 ans :</p>
+          <p className='font-bold whitespace-nowrap'>Plan en 30 jours :</p>
           <p className='text-justify'>
-            Changer de voie à 20 ans, c'est possible et c'est même l'un des meilleurs moments pour le faire. Tu as peu de contraintes, beaucoup d'énergie, et le marché du travail est en pleine transformation. Ce guide te donne toutes les étapes pour réussir ta reconversion professionnelle à 20 ans, sans te perdre.
+            Changer de voie à 20 ans, c'est possible, mais le vrai danger est de rester trop longtemps dans le flou. Cet article complète la page pilier sur la reconversion jeune avec un plan d'action simple : 30 jours pour comprendre ce qui bloque, explorer des pistes, tester le terrain et préparer une suite réaliste.
           </p>
         </div>
       </div>
 
       <div className='font-sans mx-auto sm:mx-20'>
-        <h2 className='font-bold text-2xl'>Pourquoi se reconvertir à 20 ans est une vraie opportunité</h2>
+        <h2 className='font-bold text-2xl'>Pourquoi cadrer ta reconversion sur 30 jours</h2>
         <p className='mt-4'>
-          Contrairement à ce qu'on entend souvent, il n'est pas "trop tôt" pour se reconvertir. À 20 ans, tu es encore en train de construire ton identité professionnelle. Si tu réalises que la voie choisie après le bac ne te correspond pas, mieux vaut agir maintenant que dans 10 ans avec un crédit immobilier et des enfants.
+          Une reconversion ne se décide pas en une soirée, mais elle n'a pas non plus besoin de rester un sujet vague pendant six mois. À 20 ans, tu peux avancer par petites expériences : faire le point, parler à des pros, comparer des formations, puis tester une piste avant de t'engager.
         </p>
         <p className='mt-4'>
-          Les données le confirment : <strong>67 % des actifs de moins de 30 ans</strong> souhaitent changer de métier selon une étude APEC 2024. Tu n'es pas seul.
+          Si tu veux d'abord comprendre les grands principes, les erreurs à éviter et les aides possibles, commence par la page pilier <Link href="/reconversion" className='underline font-semibold'>reconversion professionnelle à 20 ans</Link>. Ici, on se concentre sur l'exécution.
         </p>
       </div>
 
@@ -32,7 +32,7 @@ export const Article4 = () => {
 
       <div className='font-sans sm:mx-20'>
         <p>
-          Avant de foncer, prends 48h pour répondre honnêtement à ces trois questions :
+          Les trois premiers jours servent à nommer le problème. Avant de foncer, prends 48h pour répondre honnêtement à ces trois questions :
         </p>
         <div className='space-y-4 mt-6'>
           <div className='bg-gray-100 p-4 rounded-lg'>
@@ -49,13 +49,13 @@ export const Article4 = () => {
           </div>
         </div>
         <p className='mt-6'>
-          Pour t'aider à répondre à ces questions, tu peux <Link href="/test" className='underline font-semibold'>passer le test d'orientation Jobmi</Link>, il prend 5 minutes et te donne des pistes concrètes basées sur ton profil.
+          Pour t'aider à répondre à ces questions, tu peux <Link href="/test" className='underline font-semibold'>passer le test d'orientation Jobmi</Link>, puis revenir ici avec 2 ou 3 familles de métiers à creuser.
         </p>
       </div>
 
       <div className='font-sans my-10 sm:py-20 py-2 mx-auto max-w-[700px]'>
         <h2 className='text-4xl font-bold text-center'>
-          Étape 2 - Identifier les métiers accessibles
+          Étape 2 - Explorer 3 pistes réalistes
         </h2>
         <span>
           <img className='sm:w-[400px] w-[200px] mx-auto' src="/media/trait-article-titre-h2.svg" alt="Trait" />
@@ -64,7 +64,7 @@ export const Article4 = () => {
 
       <div className='font-sans sm:mx-20 my-10'>
         <p className='mb-8'>
-          Tous les métiers ne sont pas accessibles au même rythme. Voici comment les classer selon ton profil.
+          Entre les jours 4 et 12, ne cherche pas encore le métier parfait. Choisis trois pistes et classe-les selon l'effort réel nécessaire.
         </p>
         <div className='space-y-4'>
           <div className='grid gap-4 rounded-2xl border border-[#E9E1FF] bg-[#F8F7FF] p-5 sm:grid-cols-[72px_minmax(0,1fr)] sm:p-6'>
@@ -99,7 +99,7 @@ export const Article4 = () => {
 
       <div className='font-sans my-10 sm:py-20 py-2 mx-auto max-w-[700px]'>
         <h2 className='text-4xl font-bold text-center'>
-          Étape 3 - Financer ta reconversion
+          Étape 3 - Vérifier le financement et les formats
         </h2>
         <span>
           <img className='sm:w-[300px] w-[200px] mx-auto' src="/media/trait-article-titre-h2.svg" alt="Trait" />
@@ -108,7 +108,7 @@ export const Article4 = () => {
 
       <div className='font-sans sm:mx-20'>
         <p className='mb-6'>
-          L'argent est souvent le frein numéro 1. Voici les dispositifs faits pour toi :
+          Entre les jours 13 et 20, regarde les formats avant de choisir une école ou une formation. L'argent est souvent le frein numéro 1, mais il existe plusieurs portes d'entrée.
         </p>
         <div className='space-y-4'>
           <div className='bg-gray-100 p-4 rounded-lg'>
@@ -128,7 +128,7 @@ export const Article4 = () => {
 
       <div className='font-sans my-10 sm:py-20 py-2 mx-auto max-w-[700px]'>
         <h2 className='text-4xl font-bold text-center'>
-          Étape 4 - Passer à l'action sans attendre
+          Étape 4 - Tester le terrain avant le jour 30
         </h2>
         <span>
           <img className='sm:w-[370px] w-[250px] mx-auto' src="/media/trait-article-titre-h2.svg" alt="Trait" />
@@ -141,10 +141,10 @@ export const Article4 = () => {
             Le piège de la reconversion, c'est de rester en mode "réflexion" indéfiniment. La meilleure façon d'avancer : <strong>teste avant de t'engager</strong>.
           </p>
           <p className='mb-4'>
-            Trouve un stage, un projet bénévole, une mission freelance dans le domaine qui t'intéresse. 3 semaines d'expérience réelle valent 6 mois de recherches sur Internet.
+            Trouve un stage d'observation, une PMSMP, un projet bénévole, une mission freelance ou un atelier métier dans le domaine qui t'intéresse. Quelques jours d'expérience réelle valent souvent des mois de recherches sur Internet.
           </p>
           <p>
-            Tu peux aussi explorer les <Link href="/stage-et-formation" className='underline font-semibold'>stages et formations sélectionnés par Jobmi</Link> pour découvrir des opportunités concrètes adaptées à ton profil.
+            Tu peux aussi explorer les <Link href="/stage-et-formation" className='underline font-semibold'>stages, immersions et pistes de formation</Link>, ou lire le guide <Link href="/blog/pmsmp-18-25-tester-metier-immersion" className='underline font-semibold'>PMSMP 18–25 ans</Link> si tu veux tester un métier avec un cadre officiel.
           </p>
         </div>
         <div className='lg:w-1/3 flex items-center'>

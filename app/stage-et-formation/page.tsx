@@ -9,20 +9,20 @@ const WAITINGLIST_URL =
   'https://626063d8.sibforms.com/serve/MUIFACI_ugihEQiP7m7SmyLz7QszuC5wEK0W_nn2cHLbezW92oq3Gi_M7-5mIHV3oA9bk8VpaPa5q5OmsC4xxwhAAIDAz5LafA4Of6WYGOVAYgPggEk5SH6YYlarS5QAKTm_pucc1dXASOy6scm8cBdqdnUuW0Ms3FUJBfgzGv9XucQ_FwwJIFFVrEDqaJu_1batPvIPyrYuxn4K';
 
 export const metadata: Metadata = {
-  title: "Immersions métier et pistes de formation",
+  title: "Stages et immersions pour les 18–25 ans | Tester un métier",
   description:
-    "Découvre les secteurs à explorer, les formats d'immersion métier et les étapes pour tester une voie avant de choisir ta formation.",
+    "Stages d'observation, PMSMP, immersions métier, alternance : compare les formats pour tester un métier et choisir une formation utile quand tu as 18–25 ans.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: 'website',
     url: PAGE_URL,
-    title: "Immersions métier et pistes de formation | Jobmi",
+    title: "Stages et immersions pour les 18–25 ans | Jobmi",
     description:
       "Jobmi prépare ses premières immersions avec des entreprises partenaires. En attendant, explore les secteurs et les bonnes étapes pour tester un métier.",
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Immersions métier et formation | Jobmi",
+    title: "Stages et immersions métier | Jobmi",
     description:
       "Explore les formats d'immersion et les pistes de formation pour choisir avec plus de concret.",
   },
@@ -38,6 +38,62 @@ const collectionJsonLd = {
     "Ressources pour découvrir les secteurs, préparer une immersion métier et choisir une formation avec plus de concret.",
   isPartOf: { '@id': `${BASE_URL}/#website` },
   inLanguage: 'fr-FR',
+};
+
+const jobPostingJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Exemples de stages, immersions et formations à préparer',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      item: {
+        '@type': 'JobPosting',
+        title: "Stage d'observation développeur web",
+        description:
+          "Découverte du quotidien d'une équipe produit : observation des rituels, compréhension des missions d'un développeur web junior et préparation des questions à poser avant une formation tech.",
+        employmentType: 'INTERN',
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Paris',
+            addressCountry: 'FR',
+          },
+        },
+        hiringOrganization: {
+          '@type': 'Organization',
+          name: 'Jobmi',
+          sameAs: BASE_URL,
+        },
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      item: {
+        '@type': 'JobPosting',
+        title: 'Immersion métier santé-social',
+        description:
+          "Observation encadrée d'un environnement santé ou social pour vérifier le rythme, la relation humaine et les contraintes avant de viser une formation longue.",
+        employmentType: 'INTERN',
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Lyon',
+            addressCountry: 'FR',
+          },
+        },
+        hiringOrganization: {
+          '@type': 'Organization',
+          name: 'Jobmi',
+          sameAs: BASE_URL,
+        },
+      },
+    },
+  ],
 };
 
 const faqJsonLd = {
@@ -149,6 +205,60 @@ const steps = [
   },
 ];
 
+const formats = [
+  {
+    title: "Stage d'observation",
+    text:
+      "Utile si tu veux regarder le quotidien d'un métier sans encore t'engager. Tu observes les missions, le rythme, l'ambiance et les contraintes concrètes.",
+    bestFor: 'Première exploration',
+  },
+  {
+    title: 'PMSMP',
+    text:
+      "Un cadre officiel pour tester une piste professionnelle avec une structure d'accueil, souvent via Mission Locale ou France Travail.",
+    bestFor: 'Reconversion ou insertion',
+  },
+  {
+    title: 'Alternance',
+    text:
+      "Tu te formes en travaillant. C'est pertinent quand ton projet est déjà assez clair et que tu veux apprendre un métier avec une vraie expérience.",
+    bestFor: 'Projet déjà ciblé',
+  },
+  {
+    title: 'Formation courte',
+    text:
+      "Bootcamp, titre pro, CAP, certificat : à comparer seulement après avoir vérifié que le métier visé correspond vraiment à ton profil.",
+    bestFor: 'Montée en compétences',
+  },
+];
+
+const sampleOpportunities = [
+  {
+    title: "Stage d'observation développeur web",
+    href: '/immersions/stage-observation-developpeur-web-paris',
+    city: 'Paris',
+    level: 'Débutant accepté',
+    targetJob: 'Développeur web junior',
+    missions: 'Observer les rituels produit, comprendre les tickets, poser tes questions à une équipe tech.',
+  },
+  {
+    title: 'Immersion santé-social',
+    href: '/immersions/immersion-sante-social-lyon',
+    city: 'Lyon',
+    level: 'Projet à clarifier',
+    targetJob: 'Infirmier, éducateur spécialisé, assistant social',
+    missions: "Découvrir la relation d'aide, le rythme d'équipe et les contraintes humaines du terrain.",
+  },
+  {
+    title: 'Atelier métiers créatifs',
+    href: '/immersions/atelier-ux-design-en-ligne',
+    city: 'En ligne / hybride',
+    level: 'Curieux ou débutant',
+    targetJob: 'UX designer, graphiste, content manager',
+    missions: 'Comprendre un brief, voir un portfolio, comparer formation longue et parcours projet.',
+  },
+];
+
 export default function StageEtFormation() {
   const internalLinks = getInternalLinksForContext('formation', '/stage-et-formation');
 
@@ -162,6 +272,10 @@ export default function StageEtFormation() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingJsonLd) }}
+      />
 
       <div className="mt-[120px] font-sans">
         <section className="mx-auto max-w-screen-xl px-6 pb-12 pt-4 sm:px-10">
@@ -170,7 +284,7 @@ export default function StageEtFormation() {
               Immersions bientôt disponibles
             </p>
             <h1 className="text-4xl font-bold leading-tight text-[#04192F] sm:text-5xl lg:text-6xl">
-              Teste un métier avant de choisir ta formation
+              Stages et immersions pour tester un métier avant ta formation
             </h1>
           <img
             src="/media/home-temoignage-soulignage-titre.svg"
@@ -178,10 +292,11 @@ export default function StageEtFormation() {
               className="mx-auto mt-3"
           />
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-              Jobmi construit son réseau d'entreprises partenaires. En attendant
-              les premières immersions, découvre les secteurs à explorer et les
-              étapes pour avancer sans choisir à l'aveugle. Si tu pars encore
-              de trop loin, le plus simple est souvent de{' '}
+              Jobmi construit son réseau d'entreprises partenaires pour les
+              18–25 ans. En attendant les premières immersions, compare les
+              formats utiles : stage d'observation, PMSMP, alternance, formation
+              courte et ateliers métier. Si tu pars encore de trop loin, le plus
+              simple est souvent de{' '}
               <Link
                 href="/test"
                 className="font-semibold text-[#6500FF] underline underline-offset-4"
@@ -206,6 +321,35 @@ export default function StageEtFormation() {
                 Je suis une entreprise
               </Link>
             </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-screen-xl px-6 py-14 sm:px-10">
+          <div className="mb-8 max-w-3xl">
+            <p className="mb-2 text-sm font-bold uppercase tracking-[0.18em] text-[#6500FF]">
+              Les formats possibles
+            </p>
+            <h2 className="text-3xl font-bold text-[#04192F] sm:text-4xl">
+              Stage, PMSMP, alternance : à quoi sert chaque option ?
+            </h2>
+            <p className="mt-4 text-gray-600">
+              Tous les formats ne répondent pas au même besoin. L'enjeu est de
+              choisir le bon niveau d'engagement selon ton degré de clarté.
+            </p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {formats.map((format) => (
+              <article
+                key={format.title}
+                className="rounded-lg border border-[#E9E1FF] bg-white p-6 shadow-[0_14px_35px_rgba(4,25,47,0.05)]"
+              >
+                <p className="mb-3 inline-flex rounded-full bg-[#6500FF]/8 px-3 py-1 text-xs font-bold text-[#6500FF]">
+                  {format.bestFor}
+                </p>
+                <h3 className="text-xl font-bold text-[#04192F]">{format.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-gray-600">{format.text}</p>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -248,6 +392,54 @@ export default function StageEtFormation() {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-screen-xl px-6 py-16 sm:px-10">
+          <div className="mb-8 max-w-3xl">
+            <p className="mb-2 text-sm font-bold uppercase tracking-[0.18em] text-[#6500FF]">
+              Exemples de fiches à préparer
+            </p>
+            <h2 className="text-3xl font-bold text-[#04192F] sm:text-4xl">
+              Des opportunités lisibles par métier, niveau et ville
+            </h2>
+            <p className="mt-4 text-gray-600">
+              Les premières fiches détaillées pourront être indexées quand les
+              offres seront confirmées. Pour l'instant, voici le niveau
+              d'information que Jobmi veut rendre clair avant toute candidature.
+            </p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {sampleOpportunities.map((item) => (
+              <Link
+                key={item.title}
+                href={item.href}
+                className="rounded-lg border border-gray-200 bg-white p-6 shadow-[0_14px_35px_rgba(4,25,47,0.05)]"
+              >
+                <h3 className="text-xl font-bold text-[#04192F]">{item.title}</h3>
+                <dl className="mt-4 space-y-3 text-sm leading-6 text-gray-600">
+                  <div>
+                    <dt className="font-bold text-[#04192F]">Ville</dt>
+                    <dd>{item.city}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-bold text-[#04192F]">Niveau</dt>
+                    <dd>{item.level}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-bold text-[#04192F]">Métier visé</dt>
+                    <dd>{item.targetJob}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-bold text-[#04192F]">Ce que tu peux vérifier</dt>
+                    <dd>{item.missions}</dd>
+                  </div>
+                </dl>
+                <p className="mt-5 text-sm font-bold text-[#6500FF]">
+                  Voir la fiche <span aria-hidden="true">→</span>
+                </p>
+              </Link>
+            ))}
           </div>
         </section>
 

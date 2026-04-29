@@ -15,6 +15,10 @@ import { Article11 } from '../../../components/articles/Article11';
 import { Article12 } from '../../../components/articles/Article12';
 import { Article13 } from '../../../components/articles/Article13';
 import { Article14 } from '../../../components/articles/Article14';
+import { ArticleAIProofJobs } from '../../../components/articles/ArticleAIProofJobs';
+import { ArticleAIBoostsJobs } from '../../../components/articles/ArticleAIBoostsJobs';
+import { ArticleNewAIJobs } from '../../../components/articles/ArticleNewAIJobs';
+import { GenericSupportArticle } from '../../../components/articles/GenericSupportArticle';
 import { RelatedArticles } from '../../../components/RelatedArticles';
 import ArticleTOC from '../../../components/ArticleTOC';
 import { ArticleAuthorBox, ARTICLE_AUTHOR } from '../../../components/ArticleAuthorBox';
@@ -23,6 +27,14 @@ import { getInternalLinksForArticle } from '../../../data/internalLinks';
 
 const BASE_URL = 'https://jobmi.fr';
 const articleSeoTitleOverrides: Record<string, string> = {
+  'reconversion-professionnelle-20-ans-guide-complet':
+    'Plan d’action reconversion à 20 ans : quoi faire en 30 jours',
+  'metiers-ia-ne-remplacera-pas-2030':
+    '10 métiers que l’IA ne remplacera pas en 2026–2030 (salaires + formations)',
+  'nouveaux-metiers-crees-par-ia':
+    "10 nouveaux métiers créés par l'IA 2026 (salaires + formations accessibles)",
+  'comment-ia-booste-ton-futur-metier':
+    "Comment l'IA booste 15 métiers concrets (exemples 2026)",
   'pmsmp-18-25-tester-metier-immersion':
     'PMSMP 18–25 ans : comment tester un métier en immersion avant de te reconvertir',
 };
@@ -67,6 +79,18 @@ const articleFaqSchemaBySlug: Record<string, { '@context': string; '@type': stri
     ],
   },
 };
+
+const genericSupportArticleSlugs = new Set([
+  'reconversion-apres-une-l1',
+  'erreurs-reconversion-jeune',
+  'financer-reconversion-jeune',
+  'comment-preparer-une-immersion-metier',
+  'jobshadowing-decouvrir-metier',
+  'que-faire-apres-le-bac-sans-idee',
+  'orientation-post-bac-sans-parcoursup',
+  'utiliser-profil-riasec-orientation',
+  'mission-locale-orientation-jeune',
+]);
 
 export const dynamicParams = false;
 
@@ -238,6 +262,12 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
           {slug === "utiliser-cpf-compte-personnel-formation" && <Article12 />}
           {slug === "trouver-stage-reconversion-methode" && <Article13 />}
           {slug === "pmsmp-18-25-tester-metier-immersion" && <Article14 />}
+          {slug === "metiers-ia-ne-remplacera-pas-2030" && <ArticleAIProofJobs />}
+          {slug === "comment-ia-booste-ton-futur-metier" && <ArticleAIBoostsJobs />}
+          {slug === "nouveaux-metiers-crees-par-ia" && <ArticleNewAIJobs />}
+          {genericSupportArticleSlugs.has(slug) && (
+            <GenericSupportArticle slug={slug} />
+          )}
         </article>
       </div>
 
