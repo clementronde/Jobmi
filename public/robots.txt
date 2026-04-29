@@ -1,8 +1,15 @@
 User-agent: *
 Allow: /
-Disallow: /profil
-Disallow: /inscription
-Disallow: /me-connecter
 Disallow: /api/
+Disallow: /profil
+Disallow: /profil/
+Disallow: /profile
+Disallow: /profile/
+Disallow: /inscription
+Disallow: /inscription/
+Disallow: /me-connecter
+Disallow: /me-connecter/
+Disallow: /*?callbackUrl=
+Disallow: /*?error=
 
 Sitemap: https://jobmi.fr/sitemap.xml

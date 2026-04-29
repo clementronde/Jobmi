@@ -8,141 +8,167 @@ import { jobTestingPages } from '../data/jobTestingPages';
 const isPublished = (datePublished: string) =>
   new Date(datePublished) <= new Date();
 
+const today = new Date();
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://jobmi.fr';
 
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/test`,
+      lastModified: today,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/test-orientation`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/test-orientation-18-25-ans`,
+      lastModified: today,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
       url: `${baseUrl}/reconversion`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/tester-un-metier`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/carte-orientation`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/evenements-orientation`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'weekly',
       priority: 0.85,
     },
     {
       url: `${baseUrl}/evenements/salons`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'weekly',
       priority: 0.75,
     },
     {
       url: `${baseUrl}/evenements/journees-portes-ouvertes`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'weekly',
       priority: 0.75,
     },
     {
       url: `${baseUrl}/evenements/ateliers-metiers`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'weekly',
       priority: 0.75,
     },
     {
       url: `${baseUrl}/evenements/en-ligne`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'weekly',
       priority: 0.75,
     },
     {
       url: `${baseUrl}/carte-orientation/paris`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'weekly',
       priority: 0.75,
     },
     {
       url: `${baseUrl}/carte-orientation/lyon`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'weekly',
       priority: 0.75,
     },
     {
       url: `${baseUrl}/carte-orientation/nantes`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'weekly',
       priority: 0.75,
     },
     {
       url: `${baseUrl}/tester-metiers-paris`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/outil/temps-devant-toi`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/outils`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/profil`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.2,
-    },
-    {
       url: `${baseUrl}/stage-et-formation`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/que-faire-apres-le-bac`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'weekly',
       priority: 0.85,
     },
     {
       url: `${baseUrl}/a-propos`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
+      lastModified: today,
       changeFrequency: 'yearly',
       priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/cgu`,
+      lastModified: today,
+      changeFrequency: 'yearly',
+      priority: 0.2,
+    },
+    {
+      url: `${baseUrl}/mention-legales`,
+      lastModified: today,
+      changeFrequency: 'yearly',
+      priority: 0.2,
+    },
+    {
+      url: `${baseUrl}/politique-de-confidentialite`,
+      lastModified: today,
+      changeFrequency: 'yearly',
+      priority: 0.2,
     },
   ];
 
@@ -166,26 +192,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const geoSeoPages: MetadataRoute.Sitemap = geoPages.map((page) => ({
     url: `${baseUrl}/${page.slug}`,
-    lastModified: new Date(),
+    lastModified: today,
     changeFrequency: 'monthly' as const,
     priority: 0.72,
   }));
 
   const jobSeoPages: MetadataRoute.Sitemap = jobTestingPages.map((page) => ({
     url: `${baseUrl}/tester-metier/${page.slug}`,
-    lastModified: new Date(),
+    lastModified: today,
     changeFrequency: 'monthly' as const,
     priority: 0.72,
   }));
 
   const immersionPages: MetadataRoute.Sitemap = immersionOffers.map((offer) => ({
     url: `${baseUrl}/immersions/${offer.slug}`,
-    lastModified: new Date(),
+    lastModified: today,
     changeFrequency: 'monthly' as const,
     priority: 0.68,
   }));
 
-  return [
+  const pages = [
     ...staticPages,
     ...articlePages,
     ...eventPages,
@@ -193,4 +219,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...jobSeoPages,
     ...immersionPages,
   ];
+
+  return Array.from(new Map(pages.map((page) => [page.url, page])).values());
 }
