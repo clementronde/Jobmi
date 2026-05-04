@@ -6,6 +6,7 @@ import 'tailwindcss/tailwind.css';
 import Provider from '@/components/Provider';
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 
 const BASE_URL = 'https://jobmi.fr';
 
@@ -144,6 +145,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         {/* End Google Tag Manager (noscript) */}
 
         <Provider>
+          <AnalyticsEvents />
           <Navbar />
           <main>
             {children}

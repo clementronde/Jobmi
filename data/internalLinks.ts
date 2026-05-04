@@ -33,7 +33,7 @@ const uniqueLinks = (links: InternalLinkItem[], currentHref?: string) => {
 export const internalLinkGroups = {
   orientation: [
     {
-      href: '/test-orientation',
+      href: '/test',
       title: "Test d'orientation gratuit pour les 18-25 ans",
       description: 'Clarifie ton profil avant de choisir une formation ou un métier.',
       label: 'Page pilier',
@@ -197,7 +197,7 @@ export const internalLinkGroups = {
       label: 'Page pilier',
     },
     {
-      href: '/test-orientation',
+      href: '/test',
       title: "Test d'orientation 18–25 ans",
       description: 'Identifie des familles de métiers avant de choisir une formation.',
       label: 'Test',

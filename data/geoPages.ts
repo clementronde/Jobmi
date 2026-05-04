@@ -87,7 +87,7 @@ export const geoPages: GeoPage[] = [
           "Tu peux en parler à ta Mission Locale, à ton conseiller France Travail, à ton établissement ou à l’organisme qui te suit. Prépare un message simple qui explique ton âge, ta situation, la ou les familles de métiers que tu veux tester, et le type de format souhaité. Paris offre beaucoup de possibilités, mais c’est plus facile d’obtenir un “oui” si ta demande est claire, réaliste et limitée dans le temps.",
       },
     ],
-    primaryHref: '/test-orientation',
+    primaryHref: '/test',
     primaryCta: "Passer le test d’orientation",
     secondaryHref: '/carte-orientation/paris',
     secondaryCta: 'Voir les événements à Paris',

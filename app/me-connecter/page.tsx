@@ -4,6 +4,7 @@ import { useEffect, useState, FormEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import { trackCtaClick } from "@/lib/analytics";
 
 export default function Connexion() {
 
@@ -32,6 +33,14 @@ export default function Connexion() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (fromRiasec) {
+      trackCtaClick("Connexion email après test", "/me-connecter", {
+        cta_destination: callbackUrl,
+        cta_type: "login",
+        auth_method: "email",
+        signup_source: "riasec_result",
+      });
+    }
 
     try {
       const response = await signIn("credentials", {
@@ -53,6 +62,14 @@ export default function Connexion() {
   };
 
   const loginWithGoogle = () => {
+    if (fromRiasec) {
+      trackCtaClick("Connexion Google après test", "/me-connecter", {
+        cta_destination: callbackUrl,
+        cta_type: "login",
+        auth_method: "google",
+        signup_source: "riasec_result",
+      });
+    }
     signIn("google", { callbackUrl });
   };
 

@@ -8,6 +8,14 @@ import { RIASEC_QUESTIONS, JOBS, DIMENSION_LABELS } from '@/data/riasecData';
 import { computeTestResult } from '@/services/riasecService';
 import { InfoCallout } from '@/components/ui/InfoCallout';
 import { RiasecRadarChart } from '@/components/ui/RiasecRadarChart';
+import {
+  trackCtaClick,
+  trackLeadSignup,
+  trackQuizComplete,
+  trackQuizStart,
+  trackQuizStep,
+  trackTestResultViewed,
+} from '@/lib/analytics';
 import type {
   RiasecAnswer,
   TestResult,
@@ -20,6 +28,7 @@ import type {
 
 const QUESTIONS_PER_PAGE = 6;
 const TOTAL_PAGES = Math.ceil(RIASEC_QUESTIONS.length / QUESTIONS_PER_PAGE);
+const QUIZ_NAME = 'riasec_orientation';
 
 type Step = 'intro' | 'questions' | 'capture' | 'results' | 'resume';
 
@@ -580,6 +589,10 @@ function TestResults({
   const jobsToDisplay = showAllJobs ? allJobs : suggestedJobs;
   const profileSummary = getProfileSummary(profile);
 
+  useEffect(() => {
+    trackTestResultViewed(QUIZ_NAME, profile.dominantCode, suggestedJobs.length);
+  }, [profile.dominantCode, suggestedJobs.length]);
+
   return (
     <div className="mx-auto max-w-2xl px-5 py-8 lg:max-w-[1120px] lg:px-8">
       {/* Header */}
@@ -689,12 +702,26 @@ function TestResults({
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             href="/tester-un-metier"
+            onClick={() =>
+              trackCtaClick('Tester un métier depuis les résultats', '/test/results', {
+                cta_destination: '/tester-un-metier',
+                cta_type: 'tester_un_metier',
+                quiz_result: profile.dominantCode,
+              })
+            }
             className="px-6 py-3 bg-[#6500FF] text-white font-bold rounded-xl hover:bg-purple-800 transition-colors"
           >
             Tester un métier →
           </Link>
           <Link
             href="/stage-et-formation"
+            onClick={() =>
+              trackCtaClick('Voir les formations depuis les résultats', '/test/results', {
+                cta_destination: '/stage-et-formation',
+                cta_type: 'stage_et_formation',
+                quiz_result: profile.dominantCode,
+              })
+            }
             className="px-6 py-3 bg-white text-[#04192F] font-bold rounded-xl hover:bg-gray-100 transition-colors"
           >
             Voir les formations
@@ -758,7 +785,13 @@ export default function RiasecTestComponent() {
   const [result, setResult] = useState<TestResult | null>(null);
 
   const submitLead = useCallback(
-    async (email: string, computedResult: TestResult, answerArray: RiasecAnswer[], name: string) => {
+    async (
+      email: string,
+      computedResult: TestResult,
+      answerArray: RiasecAnswer[],
+      name: string,
+      method = 'email'
+    ) => {
       await fetch('/api/test-riasec/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -770,6 +803,7 @@ export default function RiasecTestComponent() {
           answers: answerArray,
         }),
       });
+      trackLeadSignup('riasec_result', method);
     },
     []
   );
@@ -798,7 +832,8 @@ export default function RiasecTestComponent() {
               session.user.email,
               computed,
               answerArray,
-              rawName || session.user.name?.split(' ')[0] || ''
+              rawName || session.user.name?.split(' ')[0] || '',
+              'google_or_account'
             ).catch(() => {});
           }
           setStep('results');
@@ -813,6 +848,7 @@ export default function RiasecTestComponent() {
 
   const handleStart = useCallback((name: string) => {
     setUserName(name.trim());
+    trackQuizStart(QUIZ_NAME);
     setStep('questions');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
@@ -823,6 +859,11 @@ export default function RiasecTestComponent() {
 
   const handleNext = useCallback(() => {
     if (currentPage < TOTAL_PAGES - 1) {
+      trackQuizStep(
+        QUIZ_NAME,
+        currentPage + 1,
+        Math.round(((currentPage + 1) / TOTAL_PAGES) * 100)
+      );
       setCurrentPage(p => p + 1);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -832,8 +873,15 @@ export default function RiasecTestComponent() {
       }));
       const computed = computeTestResult(answerArray, RIASEC_QUESTIONS);
       setResult(computed);
+      trackQuizComplete(QUIZ_NAME, computed.profile.dominantCode);
       if (status === 'authenticated' && session?.user?.email) {
-        submitLead(session.user.email, computed, answerArray, session.user.name ?? userName).catch(() => {});
+        submitLead(
+          session.user.email,
+          computed,
+          answerArray,
+          session.user.name ?? userName,
+          'account'
+        ).catch(() => {});
         setStep('results');
       } else {
         setStep('capture');
@@ -843,11 +891,17 @@ export default function RiasecTestComponent() {
   }, [currentPage, answers, status, session, userName, submitLead]);
 
   const handleEmailSaved = useCallback(() => {
+    trackLeadSignup('riasec_result', 'email');
     setStep('results');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   const handleAuthRedirect = useCallback(() => {
+    trackCtaClick('Sauvegarder avec compte', '/test/capture', {
+      cta_destination: '/me-connecter',
+      cta_type: 'login',
+      signup_source: 'riasec_result',
+    });
     localStorage.setItem('jobmi_riasec_answers', JSON.stringify(answers));
     localStorage.setItem('jobmi_riasec_name', userName);
     router.push('/me-connecter?callbackUrl=/test&from=riasec');

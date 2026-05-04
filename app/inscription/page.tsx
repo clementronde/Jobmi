@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { registerUser, subscribeToNewsletter } from '../../services/userService';
 import { signIn } from "next-auth/react";
+import { trackCtaClick, trackEmailSignup } from '@/lib/analytics';
 
 export default function Inscription() {
   const [formData, setFormData] = useState({
@@ -50,6 +51,14 @@ export default function Inscription() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (fromRiasec) {
+      trackCtaClick("Inscription email après test", "/inscription", {
+        cta_destination: callbackUrl,
+        cta_type: "signup",
+        auth_method: "email",
+        signup_source: "riasec_result",
+      });
+    }
 
     if (!passwordMatch) {
       console.error('Passwords do not match');
@@ -64,6 +73,7 @@ export default function Inscription() {
       
       if (subscribe) {
         await subscribeToNewsletter(formData.email);
+        trackEmailSignup(fromRiasec ? 'inscription_riasec' : 'inscription');
       }
       
       router.push(`/me-connecter?callbackUrl=${encodeURIComponent(callbackUrl)}${fromRiasec ? '&from=riasec' : ''}`);
@@ -74,6 +84,14 @@ export default function Inscription() {
 
 
   const loginWithGoogle = () => {
+    if (fromRiasec) {
+      trackCtaClick("Inscription Google après test", "/inscription", {
+        cta_destination: callbackUrl,
+        cta_type: "signup",
+        auth_method: "google",
+        signup_source: "riasec_result",
+      });
+    }
     signIn("google", { callbackUrl });
   };
 

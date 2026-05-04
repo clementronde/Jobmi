@@ -58,7 +58,7 @@ export const Navbar = () => {
             Contact
           </Link>
           <Link
-            href="/test-orientation"
+            href="/test"
             className="menu-item rounded-lg bg-[#04192F] px-4 py-2 text-sm font-semibold text-white shadow-md shadow-[#04192F]/15 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#6500FF] hover:shadow-lg hover:shadow-[#6500FF]/25 active:translate-y-0"
             onClick={() => setIsMenuOpen(false)}
           >

@@ -32,7 +32,7 @@ export function GeoPageTemplate({ page }: { page: GeoPage }) {
   const isParis = page.slug === 'orientation-paris';
   const stepCtas = isParis
     ? [
-        { href: '/test-orientation', label: 'Passer un test d’orientation gratuit' },
+        { href: '/test', label: 'Passer un test d’orientation gratuit' },
         { href: '/carte-orientation/paris', label: 'Voir les prochains événements à Paris' },
         { href: '/tester-un-metier', label: 'Être accompagné pour trouver une immersion' },
       ]

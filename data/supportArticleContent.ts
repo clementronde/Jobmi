@@ -291,7 +291,7 @@ export const supportArticleContent: SupportArticleContent[] = [
       },
     ],
     cta: {
-      href: '/test-orientation',
+      href: '/test',
       label: "Comprendre le test d'orientation",
       text: 'La page test explique comment Jobmi utilise RIASEC pour les 18–25 ans.',
     },

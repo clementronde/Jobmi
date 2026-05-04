@@ -109,7 +109,7 @@ export default function EvenementsOrientationPage() {
                 Ouvrir la carte orientation
               </Link>
               <Link
-                href="/test-orientation"
+                href="/test"
                 className="rounded-2xl border border-[#04192F]/12 px-6 py-3 text-sm font-semibold text-[#04192F] transition hover:border-[#6500FF]/30 hover:text-[#6500FF]"
               >
                 Passer le test avant
@@ -296,7 +296,7 @@ export default function EvenementsOrientationPage() {
                     Si tu n&apos;as aucune idée de ce qui pourrait te convenir, le meilleur ordre
                     reste souvent :{' '}
                     <Link
-                      href="/test-orientation"
+                      href="/test"
                       className="font-semibold text-[#6500FF] underline underline-offset-4"
                     >
                       test d&apos;orientation

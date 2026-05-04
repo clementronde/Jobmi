@@ -118,7 +118,7 @@ export function getThemeOptions(events: JobmiEvent[]) {
 }
 
 export function getEventPrimaryCtaHref(intent: JobmiEvent['jobmi_ctas'][number]) {
-  if (intent === 'passer-le-test') return '/test-orientation';
+  if (intent === 'passer-le-test') return '/test';
   if (intent === 'tester-un-metier') return '/tester-un-metier';
   if (intent === 'explorer-formations') return '/stage-et-formation';
   return '/reconversion';

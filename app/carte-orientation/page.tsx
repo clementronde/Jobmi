@@ -55,7 +55,7 @@ export default function CarteOrientationPage() {
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
-                href="/test-orientation"
+                href="/test"
                 className="rounded-2xl bg-[#04192F] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#6500FF]"
               >
                 Passer le test d'orientation
@@ -85,7 +85,7 @@ export default function CarteOrientationPage() {
             <div className="mt-5 max-w-3xl space-y-4 text-sm leading-7 text-[#465160]">
               <p>
                 Si tu es encore complètement perdu, commence par{' '}
-                <Link href="/test-orientation" className="font-semibold text-[#6500FF] underline underline-offset-4">
+                <Link href="/test" className="font-semibold text-[#6500FF] underline underline-offset-4">
                   passer le test Jobmi
                 </Link>{' '}
                 pour faire émerger 2 ou 3 familles de métiers. Ensuite seulement, la carte devient

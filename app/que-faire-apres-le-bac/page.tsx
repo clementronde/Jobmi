@@ -187,7 +187,7 @@ const studyOptions = [
 
 const links = [
   {
-    href: '/test-orientation',
+    href: '/test',
     title: "Test d'orientation gratuit pour les 18–25 ans",
     description: 'Comprends ton profil, tes centres d’intérêt et les familles de métiers à explorer.',
     label: 'Page pilier',

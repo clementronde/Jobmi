@@ -68,7 +68,7 @@ export const Footer = () => {
                 { href: '/outil/temps-devant-toi', label: 'Outil temps devant toi' },
                 { href: '/reconversion', label: 'Reconversion' },
                 { href: '/stage-et-formation', label: 'Stages & formations' },
-                { href: '/test-orientation', label: 'Test d\'orientation' },
+                { href: '/test', label: 'Test d\'orientation' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className={footerLinkClass}>
@@ -109,7 +109,7 @@ export const Footer = () => {
             <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-5">Nos outils</p>
             <ul className="space-y-3">
               {[
-                { href: '/test-orientation', label: 'Test RIASEC gratuit' },
+                { href: '/test', label: 'Test RIASEC gratuit' },
                 { href: '/outil/temps-devant-toi', label: 'Calcule le temps qu\'il te reste' },
                 { href: '/outils', label: 'Tous les outils Jobmi' },
               ].map(({ href, label }) => (

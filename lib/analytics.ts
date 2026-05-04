@@ -16,6 +16,11 @@ type GtmPayload = {
 declare global {
   interface Window {
     dataLayer: GtmPayload[];
+    gtag?: (
+      command: 'event',
+      eventName: string,
+      params?: Record<string, string | number | boolean | undefined>
+    ) => void;
   }
 }
 
@@ -23,6 +28,11 @@ export function pushEvent(payload: GtmPayload): void {
   if (typeof window === 'undefined') return;
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(payload);
+
+  if (typeof window.gtag === 'function') {
+    const { event, ...params } = payload;
+    window.gtag('event', event, params);
+  }
 }
 
 /** Clic sur un lien sortant (école, partenaire, CPF, France Travail…) */
@@ -40,11 +50,16 @@ export function trackOutboundClick(
 }
 
 /** Clic sur un CTA interne (bouton, bannière, appel à l'action) */
-export function trackCtaClick(ctaName: string, location: string): void {
+export function trackCtaClick(
+  ctaName: string,
+  location: string,
+  extraParams: Record<string, string | number | boolean | undefined> = {}
+): void {
   pushEvent({
     event: 'cta_click',
     cta_name: ctaName,
     cta_location: location,
+    ...extraParams,
   });
 }
 
@@ -88,11 +103,48 @@ export function trackQuizStart(quizName = 'orientation'): void {
   });
 }
 
+/** Progression dans le quiz */
+export function trackQuizStep(
+  quizName: string,
+  stepNumber: number,
+  percentComplete: number
+): void {
+  pushEvent({
+    event: 'quiz_step',
+    quiz_name: quizName,
+    quiz_step: stepNumber,
+    percent_complete: percentComplete,
+  });
+}
+
 /** Fin du quiz avec résultat */
 export function trackQuizComplete(quizName: string, result: string): void {
   pushEvent({
     event: 'quiz_complete',
     quiz_name: quizName,
     quiz_result: result,
+  });
+}
+
+/** Affichage des résultats du test */
+export function trackTestResultViewed(
+  quizName: string,
+  dominantCode: string,
+  suggestedJobsCount: number
+): void {
+  pushEvent({
+    event: 'test_result_viewed',
+    quiz_name: quizName,
+    quiz_result: dominantCode,
+    suggested_jobs_count: suggestedJobsCount,
+  });
+}
+
+/** Sauvegarde / capture d'un résultat de test */
+export function trackLeadSignup(source: string, method: string): void {
+  pushEvent({
+    event: 'lead_signup',
+    signup_source: source,
+    signup_method: method,
   });
 }
