@@ -68,46 +68,163 @@ function TestIntro({ onStart }: { onStart: (name: string) => void }) {
 
   return (
     <div className="font-sans">
-      <div className="bg-[#F3F3F3] px-6 sm:px-16 lg:px-20 pt-14 pb-16">
-        <p className="text-[#6500FF] font-semibold text-xs uppercase tracking-widest mb-5">
-          Test d'orientation · Modèle RIASEC
-        </p>
-        <h1 className="font-oddlini uppercase text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#04192F] mb-5 max-w-3xl">
-          Trouve les métiers qui te ressemblent vraiment
-        </h1>
-        <p className="text-gray-500 text-base sm:text-lg max-w-xl mb-2">
-          30 questions concrètes · 6 à 8 minutes · Aucune bonne ou mauvaise réponse.
-          Réponds selon ce que tu ressens, pas ce que tu crois qu'il faut répondre.
-        </p>
-        <p className="text-gray-400 text-sm mb-10 max-w-xl">
-          Ce test est une aide à la réflexion. À la fin, on te proposera de sauvegarder ton résultat
-          avec Google ou ton email pour que tu puisses le retrouver.
-        </p>
+      <div className="flex min-h-[calc(100vh-90px)] flex-col bg-[#F3F3F3] px-6 sm:px-16 lg:px-20">
+        <div className="grid flex-1 items-center gap-10 py-12 lg:grid-cols-[minmax(0,1fr)_minmax(390px,520px)] lg:py-16">
+          <div>
+            <p className="text-[#6500FF] font-semibold text-xs uppercase tracking-widest mb-5">
+              Test d'orientation · Modèle RIASEC
+            </p>
+            <h1 className="font-oddlini uppercase text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#04192F] mb-5 max-w-3xl">
+              Trouve les métiers qui te ressemblent vraiment
+            </h1>
+            <p className="text-gray-500 text-base sm:text-lg max-w-xl mb-2">
+              30 questions concrètes · 6 à 8 minutes · Aucune bonne ou mauvaise réponse.
+              Réponds selon ce que tu ressens, pas ce que tu crois qu'il faut répondre.
+            </p>
+            <p className="text-gray-400 text-sm mb-10 max-w-xl">
+              Ce test est une aide à la réflexion. À la fin, on te proposera de sauvegarder ton résultat
+              avec Google ou ton email pour que tu puisses le retrouver.
+            </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 max-w-lg">
-          <input
-            type="text"
-            value={name}
-            onChange={e => setName(e.target.value)}
-            onKeyDown={e => e.key === 'Enter' && onStart(name)}
-            placeholder="Ton prénom (optionnel)"
-            className="flex-1 px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#6500FF] focus:border-transparent text-gray-800"
-          />
-          <button
-            onClick={() => onStart(name)}
-            className="rounded-xl px-5 py-3 flex items-center justify-center gap-2 bg-[#04192F] text-white font-semibold whitespace-nowrap hover:opacity-90 transition-opacity"
-          >
-            Commencer
-            <img src="/media/cta-blog-arrow.svg" alt="" className="w-6" />
-          </button>
+            <div className="flex flex-col sm:flex-row gap-3 max-w-lg">
+              <input
+                type="text"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                onKeyDown={e => e.key === 'Enter' && onStart(name)}
+                placeholder="Ton prénom (optionnel)"
+                className="flex-1 px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#6500FF] focus:border-transparent text-gray-800"
+              />
+              <button
+                onClick={() => onStart(name)}
+                className="rounded-xl px-5 py-3 flex items-center justify-center gap-2 bg-[#04192F] text-white font-semibold whitespace-nowrap hover:opacity-90 transition-opacity"
+              >
+                Commencer
+                <img src="/media/cta-blog-arrow.svg" alt="" className="w-6" />
+              </button>
+            </div>
+          </div>
+
+          <div className="riasec-hero-demo relative mx-auto w-full max-w-[500px] rounded-[2rem] border border-white bg-white p-4 shadow-[0_28px_80px_rgba(4,25,47,0.12)]">
+            <div className="overflow-hidden rounded-[1.5rem] border border-gray-100 bg-[#FAFAFA]">
+              <div className="flex items-center justify-between border-b border-gray-100 bg-white px-5 py-3.5">
+                <div className="relative h-10 flex-1">
+                  <div className="riasec-demo-meta riasec-demo-meta-1">
+                    <p className="text-xs font-bold uppercase text-[#6500FF]">Test RIASEC</p>
+                    <p className="text-sm font-semibold text-[#04192F]">Question 12 sur 30</p>
+                  </div>
+                  <div className="riasec-demo-meta riasec-demo-meta-2">
+                    <p className="text-xs font-bold uppercase text-[#6500FF]">Test RIASEC</p>
+                    <p className="text-sm font-semibold text-[#04192F]">Question 24 sur 30</p>
+                  </div>
+                  <div className="riasec-demo-meta riasec-demo-meta-3">
+                    <p className="text-xs font-bold uppercase text-[#6500FF]">Résultat RIASEC</p>
+                    <p className="text-sm font-semibold text-[#04192F]">Profil calculé</p>
+                  </div>
+                </div>
+                <div className="relative h-7 w-14">
+                  <span className="riasec-demo-percent riasec-demo-percent-1 rounded-full bg-[#F8F7FF] px-3 py-1 text-xs font-semibold text-[#6500FF]">
+                    40%
+                  </span>
+                  <span className="riasec-demo-percent riasec-demo-percent-2 rounded-full bg-[#F8F7FF] px-3 py-1 text-xs font-semibold text-[#6500FF]">
+                    80%
+                  </span>
+                  <span className="riasec-demo-percent riasec-demo-percent-3 rounded-full bg-[#F8F7FF] px-3 py-1 text-xs font-semibold text-[#6500FF]">
+                    100%
+                  </span>
+                </div>
+              </div>
+
+              <div className="h-1.5 bg-gray-100">
+                <div className="riasec-demo-progress h-full rounded-r-full bg-[#6500FF]" />
+              </div>
+
+              <div className="relative min-h-[390px] px-5 py-5">
+                <div className="riasec-demo-scene riasec-demo-scene-1">
+                  <p className="mb-4 text-lg font-bold leading-snug text-[#04192F]">
+                    J'aime analyser un problème jusqu'à comprendre ce qui bloque.
+                  </p>
+                  <div className="grid gap-2">
+                    {['Pas du tout moi', 'Plutôt non', 'Neutre', 'Plutôt oui', 'Tout à fait moi'].map((label, index) => (
+                      <div
+                        key={label}
+                        className={`rounded-xl border px-4 py-2.5 text-sm font-semibold ${
+                          index === 3
+                            ? 'riasec-demo-answer border-gray-100 bg-white text-gray-400'
+                            : 'border-gray-100 bg-white text-gray-400'
+                        }`}
+                      >
+                        {label}
+                      </div>
+                    ))}
+                  </div>
+                  <span className="riasec-demo-cursor riasec-demo-cursor-1" />
+                </div>
+
+                <div className="riasec-demo-scene riasec-demo-scene-2">
+                  <p className="mb-4 text-lg font-bold leading-snug text-[#04192F]">
+                    Je préfère un métier où je peux aider, expliquer ou accompagner.
+                  </p>
+                  <div className="grid gap-2">
+                    {['Pas du tout moi', 'Plutôt non', 'Neutre', 'Plutôt oui', 'Tout à fait moi'].map((label, index) => (
+                      <div
+                        key={label}
+                        className={`rounded-xl border px-4 py-2.5 text-sm font-semibold ${
+                          index === 4
+                            ? 'riasec-demo-answer border-gray-100 bg-white text-gray-400'
+                            : 'border-gray-100 bg-white text-gray-400'
+                        }`}
+                      >
+                        {label}
+                      </div>
+                    ))}
+                  </div>
+                  <span className="riasec-demo-cursor riasec-demo-cursor-2" />
+                </div>
+
+                <div className="riasec-demo-scene riasec-demo-scene-3">
+                  <p className="mb-2 text-xs font-bold uppercase text-[#6500FF]">Résultat instantané</p>
+                  <div className="mb-5 flex items-center justify-between gap-4">
+                    <h3 className="text-2xl font-bold text-[#04192F]">Ton profil RIASEC</h3>
+                    <span className="rounded-2xl bg-[#6500FF] px-4 py-3 text-3xl font-bold tracking-[0.08em] text-white">
+                      ISA
+                    </span>
+                  </div>
+                  <div className="space-y-3.5">
+                    {[
+                      ['Investigateur', '88%'],
+                      ['Social', '76%'],
+                      ['Artistique', '69%'],
+                    ].map(([label, value]) => (
+                      <div key={label}>
+                        <div className="mb-1 flex justify-between text-sm font-semibold text-gray-500">
+                          <span>{label}</span>
+                          <span>{value}</span>
+                        </div>
+                        <div className="h-3 overflow-hidden rounded-full bg-white">
+                          <div className="riasec-demo-bar h-full rounded-full bg-[#6500FF]" style={{ width: value }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-5 rounded-2xl border border-[#E9E1FF] bg-white px-4 py-3">
+                    <p className="text-xs font-bold uppercase text-gray-400">Pistes métiers</p>
+                    <p className="mt-1 text-sm font-semibold text-[#04192F]">
+                      Data analyst · Psychologue · UX researcher
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div className="px-6 sm:px-16 lg:px-20 py-4 flex flex-wrap gap-x-8 gap-y-1 text-sm text-gray-400 border-b border-gray-100">
-        <span>6–8 minutes</span>
-        <span>30 questions</span>
-        <span>Résultats instantanés</span>
-        <span>Sauvegarde par email ou Google</span>
+        <div className="py-4 flex flex-wrap gap-x-8 gap-y-1 text-sm text-gray-400 border-t border-gray-100">
+          <span>6–8 minutes</span>
+          <span>30 questions</span>
+          <span>Résultats instantanés</span>
+          <span>Sauvegarde par email ou Google</span>
+        </div>
       </div>
     </div>
   );

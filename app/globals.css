@@ -73,6 +73,283 @@
     font-style: normal;
 }
 
+.riasec-demo-progress {
+  width: 42%;
+  animation: riasecDemoProgress 15s ease-in-out infinite;
+}
+
+.riasec-demo-scene {
+  position: absolute;
+  inset: 1.25rem;
+  opacity: 0;
+  transform: translateY(10px) scale(0.985);
+}
+
+.riasec-demo-scene-1 {
+  animation: riasecDemoSceneOne 15s ease-in-out infinite;
+}
+
+.riasec-demo-scene-2 {
+  animation: riasecDemoSceneTwo 15s ease-in-out infinite;
+}
+
+.riasec-demo-scene-3 {
+  animation: riasecDemoSceneThree 15s ease-in-out infinite;
+}
+
+.riasec-demo-meta,
+.riasec-demo-percent {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transform: translateY(5px);
+}
+
+.riasec-demo-meta {
+  left: 0;
+}
+
+.riasec-demo-percent {
+  right: 0;
+  white-space: nowrap;
+}
+
+.riasec-demo-meta-1,
+.riasec-demo-percent-1 {
+  animation: riasecDemoMetaOne 15s ease-in-out infinite;
+}
+
+.riasec-demo-meta-2,
+.riasec-demo-percent-2 {
+  animation: riasecDemoMetaTwo 15s ease-in-out infinite;
+}
+
+.riasec-demo-meta-3,
+.riasec-demo-percent-3 {
+  animation: riasecDemoMetaThree 15s ease-in-out infinite;
+}
+
+.riasec-demo-answer {
+  animation: riasecDemoAnswerOne 15s ease-in-out infinite;
+}
+
+.riasec-demo-scene-2 .riasec-demo-answer {
+  animation: riasecDemoAnswerTwo 15s ease-in-out infinite;
+}
+
+.riasec-demo-bar {
+  transform-origin: left;
+  animation: riasecDemoBar 15s ease-in-out infinite;
+}
+
+.riasec-demo-cursor {
+  position: absolute;
+  z-index: 20;
+  right: 48px;
+  width: 32px;
+  height: 38px;
+  background: #04192f;
+  border: 2px solid #fff;
+  clip-path: polygon(0 0, 0 100%, 30% 76%, 47% 100%, 65% 91%, 50% 68%, 82% 68%);
+  filter: drop-shadow(0 10px 12px rgba(4, 25, 47, 0.28));
+  opacity: 0;
+  pointer-events: none;
+}
+
+.riasec-demo-cursor-1 {
+  top: 230px;
+  animation: riasecDemoCursorOne 15s ease-in-out infinite;
+}
+
+.riasec-demo-cursor-2 {
+  top: 278px;
+  animation: riasecDemoCursorTwo 15s ease-in-out infinite;
+}
+
+@keyframes riasecDemoProgress {
+  0%, 30% { width: 42%; }
+  36%, 60% { width: 80%; }
+  66%, 100% { width: 100%; }
+}
+
+@keyframes riasecDemoSceneOne {
+  0%, 28% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  34%, 100% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.985);
+  }
+}
+
+@keyframes riasecDemoSceneTwo {
+  0%, 28% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  34%, 60% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  66%, 100% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.985);
+  }
+}
+
+@keyframes riasecDemoSceneThree {
+  0%, 60% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  66%, 100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes riasecDemoMetaOne {
+  0%, 28% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  34%, 100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes riasecDemoMetaTwo {
+  0%, 28% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  34%, 60% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  66%, 100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes riasecDemoMetaThree {
+  0%, 60% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  66%, 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes riasecDemoAnswerOne {
+  0%, 12%, 34%, 100% {
+    transform: scale(1);
+    border-color: #f3f4f6;
+    background: #fff;
+    color: #9ca3af;
+  }
+  16%, 30% {
+    transform: scale(1.015);
+    border-color: #6500ff;
+    background: #6500ff;
+    color: #fff;
+  }
+}
+
+@keyframes riasecDemoAnswerTwo {
+  0%, 42%, 66%, 100% {
+    transform: scale(1);
+    border-color: #f3f4f6;
+    background: #fff;
+    color: #9ca3af;
+  }
+  46%, 60% {
+    transform: scale(1.015);
+    border-color: #6500ff;
+    background: #6500ff;
+    color: #fff;
+  }
+}
+
+@keyframes riasecDemoBar {
+  0%, 66% {
+    transform: scaleX(0);
+  }
+  74%, 100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes riasecDemoCursorOne {
+  0%, 8%, 34%, 100% {
+    opacity: 0;
+    transform: translate(14px, 10px) scale(0.92);
+  }
+  11% {
+    opacity: 1;
+    transform: translate(14px, 10px) scale(1);
+  }
+  16%, 30% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  32% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.92);
+  }
+}
+
+@keyframes riasecDemoCursorTwo {
+  0%, 38%, 66%, 100% {
+    opacity: 0;
+    transform: translate(14px, 10px) scale(0.92);
+  }
+  42% {
+    opacity: 1;
+    transform: translate(14px, 10px) scale(1);
+  }
+  46%, 60% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  63% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.92);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .riasec-demo-meta,
+  .riasec-demo-percent,
+  .riasec-demo-progress,
+  .riasec-demo-scene,
+  .riasec-demo-answer,
+  .riasec-demo-bar,
+  .riasec-demo-cursor {
+    animation: none !important;
+  }
+
+  .riasec-demo-progress {
+    width: 100%;
+  }
+
+  .riasec-demo-scene {
+    opacity: 0;
+  }
+
+  .riasec-demo-scene-3,
+  .riasec-demo-meta-3,
+  .riasec-demo-percent-3 {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 
 
 .underline-tilted {
