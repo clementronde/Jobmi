@@ -7,6 +7,8 @@ export async function GET(request: NextRequest) {
     romeCode: searchParams.get('rome') ?? undefined,
     location: searchParams.get('location') ?? undefined,
     keyword: searchParams.get('q') ?? undefined,
+    contractType: searchParams.get('typeContrat') ?? undefined,
+    radius: searchParams.get('radius') ?? undefined,
   });
 
   return NextResponse.json(result);

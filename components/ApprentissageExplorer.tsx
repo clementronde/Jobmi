@@ -18,6 +18,19 @@ const diplomaLevels = [
   { value: '7', label: 'Bac+5' },
 ];
 
+const contractTypeOptions = [
+  { value: '', label: 'Tous contrats' },
+  { value: 'APP', label: 'Apprentissage' },
+  { value: 'PRO', label: 'Professionnalisation' },
+  { value: 'CDI', label: 'CDI' },
+  { value: 'CDD', label: 'CDD' },
+  { value: 'MIS', label: 'Intérim' },
+  { value: 'SAI', label: 'Saisonnier' },
+];
+
+// La bonne alternance only returns APP/PRO — skip it for other contract types
+const ALTERNANCE_TYPES = new Set(['', 'APP', 'PRO']);
+
 const usefulSources = [
   {
     title: '1 jeune 1 solution',
@@ -50,21 +63,27 @@ function buildSearchUrl(filters: {
   location: string;
   diploma: string;
   radius: string;
+  contractType: string;
 }) {
   const params = new URLSearchParams();
-  Object.entries(filters).forEach(([key, value]) => {
-    if (value.trim()) params.set(key, value.trim());
-  });
+  if (filters.query.trim()) params.set('query', filters.query.trim());
+  if (filters.location.trim()) params.set('location', filters.location.trim());
+  if (filters.diploma) params.set('diploma', filters.diploma);
+  if (filters.radius) params.set('radius', filters.radius);
   return `/api/apprentissage/search?${params.toString()}`;
 }
 
 function buildFranceTravailSearchUrl(filters: {
   query: string;
   location: string;
+  contractType: string;
+  radius: string;
 }) {
   const params = new URLSearchParams();
   if (filters.query.trim()) params.set('q', filters.query.trim());
   if (filters.location.trim()) params.set('location', filters.location.trim());
+  if (filters.contractType) params.set('typeContrat', filters.contractType);
+  if (filters.radius) params.set('radius', filters.radius);
   return `/api/france-travail/opportunities?${params.toString()}`;
 }
 
@@ -190,10 +209,11 @@ function TrainingCard({ training }: { training: JobmiApprenticeshipTraining }) {
 
 export default function ApprentissageExplorer() {
   const [filters, setFilters] = useState({
-    query: 'développeur',
+    query: '',
     location: '75',
     diploma: '',
     radius: '30',
+    contractType: '',
   });
   const [result, setResult] = useState<JobmiApprenticeshipSearchResult | null>(null);
   const [franceTravailOpportunities, setFranceTravailOpportunities] = useState<JobmiOpportunity[]>([]);
@@ -210,21 +230,21 @@ export default function ApprentissageExplorer() {
     setStatus('loading');
     setError('');
 
+    const includeApprentissage = ALTERNANCE_TYPES.has(nextFilters.contractType);
+
     try {
       const [apprentissageResult, franceTravailResult] = await Promise.allSettled([
-        fetch(buildSearchUrl(nextFilters)).then(async (response) => {
-          const payload = await response.json();
-          if (!response.ok) {
-            throw new Error(payload?.error || 'Recherche apprentissage impossible pour le moment.');
-          }
-          return payload as JobmiApprenticeshipSearchResult;
-        }),
-        fetch(buildFranceTravailSearchUrl(nextFilters)).then(async (response) => {
-          const payload = await response.json();
-          if (!response.ok) {
-            throw new Error(payload?.error || 'Recherche France Travail impossible pour le moment.');
-          }
-          return payload as { opportunities?: JobmiOpportunity[] };
+        includeApprentissage
+          ? fetch(buildSearchUrl(nextFilters)).then(async (r) => {
+              const p = await r.json();
+              if (!r.ok) throw new Error(p?.error || 'Recherche apprentissage impossible pour le moment.');
+              return p as JobmiApprenticeshipSearchResult;
+            })
+          : Promise.resolve({ jobs: [], recruiters: [], trainings: [], warnings: [] } as JobmiApprenticeshipSearchResult),
+        fetch(buildFranceTravailSearchUrl(nextFilters)).then(async (r) => {
+          const p = await r.json();
+          if (!r.ok) throw new Error(p?.error || 'Recherche France Travail impossible pour le moment.');
+          return p as { opportunities?: JobmiOpportunity[] };
         }),
       ]);
 
@@ -265,17 +285,17 @@ export default function ApprentissageExplorer() {
           Offres en direct
         </p>
         <h2 className="text-3xl font-bold text-[#04192F] sm:text-4xl">
-          Alternances et formations en apprentissage disponibles
+          Offres d'emploi, alternances et formations disponibles
         </h2>
         <p className="mt-4 text-gray-600">
-          Les résultats viennent de l’API La bonne alternance. Tu peux chercher par métier courant,
-          code ROME, code RNCP, département ou code postal.
+          Offres France Travail et La bonne alternance chargées en direct. Filtre par métier (ou code ROME/RNCP),
+          département et niveau pour affiner les résultats.
         </p>
       </div>
 
       <form
         onSubmit={submitSearch}
-        className="grid gap-3 rounded-lg border border-[#E9E1FF] bg-[#F8F7FF] p-4 md:grid-cols-[1.1fr_0.7fr_0.8fr_0.6fr_auto]"
+        className="grid gap-3 rounded-lg border border-[#E9E1FF] bg-[#F8F7FF] p-4 sm:grid-cols-2 lg:grid-cols-[1fr_0.6fr_0.65fr_0.55fr_0.55fr_auto]"
       >
         <label className="grid gap-2 text-sm font-bold text-[#04192F]">
           Métier ou code
@@ -291,9 +311,23 @@ export default function ApprentissageExplorer() {
           <input
             value={filters.location}
             onChange={(event) => setFilters((current) => ({ ...current, location: event.target.value }))}
-            placeholder="75, 69000..."
+            placeholder="75, 69 ou 75056 pour le rayon"
             className="h-12 rounded-lg border border-gray-200 bg-white px-4 font-medium outline-none transition focus:border-[#6500FF]"
           />
+        </label>
+        <label className="grid gap-2 text-sm font-bold text-[#04192F]">
+          Type de contrat
+          <select
+            value={filters.contractType}
+            onChange={(event) => setFilters((current) => ({ ...current, contractType: event.target.value }))}
+            className="h-12 rounded-lg border border-gray-200 bg-white px-4 font-medium outline-none transition focus:border-[#6500FF]"
+          >
+            {contractTypeOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
         </label>
         <label className="grid gap-2 text-sm font-bold text-[#04192F]">
           Niveau cible
@@ -310,7 +344,12 @@ export default function ApprentissageExplorer() {
           </select>
         </label>
         <label className="grid gap-2 text-sm font-bold text-[#04192F]">
-          Rayon
+          <span>
+            Rayon{' '}
+            {/^(\d{1,3}|2[AB])$/i.test(filters.location.trim()) ? (
+              <span className="font-normal text-amber-600 text-xs">(code commune requis)</span>
+            ) : null}
+          </span>
           <select
             value={filters.radius}
             onChange={(event) => setFilters((current) => ({ ...current, radius: event.target.value }))}
@@ -325,7 +364,7 @@ export default function ApprentissageExplorer() {
         </label>
         <button
           type="submit"
-          className="h-12 self-end rounded-lg bg-[#6500FF] px-5 text-sm font-bold text-white transition hover:bg-[#5200cc]"
+          className="h-12 self-end rounded-lg bg-[#6500FF] px-5 text-sm font-bold text-white transition hover:bg-[#5200cc] lg:col-auto sm:col-span-2 lg:col-span-1"
         >
           {status === 'loading' ? 'Recherche...' : 'Rechercher'}
         </button>
@@ -359,7 +398,15 @@ export default function ApprentissageExplorer() {
         ))}
       </div>
 
-      {activeTab === 'jobs' ? (
+      {status === 'loading' && activeTab === 'jobs' ? (
+        <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="h-64 animate-pulse rounded-lg border border-gray-100 bg-gray-100" />
+          ))}
+        </div>
+      ) : null}
+
+      {status !== 'loading' && activeTab === 'jobs' ? (
         <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {franceTravailOpportunities.map((opportunity) => (
             <FranceTravailJobCard key={`france-travail-${opportunity.id}`} opportunity={opportunity} />
@@ -370,7 +417,15 @@ export default function ApprentissageExplorer() {
         </div>
       ) : null}
 
-      {activeTab === 'trainings' ? (
+      {status === 'loading' && activeTab === 'trainings' ? (
+        <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="h-64 animate-pulse rounded-lg border border-gray-100 bg-gray-100" />
+          ))}
+        </div>
+      ) : null}
+
+      {status !== 'loading' && activeTab === 'trainings' ? (
         <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {(result?.trainings ?? []).map((training) => (
             <TrainingCard key={`${training.id}-${training.school}-${training.location}`} training={training} />
@@ -397,7 +452,7 @@ export default function ApprentissageExplorer() {
         </div>
       ) : null}
 
-      {status === 'idle' && activeTab === 'jobs' && allJobs.length === 0 && !error ? (
+      {status === 'idle' && activeTab === 'jobs' && allJobs.length === 0 && franceTravailOpportunities.length === 0 && !error ? (
         <p className="mt-6 rounded-lg bg-gray-50 p-4 text-sm text-gray-600">
           Aucun résultat sur ces critères. Essaie un département plus large, un autre métier ou un code ROME.
         </p>

@@ -274,7 +274,7 @@ function dedupeByStableFields<T>(items: T[], getKey: (item: T) => string) {
 async function fetchJson<T>(path: string, search: URLSearchParams): Promise<T> {
   const response = await fetch(`${API_BASE_URL}${path}?${search.toString()}`, {
     headers: apiHeaders(),
-    next: { revalidate: 60 * 30 },
+    cache: 'no-store',
   });
 
   if (!response.ok) {
@@ -292,7 +292,7 @@ export async function searchApprentissage(
 
   const formationSearch = new URLSearchParams(jobSearch);
   formationSearch.delete('departements');
-  formationSearch.set('page_size', '12');
+  formationSearch.set('page_size', '30');
   formationSearch.set('page_index', '0');
 
   const [jobResponse, formationResponse] = await Promise.all([
@@ -320,9 +320,9 @@ export async function searchApprentissage(
   );
 
   return {
-    jobs: jobs.slice(0, 12),
-    recruiters: recruiters.slice(0, 8),
-    trainings: trainings.slice(0, 12),
+    jobs: jobs.slice(0, 40),
+    recruiters: recruiters.slice(0, 30),
+    trainings: trainings.slice(0, 20),
     warnings: (jobResponse.warnings ?? []).map((warning) => warning.message).filter(Boolean) as string[],
   };
 }
