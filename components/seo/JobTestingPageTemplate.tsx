@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import type { JobTestingPage } from '@/data/jobTestingPages';
+import { getLocalRomeJobSheetBySlug } from '@/lib/franceTravail/localData';
 
 export function JobTestingPageTemplate({ page }: { page: JobTestingPage }) {
+  const romeSheet = getLocalRomeJobSheetBySlug(page.slug);
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -73,6 +75,53 @@ export function JobTestingPageTemplate({ page }: { page: JobTestingPage }) {
             </div>
           </div>
         </section>
+
+        {romeSheet ? (
+          <section className="px-6 py-16 sm:px-10">
+            <div className="mx-auto max-w-5xl">
+              <div className="mb-8 max-w-3xl">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
+                  Référentiel ROME {romeSheet.job.code}
+                </p>
+                <h2 className="mt-3 text-3xl font-bold text-[#04192F] sm:text-4xl">
+                  Compétences et quotidien à vérifier
+                </h2>
+                <p className="mt-4 text-base leading-7 text-[#465160]">
+                  {romeSheet.summary}
+                </p>
+              </div>
+              <div className="grid gap-5 md:grid-cols-2">
+                <article className="rounded-lg border border-[#E9E1FF] bg-white p-6 shadow-[0_14px_35px_rgba(4,25,47,0.05)]">
+                  <h3 className="text-xl font-bold text-[#04192F]">Compétences repères</h3>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {romeSheet.skills.slice(0, 8).map((skill) => (
+                      <span key={skill.id} className="rounded-full bg-[#F8F7FF] px-3 py-1 text-xs font-semibold text-[#465160]">
+                        {skill.label}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+                <article className="rounded-lg border border-[#E9E1FF] bg-white p-6 shadow-[0_14px_35px_rgba(4,25,47,0.05)]">
+                  <h3 className="text-xl font-bold text-[#04192F]">Contexte de travail</h3>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {romeSheet.workContexts.slice(0, 8).map((context) => (
+                      <span key={context.id} className="rounded-full bg-gray-50 px-3 py-1 text-xs font-semibold text-[#465160]">
+                        {context.label}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              </div>
+              <div className="mt-6 rounded-lg bg-[#F8F7FF] p-5">
+                <p className="text-sm font-bold text-[#04192F]">Prochaine action utile</p>
+                <p className="mt-2 text-sm leading-6 text-[#465160]">
+                  Utilise ces tags comme checklist pendant une immersion : si le quotidien décrit ici
+                  te semble acceptable, la piste mérite d’être creusée avec une formation ou une alternance.
+                </p>
+              </div>
+            </div>
+          </section>
+        ) : null}
 
         <section className="bg-[#F7F6FF] px-6 py-16 sm:px-10">
           <div className="mx-auto max-w-5xl">

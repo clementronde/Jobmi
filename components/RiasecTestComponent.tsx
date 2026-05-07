@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { RIASEC_QUESTIONS, JOBS, DIMENSION_LABELS } from '@/data/riasecData';
+import { getLocalRomeJobSheetByJobmiId } from '@/lib/franceTravail/localData';
+import { getRomeCodeForJobmiJob, getMappingStatusForJobmiJob } from '@/lib/franceTravail/romeMapping';
 import { computeTestResult } from '@/services/riasecService';
 import { InfoCallout } from '@/components/ui/InfoCallout';
 import { RiasecRadarChart } from '@/components/ui/RiasecRadarChart';
@@ -25,12 +27,32 @@ import type {
   RiasecScores,
   ScoredJob,
 } from '@/types/riasec';
+import type {
+  FranceTravailApiStatus,
+  JobmiCompanyLead,
+  JobmiOpportunity,
+  JobmiTrainingReview,
+} from '@/lib/franceTravail/types';
+import type { JobmiEvent } from '@/types/events';
 
 const QUESTIONS_PER_PAGE = 6;
 const TOTAL_PAGES = Math.ceil(RIASEC_QUESTIONS.length / QUESTIONS_PER_PAGE);
 const QUIZ_NAME = 'riasec_orientation';
 
 type Step = 'intro' | 'questions' | 'capture' | 'results' | 'resume';
+
+type ActionPlanData = {
+  opportunities: JobmiOpportunity[];
+  companies: JobmiCompanyLead[];
+  events: JobmiEvent[];
+  reviews: JobmiTrainingReview[];
+  sources: {
+    opportunities: FranceTravailApiStatus;
+    companies: FranceTravailApiStatus;
+    events: FranceTravailApiStatus;
+    reviews: FranceTravailApiStatus;
+  };
+};
 
 const LIKERT_LABELS = ['Pas du tout moi', 'Plutôt non', 'Neutre', 'Plutôt oui', 'Tout à fait moi'];
 
@@ -642,6 +664,10 @@ function JobRow({ job }: { job: Job }) {
 }
 
 function RankedJobRow({ job, rank }: { job: ScoredJob; rank: number }) {
+  const romeCode = getRomeCodeForJobmiJob(job.id);
+  const mappingStatus = getMappingStatusForJobmiJob(job.id);
+  const romeSheet = getLocalRomeJobSheetByJobmiId(job.id);
+
   return (
     <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
@@ -655,9 +681,23 @@ function RankedJobRow({ job, rank }: { job: ScoredJob; rank: number }) {
               <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-700">
                 Match {job.matchScore}%
               </span>
+              <span
+                className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
+                  mappingStatus === 'mapped'
+                    ? 'bg-[#6500FF]/10 text-[#6500FF]'
+                    : 'bg-amber-50 text-amber-700'
+                }`}
+              >
+                {romeCode ? `ROME ${romeCode}` : 'ROME à mapper'}
+              </span>
               <span className="text-xs text-gray-400">{job.formationLevel}</span>
             </div>
             <p className="mb-2 text-sm text-gray-600">{job.description}</p>
+            {romeSheet?.skills.length ? (
+              <p className="mb-2 text-xs leading-5 text-gray-500">
+                Compétences repères : {romeSheet.skills.slice(0, 3).map((skill) => skill.label).join(' · ')}
+              </p>
+            ) : null}
             <div className="flex flex-wrap gap-1.5">
               {job.riasecTags.map(tag => (
                 <span
@@ -686,6 +726,256 @@ function RankedJobRow({ job, rank }: { job: ScoredJob; rank: number }) {
           </Link>
         </div>
       </div>
+    </div>
+  );
+}
+
+function ActionPlanCard({ job }: { job: ScoredJob }) {
+  const romeSheet = getLocalRomeJobSheetByJobmiId(job.id);
+  const romeCode = getRomeCodeForJobmiJob(job.id);
+  const [actionData, setActionData] = useState<ActionPlanData | null>(null);
+  const [isLoadingActions, setIsLoadingActions] = useState(false);
+
+  useEffect(() => {
+    if (!romeCode) return;
+
+    let cancelled = false;
+    const params = new URLSearchParams({ rome: romeCode });
+
+    async function loadActions() {
+      setIsLoadingActions(true);
+      try {
+        const [opportunitiesResponse, companiesResponse, eventsResponse, reviewsResponse] = await Promise.all([
+          fetch(`/api/france-travail/opportunities?${params.toString()}`),
+          fetch(`/api/france-travail/companies?${params.toString()}`),
+          fetch(`/api/france-travail/events?${params.toString()}`),
+          fetch(`/api/france-travail/training-reviews?${params.toString()}`),
+        ]);
+
+        const [opportunitiesPayload, companiesPayload, eventsPayload, reviewsPayload] = await Promise.all([
+          opportunitiesResponse.json(),
+          companiesResponse.json(),
+          eventsResponse.json(),
+          reviewsResponse.json(),
+        ]);
+
+        if (cancelled) return;
+
+        setActionData({
+          opportunities: opportunitiesPayload.opportunities ?? [],
+          companies: companiesPayload.companies ?? [],
+          events: eventsPayload.events ?? [],
+          reviews: reviewsPayload.reviews ?? [],
+          sources: {
+            opportunities: opportunitiesPayload.source ?? 'error',
+            companies: companiesPayload.source ?? 'error',
+            events: eventsPayload.source ?? 'error',
+            reviews: reviewsPayload.source ?? 'error',
+          },
+        });
+      } catch {
+        if (!cancelled) {
+          setActionData({
+            opportunities: [],
+            companies: [],
+            events: [],
+            reviews: [],
+            sources: {
+              opportunities: 'error',
+              companies: 'error',
+              events: 'error',
+              reviews: 'error',
+            },
+          });
+        }
+      } finally {
+        if (!cancelled) setIsLoadingActions(false);
+      }
+    }
+
+    loadActions();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [romeCode]);
+
+  if (!romeSheet) {
+    return (
+      <div className="rounded-2xl border border-amber-100 bg-amber-50 p-5">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">
+          Référentiel à compléter
+        </p>
+        <h3 className="mt-2 text-lg font-bold text-[#04192F]">{job.name}</h3>
+        <p className="mt-2 text-sm leading-6 text-amber-900">
+          Ce métier correspond à ton profil, mais son mapping ROME doit encore être validé.
+          Tu peux déjà le tester via les formats Jobmi existants.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="rounded-[1.5rem] border border-[#E9E1FF] bg-white p-5 shadow-[0_18px_45px_rgba(4,25,47,0.06)]">
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="rounded-full bg-[#6500FF]/10 px-3 py-1 text-xs font-bold text-[#6500FF]">
+          ROME {romeSheet.job.code}
+        </span>
+        <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">
+          Plan d'action
+        </span>
+      </div>
+      <h3 className="mt-4 text-xl font-bold text-[#04192F]">{job.name}</h3>
+      <p className="mt-2 text-sm leading-6 text-[#465160]">{romeSheet.summary}</p>
+
+      <div className="mt-5 grid gap-4 lg:grid-cols-2">
+        <div>
+          <p className="text-sm font-bold text-[#04192F]">Compétences à vérifier</p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {romeSheet.skills.slice(0, 5).map((skill) => (
+              <span key={skill.id} className="rounded-full bg-[#F8F7FF] px-3 py-1 text-xs font-semibold text-[#465160]">
+                {skill.label}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div>
+          <p className="text-sm font-bold text-[#04192F]">Quotidien probable</p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {romeSheet.workContexts.slice(0, 5).map((context) => (
+              <span key={context.id} className="rounded-full bg-gray-50 px-3 py-1 text-xs font-semibold text-[#465160]">
+                {context.label}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-5 grid gap-3 sm:grid-cols-3">
+        <Link
+          href={job.links.experience}
+          className="rounded-xl bg-[#6500FF] px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-purple-800"
+        >
+          Tester ce métier
+        </Link>
+        <Link
+          href={`/stage-et-formation?metier=${encodeURIComponent(job.name)}${romeCode ? `&rome=${romeCode}` : ''}`}
+          className="rounded-xl bg-[#04192F] px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-[#6500FF]"
+        >
+          Voir offres & formations
+        </Link>
+        <a
+          href={romeCode ? `/api/france-travail/opportunities?rome=${romeCode}` : '/api/france-travail/rome/search'}
+          className="rounded-xl border border-[#E9E1FF] px-4 py-3 text-center text-sm font-bold text-[#04192F] transition hover:border-[#6500FF] hover:text-[#6500FF]"
+        >
+          Données API
+        </a>
+      </div>
+
+      <div className="mt-5 rounded-2xl border border-gray-100 bg-[#FAFAFA] p-4">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm font-bold text-[#04192F]">Aperçu des actions disponibles</p>
+          {isLoadingActions ? (
+            <span className="text-xs font-semibold text-gray-400">Chargement...</span>
+          ) : null}
+        </div>
+
+        <div className="mt-3 grid gap-3 lg:grid-cols-4">
+          <ActionPreviewColumn
+            title="Offres"
+            emptyText="Aucune offre live trouvée pour l’instant. Élargis la zone ou regarde les métiers proches."
+            source={actionData?.sources.opportunities}
+            items={(actionData?.opportunities ?? []).slice(0, 2).map((opportunity) => ({
+              id: opportunity.id,
+              label: opportunity.title,
+              meta: `${opportunity.company} · ${opportunity.location}`,
+              href: opportunity.url,
+            }))}
+          />
+          <ActionPreviewColumn
+            title="Événements"
+            emptyText="Aucun événement détecté pour ce métier. Les ateliers et salons généralistes restent utiles."
+            source={actionData?.sources.events}
+            items={(actionData?.events ?? []).slice(0, 2).map((event) => ({
+              id: event.id,
+              label: event.title,
+              meta: `${event.city} · ${event.date_start}`,
+              href: event.official_url,
+            }))}
+          />
+          <ActionPreviewColumn
+            title="Formations"
+            emptyText="Aucun avis Anotéa exploitable pour l’instant. Compare quand même les formations avec leurs débouchés et contacts officiels."
+            source={actionData?.sources.reviews}
+            items={(actionData?.reviews ?? []).slice(0, 2).map((review) => ({
+              id: review.id,
+              label: review.trainingName,
+              meta: `${review.organization} · ${review.rating ? `${review.rating}/5` : 'avis à vérifier'}`,
+              href: `/stage-et-formation?metier=${encodeURIComponent(job.name)}${romeCode ? `&rome=${romeCode}` : ''}`,
+            }))}
+          />
+          <ActionPreviewColumn
+            title="Entreprises"
+            emptyText="Pas encore d’entreprise live. Tu peux commencer par chercher des structures locales du secteur."
+            source={actionData?.sources.companies}
+            items={(actionData?.companies ?? []).slice(0, 2).map((company) => ({
+              id: company.id,
+              label: company.name,
+              meta: `${company.location} · potentiel ${company.hiringPotential}`,
+              href: company.url,
+            }))}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function sourceLabel(source?: FranceTravailApiStatus) {
+  if (source === 'live') return 'Live';
+  if (source === 'missing_credentials') return 'Config requise';
+  if (source === 'fallback') return 'Exemple';
+  if (source === 'error') return 'À vérifier';
+  return 'En attente';
+}
+
+function ActionPreviewColumn({
+  title,
+  items,
+  emptyText,
+  source,
+}: {
+  title: string;
+  items: Array<{ id: string; label: string; meta: string; href: string }>;
+  emptyText: string;
+  source?: FranceTravailApiStatus;
+}) {
+  return (
+    <div className="rounded-xl border border-gray-100 bg-white p-3">
+      <div className="mb-2 flex items-center justify-between gap-2">
+        <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#04192F]">{title}</p>
+        <span className="rounded-full bg-gray-50 px-2 py-0.5 text-[0.68rem] font-bold text-gray-500">
+          {sourceLabel(source)}
+        </span>
+      </div>
+      {items.length ? (
+        <div className="space-y-2">
+          {items.map((item) => (
+            <a
+              key={item.id}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              className="block rounded-lg border border-transparent px-2 py-2 transition hover:border-[#E9E1FF] hover:bg-[#F8F7FF]"
+            >
+              <span className="line-clamp-2 text-sm font-semibold text-[#04192F]">{item.label}</span>
+              <span className="mt-1 block text-xs leading-5 text-gray-500">{item.meta}</span>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p className="text-xs leading-5 text-gray-500">{emptyText}</p>
+      )}
     </div>
   );
 }
@@ -792,6 +1082,16 @@ function TestResults({
             <RankedJobRow key={job.id} job={job} rank={index + 1} />
           ))}
         </div>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-xl font-bold text-[#04192F] mb-2">
+          Ton plan d'action pour passer au concret
+        </h2>
+        <p className="text-gray-500 text-sm mb-5">
+          On part de ta meilleure piste et on la relie à des compétences, un quotidien et des actions concrètes.
+        </p>
+        {suggestedJobs[0] ? <ActionPlanCard job={suggestedJobs[0]} /> : null}
       </section>
 
       {/* Top families */}

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import ApprentissageExplorer from '../../components/ApprentissageExplorer';
 import { InternalLinksSection } from '../../components/InternalLinksSection';
 import { getInternalLinksForContext } from '../../data/internalLinks';
 
@@ -323,6 +324,8 @@ export default function StageEtFormation() {
             </div>
           </div>
         </section>
+
+        <ApprentissageExplorer />
 
         <section className="mx-auto max-w-screen-xl px-6 py-14 sm:px-10">
           <div className="mb-8 max-w-3xl">
