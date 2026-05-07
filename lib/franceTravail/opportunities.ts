@@ -1,5 +1,4 @@
 import { franceTravailFetch, hasFranceTravailCredentials } from './client';
-import { getFallbackOpportunity } from './localData';
 import { normalizeOpportunity } from './normalizers';
 import type { JobmiOpportunity } from './types';
 
@@ -19,7 +18,7 @@ export async function searchOpportunities(params: {
   radius?: string;
 }): Promise<{ source: 'live' | 'fallback' | 'missing_credentials' | 'error'; opportunities: JobmiOpportunity[] }> {
   if (!hasFranceTravailCredentials()) {
-    return { source: 'missing_credentials', opportunities: getFallbackOpportunity(params.romeCode) };
+    return { source: 'missing_credentials', opportunities: [] };
   }
 
   try {
@@ -44,11 +43,8 @@ export async function searchOpportunities(params: {
     );
     const opportunities = getArrayPayload(payload).slice(0, 100).map(normalizeOpportunity);
 
-    return {
-      source: 'live',
-      opportunities: opportunities.length ? opportunities : getFallbackOpportunity(params.romeCode),
-    };
+    return { source: 'live', opportunities };
   } catch {
-    return { source: 'error', opportunities: getFallbackOpportunity(params.romeCode) };
+    return { source: 'error', opportunities: [] };
   }
 }

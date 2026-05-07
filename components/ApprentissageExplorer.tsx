@@ -454,7 +454,13 @@ export default function ApprentissageExplorer() {
 
       {status === 'idle' && activeTab === 'jobs' && allJobs.length === 0 && franceTravailOpportunities.length === 0 && !error ? (
         <p className="mt-6 rounded-lg bg-gray-50 p-4 text-sm text-gray-600">
-          Aucun résultat sur ces critères. Essaie un département plus large, un autre métier ou un code ROME.
+          Aucun résultat sur ces critères. Essaie un département plus large, un autre terme ou un code ROME.
+        </p>
+      ) : null}
+
+      {status === 'idle' && activeTab === 'trainings' && (result?.trainings ?? []).length === 0 && !error ? (
+        <p className="mt-6 rounded-lg bg-gray-50 p-4 text-sm text-gray-600">
+          Aucune formation trouvée sur ces critères. Essaie un département plus large ou un autre métier.
         </p>
       ) : null}
     </section>
