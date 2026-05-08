@@ -1,6 +1,8 @@
-import { franceTravailFetch, hasFranceTravailCredentials } from './client';
+import { franceTravailFetchWithMeta, hasFranceTravailCredentials } from './client';
 import { normalizeOpportunity } from './normalizers';
 import type { JobmiOpportunity } from './types';
+
+export const FT_PAGE_SIZE = 50;
 
 function getArrayPayload(payload: any) {
   if (Array.isArray(payload)) return payload;
@@ -10,16 +12,42 @@ function getArrayPayload(payload: any) {
   return [];
 }
 
+function dedupeOpportunities(opportunities: JobmiOpportunity[]) {
+  const seen = new Set<string>();
+
+  return opportunities.filter((opportunity) => {
+    const key = `${opportunity.id}-${opportunity.url}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function getTotalFromContentRange(headers: Headers) {
+  const contentRange = headers.get('content-range') ?? headers.get('Content-Range');
+  const total = contentRange?.match(/\/(\d+)$/)?.[1];
+  return total ? Number(total) : null;
+}
+
 export async function searchOpportunities(params: {
   romeCode?: string;
   location?: string;
   keyword?: string;
   contractType?: string;
   radius?: string;
-}): Promise<{ source: 'live' | 'fallback' | 'missing_credentials' | 'error'; opportunities: JobmiOpportunity[] }> {
+  offset?: number;
+}): Promise<{
+  source: 'live' | 'missing_credentials' | 'error';
+  opportunities: JobmiOpportunity[];
+  hasMore: boolean;
+  total: number | null;
+  nextOffset: number;
+}> {
   if (!hasFranceTravailCredentials()) {
-    return { source: 'missing_credentials', opportunities: [] };
+    return { source: 'missing_credentials', opportunities: [], hasMore: false, total: null, nextOffset: 0 };
   }
+
+  const offset = params.offset ?? 0;
 
   try {
     const searchParams = new URLSearchParams();
@@ -37,14 +65,27 @@ export async function searchOpportunities(params: {
     }
     if (params.contractType) searchParams.set('typeContrat', params.contractType);
 
-    const payload = await franceTravailFetch<any>(
+    const { data: payload, headers } = await franceTravailFetchWithMeta<any>(
       process.env.FRANCE_TRAVAIL_OFFERS_PATH || '/partenaire/offresdemploi/v2/offres/search',
-      { searchParams, next: { revalidate: 60 * 15 } },
+      {
+        searchParams,
+        headers: { Range: `offres=${offset}-${offset + FT_PAGE_SIZE - 1}` },
+        // only cache first page — paginated requests must be fresh
+        ...(offset === 0 ? { next: { revalidate: 60 * 15 } } : { cache: 'no-store' as const }),
+      },
     );
-    const opportunities = getArrayPayload(payload).slice(0, 100).map(normalizeOpportunity);
+    const opportunities = dedupeOpportunities(getArrayPayload(payload).map(normalizeOpportunity));
+    const total = getTotalFromContentRange(headers);
+    const nextOffset = offset + FT_PAGE_SIZE;
 
-    return { source: 'live', opportunities };
+    return {
+      source: 'live',
+      opportunities,
+      hasMore: total !== null ? nextOffset < total : opportunities.length >= FT_PAGE_SIZE,
+      total,
+      nextOffset,
+    };
   } catch {
-    return { source: 'error', opportunities: [] };
+    return { source: 'error', opportunities: [], hasMore: false, total: null, nextOffset: offset };
   }
 }

@@ -78,13 +78,26 @@ function buildFranceTravailSearchUrl(filters: {
   location: string;
   contractType: string;
   radius: string;
+  offset?: number;
 }) {
   const params = new URLSearchParams();
   if (filters.query.trim()) params.set('q', filters.query.trim());
   if (filters.location.trim()) params.set('location', filters.location.trim());
   if (filters.contractType) params.set('typeContrat', filters.contractType);
   if (filters.radius) params.set('radius', filters.radius);
+  if (typeof filters.offset === 'number') params.set('offset', String(filters.offset));
   return `/api/france-travail/opportunities?${params.toString()}`;
+}
+
+function dedupeFranceTravailOpportunities(opportunities: JobmiOpportunity[]) {
+  const seen = new Set<string>();
+
+  return opportunities.filter((opportunity) => {
+    const key = `${opportunity.id}-${opportunity.url}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function MetaPill({ children }: { children: ReactNode }) {
@@ -207,7 +220,17 @@ function TrainingCard({ training }: { training: JobmiApprenticeshipTraining }) {
   );
 }
 
-export default function ApprentissageExplorer() {
+type InitialData = {
+  apprentissageResult: JobmiApprenticeshipSearchResult | null;
+  ftOpportunities: JobmiOpportunity[];
+  ftHasMore: boolean;
+  ftTotal: number | null;
+  ftNextOffset: number;
+};
+
+export default function ApprentissageExplorer({ initialData }: { initialData?: InitialData }) {
+  const hasInitial = Boolean(initialData);
+
   const [filters, setFilters] = useState({
     query: '',
     location: '75',
@@ -215,8 +238,18 @@ export default function ApprentissageExplorer() {
     radius: '30',
     contractType: '',
   });
-  const [result, setResult] = useState<JobmiApprenticeshipSearchResult | null>(null);
-  const [franceTravailOpportunities, setFranceTravailOpportunities] = useState<JobmiOpportunity[]>([]);
+  const [result, setResult] = useState<JobmiApprenticeshipSearchResult | null>(
+    initialData?.apprentissageResult ?? null,
+  );
+  const [franceTravailOpportunities, setFranceTravailOpportunities] = useState<JobmiOpportunity[]>(
+    initialData?.ftOpportunities ?? [],
+  );
+  const [franceTravailTotal, setFranceTravailTotal] = useState<number | null>(
+    initialData?.ftTotal ?? null,
+  );
+  const [hasFTMore, setHasFTMore] = useState(initialData?.ftHasMore ?? false);
+  const [ftOffset, setFtOffset] = useState(initialData?.ftNextOffset ?? 0);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [activeTab, setActiveTab] = useState<'jobs' | 'trainings' | 'sources'>('jobs');
   const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle');
   const [error, setError] = useState('');
@@ -229,6 +262,8 @@ export default function ApprentissageExplorer() {
   async function loadOffers(nextFilters = filters) {
     setStatus('loading');
     setError('');
+    setHasFTMore(false);
+    setFtOffset(0);
 
     const includeApprentissage = ALTERNANCE_TYPES.has(nextFilters.contractType);
 
@@ -244,7 +279,7 @@ export default function ApprentissageExplorer() {
         fetch(buildFranceTravailSearchUrl(nextFilters)).then(async (r) => {
           const p = await r.json();
           if (!r.ok) throw new Error(p?.error || 'Recherche France Travail impossible pour le moment.');
-          return p as { opportunities?: JobmiOpportunity[] };
+          return p as { opportunities?: JobmiOpportunity[]; hasMore?: boolean; total?: number | null; nextOffset?: number };
         }),
       ]);
 
@@ -253,9 +288,15 @@ export default function ApprentissageExplorer() {
       }
 
       if (franceTravailResult.status === 'fulfilled') {
-        setFranceTravailOpportunities(franceTravailResult.value.opportunities ?? []);
+        const ftData = franceTravailResult.value;
+        setFranceTravailOpportunities(dedupeFranceTravailOpportunities(ftData.opportunities ?? []));
+        setFranceTravailTotal(ftData.total ?? null);
+        setHasFTMore(ftData.hasMore ?? false);
+        setFtOffset(ftData.nextOffset ?? 50);
       } else {
         setFranceTravailOpportunities([]);
+        setFranceTravailTotal(null);
+        setHasFTMore(false);
       }
 
       if (apprentissageResult.status === 'rejected' && franceTravailResult.status === 'rejected') {
@@ -270,12 +311,35 @@ export default function ApprentissageExplorer() {
   }
 
   useEffect(() => {
-    loadOffers();
+    if (!hasInitial) loadOffers();
   }, []);
 
   function submitSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     loadOffers();
+  }
+
+  async function loadMoreOffers() {
+    setLoadingMore(true);
+    try {
+      const url = buildFranceTravailSearchUrl({ ...filters, offset: ftOffset });
+      const r = await fetch(url);
+      const p = await r.json() as {
+        opportunities?: JobmiOpportunity[];
+        hasMore?: boolean;
+        total?: number | null;
+        nextOffset?: number;
+      };
+      const more = p.opportunities ?? [];
+      setFranceTravailOpportunities((prev) => dedupeFranceTravailOpportunities([...prev, ...more]));
+      setFranceTravailTotal(p.total ?? null);
+      setHasFTMore(p.hasMore ?? false);
+      setFtOffset(p.nextOffset ?? ftOffset + 50);
+    } catch {
+      // silently fail — existing results stay visible
+    } finally {
+      setLoadingMore(false);
+    }
   }
 
   return (
@@ -370,6 +434,12 @@ export default function ApprentissageExplorer() {
         </button>
       </form>
 
+      {status === 'idle' && activeTab === 'jobs' && franceTravailTotal !== null ? (
+        <p className="mt-4 text-sm font-semibold text-gray-500">
+          {franceTravailOpportunities.length} offres France Travail chargées sur {franceTravailTotal}.
+        </p>
+      ) : null}
+
       {error ? (
         <div className="mt-5 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-900">
           {error} Vérifie les jetons serveur Apprentissage et France Travail, puis relance Next.js si tu viens
@@ -408,8 +478,11 @@ export default function ApprentissageExplorer() {
 
       {status !== 'loading' && activeTab === 'jobs' ? (
         <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {franceTravailOpportunities.map((opportunity) => (
-            <FranceTravailJobCard key={`france-travail-${opportunity.id}`} opportunity={opportunity} />
+          {franceTravailOpportunities.map((opportunity, index) => (
+            <FranceTravailJobCard
+              key={`france-travail-${opportunity.id}-${opportunity.url}-${index}`}
+              opportunity={opportunity}
+            />
           ))}
           {allJobs.map((job) => (
             <JobCard key={`${job.sourceType}-${job.id}-${job.url}`} job={job} />
@@ -449,6 +522,19 @@ export default function ApprentissageExplorer() {
               <p className="mt-5 text-sm font-bold text-[#6500FF]">Ouvrir la source</p>
             </a>
           ))}
+        </div>
+      ) : null}
+
+      {hasFTMore && activeTab === 'jobs' && status !== 'loading' ? (
+        <div className="mt-8 flex justify-center">
+          <button
+            type="button"
+            onClick={loadMoreOffers}
+            disabled={loadingMore}
+            className="rounded-xl border-2 border-[#6500FF] px-8 py-3 text-sm font-bold text-[#6500FF] transition hover:-translate-y-0.5 hover:bg-[#6500FF] hover:text-white disabled:opacity-50"
+          >
+            {loadingMore ? 'Chargement...' : 'Voir plus d\'offres France Travail'}
+          </button>
         </div>
       ) : null}
 

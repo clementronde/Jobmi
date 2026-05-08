@@ -161,6 +161,14 @@ export async function franceTravailFetch<T>(
   path: string,
   options: FranceTravailRequestOptions = {},
 ): Promise<T> {
+  const { data } = await franceTravailFetchWithMeta<T>(path, options);
+  return data;
+}
+
+export async function franceTravailFetchWithMeta<T>(
+  path: string,
+  options: FranceTravailRequestOptions = {},
+): Promise<{ data: T; headers: Headers }> {
   const token = await getAccessToken();
   const url = new URL(path.startsWith('http') ? path : `${getApiBaseUrl()}${path}`);
 
@@ -183,7 +191,10 @@ export async function franceTravailFetch<T>(
     throw new FranceTravailApiError(`FRANCE_TRAVAIL_API_ERROR_${response.status}`, response.status);
   }
 
-  return response.json() as Promise<T>;
+  return {
+    data: (await response.json()) as T,
+    headers: response.headers,
+  };
 }
 
 export function toRouteError(error: unknown) {

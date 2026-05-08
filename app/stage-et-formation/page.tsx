@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Suspense } from 'react';
 import ApprentissageExplorer from '../../components/ApprentissageExplorer';
 import { InternalLinksSection } from '../../components/InternalLinksSection';
 import { getInternalLinksForContext } from '../../data/internalLinks';
+import { searchApprentissage } from '../../lib/apprentissage';
+import { searchOpportunities } from '../../lib/franceTravail/opportunities';
 
 const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/stage-et-formation`;
@@ -260,6 +263,39 @@ const sampleOpportunities = [
   },
 ];
 
+async function ExplorerWithData() {
+  const [apprentissageRes, ftRes] = await Promise.allSettled([
+    searchApprentissage({ location: '75', radius: '30' }),
+    searchOpportunities({ location: '75' }),
+  ]);
+
+  return (
+    <ApprentissageExplorer
+      initialData={{
+        apprentissageResult: apprentissageRes.status === 'fulfilled' ? apprentissageRes.value : null,
+        ftOpportunities: ftRes.status === 'fulfilled' ? ftRes.value.opportunities : [],
+        ftHasMore: ftRes.status === 'fulfilled' ? ftRes.value.hasMore : false,
+        ftTotal: ftRes.status === 'fulfilled' ? ftRes.value.total : null,
+        ftNextOffset: ftRes.status === 'fulfilled' ? ftRes.value.nextOffset : 0,
+      }}
+    />
+  );
+}
+
+function ExplorerSkeleton() {
+  return (
+    <section className="mx-auto max-w-screen-xl px-6 py-14 sm:px-10">
+      <div className="mb-8 h-20 w-1/2 animate-pulse rounded-lg bg-gray-100" />
+      <div className="h-16 animate-pulse rounded-lg bg-gray-100" />
+      <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div key={i} className="h-64 animate-pulse rounded-lg bg-gray-100" />
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default function StageEtFormation() {
   const internalLinks = getInternalLinksForContext('formation', '/stage-et-formation');
 
@@ -325,7 +361,9 @@ export default function StageEtFormation() {
           </div>
         </section>
 
-        <ApprentissageExplorer />
+        <Suspense fallback={<ExplorerSkeleton />}>
+          <ExplorerWithData />
+        </Suspense>
 
         <section className="mx-auto max-w-screen-xl px-6 py-14 sm:px-10">
           <div className="mb-8 max-w-3xl">
