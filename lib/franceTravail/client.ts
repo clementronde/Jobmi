@@ -97,6 +97,7 @@ async function getAccessToken() {
     },
     body,
     cache: 'no-store',
+    signal: AbortSignal.timeout(4000),
   });
 
   if (!response.ok) {
@@ -180,6 +181,7 @@ export async function franceTravailFetchWithMeta<T>(
 
   const response = await fetch(url, {
     ...options,
+    signal: options.signal ?? AbortSignal.timeout(4000),
     headers: {
       Accept: 'application/json',
       Authorization: `Bearer ${token}`,
