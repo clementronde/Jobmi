@@ -229,7 +229,14 @@ type InitialData = {
 };
 
 export default function ApprentissageExplorer({ initialData }: { initialData?: InitialData }) {
-  const hasInitial = Boolean(initialData);
+  // Only trust SSR data if it actually contains results; otherwise let the client re-fetch.
+  const hasInitial = Boolean(
+    initialData &&
+    ((initialData.ftOpportunities?.length ?? 0) > 0 ||
+     (initialData.apprentissageResult?.jobs?.length ?? 0) > 0 ||
+     (initialData.apprentissageResult?.recruiters?.length ?? 0) > 0 ||
+     (initialData.apprentissageResult?.trainings?.length ?? 0) > 0),
+  );
 
   const [filters, setFilters] = useState({
     query: '',

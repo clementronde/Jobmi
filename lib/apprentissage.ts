@@ -158,7 +158,7 @@ async function addLocation(search: URLSearchParams, params: ApprenticeshipSearch
   const response = await fetch(`${API_BASE_URL}/geographie/v1/commune/search?code=${location}`, {
     headers: apiHeaders(),
     next: { revalidate: 60 * 60 * 24 },
-    signal: AbortSignal.timeout(5000),
+    signal: AbortSignal.timeout(8000),
   });
 
   if (!response.ok) return;
@@ -276,7 +276,7 @@ async function fetchJson<T>(path: string, search: URLSearchParams): Promise<T> {
   const response = await fetch(`${API_BASE_URL}${path}?${search.toString()}`, {
     headers: apiHeaders(),
     cache: 'no-store',
-    signal: AbortSignal.timeout(5000),
+    signal: AbortSignal.timeout(8000),
   });
 
   if (!response.ok) {

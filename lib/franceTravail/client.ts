@@ -181,7 +181,7 @@ export async function franceTravailFetchWithMeta<T>(
 
   const response = await fetch(url, {
     ...options,
-    signal: options.signal ?? AbortSignal.timeout(4000),
+    signal: options.signal ?? AbortSignal.timeout(8000),
     headers: {
       Accept: 'application/json',
       Authorization: `Bearer ${token}`,
