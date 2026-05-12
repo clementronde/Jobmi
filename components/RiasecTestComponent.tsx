@@ -97,7 +97,7 @@ function TestIntro({ onStart }: { onStart: (name: string) => void }) {
               Test d'orientation · Modèle RIASEC
             </p>
             <h1 className="font-oddlini uppercase text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#04192F] mb-5 max-w-3xl">
-              Trouve les métiers qui te ressemblent vraiment
+              Test d'orientation gratuit : trouve les métiers qui te ressemblent
             </h1>
             <p className="text-gray-500 text-base sm:text-lg max-w-xl mb-2">
               30 questions concrètes · 6 à 8 minutes · Aucune bonne ou mauvaise réponse.
