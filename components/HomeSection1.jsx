@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 
 export const HomeSection1 = () => {
@@ -39,7 +40,7 @@ export const HomeSection1 = () => {
             className="w-fit rounded-xl px-6 py-3.5 bg-[#04192F] text-white font-bold text-sm flex items-center gap-3 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 mb-7"
           >
             Passer le test d'orientation gratuit
-            <img src="/media/cta-blog-arrow.svg" alt="" className="w-6 flex-shrink-0" />
+            <Image src="/media/cta-blog-arrow.svg" alt="" width={24} height={24} className="flex-shrink-0" />
           </Link>
 
           {/* Secondary CTAs — liens texte */}
@@ -68,10 +69,13 @@ export const HomeSection1 = () => {
 
         {/* ── Colonne droite — image pleine hauteur ──────────────────── */}
         <div className="relative lg:w-[45%] min-h-[380px] lg:min-h-0 overflow-hidden">
-          <img
+          <Image
             src="/media/accueil-femmes-1.svg"
             alt="Jeunes de 18 à 25 ans trouvant leur orientation et reconversion professionnelle avec Jobmi"
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
+            sizes="(max-width: 1024px) 100vw, 45vw"
           />
 
           {/* Badge flottant */}
@@ -82,14 +86,14 @@ export const HomeSection1 = () => {
             </p>
           </div>
 
-          <img className="absolute bottom-10 right-8" src="/media/explore.svg" alt="" />
+          <Image className="absolute bottom-10 right-8" src="/media/explore.svg" alt="" width={48} height={48} />
         </div>
 
       </div>
 
       {/* Flèche déco — sur le wrapper relatif, z-10 pour chevaucher la section suivante */}
       <div className="absolute bottom-[-150px] left-[55px] z-10 hidden lg:block pointer-events-none">
-        <img src="/media/flechehome1.svg" alt="" className="w-60" />
+        <Image src="/media/flechehome1.svg" alt="" width={240} height={240} />
       </div>
     </div>
   );

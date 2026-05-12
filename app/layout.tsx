@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Jost, Inter } from 'next/font/google';
 import "./globals.css";
 import 'leaflet/dist/leaflet.css';
 import 'tailwindcss/tailwind.css';
@@ -7,6 +8,18 @@ import Provider from '@/components/Provider';
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { AnalyticsEvents } from "@/components/AnalyticsEvents";
+
+const jost = Jost({
+  subsets: ['latin'],
+  variable: '--font-jost',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 const BASE_URL = 'https://jobmi.fr';
 
@@ -122,7 +135,7 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="fr" data-scroll-behavior="smooth">
+    <html lang="fr" data-scroll-behavior="smooth" className={`${jost.variable} ${inter.variable}`}>
       <head>
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
