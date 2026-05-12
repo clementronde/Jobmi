@@ -6,6 +6,8 @@ import { getActiveEvents } from '@/services/eventsService';
 const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/carte-orientation`;
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Carte orientation, salons et immersions pour les 18–25 ans',
   description:

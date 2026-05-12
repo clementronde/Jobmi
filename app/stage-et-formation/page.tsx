@@ -12,6 +12,8 @@ const PAGE_URL = `${BASE_URL}/stage-et-formation`;
 const WAITINGLIST_URL =
   'https://626063d8.sibforms.com/serve/MUIFACI_ugihEQiP7m7SmyLz7QszuC5wEK0W_nn2cHLbezW92oq3Gi_M7-5mIHV3oA9bk8VpaPa5q5OmsC4xxwhAAIDAz5LafA4Of6WYGOVAYgPggEk5SH6YYlarS5QAKTm_pucc1dXASOy6scm8cBdqdnUuW0Ms3FUJBfgzGv9XucQ_FwwJIFFVrEDqaJu_1batPvIPyrYuxn4K';
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Stages et immersions pour les 18–25 ans | Tester un métier",
   description:

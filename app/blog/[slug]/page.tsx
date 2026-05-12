@@ -184,6 +184,16 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
     timeRequired: `PT${data.readingTime}M`,
   };
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: BASE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${BASE_URL}/blog` },
+      { '@type': 'ListItem', position: 3, name: data.title, item: `${BASE_URL}/blog/${slug}` },
+    ],
+  };
+
   const formattedDate = new Intl.DateTimeFormat('fr-FR', {
     day: 'numeric',
     month: 'long',
@@ -195,6 +205,10 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {faqJsonLd ? (
         <script

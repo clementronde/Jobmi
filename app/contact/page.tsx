@@ -1,5 +1,6 @@
 "use client";
 import { useState, ChangeEvent, FormEvent } from 'react';
+import Image from 'next/image';
 import axios from 'axios';
 
 export default function Contact() {
@@ -35,7 +36,10 @@ export default function Contact() {
         <h1 className="font-sans text-5xl font-bold">
           Contactez-nous !
         </h1>
-        <img src="/media/home-temoignage-soulignage-titre.svg" alt="Trait soulignant le titre de l'article" className="mx-auto mt-2" />
+        <Image src="/media/home-temoignage-soulignage-titre.svg" alt="" width={400} height={20} className="mx-auto mt-2 h-auto" />
+        <p className="mt-6 text-base leading-7 text-gray-500 max-w-md mx-auto">
+          Une question sur Jobmi, un partenariat ou une immersion à proposer ? On te répond sous 48 h.
+        </p>
       </div>
 
       <div className="max-w-lg mx-auto bg-[#F3F3F3] p-8 rounded-lg">

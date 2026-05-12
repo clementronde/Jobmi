@@ -1,6 +1,9 @@
 {
     "name": "Jobmi",
     "short_name": "Jobmi",
+    "description": "Jobmi aide les 18-25 ans à trouver leur voie : test d'orientation gratuit, immersions métier et guides de reconversion.",
+    "start_url": "/",
+    "scope": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,7 +16,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
+    "theme_color": "#6500FF",
     "background_color": "#ffffff",
     "display": "standalone"
 }

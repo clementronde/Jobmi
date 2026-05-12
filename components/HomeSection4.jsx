@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from 'react';
+import Image from 'next/image';
 
 export const HomeSection4 = () => {
   const carouselRef = useRef(null);
@@ -60,7 +61,7 @@ export const HomeSection4 = () => {
         <h1 className="font-sans text-4xl font-bold sm:text-5xl">
           Ils ont testé avant de choisir
         </h1>
-        <img src="/media/home-temoignage-soulignage-titre.svg" alt="Trait soulignant le titre de l'article" className="mx-auto mt-2" />
+        <Image src="/media/home-temoignage-soulignage-titre.svg" alt="" width={400} height={20} className="mx-auto mt-2 h-auto" />
       </div>
 
       <div
@@ -76,7 +77,7 @@ export const HomeSection4 = () => {
           >
             <p className="absolute left-5 top-2 text-[88px] leading-none text-purple-600/80">“</p>
             <div className="relative z-10 flex justify-end">
-              <img src={testimonial.image} alt={testimonial.name} className="mx-auto h-24 w-24 object-contain" />
+              <Image src={testimonial.image} alt={testimonial.name} width={96} height={96} className="mx-auto object-contain" />
             </div>
             
             <p className="relative z-10 mb-4 mt-3 text-base leading-relaxed text-[#B07DFF]">{testimonial.text}</p>

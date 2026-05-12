@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Les outils Jobmi',
@@ -65,7 +66,7 @@ export default function OutilsPage() {
                 className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#04192F] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#6500FF]"
               >
                 {tool.cta}
-                <img src="/media/cta-blog-arrow.svg" alt="" className="w-5" />
+                <Image src="/media/cta-blog-arrow.svg" alt="" width={20} height={20} />
               </Link>
             </article>
           ))}

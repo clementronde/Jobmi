@@ -82,14 +82,30 @@ export default async function CarteOrientationCityPage({ params }: Props) {
     notFound();
   }
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: BASE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Carte Orientation', item: `${BASE_URL}/carte-orientation` },
+      { '@type': 'ListItem', position: 3, name: config.city, item: `${BASE_URL}/carte-orientation/${city}` },
+    ],
+  };
+
   return (
-    <EventExplorerPage
-      eyebrow={`Événements orientation · ${config.city}`}
-      title={config.title}
-      description={config.description}
-      intro={config.intro}
-      events={getActiveEvents()}
-      initialFilters={{ citySlug: city }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <EventExplorerPage
+        eyebrow={`Événements orientation · ${config.city}`}
+        title={config.title}
+        description={config.description}
+        intro={config.intro}
+        events={getActiveEvents()}
+        initialFilters={{ citySlug: city }}
+      />
+    </>
   );
 }

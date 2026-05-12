@@ -28,6 +28,8 @@ const faqItems = [
   },
 ];
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Événements d'orientation, salons et immersions pour les 18–25 ans",
   description:
