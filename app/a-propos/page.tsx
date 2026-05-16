@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import {CustomComponent} from "../../components/CustomComponent"
 import {JobmiComponent} from "../../components/JobmiComponent"
 import {ValuesComponent} from "../../components/ValuesComponent"
@@ -16,7 +17,7 @@ export default function APropos() {
         </div>
       </div>
       <div className="w-full">
-        <img src="/media/a-propos-prez-jobmi.svg" alt="Présentation de Jobmi" className="w-full h-auto" />
+        <Image src="/media/a-propos-prez-jobmi.svg" alt="Présentation de Jobmi" width={1920} height={600} className="w-full h-auto" />
       </div>
       <JobmiComponent />
       <ValuesComponent />
@@ -24,10 +25,12 @@ export default function APropos() {
       <div className="flex justify-center items-center gap-4 mt-[120px]">
         <p className="sm:text-4xl text-3xl font-bold font-oddlini  relative z-10">lls nous font</p>
         <div className="relative ">
-            <img
+            <Image
               src="/media/Vector1088.png"
-              alt="rectangle"
-              className="absolute -top-4 left-1/2 transform -translate-x-1/2 sm:translate-x-0 sm:left-[-10px] h-[60px] w-[150px]"
+              alt=""
+              width={150}
+              height={60}
+              className="absolute -top-4 left-1/2 transform -translate-x-1/2 sm:translate-x-0 sm:left-[-10px]"
             />
             <h2 className="sm:text-4xl text-3xl font-bold font-oddlini  relative z-10">
             confiance

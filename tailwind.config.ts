@@ -12,8 +12,8 @@ const config: Config = {
         sans:  ['Gilroy', 'sans-serif'],
         oddlini: ['Oddlini', 'sans-serif'],
         september: ['September Mornings', 'sans-serif'],
-        jost: ['Jost', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
+        jost: ['var(--font-jost)', 'sans-serif'],
+        inter: ['var(--font-inter)', 'sans-serif'],
         Montserrat: ["Montserrat", "sans-serif"],
         crusivefont:["Font"]
       },

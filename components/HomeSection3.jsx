@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const stats = [
   {
@@ -108,7 +109,7 @@ const HomeSection3 = () => {
               className="mt-10 inline-flex items-center gap-2 bg-[#a29bfe] text-[#14213d] font-semibold text-sm px-6 py-3 rounded-xl transition-all duration-300 hover:bg-white hover:scale-105"
             >
               Faire le test gratuit
-              <img src="/media/cta-blog-arrow.svg" alt="" className="w-5" />
+              <Image src="/media/cta-blog-arrow.svg" alt="" width={20} height={20} />
             </Link>
           </div>
         </div>

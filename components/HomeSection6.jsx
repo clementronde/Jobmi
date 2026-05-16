@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Gravity, MatterBody } from "@/components/ui/gravity";
 
 const boxes = [
@@ -77,11 +78,7 @@ const HomeSection6 = () => {
               className="group mt-[40px] flex items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-black shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-1 hover:bg-[#a29bfe] hover:text-[#0A1F44] hover:shadow-[0_14px_30px_rgba(162,155,254,0.35)] active:translate-y-0"
             >
               Faire le test gratuit
-              <img
-                src="/media/cta-blog-arrow.svg"
-                alt="arrow-icon"
-                className="w-7 transition-transform duration-300 group-hover:translate-x-1"
-              />
+              <Image src="/media/cta-blog-arrow.svg" alt="" width={28} height={28} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
       </div>

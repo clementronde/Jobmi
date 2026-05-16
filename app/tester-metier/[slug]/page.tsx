@@ -39,5 +39,23 @@ export default async function TesterMetierPage({ params }: Props) {
 
   if (!page) notFound();
 
-  return <JobTestingPageTemplate page={page} />;
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: BASE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Tester un métier', item: `${BASE_URL}/tester-un-metier` },
+      { '@type': 'ListItem', position: 3, name: page.title, item: `${BASE_URL}/tester-metier/${page.slug}` },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <JobTestingPageTemplate page={page} />
+    </>
+  );
 }

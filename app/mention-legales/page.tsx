@@ -1,4 +1,11 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Mentions Légales | Jobmi',
+  description: 'Consultez les mentions légales du site Jobmi.',
+  alternates: { canonical: 'https://jobmi.fr/mention-legales' },
+};
 
 export default function MentionLegales() {
     return (
