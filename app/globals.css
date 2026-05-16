@@ -710,9 +710,9 @@
 .article-content .bg-gray-50 > p.font-bold:first-child {
   font-family: 'September Mornings', cursive;
   color: #6500ff;
-  font-size: 2.05rem;
-  line-height: 1.15;
-  letter-spacing: 0;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
   margin-bottom: 0.65rem;
   display: inline-flex;
   align-items: center;
@@ -723,7 +723,7 @@
   .article-content .bg-gray-50 > h3:first-child,
   .article-content .bg-gray-100 > p.font-bold:first-child,
   .article-content .bg-gray-50 > p.font-bold:first-child {
-    font-size: 2.2rem;
+    font-size: 2.6rem;
   }
 }
 

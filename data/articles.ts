@@ -42,7 +42,7 @@ export const articles: Article[] = [
     author: 'Jobmi',
     excerpt: 'En 2026, de nombreux métiers cool émergent et se développent. Découvre les 10 métiers d\'avenir les plus passionnants pour orienter ta carrière.',
     content: '',
-    metaDescription: 'Découvre le top 10 des métiers cool et d\'avenir pour 2026 : nouvelles carrières passionnantes pour ton orientation ou ta reconversion professionnelle.',
+    metaDescription: 'Top 10 des métiers cool 2026 : développeur VR, expert IA, data scientist… Salaires, formations et conseils concrets pour choisir ta voie. Lequel te correspond ?',
     imageCover: '/media/intro-article-3.svg',
     imageAlt: 'Bannière top 10 métiers cool 2026',
     readingTime: 7,

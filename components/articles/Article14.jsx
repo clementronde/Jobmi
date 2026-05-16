@@ -40,7 +40,7 @@ export const Article14 = () => {
 
       <div className="font-sans my-10 sm:py-20 py-2 mx-auto max-w-[760px] relative">
         <img
-          className="absolute top-0 -right-10 w-16"
+          className="absolute top-0 right-0 w-14 translate-x-4 sm:translate-x-0 pointer-events-none"
           src="/media/arrow-blog-h2.svg"
           alt="Flèche"
         />

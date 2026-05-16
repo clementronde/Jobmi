@@ -860,6 +860,7 @@ function ActionPlanCard({ job }: { job: ScoredJob }) {
         </Link>
         <Link
           href={`/stage-et-formation?metier=${encodeURIComponent(job.name)}${romeCode ? `&rome=${romeCode}` : ''}`}
+          rel="nofollow"
           className="rounded-xl bg-[#04192F] px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-[#6500FF]"
         >
           Voir offres & formations
@@ -911,7 +912,7 @@ function ActionPlanCard({ job }: { job: ScoredJob }) {
               id: review.id,
               label: review.trainingName,
               meta: `${review.organization} · ${review.rating ? `${review.rating}/5` : 'avis à vérifier'}`,
-              href: `/stage-et-formation?metier=${encodeURIComponent(job.name)}${romeCode ? `&rome=${romeCode}` : ''}`,
+              href: `/stage-et-formation`,
             }))}
           />
           <ActionPreviewColumn

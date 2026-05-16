@@ -13,36 +13,31 @@ export const Article2 = () => {
         </p>
       </div>
 
-      <div className='font-sans my-10 sm:py-20 py:2 mx-auto max-w-[700px] relative'>
-        <img className='absolute top-0 -right-10 w-16' src="/media/arrow-blog-h2.svg" alt="Flèche pointant vers le titre" />
+      <div className='font-sans my-10 sm:py-20 py:2 mx-auto max-w-[700px] relative overflow-visible'>
+        <img className='absolute top-0 right-0 w-14 translate-x-4 sm:translate-x-0 pointer-events-none' src="/media/arrow-blog-h2.svg" alt="Flèche pointant vers le titre" />
         <h2 className='text-4xl font-bold text-center uppercase'>
           Comment trouver le job de tes rêves
         </h2>
       </div>
 
-      <div className='font-sans flex flex-col lg:flex-row items-center my-10 sm:mx-20 p-5'>
-        <div className='flex-shrink-0 mb-5 lg:mb-0 lg:mr-10'>
-          <img className='h-auto w-full max-w-[400px] object-cover' src="/media/blo-art-2-etape1.svg" alt="Personnes travaillant sur un chantier" />
-        </div>
-        <div>
+      <div className='font-sans my-10 sm:mx-20 p-5 flex flex-col gap-5'>
           <h2 className='sm:text-2xl text-4xl sm:text-left text-center font-bold '>
             Étape 1 : comprendre tes motivations
           </h2>
+          <img className='h-auto w-full max-w-[500px] object-cover' src="/media/blo-art-2-etape1.svg" alt="Personnes travaillant sur un chantier" />
           <p className='my-7'>
             La première étape pour trouver le métier de tes rêves est de comprendre pourquoi tu souhaites changer de carrière ou choisir un nouveau métier. <br />
             Est-ce parce que tu ne te sens pas épanoui dans ton travail actuel ? <br />
             As-tu découvert une nouvelle passion ? <br />
             Ou cherches-tu simplement un meilleur équilibre entre ta vie professionnelle et personnelle ? Identifie clairement tes motivations pour te donner une direction précise.<br /><br />
 
-            Si tu souhaites discuter avec nous pour échanger sur ta reconversion, tu peux accéder à notre agenda juste ici : 
+            Si tu souhaites discuter avec nous pour échanger sur ta reconversion, tu peux accéder à notre agenda juste ici :
           </p>
           <Link href="/contact">
             <p>
               👉 Prends ton rendez-vous
             </p>
           </Link>
-          
-        </div>
       </div>
 
 
@@ -71,7 +66,7 @@ export const Article2 = () => {
               Les bilans de compétences physiques
             </li>
             <br /><br />
-            Il ne te reste plus qu’à t’inscrire ! 
+            Il ne te reste plus qu'à t'inscrire ! 
           </p>
         </div>
       </div>
@@ -89,7 +84,7 @@ export const Article2 = () => {
         <p>
           Utilise des ressources en ligne comme <span className='font-bold'>Jobmi</span> pour découvrir les métiers qui correspondent à tes compétences et intérêts. Fais des tests d'orientation professionnelle pour obtenir des suggestions de carrières adaptées à ton profil. N'hésite pas à explorer des secteurs d'activité auxquels tu n'avais pas pensé auparavant.
 
-          Pour avoir une idée sur les métiers qui peuvent te plaire, n’hésites pas à faire notre test en ligne.
+          Pour avoir une idée sur les métiers qui peuvent te plaire, n'hésites pas à faire notre test en ligne.
         </p>
         <Link href="/test" className="rounded-xl px-4 py-2 flex items-center gap-2 bg-[#04192F] text-white font-semibold w-fit mx-auto mt-2">
           Trouver un job
@@ -128,7 +123,7 @@ export const Article2 = () => {
 
       <div className='font-sans my-5 sm:py-10 py-2 mx-auto max-w-[700px]'>
         <h3 className='text-3xl text-center uppercase'>
-          Gagner de l’experience
+          Gagner de l'experience
         </h3>
       </div>
 
@@ -156,7 +151,7 @@ export const Article2 = () => {
         <div>
           <p>
           Il existe plusieurs façons de trouver des opportunités d'expérience. <br />
-          Tu peux utiliser des plateformes de recherche de stage comme <span className='font-bold'>Jobmi</span>, qui t’accompagne de A à Z dans ta recherche ou encore <Link href="https://www.stage4u.fr/" className='underline'>Stage4U</Link>, <Link href="https://fr.indeed.com/" className='underline'>Indeed</Link> ou <Link href="https://www.linkedin.com/" className='underline'>LinkedIn</Link>. N'hésite pas à contacter directement les entreprises qui t'intéressent pour leur proposer tes services en tant que stagiaire ou freelance.
+          Tu peux utiliser des plateformes de recherche de stage comme <span className='font-bold'>Jobmi</span>, qui t'accompagne de A à Z dans ta recherche ou encore <Link href="https://www.stage4u.fr/" className='underline'>Stage4U</Link>, <Link href="https://fr.indeed.com/" className='underline'>Indeed</Link> ou <Link href="https://www.linkedin.com/" className='underline'>LinkedIn</Link>. N'hésite pas à contacter directement les entreprises qui t'intéressent pour leur proposer tes services en tant que stagiaire ou freelance.
           </p>
         </div>
       </div>
@@ -195,7 +190,7 @@ export const Article2 = () => {
 
       <div className='font-sans sm:mx-20'>
         <p>
-          L’étape la plus importante mais aussi la plus redouté par la plupart des personnes. On va t’aider à retirer les idées reçues sur ces deux documents si importants. <br />
+          L'étape la plus importante mais aussi la plus redouté par la plupart des personnes. On va t'aider à retirer les idées reçues sur ces deux documents si importants. <br />
           Ton CV et ta lettre de motivation sont les premiers contacts que tu auras avec les recruteurs. Assure-toi qu'ils soient clairs, précis et mettent en avant tes compétences et expériences pertinentes. Adapte ton CV et ta lettre de motivation à chaque offre d'emploi pour maximiser tes chances de retenir l'attention des recruteurs.
         </p>
       </div>
@@ -236,7 +231,7 @@ export const Article2 = () => {
             ✅
           </p>
           <p className='bg-[#04192F] p-2 text-white'>
-            Adapte chaque cv à l’offre d’emploi spécifique
+            Adapte chaque cv à l'offre d'emploi spécifique
           </p>
         </div>
       </div>
@@ -285,7 +280,7 @@ export const Article2 = () => {
 
       <div className='font-sans my-5 sm:py-10 py-2 mx-auto max-w-[700px]'>
         <h3 className='text-3xl text-center uppercase'>
-          Préparer les entretiens d’embauche
+          Préparer les entretiens d'embauche
         </h3>
       </div>
 

@@ -23,8 +23,8 @@ export const Article6 = () => {
         </p>
       </div>
 
-      <div className='font-sans my-10 sm:py-20 py-2 mx-auto max-w-[700px] relative'>
-        <img className='absolute top-0 -right-10 w-16' src="/media/arrow-blog-h2.svg" alt="Flèche" />
+      <div className='font-sans my-10 sm:py-20 py-2 mx-auto max-w-[700px] relative overflow-visible'>
+        <img className='absolute top-0 right-0 w-14 translate-x-4 sm:translate-x-0 pointer-events-none' src="/media/arrow-blog-h2.svg" alt="Flèche" />
         <h2 className='text-4xl font-bold text-center'>
           Qui peut faire un bilan de compétences ?
         </h2>
