@@ -72,8 +72,6 @@ const HomeSection6 = () => {
         </h2>
         <div className='flex justify-center items-center'>
           <Link
-              target="_blank"
-              rel="noopener noreferrer"
               href="/test"
               className="group mt-[40px] flex items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-black shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-1 hover:bg-[#a29bfe] hover:text-[#0A1F44] hover:shadow-[0_14px_30px_rgba(162,155,254,0.35)] active:translate-y-0"
             >

@@ -22,16 +22,17 @@ export const HomeSection1 = () => {
 
           {/* Headline — typo dramatique : Oddlini + September */}
           <h1 className="font-oddlini uppercase text-[50px] sm:text-[68px] font-bold text-[#04192F] leading-none mb-1">
-            Trouve ta voie.
+            Test d'orientation gratuit
           </h1>
           <p className="font-september text-[56px] sm:text-[72px] text-[#6500FF] leading-none mb-8 -rotate-[2deg] origin-left">
-            Teste-la en vrai avant de t'engager.
+            Trouve ta voie, puis teste-la en vrai.
           </p>
 
           {/* Body */}
-          <p className="text-gray-500 text-base sm:text-lg max-w-sm leading-relaxed mb-10">
-            Test d'orientation, immersions métier et stages. Tout ce qu'il te faut pour choisir ton futur métier
-            sans te tromper.
+          <p className="text-gray-500 text-base sm:text-lg max-w-lg leading-relaxed mb-10">
+            Pour les 18–25 ans qui hésitent entre études, reconversion, formation ou métier :
+            découvre ton profil, explore des pistes concrètes et vérifie-les sur le terrain avant
+            de t'engager.
           </p>
 
           {/* Primary CTA */}
@@ -45,6 +46,26 @@ export const HomeSection1 = () => {
 
           {/* Secondary CTAs — liens texte */}
           <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-[#04192F]">
+            <Link
+              href="/que-faire-apres-le-bac"
+              className="flex items-center gap-1.5 hover:text-[#6500FF] transition-colors group"
+            >
+              Après le bac
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-0.5 transition-transform">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
+            <span className="text-gray-300 select-none">|</span>
+            <Link
+              href="/reconversion"
+              className="flex items-center gap-1.5 hover:text-[#6500FF] transition-colors group"
+            >
+              Reconversion jeune
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-0.5 transition-transform">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
+            <span className="text-gray-300 select-none">|</span>
             <Link
               href="/tester-un-metier"
               className="flex items-center gap-1.5 hover:text-[#6500FF] transition-colors group"

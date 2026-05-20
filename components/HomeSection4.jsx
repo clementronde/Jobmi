@@ -58,9 +58,9 @@ export const HomeSection4 = () => {
   return (
     <div className="w-full py-10 font-sans">
       <div className="mx-auto my-10 max-w-[700px] px-5 text-center">
-        <h1 className="font-sans text-4xl font-bold sm:text-5xl">
+        <h2 className="font-sans text-4xl font-bold sm:text-5xl">
           Ils ont testé avant de choisir
-        </h1>
+        </h2>
         <Image src="/media/home-temoignage-soulignage-titre.svg" alt="" width={400} height={20} className="mx-auto mt-2 h-auto" />
       </div>
 

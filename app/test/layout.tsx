@@ -1,18 +1,18 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Test d'orientation gratuit — Trouve ton métier | Jobmi",
+  title: "Test d'orientation gratuit 18-25 ans — Trouve ta voie | Jobmi",
   description:
-    "Découvre les métiers qui te correspondent avec notre test d'orientation RIASEC. Gratuit, sans inscription, résultats en 6 minutes.",
+    "Fais le test d'orientation gratuit Jobmi : profil RIASEC, familles de métiers, pistes concrètes et prochaines étapes pour trouver ta voie à 18-25 ans.",
   alternates: {
     canonical: 'https://jobmi.fr/test',
   },
   openGraph: {
     type: 'website',
     url: 'https://jobmi.fr/test',
-    title: "Test d'orientation gratuit — Jobmi",
+    title: "Test d'orientation gratuit 18-25 ans — Jobmi",
     description:
-      "Découvre les métiers qui te correspondent avec notre test d'orientation RIASEC. Gratuit, sans inscription, résultats en 6 minutes.",
+      "Profil RIASEC, familles de métiers et pistes concrètes pour mieux choisir ta voie.",
   },
 };
 
