@@ -122,7 +122,7 @@ function TestIntro({ onStart }: { onStart: (name: string) => void }) {
                 className="rounded-xl px-5 py-3 flex items-center justify-center gap-2 bg-[#04192F] text-white font-semibold whitespace-nowrap hover:opacity-90 transition-opacity"
               >
                 Commencer
-                <img src="/media/cta-blog-arrow.svg" alt="" className="w-6" />
+                <img src="/media/cta-blog-arrow.svg" alt="Commencer le test" className="w-6" />
               </button>
             </div>
           </div>
@@ -312,9 +312,9 @@ function CaptureGate({
         <p className="text-[#6500FF] font-semibold text-xs uppercase tracking-widest mb-5">
           Sauvegarde ton résultat
         </p>
-        <h1 className="font-oddlini uppercase text-4xl sm:text-5xl font-bold leading-tight text-[#04192F] mb-3 max-w-3xl">
+        <h2 className="font-oddlini uppercase text-4xl sm:text-5xl font-bold leading-tight text-[#04192F] mb-3 max-w-3xl">
           On garde ton profil en mémoire avant de t'afficher le détail
-        </h1>
+        </h2>
         <p className="text-gray-500 text-base sm:text-lg max-w-2xl mb-8">
           Choisis soit la connexion Google pour retrouver ton test dans ton profil, soit une
           adresse email pour qu'on enregistre ton résultat dans notre base.
@@ -1008,9 +1008,9 @@ function TestResults({
         <p className="text-[#6500FF] font-semibold text-sm uppercase tracking-wide mb-2">
           Résultats du test RIASEC
         </p>
-        <h1 className="text-3xl sm:text-4xl font-bold text-[#04192F] mb-4">
+        <h2 className="text-3xl sm:text-4xl font-bold text-[#04192F] mb-4">
           {userName ? `${userName}, voici ton profil` : 'Voici ton profil'}
-        </h1>
+        </h2>
         <div className="inline-flex items-center gap-3 bg-[#6500FF]/10 px-6 py-3 rounded-full">
           <span className="text-3xl font-bold text-[#6500FF] tracking-widest">
             {profile.dominantCode}
@@ -1173,9 +1173,9 @@ function ResumeScreen({
         <p className="text-[#6500FF] font-semibold text-xs uppercase tracking-widest mb-5">
           Bon retour !
         </p>
-        <h1 className="font-oddlini uppercase text-4xl sm:text-5xl font-bold leading-tight text-[#04192F] mb-5 max-w-2xl">
+        <h2 className="font-oddlini uppercase text-4xl sm:text-5xl font-bold leading-tight text-[#04192F] mb-5 max-w-2xl">
           {userName ? `Content de te revoir, ${userName}` : 'Content de te revoir'}
-        </h1>
+        </h2>
         <p className="text-gray-500 text-base sm:text-lg max-w-lg mb-10">
           Tes réponses précédentes ne sont plus disponibles. Lance un nouveau test pour obtenir ton profil RIASEC à jour.
         </p>
@@ -1184,7 +1184,7 @@ function ResumeScreen({
           className="rounded-xl px-5 py-3 flex items-center gap-2 bg-[#04192F] text-white font-semibold hover:opacity-90 transition-opacity"
         >
           Refaire le test
-          <img src="/media/cta-blog-arrow.svg" alt="" className="w-6" />
+          <img src="/media/cta-blog-arrow.svg" alt="Refaire le test" className="w-6" />
         </button>
       </div>
     </div>
