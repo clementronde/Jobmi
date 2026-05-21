@@ -10,6 +10,7 @@ const isPublished = (datePublished: string) =>
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://jobmi.fr';
+  const today = new Date();
 
   const latestArticleDate = articles
     .filter((a) => isPublished(a.datePublished))
