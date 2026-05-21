@@ -26,7 +26,7 @@ const BASE_URL = 'https://jobmi.fr';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Jobmi — Orientation et Réorientation Professionnelle',
+    default: 'Jobmi - Orientation et Réorientation Professionnelle',
     template: '%s | Jobmi',
   },
   description:
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     locale: 'fr_FR',
     url: BASE_URL,
     siteName: 'Jobmi',
-    title: 'Jobmi — Orientation et Réorientation Professionnelle',
+    title: 'Jobmi - Orientation et Réorientation Professionnelle',
     description:
       "Jobmi aide les 18-25 ans à trouver leur voie : tests d'orientation, guides de reconversion et métiers d'avenir.",
     images: [
@@ -60,13 +60,13 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Jobmi — Trouve ta voie professionnelle',
+        alt: 'Jobmi - Trouve ta voie professionnelle',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jobmi — Orientation et Réorientation Professionnelle',
+    title: 'Jobmi - Orientation et Réorientation Professionnelle',
     description:
       "Jobmi aide les 18-25 ans à trouver leur voie : tests d'orientation, guides de reconversion et métiers d'avenir.",
     images: ['/og-image.png'],
@@ -176,7 +176,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </Script>
         {/* End Google Tag Manager */}
 
-        {/* Google Analytics 4 — charge la librairie gtag.js */}
+        {/* Google Analytics 4 - charge la librairie gtag.js */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XPZZLWLMRS"
           strategy="afterInteractive"

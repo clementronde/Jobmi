@@ -1,5 +1,29 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import RiasecTestComponent from '@/components/RiasecTestComponent';
+
+const BASE_URL = 'https://jobmi.fr';
+const PAGE_URL = `${BASE_URL}/test`;
+
+export const metadata: Metadata = {
+  title: "Passer le test d'orientation gratuit (RIASEC) – Jobmi",
+  description:
+    "Passe le test d'orientation RIASEC gratuit Jobmi. En 15 min, découvre ton profil, tes familles de métiers et tes prochaines étapes concrètes. Pour les 18–25 ans.",
+  alternates: { canonical: PAGE_URL },
+  openGraph: {
+    type: 'website',
+    url: PAGE_URL,
+    title: "Test d'orientation gratuit (RIASEC) | Jobmi",
+    description:
+      "Découvre ton profil et tes familles de métiers en 15 min. 100 % gratuit, conçu pour les 18–25 ans.",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Test d'orientation gratuit (RIASEC) | Jobmi",
+    description:
+      "Découvre ton profil et tes familles de métiers en 15 min. 100 % gratuit, conçu pour les 18–25 ans.",
+  },
+};
 
 const allFaqItems = [
   {

@@ -25,7 +25,7 @@ export const articles: Article[] = [
     author: 'Jobmi',
     excerpt: 'À 20 ans, trouver sa voie professionnelle peut sembler complexe. Découvre notre guide ultime pour identifier ta passion, développer tes compétences et décrocher le job de tes rêves.',
     content: '',
-    metaDescription: 'Guide ultime pour trouver le job de tes rêves à 20 ans : conseils pour jeunes en reconversion professionnelle.',
+    metaDescription: 'À 20 ans, comment trouver un job qui te correspond vraiment ? Méthode concrète, pistes métiers et étapes pour te réorienter sans choisir par défaut.',
     imageCover: '/media/girlswithlap.png',
     imageAlt: 'Jeune professionnel trouvant son job de rêve',
     readingTime: 6,
@@ -33,7 +33,7 @@ export const articles: Article[] = [
     tags: ['jeunes', 'orientation', 'emploi', 'reconversion'],
     datePublished: '2024-02-10',
     createdAt: '2024-02-10',
-    updatedAt: '2024-02-10',
+    updatedAt: '2026-05-22',
   },
   {
     _id: '3',

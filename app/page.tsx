@@ -10,7 +10,7 @@ import HomeSection6 from '../components/HomeSection6';
 const BASE_URL = 'https://jobmi.fr';
 
 export const metadata: Metadata = {
-  title: "Jobmi | Test d'orientation gratuit, métiers et reconversion 18-25 ans",
+  title: "Test d'orientation gratuit, métiers et reconversion 18-25 ans",
   description:
     "Tu as 18-25 ans et tu ne sais pas quelle voie choisir ? Fais le test d'orientation Jobmi, explore des métiers et découvre comment les tester avant une formation.",
   alternates: { canonical: BASE_URL },

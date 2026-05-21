@@ -8,165 +8,162 @@ import { jobTestingPages } from '../data/jobTestingPages';
 const isPublished = (datePublished: string) =>
   new Date(datePublished) <= new Date();
 
-const today = new Date();
-
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://jobmi.fr';
+
+  const latestArticleDate = articles
+    .filter((a) => isPublished(a.datePublished))
+    .map((a) => new Date(a.updatedAt))
+    .reduce((max, d) => (d > max ? d : max), new Date(0));
 
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: today,
+      lastModified: new Date('2026-05-01'),
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: today,
+      lastModified: latestArticleDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/test`,
-      lastModified: today,
+      lastModified: new Date('2026-05-22'),
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
       url: `${baseUrl}/test-orientation`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/test-orientation-18-25-ans`,
-      lastModified: today,
-      changeFrequency: 'monthly',
-      priority: 0.75,
-    },
-    {
       url: `${baseUrl}/reconversion`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/tester-un-metier`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/carte-orientation`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/evenements-orientation`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'weekly',
       priority: 0.85,
     },
     {
       url: `${baseUrl}/evenements/salons`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'weekly',
       priority: 0.75,
     },
     {
       url: `${baseUrl}/evenements/journees-portes-ouvertes`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'weekly',
       priority: 0.75,
     },
     {
       url: `${baseUrl}/evenements/ateliers-metiers`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'weekly',
       priority: 0.75,
     },
     {
       url: `${baseUrl}/evenements/en-ligne`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'weekly',
       priority: 0.75,
     },
     {
       url: `${baseUrl}/carte-orientation/paris`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'weekly',
       priority: 0.75,
     },
     {
       url: `${baseUrl}/carte-orientation/lyon`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'weekly',
       priority: 0.75,
     },
     {
       url: `${baseUrl}/carte-orientation/nantes`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'weekly',
       priority: 0.75,
     },
     {
       url: `${baseUrl}/tester-metiers-paris`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/outil/temps-devant-toi`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/outils`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/stage-et-formation`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/que-faire-apres-le-bac`,
-      lastModified: today,
+      lastModified: new Date('2026-04-01'),
       changeFrequency: 'weekly',
       priority: 0.85,
     },
     {
       url: `${baseUrl}/a-propos`,
-      lastModified: today,
+      lastModified: new Date('2026-01-15'),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: today,
+      lastModified: new Date('2026-01-15'),
       changeFrequency: 'yearly',
       priority: 0.4,
     },
     {
       url: `${baseUrl}/cgu`,
-      lastModified: today,
+      lastModified: new Date('2025-09-01'),
       changeFrequency: 'yearly',
       priority: 0.2,
     },
     {
       url: `${baseUrl}/mention-legales`,
-      lastModified: today,
+      lastModified: new Date('2025-09-01'),
       changeFrequency: 'yearly',
       priority: 0.2,
     },
     {
       url: `${baseUrl}/politique-de-confidentialite`,
-      lastModified: today,
+      lastModified: new Date('2025-09-01'),
       changeFrequency: 'yearly',
       priority: 0.2,
     },
