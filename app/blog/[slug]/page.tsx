@@ -37,9 +37,57 @@ const articleSeoTitleOverrides: Record<string, string> = {
     "Comment l'IA booste 15 métiers concrets (exemples 2026)",
   'pmsmp-18-25-tester-metier-immersion':
     'PMSMP 18–25 ans : comment tester un métier en immersion avant de te reconvertir',
+  'orientation-post-bac-sans-parcoursup':
+    'Orientation post‑bac sans Parcoursup : 6 vraies options en 2026',
 };
 
 const articleFaqSchemaBySlug: Record<string, { '@context': string; '@type': string; mainEntity: Array<{ '@type': string; name: string; acceptedAnswer: { '@type': string; text: string } }> }> = {
+  'orientation-post-bac-sans-parcoursup': {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Est-ce qu'on peut vraiment faire des études supérieures sans Parcoursup ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Oui. De nombreuses écoles, bachelors, BTS en école et titres professionnels recrutent hors Parcoursup, avec leur propre procédure d\'admission (dossier, concours, entretien). Tu peux faire des études supérieures sans jamais avoir un vœu Parcoursup accepté.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Les formations hors Parcoursup sont-elles moins reconnues ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Pas automatiquement. Certaines sont très reconnues (visa, grade, titres RNCP), d\'autres beaucoup moins. Il faut vérifier la reconnaissance officielle du diplôme, les débouchés réels et le sérieux de l\'école avant de s\'engager.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Je n\'ai rien eu sur Parcoursup, est-ce que j\'ai raté ma vie ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Non. Ça veut dire que tu vas devoir passer par des chemins alternatifs : formations hors Parcoursup, rentrées décalées, alternance, année terrain structurée… Beaucoup d\'étudiants se réorientent après une première année, et les recruteurs regardent surtout la cohérence du parcours, pas le fait d\'avoir eu son vœu du premier coup.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Comment éviter de me faire arnaquer par une école hors Parcoursup ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Vérifie la reconnaissance officielle du diplôme (RNCP, visa ou grade), regarde les avis d\'anciens élèves et les chiffres d\'insertion professionnelle, et compare plusieurs écoles sur le même secteur plutôt que de choisir la première venue.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Comment expliquer une année hors système dans un futur dossier ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Si tu utilises cette année pour tester des domaines (stages, PMSMP, jobs), avancer sur un projet ou clarifier ton orientation, tu peux raconter une histoire cohérente : « Je n\'ai pas eu ce que je voulais sur Parcoursup, j\'ai pris une année pour tester, et voilà ce que j\'en ai tiré. » C\'est beaucoup plus crédible qu\'un trou non expliqué dans le parcours.',
+        },
+      },
+    ],
+  },
   'pmsmp-18-25-tester-metier-immersion': {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
