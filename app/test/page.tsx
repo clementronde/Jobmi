@@ -6,7 +6,7 @@ const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/test`;
 
 export const metadata: Metadata = {
-  title: "Passer le test d'orientation gratuit (RIASEC) – Jobmi",
+  title: "Passer le test d'orientation gratuit (RIASEC)",
   description:
     "Passe le test d'orientation RIASEC gratuit Jobmi. En 15 min, découvre ton profil, tes familles de métiers et tes prochaines étapes concrètes. Pour les 18–25 ans.",
   alternates: { canonical: PAGE_URL },
