@@ -1,6 +1,7 @@
 export type SupportArticleContent = {
   slug: string;
   intro: string;
+  introNote?: string;
   sections: Array<{
     title: string;
     paragraphs: string[];
@@ -233,13 +234,15 @@ export const supportArticleContent: SupportArticleContent[] = [
   {
     slug: 'orientation-post-bac-sans-parcoursup',
     intro:
-      "Parcoursup est important, mais ce n'est pas toute l'orientation. Si tu n'as pas eu ce que tu voulais, si tu es hors calendrier ou si tu veux changer de voie, tu n'es pas coincé. Il existe d'autres chemins : écoles hors Parcoursup, rentrées décalées, alternance, formations courtes, année terrain bien utilisée… L'objectif de cet article : te donner une vue claire de ce qui existe vraiment hors Parcoursup, avec des exemples concrets et une méthode pour choisir sans paniquer.",
+      "Parcoursup est important, mais ce n'est pas toute l'orientation. Si tu n'as pas eu ce que tu voulais, si tu es hors calendrier ou si tu veux changer de voie, tu n'es pas coincé. Il existe d'autres chemins : écoles hors Parcoursup, rentrées décalées, alternance, formations courtes, année terrain bien utilisée… L'objectif de cet article : te donner une vue claire de ce qui existe vraiment hors Parcoursup, avec des exemples concrets et une méthode pour choisir sans paniquer. Si tu veux reprendre le sujet depuis le début, commence aussi par le guide [que faire après le bac](/que-faire-apres-le-bac).",
+    introNote:
+      "Avant de comparer les écoles, les rentrées décalées ou l'alternance, commence par clarifier le domaine qui te correspond le mieux. Le [test d'orientation Jobmi](/test) peut t'aider à faire ressortir 2 ou 3 familles de métiers à explorer, pour éviter de choisir une formation uniquement parce qu'il reste de la place.",
     sections: [
       {
         title: 'Ce que Parcoursup ne couvre pas (et ce que ça change pour toi)',
         paragraphs: [
           "Parcoursup regroupe une grande partie des formations publiques et reconnues après le bac : licences à l'université, BUT, BTS en lycée, classes prépa, certaines écoles d'ingénieurs, etc. Mais beaucoup d'autres formations ne passent pas par Parcoursup : écoles privées, bachelors, BTS en école, titres professionnels, écoles spécialisées…",
-          "Concrètement, ça veut dire que tu peux faire des études supérieures sans jamais avoir un vœu Parcoursup accepté, que tu peux candidater en dehors du calendrier Parcoursup (jusqu'en été, voire à la rentrée), et que tu peux te réorienter après un 1er semestre raté en profitant de rentrées décalées ou de passerelles. Par contre, hors Parcoursup, il faut être plus vigilant : vérifier la reconnaissance de la formation, le sérieux de l'école, le coût, les débouchés, etc.",
+          "Concrètement, ça veut dire que tu peux faire des études supérieures sans jamais avoir un vœu Parcoursup accepté, que tu peux candidater en dehors du calendrier Parcoursup (jusqu'en été, voire à la rentrée), et que tu peux te réorienter après un 1er semestre raté en profitant de rentrées décalées ou de passerelles. Par contre, hors Parcoursup, il faut être plus vigilant : vérifier la reconnaissance de la formation, le sérieux de l'école, le coût, les débouchés, etc. Si ton doute vient d'une première année déjà mal engagée, lis aussi le guide [reconversion après une L1](/blog/reconversion-apres-une-l1).",
         ],
       },
       {
@@ -260,28 +263,28 @@ export const supportArticleContent: SupportArticleContent[] = [
         title: "Option 3 – L'alternance hors Parcoursup",
         paragraphs: [
           "On imagine souvent l'alternance uniquement via Parcoursup, mais beaucoup de formations en alternance (du CAP au Bac+5) recrutent en direct, via des CFA (centres de formation d'apprentis), des écoles spécialisées ou des écoles de commerce et du digital qui ont leur propre plateforme. L'alternance hors Parcoursup peut couvrir un BTS en école, un titre professionnel (commerce, RH, vente, support informatique…) ou un bachelor en management, marketing ou tech.",
-          "Les avantages sont concrets : tu es rémunéré pendant ta formation, les frais de scolarité sont souvent pris en charge dans le cadre du contrat, et tu accumules de l'expérience professionnelle dès 18 ou 20 ans. Pour trouver : cherche les mentions alternance hors Parcoursup sur les sites de CFA et d'écoles, ou regarde les offres d'alternance sur les jobboards puis remonte à l'école ou au CFA partenaire.",
+          "Les avantages sont concrets : tu es rémunéré pendant ta formation, les frais de scolarité sont souvent pris en charge dans le cadre du contrat, et tu accumules de l'expérience professionnelle dès 18 ou 20 ans. Pour trouver : cherche les mentions alternance hors Parcoursup sur les sites de CFA et d'écoles, ou regarde les offres d'alternance sur les jobboards puis remonte à l'école ou au CFA partenaire. Pour comparer ce format avec d'autres options, garde sous la main le guide [alternance ou formation continue](/blog/alternance-ou-formation-continue-que-choisir).",
         ],
       },
       {
         title: "Option 4 – Formations courtes, CAP, titres pro pour aller vers l'emploi",
         paragraphs: [
           "Si tu as envie de concret et de terrain, sans forcément partir sur 5 ans d'études, tu peux viser des CAP (cuisine, boulangerie, mécanique, coiffure, esthétique, bâtiment…), des titres professionnels (vendeur·se, assistant·e de vie, technicien·ne…) ou des formations courtes comme les remises à niveau, prépas apprentissage ou bootcamps digital. Ces formations sont proposées par des CFA, des organismes de formation pro, des écoles spécialisées ou des réseaux associatifs.",
-          "L'intérêt principal : obtenir une première qualification en 6 à 24 mois, commencer à travailler rapidement et éventuellement revenir vers un autre niveau d'études après 2 à 3 ans d'expérience professionnelle.",
+          "L'intérêt principal : obtenir une première qualification en 6 à 24 mois, commencer à travailler rapidement et éventuellement revenir vers un autre niveau d'études après 2 à 3 ans d'expérience professionnelle. Pour poser les options côté terrain, tu peux aussi regarder la page [stages et formations](/stage-et-formation).",
         ],
       },
       {
         title: 'Option 5 – Une année terrain structurée pour reprendre la main',
         paragraphs: [
-          "Si tu ne sais plus du tout où tu en es, ce n'est pas forcément une bonne idée de te jeter dans la première formation qui reste. Une alternative : une année structurée autour du terrain, par exemple avec des PMSMP (périodes d'immersion en milieu professionnel) pour tester des métiers, des stages courts dans différents domaines, du bénévolat dans une association (social, sport, culture…), un service civique, ou des petits jobs étudiants et missions courtes.",
-          "Ces expériences te donnent des exemples concrets à mentionner dans ton prochain dossier ou entretien, t'aident à voir ce que tu aimes vraiment (ambiance, rythme, type de tâches) et montrent que tu n'as pas rien fait mais que tu as utilisé le temps pour te construire. Tu peux aussi t'appuyer sur des événements d'orientation (salons, JPO, forums, ateliers) pour découvrir des pistes hors calendrier Parcoursup.",
+          "Si tu ne sais plus du tout où tu en es, ce n'est pas forcément une bonne idée de te jeter dans la première formation qui reste. Une alternative : une année structurée autour du terrain, par exemple avec des PMSMP (périodes d'immersion en milieu professionnel) pour tester des métiers, des stages courts dans différents domaines, du bénévolat dans une association (social, sport, culture…), un service civique, ou des petits jobs étudiants et missions courtes. Le hub [tester un métier](/tester-un-metier) peut t'aider à comparer ces formats.",
+          "Ces expériences te donnent des exemples concrets à mentionner dans ton prochain dossier ou entretien, t'aident à voir ce que tu aimes vraiment (ambiance, rythme, type de tâches) et montrent que tu n'as pas rien fait mais que tu as utilisé le temps pour te construire. Tu peux aussi t'appuyer sur des [événements d'orientation](/evenements-orientation) (salons, JPO, forums, ateliers) pour découvrir des pistes hors calendrier Parcoursup.",
         ],
       },
       {
         title: 'Comment choisir sans paniquer : une mini méthode',
         paragraphs: [
           "Quand tu es sous pression (parents, lycée, calendrier), tu peux avoir envie de remplir le trou avec n'importe quelle formation. Ce n'est pas l'objectif. Pose-toi d'abord trois questions simples. Première question : qu'est-ce que tu veux éviter absolument ? Une fac très théorique ? Une école trop chère ? Un métier où tu ne te vois pas du tout ? Deuxième question : qu'est-ce que tu as envie de tester en priorité ? Plutôt du terrain (manuel, soin, social, logistique) ? Plutôt du digital (web, data, communication) ? Plutôt de la relation client ? Troisième question : combien de temps tu es prêt·e à investir maintenant ? 1 an ? 2 ans ? Tu te sens prêt·e pour une alternance ou plutôt pour une formation coussin avant ?",
-          "Ensuite, tu peux utiliser un test d'orientation pour faire ressortir 2 à 3 familles de métiers, regarder les formations hors Parcoursup qui mènent vers ces familles, et combiner une expérience terrain (immersion, bénévolat) avec une candidature formation.",
+          "Ensuite, tu peux utiliser un [test d'orientation](/test) pour faire ressortir 2 à 3 familles de métiers, regarder les formations hors Parcoursup qui mènent vers ces familles, et combiner une expérience terrain (immersion, bénévolat) avec une candidature formation.",
         ],
       },
       {

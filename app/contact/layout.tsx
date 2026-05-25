@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact | Jobmi',
+  title: 'Contact',
   description: 'Une question sur Jobmi ? Contacte notre équipe via ce formulaire.',
   alternates: { canonical: 'https://jobmi.fr/contact' },
 };

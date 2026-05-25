@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Les outils Jobmi',
+  title: 'Les outils',
   description:
     "Retrouve les outils Jobmi pour clarifier ton orientation, remettre une réorientation en perspective et avancer plus concrètement.",
   alternates: { canonical: 'https://jobmi.fr/outils' },
