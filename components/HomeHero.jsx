@@ -26,9 +26,9 @@ export const HomeHero = () => {
 
           {/* Body */}
           <p className="text-gray-500 text-base sm:text-lg max-w-lg leading-relaxed mb-10">
-            Pour les 18–25 ans qui hésitent entre études, reconversion, formation ou métier :
-            découvre ton profil, explore des pistes concrètes et vérifie-les sur le terrain
-            avant de t&apos;engager.
+            Stages d&apos;observation, ateliers découverte, immersions d&apos;un jour ou jobshadowing&nbsp;:
+            des formats courts pour tester un métier en vrai, avant de t&apos;engager
+            dans une formation ou une reconversion.
           </p>
 
           {/* CTAs */}

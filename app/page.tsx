@@ -185,77 +185,6 @@ function HomeSituationBlock() {
   );
 }
 
-/* ─── Bloc SEO texte Méthode ──────────────────────────────────────────── */
-function HomeMethodSeoBlock() {
-  return (
-    <section className="bg-white px-6 py-16 font-sans sm:px-10">
-      <div className="mx-auto grid max-w-screen-xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
-            Comment ça marche
-          </p>
-          <h2 className="mt-4 text-3xl font-bold leading-tight text-[#04192F] sm:text-4xl">
-            Comment tester un métier avec Jobmi avant de choisir
-          </h2>
-          <p className="mt-5 text-base leading-8 text-[#465160] sm:text-lg">
-            Jobmi s&apos;adresse aux 18-25 ans qui ont besoin de concret : tu peux sortir du bac sans
-            idée claire, te sentir coincé en L1, hésiter entre BTS, BUT, alternance ou école, ou
-            vouloir changer de voie après une première expérience.
-          </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/test"
-              className="inline-flex items-center justify-center rounded-xl bg-[#04192F] px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#6500FF]"
-            >
-              Faire le test gratuit
-            </Link>
-            <Link
-              href="/tester-un-metier"
-              className="inline-flex items-center justify-center rounded-xl border border-[#04192F]/15 px-6 py-3 text-sm font-bold text-[#04192F] transition-all duration-300 hover:-translate-y-1 hover:border-[#6500FF]/35 hover:text-[#6500FF]"
-            >
-              Voir comment tester un métier
-            </Link>
-          </div>
-        </div>
-
-        <div className="space-y-5 text-base leading-8 text-[#465160]">
-          <p>
-            Le test d&apos;orientation sert à faire émerger des familles de métiers cohérentes avec tes
-            intérêts et ta façon de travailler. Ensuite, les pages Jobmi t&apos;aident à comparer les
-            options : reconversion jeune, orientation post-bac, stages d&apos;observation, PMSMP,
-            immersions, ateliers métiers, salons et journées portes ouvertes.
-          </p>
-          <p>
-            Notre conviction est simple : une bonne orientation se construit en croisant trois
-            choses. D&apos;abord ton profil, puis les opportunités réalistes autour de toi, et enfin une
-            confrontation au terrain. C&apos;est pour ça que Jobmi ne promet pas un métier magique après
-            quelques questions : on t&apos;aide à passer d&apos;une piste à une action concrète.
-          </p>
-          <p>
-            Pour commencer, tu peux passer le{' '}
-            <Link href="/test" className="font-semibold text-[#6500FF] underline underline-offset-4">
-              test d&apos;orientation gratuit
-            </Link>
-            , lire le guide{' '}
-            <Link href="/que-faire-apres-le-bac" className="font-semibold text-[#6500FF] underline underline-offset-4">
-              que faire après le bac
-            </Link>
-            , préparer une{' '}
-            <Link href="/reconversion" className="font-semibold text-[#6500FF] underline underline-offset-4">
-              reconversion à 20 ans
-            </Link>{' '}
-            ou découvrir comment{' '}
-            <Link href="/tester-un-metier" className="font-semibold text-[#6500FF] underline underline-offset-4">
-              tester un métier avant de t&apos;engager
-            </Link>
-            .
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ─── Page ─────────────────────────────────────────────────────────────── */
 export default function Home() {
   return (
@@ -288,10 +217,7 @@ export default function Home() {
       {/* 5. Comment ça fonctionne — 3 étapes interactives */}
       <HomeSection2 />
 
-      {/* 6. Bloc SEO texte méthode + maillage interne */}
-      <HomeMethodSeoBlock />
-
-      {/* 7. Preuve sociale — témoignages */}
+      {/* 6. Preuve sociale — témoignages */}
       <HomeSection4 />
 
       {/* 8. Catalogue — aperçu métiers & immersions */}
