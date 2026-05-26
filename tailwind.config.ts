@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans:  ['Gilroy', 'sans-serif'],
-        oddlini: ['Oddlini', 'sans-serif'],
-        september: ['September Mornings', 'sans-serif'],
+        sans:  ['var(--font-gilroy)', 'sans-serif'],
+        oddlini: ['var(--font-oddlini)', 'sans-serif'],
+        september: ['var(--font-september)', 'sans-serif'],
         jost: ['var(--font-jost)', 'sans-serif'],
         inter: ['var(--font-inter)', 'sans-serif'],
         Montserrat: ["Montserrat", "sans-serif"],

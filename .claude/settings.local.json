@@ -3,7 +3,8 @@
     "allow": [
       "Bash(xargs grep -l \"export const metadata\")",
       "Bash(grep -v \"^//\")",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "WebFetch(domain:jobmi.fr)"
     ]
   }
 }

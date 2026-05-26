@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Jost, Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import "./globals.css";
 import 'leaflet/dist/leaflet.css';
 import 'tailwindcss/tailwind.css';
@@ -19,6 +20,59 @@ const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
+});
+
+const gilroy = localFont({
+  src: [
+    {
+      path: '../public/font/Gilroy/Gilroy-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/font/Gilroy/Gilroy-SemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../public/font/Gilroy/Gilroy-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-gilroy',
+  display: 'block',
+  preload: true,
+});
+
+const oddlini = localFont({
+  src: [
+    {
+      path: '../public/font/Oddlini/oddlini-regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/font/Oddlini/oddlini-semibold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../public/font/Oddlini/oddlini-bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-oddlini',
+  display: 'block',
+  preload: true,
+});
+
+const septemberMornings = localFont({
+  src: '../public/font/September-Mornings/September-Mornings.ttf',
+  variable: '--font-september',
+  display: 'block',
+  preload: true,
 });
 
 const BASE_URL = 'https://jobmi.fr';
@@ -135,7 +189,11 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="fr" data-scroll-behavior="smooth" className={`${jost.variable} ${inter.variable}`}>
+    <html
+      lang="fr"
+      data-scroll-behavior="smooth"
+      className={`${jost.variable} ${inter.variable} ${gilroy.variable} ${oddlini.variable} ${septemberMornings.variable}`}
+    >
       <head>
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />

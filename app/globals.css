@@ -48,31 +48,6 @@
     scroll-behavior: smooth;
   }
 }
-  
-@font-face {
-    font-family: 'Oddlini';
-    src: url('/font/Oddlini/oddlini-regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Gilroy';
-    src: url('/font/Gilroy/Gilroy-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'September Mornings';
-    src: url('/font/September-Mornings/September-Mornings.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
 .riasec-demo-progress {
   width: 42%;
   animation: riasecDemoProgress 15s ease-in-out infinite;
