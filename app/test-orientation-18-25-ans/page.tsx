@@ -1,1 +1,5 @@
-export { metadata, default } from '../orientation/test-orientation-jeunes/content';
+import { permanentRedirect } from 'next/navigation';
+
+export default function LegacyTestOrientation18To25Page() {
+  permanentRedirect('/test-orientation');
+}

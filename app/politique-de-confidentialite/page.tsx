@@ -5,6 +5,13 @@ export const metadata: Metadata = {
   title: 'Politique de Confidentialité | Jobmi',
   description: 'Consultez la politique de confidentialité du site Jobmi.',
   alternates: { canonical: 'https://jobmi.fr/politique-de-confidentialite' },
+  robots: { index: false, follow: false },
+  openGraph: {
+    type: 'website',
+    url: 'https://jobmi.fr/politique-de-confidentialite',
+    title: 'Politique de Confidentialité | Jobmi',
+    description: 'Consultez la politique de confidentialité du site Jobmi.',
+  },
 };
 
 export default function Politique() {

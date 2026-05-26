@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   description:
     "Retrouve les outils Jobmi pour clarifier ton orientation, remettre une réorientation en perspective et avancer plus concrètement.",
   alternates: { canonical: 'https://jobmi.fr/outils' },
+  openGraph: {
+    type: 'website',
+    url: 'https://jobmi.fr/outils',
+    title: 'Les outils Jobmi',
+    description:
+      "Retrouve les outils Jobmi pour clarifier ton orientation, remettre une réorientation en perspective et avancer plus concrètement.",
+  },
 };
 
 const tools = [

@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   description:
     "Repère les journées portes ouvertes utiles pour comparer une école, une université, un CFA ou une formation avant de t'engager.",
   alternates: { canonical: PAGE_URL },
+  openGraph: {
+    type: 'website',
+    url: PAGE_URL,
+    title: 'Journées portes ouvertes écoles et formations | Jobmi',
+    description:
+      "Repère les journées portes ouvertes utiles pour comparer une école, une université, un CFA ou une formation avant de t'engager.",
+  },
 };
 
 export default function JourneesPortesOuvertesPage() {

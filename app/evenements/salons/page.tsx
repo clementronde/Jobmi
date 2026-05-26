@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   description:
     "Compare les salons d'orientation, salons étudiant et forums utiles aux 18–25 ans pour choisir une voie, une formation ou une réorientation.",
   alternates: { canonical: PAGE_URL },
+  openGraph: {
+    type: 'website',
+    url: PAGE_URL,
+    title: "Salons d'orientation, salons étudiant et forums | Jobmi",
+    description:
+      "Compare les salons d'orientation, salons étudiant et forums utiles aux 18–25 ans pour choisir une voie, une formation ou une réorientation.",
+  },
 };
 
 export default function SalonsPage() {

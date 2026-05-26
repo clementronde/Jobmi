@@ -5,6 +5,13 @@ export const metadata: Metadata = {
   title: 'Mentions Légales',
   description: 'Consultez les mentions légales du site Jobmi.',
   alternates: { canonical: 'https://jobmi.fr/mention-legales' },
+  robots: { index: false, follow: false },
+  openGraph: {
+    type: 'website',
+    url: 'https://jobmi.fr/mention-legales',
+    title: 'Mentions Légales | Jobmi',
+    description: 'Consultez les mentions légales du site Jobmi.',
+  },
 };
 
 export default function MentionLegales() {

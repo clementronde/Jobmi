@@ -150,24 +150,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.4,
     },
-    {
-      url: `${baseUrl}/cgu`,
-      lastModified: new Date('2025-09-01'),
-      changeFrequency: 'yearly',
-      priority: 0.2,
-    },
-    {
-      url: `${baseUrl}/mention-legales`,
-      lastModified: new Date('2025-09-01'),
-      changeFrequency: 'yearly',
-      priority: 0.2,
-    },
-    {
-      url: `${baseUrl}/politique-de-confidentialite`,
-      lastModified: new Date('2025-09-01'),
-      changeFrequency: 'yearly',
-      priority: 0.2,
-    },
   ];
 
   const articlePages: MetadataRoute.Sitemap = articles

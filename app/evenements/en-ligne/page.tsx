@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   description:
     "Retrouve les événements d'orientation en ligne utiles aux 18–25 ans : webinaires, forums digitaux, informations métiers et formats à distance.",
   alternates: { canonical: PAGE_URL },
+  openGraph: {
+    type: 'website',
+    url: PAGE_URL,
+    title: "Événements d'orientation en ligne | Jobmi",
+    description:
+      "Retrouve les événements d'orientation en ligne utiles aux 18–25 ans : webinaires, forums digitaux, informations métiers et formats à distance.",
+  },
 };
 
 export default function EvenementsEnLignePage() {

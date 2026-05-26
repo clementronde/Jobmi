@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   description:
     "Découvre les ateliers métiers et formats courts qui permettent de tester un geste, un secteur ou un univers professionnel avant de choisir.",
   alternates: { canonical: PAGE_URL },
+  openGraph: {
+    type: 'website',
+    url: PAGE_URL,
+    title: 'Ateliers métiers et découvertes terrain | Jobmi',
+    description:
+      "Découvre les ateliers métiers et formats courts qui permettent de tester un geste, un secteur ou un univers professionnel avant de choisir.",
+  },
 };
 
 export default function AteliersMetiersPage() {
