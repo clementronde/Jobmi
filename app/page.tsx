@@ -14,14 +14,14 @@ import { HomeFaqBlock } from '../components/HomeFaqBlock';
 const BASE_URL = 'https://jobmi.fr';
 
 export const metadata: Metadata = {
-  title: "Jobmi — Trouve ta voie | Test d'orientation gratuit et immersions métiers",
+  title: "Trouve ta voie | Test d'orientation gratuit et immersions métiers",
   description:
     "Tu hésites entre plusieurs voies ? Fais le test d'orientation gratuit en 15 min, explore des métiers qui te correspondent et teste-les en vrai. Gratuit, sans inscription.",
   alternates: { canonical: BASE_URL },
   openGraph: {
     type: 'website',
     url: BASE_URL,
-    title: "Jobmi | Trouve ta voie et teste un métier avant de t'y engager",
+    title: "Trouve ta voie | Test d'orientation gratuit et immersions métiers",
     description:
       "Test d'orientation gratuit, immersions métier et guides pour les 18-25 ans qui veulent trouver leur voie avec plus de concret.",
   },
@@ -32,7 +32,7 @@ const webPageJsonLd = {
   '@type': 'WebPage',
   '@id': `${BASE_URL}/#webpage`,
   url: BASE_URL,
-  name: "Jobmi | Trouve ta voie et teste un métier avant de t'y engager",
+  name: "Trouve ta voie | Test d'orientation gratuit et immersions métiers",
   description:
     "Jobmi aide les 18-25 ans à trouver leur voie : test d'orientation gratuit (RIASEC), immersions métier, stages et formations adaptées à leur profil.",
   isPartOf: { '@id': `${BASE_URL}/#website` },
