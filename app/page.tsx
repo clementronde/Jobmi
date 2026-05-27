@@ -16,7 +16,7 @@ const BASE_URL = 'https://jobmi.fr';
 export const metadata: Metadata = {
   title: "Trouve ta voie | Test d'orientation gratuit et immersions métiers",
   description:
-    "Tu hésites entre plusieurs voies ? Fais le test d'orientation gratuit en 15 min, explore des métiers qui te correspondent et teste-les en vrai. Gratuit, sans inscription.",
+    "Tu hésites entre plusieurs voies ? Fais le test d'orientation gratuit, explore des métiers qui te correspondent et teste-les en vrai. Gratuit, sans inscription.",
   alternates: { canonical: BASE_URL },
   openGraph: {
     type: 'website',
@@ -127,7 +127,7 @@ const howToJsonLd = {
       '@type': 'HowToStep',
       position: 1,
       name: "Test d'orientation gratuit",
-      text: 'Réponds à quelques questions sur tes valeurs et ton style de travail pour découvrir les métiers compatibles avec ton profil (méthode RIASEC). 15 minutes, gratuit.',
+      text: 'Réponds à quelques questions sur tes valeurs et ton style de travail pour découvrir les métiers compatibles avec ton profil (méthode RIASEC).',
     },
     {
       '@type': 'HowToStep',
