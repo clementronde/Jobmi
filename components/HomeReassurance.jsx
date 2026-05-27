@@ -19,12 +19,7 @@ export const HomeReassurance = () => {
           pas pour décider à ta place.
         </p>
 
-        {/* Séparateur décoratif */}
-        <div className="flex items-center justify-center gap-4 mb-10">
-          <div className="h-px w-16 bg-[#E9E1FF]" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#6500FF]/40" />
-          <div className="h-px w-16 bg-[#E9E1FF]" />
-        </div>
+        
 
         {/* Explication — centrée, max-w réduit pour une bonne lisibilité */}
         <p className="text-base sm:text-lg leading-8 text-[#465160] max-w-xl mx-auto mb-8">

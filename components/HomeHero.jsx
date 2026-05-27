@@ -37,7 +37,7 @@ export const HomeHero = () => {
               href="/test"
               className="w-fit rounded-xl px-6 py-3.5 bg-[#04192F] text-white font-bold text-sm flex items-center gap-3 hover:-translate-y-0.5 hover:bg-[#6500FF] hover:shadow-lg transition-all duration-200"
             >
-              Faire le test gratuit (15 min)
+              Faire le test gratuit 
               <Image src="/media/cta-blog-arrow.svg" alt="" width={22} height={22} className="flex-shrink-0" />
             </Link>
             <Link
