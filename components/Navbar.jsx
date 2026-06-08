@@ -49,7 +49,10 @@ export const Navbar = () => {
             Reconversion
           </Link>
           <Link href="/stage-et-formation" className={navLinkClass} onClick={() => setIsMenuOpen(false)}>
-            Stages & immersions
+            Emploi & alternance
+          </Link>
+          <Link href="/ateliers-decouverte" className={navLinkClass} onClick={() => setIsMenuOpen(false)}>
+            Atelier découverte
           </Link>
           <Link href="/a-propos" className={navLinkClass} onClick={() => setIsMenuOpen(false)}>
             À propos

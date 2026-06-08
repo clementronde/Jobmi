@@ -5,7 +5,9 @@
       "Bash(grep -v \"^//\")",
       "Bash(npx tsc *)",
       "WebFetch(domain:jobmi.fr)",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "Bash(python3 *)",
+      "Bash(node *)"
     ]
   }
 }
