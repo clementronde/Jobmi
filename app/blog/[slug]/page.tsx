@@ -19,6 +19,7 @@ import { ArticleAIProofJobs } from '../../../components/articles/ArticleAIProofJ
 import { ArticleAIBoostsJobs } from '../../../components/articles/ArticleAIBoostsJobs';
 import { ArticleNewAIJobs } from '../../../components/articles/ArticleNewAIJobs';
 import { GenericSupportArticle } from '../../../components/articles/GenericSupportArticle';
+import { ArticleParcoursup } from '../../../components/articles/ArticleParcoursup';
 import { RelatedArticles } from '../../../components/RelatedArticles';
 import ArticleTOC from '../../../components/ArticleTOC';
 import { ArticleAuthorBox, ARTICLE_AUTHOR } from '../../../components/ArticleAuthorBox';
@@ -39,6 +40,8 @@ const articleSeoTitleOverrides: Record<string, string> = {
     'PMSMP 18–25 ans : comment tester un métier en immersion avant de te reconvertir',
   'orientation-post-bac-sans-parcoursup':
     'Orientation post‑bac sans Parcoursup : 6 vraies options en 2026',
+  'resultats-parcoursup-2026':
+    'Résultats Parcoursup 2026 : que faire si tu es en attente, refusé ou sans réponse ?',
 };
 
 const articleFaqSchemaBySlug: Record<string, { '@context': string; '@type': string; mainEntity: Array<{ '@type': string; name: string; acceptedAnswer: { '@type': string; text: string } }> }> = {
@@ -84,6 +87,52 @@ const articleFaqSchemaBySlug: Record<string, { '@context': string; '@type': stri
         acceptedAnswer: {
           '@type': 'Answer',
           text: "Si tu utilises cette année pour tester des domaines (stages, PMSMP, jobs), avancer sur un projet ou clarifier ton orientation, tu peux raconter une histoire cohérente : je n'ai pas eu ce que je voulais sur Parcoursup, j'ai pris une année pour tester, et voilà ce que j'en ai tiré. C'est beaucoup plus crédible qu'un trou non expliqué dans le parcours.",
+        },
+      },
+    ],
+  },
+  'resultats-parcoursup-2026': {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Est-ce que je peux tout changer après les résultats Parcoursup ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Tu peux encore jouer sur la phase complémentaire, candidater hors Parcoursup ou construire une année terrain pour revenir plus fort. Tu ne peux pas réécrire ton dossier Parcoursup de cette année, mais tu peux influencer fortement la suite.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '"En attente" sur Parcoursup, ça veut dire quoi exactement ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Tu es sur liste d'attente : la formation te prendra si suffisamment de candidats devant toi renoncent. Ton rang évolue en fonction des réponses des autres. Ce n'est ni un oui sûr, ni un non définitif, mais un peut-être qui peut se débloquer dans les semaines qui suivent.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Est-ce grave d'accepter une formation par défaut sur Parcoursup ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Pas forcément, si le domaine t'intéresse un minimum et que tu te laisses la possibilité de te réorienter plus tard. Ce qui est risqué, c'est de signer pour quelque chose que tu sais déjà que tu vas détester, sans réfléchir aux alternatives.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Que faire si Parcoursup m'a refusé partout ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Tu peux formuler de nouveaux voeux via la phase complémentaire Parcoursup, candidater dans des formations hors Parcoursup (écoles privées, bachelors, BTS en école, titres RNCP), ou structurer une année terrain (PMSMP, stages, service civique) pour revenir plus fort l'année suivante.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Est-ce qu'on peut faire de bonnes études sans Parcoursup ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Oui. De nombreuses écoles, bachelors, BTS en école et titres pro sont de qualité, même s'ils ne passent pas par la plateforme. Ce qui compte, c'est de vérifier la reconnaissance officielle du diplôme, les débouchés réels et la cohérence avec ton projet.",
         },
       },
     ],
@@ -324,6 +373,7 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
           {slug === "utiliser-cpf-compte-personnel-formation" && <Article12 />}
           {slug === "trouver-stage-reconversion-methode" && <Article13 />}
           {slug === "pmsmp-18-25-tester-metier-immersion" && <Article14 />}
+          {slug === "resultats-parcoursup-2026" && <ArticleParcoursup />}
           {slug === "metiers-ia-ne-remplacera-pas-2030" && <ArticleAIProofJobs />}
           {slug === "comment-ia-booste-ton-futur-metier" && <ArticleAIBoostsJobs />}
           {slug === "nouveaux-metiers-crees-par-ia" && <ArticleNewAIJobs />}

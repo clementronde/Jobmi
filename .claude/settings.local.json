@@ -4,7 +4,8 @@
       "Bash(xargs grep -l \"export const metadata\")",
       "Bash(grep -v \"^//\")",
       "Bash(npx tsc *)",
-      "WebFetch(domain:jobmi.fr)"
+      "WebFetch(domain:jobmi.fr)",
+      "Bash(npx next *)"
     ]
   }
 }
