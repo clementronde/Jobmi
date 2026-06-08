@@ -69,7 +69,7 @@ export function GenericSupportArticle({ slug }: { slug: string }) {
       ) : null}
 
       <section className="my-12 rounded-2xl bg-[#04192F] p-7 text-white">
-        <p className="text-sm leading-7 text-white/70">{article.cta.text}</p>
+        <p className="text-sm leading-7 text-white">{article.cta.text}</p>
         <Link
           href={article.cta.href}
           className="mt-5 inline-flex rounded-xl bg-white px-5 py-3 text-sm font-bold text-[#04192F] transition hover:bg-[#AFA1FF]"

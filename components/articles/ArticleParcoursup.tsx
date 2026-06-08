@@ -29,7 +29,7 @@ export const ArticleParcoursup = () => {
           <p className="mt-5 text-base leading-8 text-[#465160]">
             Parcoursup peut te donner quatre types de réponses pour chacun de tes vœux :
           </p>
-          <ul className="mt-4 space-y-4 text-base leading-8 text-[#465160]">
+          <ul className="mt-4 list-none space-y-4 text-base leading-8 text-[#465160]">
             <li className="rounded-xl border border-[#E9E1FF] bg-white p-4 shadow-sm">
               <span className="font-bold text-[#6500FF]">"Oui"</span> — tu es accepté dans la formation, sans condition particulière. Tu peux accepter, refuser, ou garder la place en attendant d'autres réponses.
             </li>
@@ -56,7 +56,7 @@ export const ArticleParcoursup = () => {
           <p className="mt-5 text-base leading-8 text-[#465160]">
             Pour 2026, le calendrier Parcoursup se découpe en grandes étapes :
           </p>
-          <ul className="mt-4 space-y-3 text-base leading-8 text-[#465160]">
+          <ul className="mt-4 list-none space-y-3 text-base leading-8 text-[#465160]">
             <li className="flex items-start gap-3">
               <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#6500FF]" />
               <span><strong>Avant juin :</strong> tu as formulé tes vœux et finalisé ton dossier.</span>
@@ -76,7 +76,7 @@ export const ArticleParcoursup = () => {
           </ul>
           <div className="mt-6 rounded-xl border border-[#E9E1FF] bg-white p-5 text-sm leading-7 text-[#465160]">
             <p className="font-semibold text-[#04192F]">Pour les dates exactes, réfère-toi aux sources officielles :</p>
-            <ul className="mt-3 space-y-2">
+            <ul className="mt-3 list-none space-y-2">
               <li>
                 Calendrier interactif :{' '}
                 <a
@@ -118,7 +118,7 @@ export const ArticleParcoursup = () => {
           </p>
 
           <h3 className="mt-7 text-xl font-bold text-[#04192F]">Ce que tu peux faire maintenant</h3>
-          <ul className="mt-3 space-y-3 text-base leading-8 text-[#465160]">
+          <ul className="mt-3 list-none space-y-3 text-base leading-8 text-[#465160]">
             <li className="flex items-start gap-3">
               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#6500FF]" />
               <span><strong>Regarde ton rang et la capacité de la formation :</strong> si tu es bien placé par rapport au nombre de places, tes chances sont réelles. Si tu es très loin, il faut envisager d'autres options en parallèle.</span>
@@ -160,7 +160,7 @@ export const ArticleParcoursup = () => {
           </p>
 
           <h3 className="mt-7 text-xl font-bold text-[#04192F]">Questions à te poser</h3>
-          <ul className="mt-3 space-y-2 text-base leading-8 text-[#465160]">
+          <ul className="mt-3 list-none space-y-2 text-base leading-8 text-[#465160]">
             <li className="flex items-start gap-3">
               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#6500FF]" />
               <span>Est-ce que le domaine de la formation t'intéresse vraiment, même si l'établissement ne te fait pas rêver ?</span>
@@ -270,7 +270,7 @@ export const ArticleParcoursup = () => {
             <div className="rounded-2xl border border-[#E9E1FF] bg-white p-6 shadow-sm">
               <p className="text-sm font-bold uppercase tracking-wider text-[#6500FF]">Étape 1</p>
               <h3 className="mt-2 text-xl font-bold text-[#04192F]">Clarifier ta situation et tes options réelles</h3>
-              <ul className="mt-3 space-y-2 text-base leading-7 text-[#465160]">
+              <ul className="mt-3 list-none space-y-2 text-base leading-7 text-[#465160]">
                 <li className="flex items-start gap-3">
                   <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#6500FF]" />
                   <span>Liste tous tes vœux et leur statut (Oui, Oui‑Si, En attente, Refus).</span>
@@ -304,7 +304,7 @@ export const ArticleParcoursup = () => {
             <div className="rounded-2xl border border-[#E9E1FF] bg-white p-6 shadow-sm">
               <p className="text-sm font-bold uppercase tracking-wider text-[#6500FF]">Étape 3</p>
               <h3 className="mt-2 text-xl font-bold text-[#04192F]">Passer à une action concrète dans les 7 jours</h3>
-              <ul className="mt-3 space-y-2 text-base leading-7 text-[#465160]">
+              <ul className="mt-3 list-none space-y-2 text-base leading-7 text-[#465160]">
                 <li className="flex items-start gap-3">
                   <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#6500FF]" />
                   <span>Soit confirmer une formation (Oui ou Oui‑Si) où tu te vois vraiment.</span>
@@ -363,7 +363,7 @@ export const ArticleParcoursup = () => {
 
       {/* CTA final */}
       <section className="my-12 rounded-2xl bg-[#04192F] p-7 text-white">
-        <p className="text-base leading-7 text-white/80">
+        <p className="text-base leading-7 text-white">
           Tu n'es pas obligé·e de tout décider en une nuit. Sur Jobmi, tu peux passer un test d'orientation pour identifier les familles de métiers qui te correspondent, lire le guide sur les options hors Parcoursup et explorer l'agenda des événements d'orientation près de chez toi.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
