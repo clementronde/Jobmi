@@ -20,6 +20,8 @@ import { ArticleAIBoostsJobs } from '../../../components/articles/ArticleAIBoost
 import { ArticleNewAIJobs } from '../../../components/articles/ArticleNewAIJobs';
 import { GenericSupportArticle } from '../../../components/articles/GenericSupportArticle';
 import { ArticleParcoursup } from '../../../components/articles/ArticleParcoursup';
+import { ArticleMonMaster } from '../../../components/articles/ArticleMonMaster';
+import { ArticleParcoursupStress } from '../../../components/articles/ArticleParcoursupStress';
 import { RelatedArticles } from '../../../components/RelatedArticles';
 import ArticleTOC from '../../../components/ArticleTOC';
 import { ArticleAuthorBox, ARTICLE_AUTHOR } from '../../../components/ArticleAuthorBox';
@@ -42,6 +44,10 @@ const articleSeoTitleOverrides: Record<string, string> = {
     'Orientation post‑bac sans Parcoursup : 6 vraies options en 2026',
   'resultats-parcoursup-2026':
     'Résultats Parcoursup 2026 : que faire si tu es en attente, refusé ou sans réponse ?',
+  'resultats-mon-master-2026':
+    "Résultats Mon Master 2026 : que faire si tu n'as aucune proposition (ou que des refus) ?",
+  'parcoursup-gerer-stress-resultats':
+    "Parcoursup : comment gérer le stress des résultats (et la pression autour)",
 };
 
 const articleFaqSchemaBySlug: Record<string, { '@context': string; '@type': string; mainEntity: Array<{ '@type': string; name: string; acceptedAnswer: { '@type': string; text: string } }> }> = {
@@ -133,6 +139,98 @@ const articleFaqSchemaBySlug: Record<string, { '@context': string; '@type': stri
         acceptedAnswer: {
           '@type': 'Answer',
           text: "Oui. De nombreuses écoles, bachelors, BTS en école et titres pro sont de qualité, même s'ils ne passent pas par la plateforme. Ce qui compte, c'est de vérifier la reconnaissance officielle du diplôme, les débouchés réels et la cohérence avec ton projet.",
+        },
+      },
+    ],
+  },
+  'parcoursup-gerer-stress-resultats': {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: "Pourquoi Parcoursup est-il si stressant pour les lycéens ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Parcoursup concentre beaucoup d'enjeux sur une courte période : peur de faire le mauvais choix, impression qu'il n'existe qu'une seule bonne voie, codes peu clairs (Oui-Si, En attente), et sentiment d'être observé par les parents et les profs. 70 à 90 % des lycéens se disent stressés ou anxieux pendant cette période.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Comment gérer l'attente des résultats Parcoursup au quotidien ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "La technique la plus efficace est de fixer 1 à 3 créneaux fixes par jour pour consulter Parcoursup, puis de fermer la plateforme en dehors de ces moments. Cela évite de rafraîchir en boucle sans perdre d'informations importantes, car les délais de réponse sont de plusieurs jours.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Comment aborder Parcoursup avec mes parents sans que ça devienne une source de conflit ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Propose un moment dédié (une fois par semaine ou tous les 2–3 jours) pour faire le point ensemble sur tes résultats. En dehors de ce créneau, demande à ce qu'on n'en parle pas en permanence. Tu peux formuler calmement : « Ça me stresse encore plus quand on en parle tout le temps, j'ai besoin qu'on se fixe des moments précis. »",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Que faire émotionnellement si je reçois des refus sur Parcoursup ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Accuse le coup avant d'agir : laisse-toi quelques heures ou une journée, évite de te comparer aux autres sur les réseaux, et parle à quelqu'un de confiance. Ensuite seulement, consulte des contenus pratiques sur les options disponibles (phase complémentaire, formations hors Parcoursup, année terrain).",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Parcoursup est-il la seule porte pour faire des études supérieures ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Non. De nombreuses formations de qualité recrutent hors Parcoursup : écoles de commerce, bachelors, BTS en école privée, titres professionnels RNCP, écoles spécialisées (digital, design, santé…). Savoir que d'autres portes existent aide à réduire la pression sur les résultats de la plateforme.",
+        },
+      },
+    ],
+  },
+  'resultats-mon-master-2026': {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: "Est-ce grave de ne pas avoir de master tout de suite ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Non. Beaucoup de diplômés de licence passent par des chemins détournés : autre master, école, année pro, mobilité internationale… Ce qui compte sur le long terme, c'est ce que tu fais de cette année, comment tu expliques ton parcours, et les compétences et expériences que tu accumules.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Est-ce que je peux faire de bonnes études sans passer par Mon Master ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Oui. De nombreux programmes de niveau Bac+5 (écoles de commerce, écoles du digital, écoles spécialisées) recrutent hors Mon Master, avec des diplômes et titres reconnus. Il faut vérifier le niveau du diplôme (grade de master, RNCP niveau 7), l'insertion pro et la qualité des partenaires entreprises.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Travailler 1 an va-t-il me pénaliser pour candidater à un master plus tard ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Au contraire, une année pro cohérente peut renforcer ton dossier : tu montres que tu n'as pas attendu, tu arrives avec des exemples concrets en entretien, tu peux te spécialiser dans un secteur. Ce qui peut te pénaliser, c'est plutôt une année totalement vide et non expliquée.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Puis-je trouver un master à l'étranger si Mon Master m'a refusé ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Dans certains pays, tu peux candidater directement auprès des universités ou via des plateformes locales : masters anglophones en Europe, programmes en échange ou double diplôme via des écoles françaises. Attention au niveau d'anglais requis, au coût, à la reconnaissance et aux démarches administratives.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Comment expliquer un résultat négatif sur Mon Master dans mon parcours ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Tu n'es pas obligé de l'appeler « échec ». Tu peux le formuler ainsi : « Candidature Master non retenue en 2026, année de travail en [secteur], puis admission en [formation]. » L'important est de montrer que tu as rebondi et que tu en as tiré quelque chose : compétences, projet clarifié, maturité.",
         },
       },
     ],
@@ -374,6 +472,8 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
           {slug === "trouver-stage-reconversion-methode" && <Article13 />}
           {slug === "pmsmp-18-25-tester-metier-immersion" && <Article14 />}
           {slug === "resultats-parcoursup-2026" && <ArticleParcoursup />}
+          {slug === "resultats-mon-master-2026" && <ArticleMonMaster />}
+          {slug === "parcoursup-gerer-stress-resultats" && <ArticleParcoursupStress />}
           {slug === "metiers-ia-ne-remplacera-pas-2030" && <ArticleAIProofJobs />}
           {slug === "comment-ia-booste-ton-futur-metier" && <ArticleAIBoostsJobs />}
           {slug === "nouveaux-metiers-crees-par-ia" && <ArticleNewAIJobs />}
