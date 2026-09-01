@@ -1,0 +1,79 @@
+/**
+ * Surcharge de la DA vanilla-cookieconsent pour matcher l'identité Jobmi
+ * (violet #6500FF, dark #04192F, fond #F8F7FF, police Gilroy).
+ */
+
+#cc-main {
+  --cc-font-family: var(--font-gilroy), sans-serif;
+  --cc-bg: #ffffff;
+  --cc-primary-color: #04192f;
+  --cc-secondary-color: rgba(4, 25, 47, 0.65);
+
+  --cc-btn-primary-bg: #04192f;
+  --cc-btn-primary-border-color: #04192f;
+  --cc-btn-primary-color: #ffffff;
+  --cc-btn-primary-hover-bg: #6500ff;
+  --cc-btn-primary-hover-border-color: #6500ff;
+  --cc-btn-primary-hover-color: #ffffff;
+
+  --cc-btn-secondary-bg: #f8f7ff;
+  --cc-btn-secondary-border-color: #e9e1ff;
+  --cc-btn-secondary-color: #04192f;
+  --cc-btn-secondary-hover-bg: #efeaff;
+  --cc-btn-secondary-hover-border-color: #6500ff;
+  --cc-btn-secondary-hover-color: #6500ff;
+
+  --cc-toggle-on-bg: #6500ff;
+  --cc-toggle-off-bg: rgba(4, 25, 47, 0.2);
+  --cc-toggle-on-knob-bg: #ffffff;
+  --cc-toggle-off-knob-bg: #ffffff;
+  --cc-toggle-readonly-bg: rgba(101, 0, 255, 0.35);
+  --cc-toggle-readonly-knob-bg: #ffffff;
+  --cc-toggle-readonly-knob-icon-color: #6500ff;
+
+  --cc-cookie-category-block-bg: #f8f7ff;
+  --cc-cookie-category-block-border: #e9e1ff;
+  --cc-cookie-category-block-hover-bg: #f1ecff;
+  --cc-cookie-category-block-hover-border: #6500ff;
+  --cc-cookie-category-expanded-block-bg: #ffffff;
+  --cc-cookie-category-expanded-block-hover-bg: #ffffff;
+  --cc-section-category-border: #e9e1ff;
+  --cc-separator-border-color: #e9e1ff;
+
+  --cc-link-color: #6500ff;
+  --cc-footer-bg: #f8f7ff;
+  --cc-footer-border-color: #e9e1ff;
+  --cc-footer-color: rgba(4, 25, 47, 0.65);
+
+  --cc-overlay-bg: rgba(4, 25, 47, 0.45);
+  --cc-modal-border-radius: 20px;
+  --cc-btn-border-radius: 10px;
+  --cc-pm-toggle-border-radius: 999px;
+}
+
+#cc-main .cm {
+  box-shadow: 0 24px 64px rgba(4, 25, 47, 0.14);
+  border: 1px solid #e9e1ff;
+}
+
+#cc-main .cm__title,
+#cc-main .pm__title {
+  font-weight: 700;
+  color: #04192f;
+}
+
+#cc-main .cm__btn,
+#cc-main .pm__btn {
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+#cc-main .cm__btn:hover,
+#cc-main .pm__btn:hover {
+  transform: translateY(-1px);
+}
+
+#cc-main a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

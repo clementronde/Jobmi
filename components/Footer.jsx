@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { FaInstagram, FaTiktok, FaLinkedinIn } from "react-icons/fa";
+import { openCookiePreferences } from "@/components/CookieConsent";
 
 const footerLinkClass =
   "relative inline-block text-sm text-gray-400 transition-colors duration-200 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-200 hover:text-white hover:after:scale-x-100";
@@ -101,6 +102,15 @@ export const Footer = () => {
                   </Link>
                 </li>
               ))}
+              <li>
+                <button
+                  type="button"
+                  onClick={openCookiePreferences}
+                  className={footerLinkClass}
+                >
+                  Gérer les cookies
+                </button>
+              </li>
             </ul>
           </div>
 

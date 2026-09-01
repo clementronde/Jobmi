@@ -59,7 +59,12 @@ export default function Politique() {
           </ul>
 
           <h2 className="font-bold">Cookies</h2>
-          <p>Nous utilisons des cookies pour améliorer l'expérience utilisateur sur notre site. Vous pouvez les désactiver dans les paramètres de votre navigateur.</p>
+          <p>Nous utilisons deux catégories de cookies :</p>
+          <ul className="list-disc list-inside">
+            <li><strong>Cookies strictement nécessaires</strong> : indispensables au bon fonctionnement du site (navigation, sécurité). Ils ne nécessitent pas de consentement.</li>
+            <li><strong>Cookies de mesure d'audience</strong> (Google Analytics, Google Tag Manager) : nous aident à comprendre comment le site est utilisé, de façon anonymisée. Ils ne sont déposés qu'après votre consentement.</li>
+          </ul>
+          <p>Lors de votre première visite, un bandeau vous permet d'accepter, de refuser ou de personnaliser ces cookies. Vous pouvez modifier vos choix à tout moment via le lien « Gérer les cookies » en bas de page, ou dans les paramètres de votre navigateur.</p>
 
           <h2 className="font-bold">Modifications de la Politique de Confidentialité</h2>
           <p>Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. Les modifications seront publiées sur cette page.</p>
