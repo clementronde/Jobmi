@@ -20,10 +20,27 @@ export const metadata: Metadata = {
   alternates: { canonical: BASE_URL },
   openGraph: {
     type: 'website',
+    locale: 'fr_FR',
     url: BASE_URL,
-    title: "Trouve ta voie | Test d'orientation gratuit et immersions métiers",
+    siteName: 'Jobmi',
+    title: "Trouve ta voie — test d'orientation gratuit | Jobmi",
     description:
       "Test d'orientation gratuit, immersions métier et guides pour les 18-25 ans qui veulent trouver leur voie avec plus de concret.",
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Jobmi - Trouve ta voie professionnelle',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Trouve ta voie — test d'orientation gratuit | Jobmi",
+    description:
+      "Test d'orientation gratuit, immersions métier et guides pour les 18-25 ans qui veulent trouver leur voie avec plus de concret.",
+    images: ['/og-image.png'],
   },
 };
 
@@ -116,34 +133,6 @@ const faqJsonLd = {
   })),
 };
 
-const howToJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'HowTo',
-  name: "Comment tester un métier avec Jobmi avant de s'engager",
-  description:
-    "Méthode en 3 étapes pour passer du doute à une décision d'orientation plus claire.",
-  step: [
-    {
-      '@type': 'HowToStep',
-      position: 1,
-      name: "Test d'orientation gratuit",
-      text: 'Réponds à quelques questions sur tes valeurs et ton style de travail pour découvrir les métiers compatibles avec ton profil (méthode RIASEC).',
-    },
-    {
-      '@type': 'HowToStep',
-      position: 2,
-      name: 'Explore les métiers faits pour toi',
-      text: "Accède à des fiches métiers personnalisées selon tes résultats. Compare les voies possibles et identifie celle qui t'attire vraiment.",
-    },
-    {
-      '@type': 'HowToStep',
-      position: 3,
-      name: 'Immersion terrain en vrai',
-      text: "Teste le métier dans un vrai environnement de travail : atelier découverte, stage d'observation ou jobshadowing. De 1 jour à 2 semaines.",
-    },
-  ],
-};
-
 /* ─── Bloc "Ton point de départ" ─────────────────────────────────────── */
 function HomeSituationBlock() {
   return (
@@ -196,10 +185,6 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* 1. Hero — nouvelle promesse */}

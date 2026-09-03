@@ -17,9 +17,9 @@ export const ArticleAuthorBox = () => {
           <p className="mb-1 text-xs font-bold uppercase tracking-[0.18em] text-[#6500FF]">
             Écrit par
           </p>
-          <h2 className="text-xl font-bold text-[#04192F]">
+          <p className="text-xl font-bold text-[#04192F]">
             {ARTICLE_AUTHOR.name}
-          </h2>
+          </p>
           <p className="mt-1 text-sm font-semibold text-[#6500FF]">
             {ARTICLE_AUTHOR.role}
           </p>

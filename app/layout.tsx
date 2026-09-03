@@ -161,7 +161,7 @@ const organizationJsonLd = {
       url: 'https://jobmi.fr',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://jobmi.fr/favicons/favicon-32x32.png',
+        url: 'https://jobmi.fr/media/logo-jobmi.svg',
       },
       sameAs: [
         'https://www.instagram.com/jobmifr',

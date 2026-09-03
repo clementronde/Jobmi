@@ -367,7 +367,7 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
       url: BASE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: `${BASE_URL}/favicons/favicon-32x32.png`,
+        url: `${BASE_URL}/media/logo-jobmi.svg`,
       },
     },
     mainEntityOfPage: {
