@@ -60,23 +60,24 @@ The `%s | Jobmi` template adds 8 chars. Shorten the `seoTitle` /
 
 ---
 
-## Fix 3 — Thin content (< 700 words)
+## Fix 3 — Thin content (< 700 words) — ✅ DONE 2026-09-04
 
-These 7 are ~600 words (the `GenericSupportArticle` template). On informational
-queries they'll struggle vs. deeper competitors. Either expand to 900–1200 words
-(add an example, a mini-FAQ, a "concrete steps" list) or accept them as light
-support pages and make sure they're not the ones you're trying to rank for
-competitive terms.
+The 7 `GenericSupportArticle` pages were expanded (~+85% each) in
+`data/supportArticleContent.ts`: fuller intro, an `introNote` linking `/test`,
+2–3 extra sections, a "Questions fréquentes" block, a longer checklist, and
+4–8 in-body internal links each.
 
-| Article | Words |
+| Article | Words (page) before → after |
 |---|---|
-| `utiliser-profil-riasec-orientation` | 588 |
-| `jobshadowing-decouvrir-metier` | 589 |
-| `financer-reconversion-jeune` | 612 |
-| `mission-locale-orientation-jeune` | 620 |
-| `comment-preparer-une-immersion-metier` | 628 |
-| `que-faire-apres-le-bac-sans-idee` | 664 |
-| `erreurs-reconversion-jeune` | 698 |
+| `utiliser-profil-riasec-orientation` | 588 → 1086 |
+| `jobshadowing-decouvrir-metier` | 589 → 1083 |
+| `financer-reconversion-jeune` | 612 → 1185 |
+| `mission-locale-orientation-jeune` | 620 → 1119 |
+| `comment-preparer-une-immersion-metier` | 628 → 1161 |
+| `que-faire-apres-le-bac-sans-idee` | 664 → 1219 |
+| `erreurs-reconversion-jeune` | 698 → 1296 |
+
+`readingTime` bumped to 6 min for all 7.
 
 ---
 

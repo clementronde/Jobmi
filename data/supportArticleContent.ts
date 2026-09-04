@@ -57,68 +57,126 @@ export const supportArticleContent: SupportArticleContent[] = [
   {
     slug: 'erreurs-reconversion-jeune',
     intro:
-      "À 18–25 ans, changer de voie peut être une très bonne décision. Mais certaines erreurs reviennent souvent : choisir trop vite, suivre une mode, payer une formation sans tester, ou rester seul avec le doute.",
+      "À 18–25 ans, changer de voie peut être une excellente décision : tu perds moins de temps qu'à 40 ans et tu as le droit de te tromper. Mais quelques erreurs reviennent presque à chaque fois et coûtent cher, en argent comme en motivation : choisir trop vite, suivre une mode, payer une formation sans avoir testé le métier, ou rester seul avec le doute pendant des mois. Cet article passe en revue les pièges les plus fréquents et, surtout, comment les éviter.",
+    introNote:
+      "Avant de te lancer, tu peux clarifier 2 ou 3 familles de métiers avec le [test d'orientation Jobmi](/test) : ça évite de choisir une reconversion \"contre\" ton parcours actuel plutôt que \"vers\" quelque chose de précis.",
     sections: [
       {
         title: 'Erreur 1 : confondre envie de partir et projet clair',
         paragraphs: [
-          "Vouloir quitter une formation ou un job ne suffit pas à définir une nouvelle voie. C'est un signal de départ, pas une destination.",
-          "Commence par comprendre ce que tu veux éviter, puis ce que tu veux retrouver : rythme, environnement, type de missions, rapport aux autres.",
+          "Vouloir quitter une formation ou un job ne suffit pas à définir une nouvelle voie. C'est un signal de départ, pas une destination. Beaucoup de reconversions ratées commencent par un \"je ne supporte plus\" qui n'a jamais été transformé en \"je veux aller vers\".",
+          "Commence par nommer précisément ce que tu veux éviter : le rythme, l'ambiance, l'absence de sens, le manque de contact humain, la pression, la répétition… Puis liste ce que tu veux retrouver dans la suite : type de missions, environnement, autonomie, utilité concrète.",
+          "Tant que tu ne sais formuler que ce que tu fuis, tu risques de reproduire le même schéma ailleurs. Un projet clair se teste ; une simple envie de partir, non.",
         ],
       },
       {
         title: 'Erreur 2 : choisir une formation avant le métier',
         paragraphs: [
-          "Une formation rassure parce qu'elle donne un cadre. Mais si le métier visé ne te correspond pas, même la meilleure formation ne règle rien.",
-          "L'ordre le plus solide : profil, métiers possibles, terrain, puis formation.",
+          "Une formation rassure parce qu'elle donne un cadre, un planning et une date de fin. Mais si le métier visé ne te correspond pas, même la meilleure formation ne règle rien : tu te retrouves diplômé d'un domaine qui ne t'attire pas.",
+          "L'ordre le plus solide reste : profil, métiers possibles, terrain, puis formation. La formation est la dernière étape, pas la première.",
+          "Avant de payer ou de t'inscrire, essaie d'échanger avec 2 personnes qui exercent déjà le métier, ou de faire une [immersion courte](/tester-un-metier). Une journée d'observation coûte moins cher qu'une année de formation dans la mauvaise direction.",
         ],
       },
       {
-        title: "Erreur 3 : ne pas demander d'aide",
+        title: 'Erreur 3 : suivre une mode ou un métier "à la hype"',
         paragraphs: [
-          "Mission Locale, France Travail, écoles, anciens étudiants, professionnels : tu n'es pas censé tout comprendre seul.",
-          "Un échange de 20 minutes avec quelqu'un du métier peut parfois t'éviter des mois d'hésitation.",
+          "Développeur, data analyst, UX designer, métiers de l'IA : ces intitulés reviennent partout et donnent l'impression d'être des choix évidents. Le problème n'est pas le métier, c'est de le choisir pour son image plutôt que pour son quotidien réel.",
+          "Regarde ce que fait vraiment la personne au quotidien : les tâches répétitives, le niveau de solitude, la pression des délais, le rapport aux autres. Un métier \"cool\" vu de l'extérieur peut être pénible pour toi, et un métier discret peut te convenir parfaitement.",
+        ],
+      },
+      {
+        title: 'Erreur 4 : payer une formation sans rien avoir testé',
+        paragraphs: [
+          "Certaines écoles privées et organismes vendent surtout du rêve et de l'urgence (\"places limitées\", \"secteur qui recrute\"). Avant de signer, vérifie la reconnaissance du diplôme ou du titre (RNCP, visa, grade), le taux d'insertion réel, et parle à d'anciens élèves.",
+          "Commence toujours par un format peu risqué : cours d'essai, MOOC gratuit, atelier, [PMSMP ou stage d'observation](/blog/pmsmp-18-25-tester-metier-immersion). Le financement et l'engagement viennent après la validation du projet, jamais avant.",
+        ],
+      },
+      {
+        title: "Erreur 5 : ne pas demander d'aide",
+        paragraphs: [
+          "Mission Locale, France Travail, conseillers d'orientation, anciens étudiants, professionnels en poste : tu n'es pas censé tout comprendre seul. Rester isolé avec le doute, c'est le meilleur moyen de tourner en rond pendant des mois.",
+          "Un échange de 20 minutes avec quelqu'un qui exerce le métier peut t'éviter une erreur d'orientation entière. Si tu ne sais pas par où commencer, la [Mission Locale](/blog/mission-locale-orientation-jeune) est un bon premier relais.",
+        ],
+      },
+      {
+        title: "Erreur 6 : vouloir tout changer d'un coup",
+        paragraphs: [
+          "Changer de métier, de ville, de statut et de rythme en même temps, c'est multiplier les risques. Une reconversion tient mieux si tu gardes un point d'appui : un job alimentaire le temps de te former, une formation en alternance, ou une transition progressive.",
+          "Découpe ton projet en étapes de 30 jours : clarifier, tester, choisir un format, financer, démarrer. Tu ajusteras en cours de route.",
         ],
       },
     ],
     checklist: [
-      "Je sais pourquoi ma voie actuelle ne me convient pas.",
+      "Je sais dire vers quoi je vais, pas seulement ce que je fuis.",
       "J'ai comparé plusieurs métiers, pas seulement plusieurs formations.",
-      "J'ai testé ou prévu de tester une piste concrète.",
-      "Je sais expliquer mon changement de voie simplement.",
+      "J'ai testé ou prévu de tester une piste concrète (immersion, échange, atelier).",
+      "J'ai vérifié la reconnaissance et l'insertion de la formation visée.",
+      "J'ai parlé à au moins une personne qui exerce le métier.",
+      "Je sais expliquer mon changement de voie en 3 phrases simples.",
     ],
     cta: {
       href: '/reconversion',
       label: 'Revenir à la page pilier reconversion',
-      text: 'Pour structurer toute ta démarche, utilise le guide principal Jobmi.',
+      text: 'Pour structurer toute ta démarche étape par étape, utilise le guide principal Jobmi.',
     },
   },
   {
     slug: 'financer-reconversion-jeune',
     intro:
-      "Financer une reconversion quand on est jeune demande surtout de choisir le bon format : alternance, CPF si tu as travaillé, aides locales, Mission Locale, France Travail ou formation courte.",
+      "Financer une reconversion quand on est jeune fait peur, mais c'est rarement le vrai blocage. Le plus souvent, le problème n'est pas l'argent : c'est de vouloir financer une formation avant d'avoir validé le projet. Une fois que tu sais quel métier tu vises, il existe plusieurs leviers selon ta situation : alternance, CPF si tu as déjà travaillé, aides régionales, Mission Locale, France Travail, ou formations courtes peu coûteuses.",
+    introNote:
+      "Avant de chercher un financement, assure-toi de viser le bon métier : le [test d'orientation Jobmi](/test) t'aide à faire ressortir 2 ou 3 familles de métiers à explorer sur le terrain.",
     sections: [
       {
-        title: "L'alternance : souvent le meilleur levier jeune",
+        title: "L'alternance : souvent le meilleur levier quand on est jeune",
         paragraphs: [
-          "Si tu as besoin d'apprendre un métier tout en étant rémunéré, l'alternance est souvent plus réaliste qu'une formation payante à plein temps.",
-          "Elle demande un projet un minimum clair, car tu dois convaincre une entreprise.",
+          "Si tu as besoin d'apprendre un métier tout en étant payé, l'alternance (apprentissage ou contrat de professionnalisation) est souvent plus réaliste qu'une formation payante à plein temps. Les frais de scolarité sont pris en charge dans le cadre du contrat, et tu touches un salaire.",
+          "En échange, il faut un projet un minimum clair, car tu dois convaincre une entreprise de te recruter. Prépare un discours simple : d'où tu viens, pourquoi ce métier, ce que tu peux apporter tout de suite. Pour comparer ce format avec la formation continue classique, garde sous la main le guide [alternance ou formation continue](/blog/alternance-ou-formation-continue-que-choisir).",
         ],
       },
       {
-        title: 'CPF, aides régionales et France Travail',
+        title: 'Le CPF : utile, mais il ne doit pas décider à ta place',
         paragraphs: [
-          "Le CPF peut aider si tu as déjà travaillé, mais il ne doit pas décider à ta place. Une formation finançable n'est pas forcément une bonne formation pour toi.",
-          "Selon ta situation, France Travail, ta région ou une Mission Locale peuvent aussi t'aider à cadrer et financer une étape.",
+          "Le compte personnel de formation (CPF) se remplit dès que tu as travaillé, même en job étudiant ou en CDD. Il peut financer tout ou partie d'une formation certifiante.",
+          "Attention au piège : une formation \"finançable avec le CPF\" n'est pas forcément une bonne formation pour toi. Beaucoup d'organismes conçoivent leur catalogue autour du CPF, pas autour de ton projet. Vérifie d'abord la reconnaissance et l'insertion, puis regarde le financement. Le détail est dans le guide [utiliser son CPF](/blog/utiliser-cpf-compte-personnel-formation).",
         ],
       },
       {
-        title: 'Commencer par un format peu risqué',
+        title: 'France Travail, région et Mission Locale',
         paragraphs: [
-          "Avant de payer cher, regarde les ateliers, cours d'essai, MOOC, PMSMP, stages d'observation ou immersions courtes.",
-          "Le financement vient après la validation du projet, pas avant.",
+          "Si tu es inscrit à France Travail, tu peux avoir accès à des aides individuelles à la formation, à des formations conventionnées (déjà financées) et à un accompagnement pour cadrer ton projet.",
+          "Les conseils régionaux financent de nombreuses formations vers des métiers qui recrutent localement, parfois avec une rémunération pendant la formation. La [Mission Locale](/blog/mission-locale-orientation-jeune), elle, s'adresse aux 16–25 ans et peut mobiliser des aides à la mobilité, à l'hébergement ou au quotidien en plus de l'orientation.",
         ],
       },
+      {
+        title: 'Commencer par un format peu risqué et peu cher',
+        paragraphs: [
+          "Avant de payer quoi que ce soit, il existe une couche gratuite ou quasi gratuite : MOOC, cours d'essai, ateliers découverte, [PMSMP et stages d'observation](/blog/pmsmp-18-25-tester-metier-immersion), [jobshadowing](/blog/jobshadowing-decouvrir-metier), bénévolat ciblé.",
+          "Ces formats servent à valider (ou invalider) le métier pour un coût proche de zéro. Le financement d'une vraie formation vient après cette étape de validation, pas avant.",
+        ],
+      },
+      {
+        title: 'Un ordre de priorité simple',
+        paragraphs: [
+          "1. Teste le métier gratuitement (immersion, échanges). 2. Si le projet tient, cherche d'abord l'alternance. 3. Sinon, regarde les formations déjà financées (France Travail, région). 4. En dernier, mobilise ton CPF ou un financement personnel, pour une formation dont tu as vérifié l'insertion.",
+          "Cet ordre évite l'erreur la plus courante : s'endetter pour une formation choisie dans l'urgence.",
+        ],
+      },
+      {
+        title: 'Questions fréquentes',
+        paragraphs: [
+          "Je n'ai jamais travaillé, est-ce que j'ai un CPF ? Très peu ou pas. Dans ce cas, oriente-toi vers l'alternance ou les formations conventionnées France Travail / région, qui ne dépendent pas du CPF.",
+          "Peut-on se former sans rien payer ? Oui, c'est fréquent quand on passe par l'alternance ou par une formation conventionnée. Le \"reste à charge\" zéro existe, mais il demande souvent de viser un métier qui recrute.",
+          "Faut-il un projet parfait pour être financé ? Non, mais il faut un projet crédible : un métier visé, une raison, et idéalement une première expérience terrain à raconter.",
+        ],
+      },
+    ],
+    checklist: [
+      "J'ai validé le métier visé avec au moins une expérience terrain.",
+      "J'ai regardé si l'alternance est possible pour ce métier.",
+      "J'ai vérifié les formations déjà financées par France Travail ou ma région.",
+      "Je connais le montant réel de mon CPF (et je ne compte pas dessus aveuglément).",
+      "Je connais le reste à charge total avant de m'engager.",
     ],
     cta: {
       href: '/blog/utiliser-cpf-compte-personnel-formation',
@@ -129,35 +187,60 @@ export const supportArticleContent: SupportArticleContent[] = [
   {
     slug: 'comment-preparer-une-immersion-metier',
     intro:
-      "Une immersion métier est utile seulement si tu sais ce que tu veux observer. Sans préparation, tu risques de passer une journée intéressante mais impossible à transformer en décision.",
+      "Une immersion métier (PMSMP, stage d'observation, jobshadowing, journée découverte) n'est utile que si tu sais ce que tu veux observer. Sans préparation, tu passes une journée intéressante mais impossible à transformer en décision : tu ressors avec \"c'était sympa\" et rien de plus. Avec 30 minutes de préparation, la même journée peut confirmer ou éliminer une piste d'orientation.",
+    introNote:
+      "Tu ne sais pas encore quel métier observer ? Commence par le [test d'orientation](/test) pour dégager 2 ou 3 familles de métiers, puis choisis une immersion dans l'une d'elles.",
     sections: [
       {
-        title: 'Définir ton hypothèse',
+        title: 'Étape 1 : écrire ton hypothèse',
         paragraphs: [
-          "Avant l'immersion, écris une phrase simple : “Je veux vérifier si ce métier me convient parce que…”",
-          "Cette hypothèse t'aide à observer les bons détails : rythme, tâches, relation aux autres, autonomie, pression, environnement.",
+          "Avant l'immersion, écris une phrase simple : \"Je veux vérifier si ce métier me convient parce que…\". Par exemple : \"parce que j'aime aider les gens mais je ne sais pas si je supporterais le rythme de l'hôpital\".",
+          "Cette hypothèse dirige ton attention pendant la journée. Sans elle, tu regardes tout et tu ne retiens rien. Avec elle, tu sais quoi observer en priorité : le rythme, les tâches concrètes, la relation aux autres, le niveau d'autonomie, la pression, l'environnement physique.",
         ],
       },
       {
-        title: 'Préparer 5 questions',
+        title: 'Étape 2 : préparer 5 questions concrètes',
         paragraphs: [
-          "Demande ce qui est difficile, ce qui surprend les débutants, quelles compétences comptent et quel parcours la personne referait aujourd'hui.",
-          "Évite les questions trop générales comme “est-ce que c'est bien ?”. Cherche du concret.",
+          "Évite les questions trop générales comme \"est-ce que c'est bien ?\" ou \"est-ce que ça recrute ?\". Cherche du vécu : qu'est-ce qui est difficile dans ce métier ? Qu'est-ce qui surprend les débutants ? Quelles compétences comptent vraiment, au-delà du diplôme ? Qu'est-ce que la personne referait différemment aujourd'hui ? À quoi ressemble une mauvaise journée ?",
+          "Note tes questions sur ton téléphone. Le jour J, tu seras concentré sur l'observation et tu risques de les oublier.",
         ],
       },
       {
-        title: "Faire un bilan juste après",
+        title: 'Étape 3 : savoir quoi observer',
         paragraphs: [
-          "Note ce qui t'a donné de l'énergie, ce qui t'a refroidi, et ce que tu dois encore vérifier.",
-          "Une bonne immersion ne donne pas toujours un oui. Parfois, son meilleur résultat est un non clair.",
+          "Pendant l'immersion, observe surtout ce qui ne se voit pas dans une fiche métier : le nombre d'interruptions, le temps passé seul vs. en équipe, la part de tâches administratives, le niveau de bruit et de fatigue en fin de journée, la façon dont les gens se parlent.",
+          "Repère aussi tes propres réactions : à quel moment tu t'ennuies, à quel moment tu es absorbé, ce qui te met mal à l'aise. Ces signaux internes valent autant que les infos objectives.",
+        ],
+      },
+      {
+        title: 'Étape 4 : faire un bilan dans les 24 heures',
+        paragraphs: [
+          "Le soir même ou le lendemain, écris 3 listes : ce qui t'a donné de l'énergie, ce qui t'a refroidi, ce que tu dois encore vérifier (dans une autre immersion, un autre lieu, un autre échange).",
+          "Une bonne immersion ne donne pas toujours un \"oui\". Parfois son meilleur résultat est un \"non\" clair, qui t'évite une formation entière dans la mauvaise direction. Un \"peut-être\" signifie souvent qu'il faut tester un deuxième contexte.",
+        ],
+      },
+      {
+        title: 'Les points pratiques à ne pas oublier',
+        paragraphs: [
+          "Côté logistique : confirme l'horaire et le lieu la veille, prévois une tenue adaptée, arrive 10 minutes en avance, et remercie par message après coup (utile si tu veux y retourner ou demander un contact).",
+          "Côté cadre : si l'immersion passe par une [PMSMP](/blog/pmsmp-18-25-tester-metier-immersion), une convention est signée entre toi, la structure d'accueil et l'organisme qui t'accompagne (Mission Locale, France Travail…). Pour un [jobshadowing](/blog/jobshadowing-decouvrir-metier), c'est plus informel : un simple accord avec la personne suffit souvent.",
+        ],
+      },
+      {
+        title: 'Comment enchaîner après une immersion',
+        paragraphs: [
+          "Si le métier te convainc, passe à l'étape suivante : identifier la formation ou l'alternance qui y mène, et regarder les [stages et formations](/stage-et-formation) possibles. Si le doute persiste, planifie une deuxième immersion dans un contexte différent (autre taille de structure, autre ville).",
+          "L'objectif n'est pas de multiplier les immersions à l'infini, mais d'en faire assez pour décider sereinement : en général 1 à 3 suffisent par piste sérieuse.",
         ],
       },
     ],
     checklist: [
-      "J'ai une hypothèse à vérifier.",
-      "J'ai préparé mes questions.",
-      "Je sais quels signaux observer.",
-      "Je prévois un bilan dans les 24h.",
+      "J'ai écrit une hypothèse claire à vérifier.",
+      "J'ai préparé 5 questions concrètes.",
+      "Je sais quels signaux observer (rythme, tâches, relations, mes réactions).",
+      "J'ai réglé la logistique (horaire, lieu, tenue) la veille.",
+      "Je prévois un bilan écrit dans les 24h.",
+      "Je sais quelle est la prochaine étape selon le résultat.",
     ],
     cta: {
       href: '/tester-un-metier',
@@ -168,29 +251,59 @@ export const supportArticleContent: SupportArticleContent[] = [
   {
     slug: 'jobshadowing-decouvrir-metier',
     intro:
-      "Le jobshadowing consiste à suivre un professionnel pendant quelques heures ou une journée pour comprendre son quotidien. C'est un format simple, très utile quand tu hésites encore.",
+      "Le jobshadowing consiste à suivre un professionnel pendant quelques heures ou une journée pour observer son quotidien réel, sans rien produire toi-même. C'est le format le plus léger pour tester un métier : pas de convention lourde, pas d'engagement, juste une observation. Idéal quand tu hésites encore entre plusieurs pistes.",
+    introNote:
+      "Pour choisir quel métier observer en premier, le [test d'orientation Jobmi](/test) t'aide à dégager 2 ou 3 familles de métiers cohérentes avec ton profil.",
     sections: [
       {
-        title: "À quoi sert le jobshadowing ?",
+        title: 'À quoi sert vraiment le jobshadowing',
         paragraphs: [
-          "Il sert à observer le réel : réunions, outils, interactions, contraintes, interruptions, tâches répétitives.",
-          "Tu ne viens pas produire un travail, mais comprendre si l'environnement te parle.",
+          "Il sert à voir le réel derrière l'intitulé : les réunions, les outils, les interruptions, les tâches répétitives, les temps morts, la façon dont l'équipe communique. Autant de choses qu'aucune fiche métier ne raconte.",
+          "Tu ne viens pas travailler ni faire tes preuves : tu viens comprendre si l'environnement te parle. C'est aussi l'occasion de te projeter : est-ce que je me vois là dans 2 ans ?",
         ],
       },
       {
         title: 'Comment trouver une opportunité',
         paragraphs: [
-          "Commence par ton réseau proche, LinkedIn, les anciens de ton école, les entreprises locales ou les structures accompagnantes.",
-          "Ton message doit être court : qui tu es, le métier visé, la durée souhaitée et pourquoi cette observation t'aiderait.",
+          "Commence par ton réseau proche : famille, amis, parents d'amis, anciens profs. Puis élargis : anciens élèves de ton école sur LinkedIn, entreprises locales, associations professionnelles, structures d'accompagnement.",
+          "Ton message doit être court et clair : qui tu es, le métier qui t'intéresse, la durée souhaitée (une demi-journée ou une journée), et pourquoi cette observation t'aiderait à décider. Précise que tu ne demandes ni stage ni rémunération, juste d'observer.",
         ],
       },
       {
-        title: 'Quand choisir plutôt une PMSMP',
+        title: 'Un exemple de message',
         paragraphs: [
-          "Si tu veux un cadre officiel, plus long ou lié à une reconversion suivie, la PMSMP est souvent plus adaptée.",
-          "Le jobshadowing est plus léger, donc parfait pour une première exploration.",
+          "\"Bonjour, je m'appelle [prénom], j'ai 19 ans et je réfléchis à m'orienter vers [métier]. Avant de choisir une formation, j'aimerais observer ce métier une journée pour mieux comprendre le quotidien. Seriez-vous d'accord pour que je vous accompagne une demi-journée, sans que ça vous demande de préparation particulière ? Merci beaucoup.\"",
+          "Ce type de demande aboutit plus souvent qu'on ne le pense : beaucoup de professionnels acceptent volontiers, surtout si la demande est simple et cadrée dans le temps.",
         ],
       },
+      {
+        title: 'Bien utiliser la journée',
+        paragraphs: [
+          "Prépare 4 ou 5 questions concrètes, observe tes propres réactions (ennui, curiosité, malaise), et prends quelques notes discrètes. Le soir, écris ce qui t'a donné de l'énergie et ce qui t'a refroidi. La méthode complète est dans le guide [préparer une immersion métier](/blog/comment-preparer-une-immersion-metier).",
+          "Reste discret et respectueux : tu es invité. Coupe ton téléphone, demande avant de poser une question si le moment est ok, et remercie par message le lendemain.",
+        ],
+      },
+      {
+        title: 'Jobshadowing ou PMSMP : lequel choisir',
+        paragraphs: [
+          "Le jobshadowing est idéal pour une première exploration rapide, quand tu veux juste \"voir\". Si tu as besoin d'un cadre officiel, d'une durée plus longue ou d'un dispositif lié à un accompagnement (Mission Locale, France Travail), la [PMSMP](/blog/pmsmp-18-25-tester-metier-immersion) est plus adaptée.",
+          "Beaucoup de personnes commencent par un ou deux jobshadowings pour trier leurs pistes, puis passent à une PMSMP sur la piste la plus sérieuse.",
+        ],
+      },
+      {
+        title: 'Après le jobshadowing',
+        paragraphs: [
+          "Si le métier te confirme, regarde les formations et l'alternance qui y mènent, ainsi que la page [stages et formations](/stage-et-formation). Si tu hésites encore, tente un second jobshadowing dans un contexte différent, ou un échange avec une personne au parcours proche du tien.",
+          "Garde une trace écrite de chaque observation : dans un futur dossier ou entretien, pouvoir dire \"j'ai observé ce métier sur le terrain avant de choisir\" est un vrai point fort.",
+        ],
+      },
+    ],
+    checklist: [
+      "J'ai identifié 3 personnes ou structures à contacter.",
+      "J'ai écrit un message court et clair.",
+      "J'ai préparé 4 ou 5 questions concrètes.",
+      "Je sais quoi observer et je prévois un bilan le soir.",
+      "Je sais si j'enchaîne sur une PMSMP ou une formation.",
     ],
     cta: {
       href: '/blog/pmsmp-18-25-tester-metier-immersion',
@@ -201,29 +314,61 @@ export const supportArticleContent: SupportArticleContent[] = [
   {
     slug: 'que-faire-apres-le-bac-sans-idee',
     intro:
-      "Ne pas avoir d'idée après le bac est beaucoup plus courant qu'on ne le dit. Le problème n'est pas le flou en lui-même, mais le fait de choisir une voie par défaut sans exploration.",
+      "Ne pas avoir d'idée après le bac est beaucoup plus courant qu'on ne le dit : une grande partie des lycéens choisissent leurs vœux sans réelle certitude. Le problème n'est pas le flou en lui-même, c'est de choisir une voie par défaut, sans exploration, juste pour \"faire comme les autres\" ou parce qu'il reste de la place. Voici une méthode pour avancer même sans projet clair.",
+    introNote:
+      "Un [test d'orientation](/test) ne va pas te donner \"le\" métier, mais il fait ressortir 2 ou 3 familles de métiers à explorer en priorité, ce qui suffit pour démarrer.",
     sections: [
       {
-        title: 'Commencer par éliminer',
+        title: 'Étape 1 : commencer par éliminer',
         paragraphs: [
-          "Quand tu n'as aucune idée, chercher une passion peut bloquer. Commence plutôt par éliminer les environnements qui ne te conviennent pas.",
-          "Bureau, terrain, relation humaine, autonomie, cadre scolaire, rythme intense : ces critères donnent déjà des indices.",
+          "Quand tu n'as aucune idée, chercher \"ta passion\" peut te bloquer complètement. Commence à l'envers : élimine les environnements qui ne te conviennent clairement pas.",
+          "Passe en revue quelques critères simples : plutôt bureau ou plutôt terrain ? Beaucoup de contact humain ou plutôt seul ? Besoin d'un cadre scolaire ou envie de concret rapidement ? Rythme intense ou régulier ? Ces réponses réduisent déjà le champ de moitié.",
+          "Note aussi ce que tu as détesté au lycée (une matière, un format, une ambiance) : c'est une info utile pour éviter de reproduire la même chose.",
         ],
       },
       {
-        title: 'Explorer par familles de métiers',
+        title: 'Étape 2 : explorer par familles de métiers',
         paragraphs: [
-          "Tu n'as pas besoin de trouver un métier précis tout de suite. Cherche d'abord des familles : soin, création, technique, commerce, analyse, accompagnement.",
-          "Un test d'orientation peut aider à faire émerger ces familles sans te réduire à une réponse unique.",
+          "Tu n'as pas besoin de trouver un métier précis tout de suite. Cherche d'abord des familles : le soin et l'accompagnement, la création et le design, la technique et l'artisanat, le commerce et la relation client, l'analyse et les chiffres, l'organisation et la logistique.",
+          "Pour chaque famille qui t'attire un peu, note 2 ou 3 métiers réels et regarde des vidéos de terrain, des témoignages, ou mieux : parle à quelqu'un qui l'exerce. Le [profil RIASEC](/blog/utiliser-profil-riasec-orientation) peut aider à faire émerger ces familles sans te réduire à une seule réponse.",
         ],
       },
       {
-        title: 'Choisir une prochaine étape, pas toute ta vie',
+        title: "Étape 3 : tester avant de t'engager",
         paragraphs: [
-          "Après le bac, l'objectif est de choisir une étape cohérente : formation, alternance, césure structurée, immersion ou réorientation.",
-          "Tu pourras ajuster, mais tu avanceras mieux avec un plan court qu'avec une grande décision abstraite.",
+          "Une famille de métiers qui te parle sur le papier ne te conviendra pas forcément dans le quotidien. Avant de choisir une formation, essaie une [immersion courte](/tester-un-metier), un [jobshadowing](/blog/jobshadowing-decouvrir-metier) ou une [PMSMP](/blog/pmsmp-18-25-tester-metier-immersion).",
+          "Tu peux aussi utiliser les [événements d'orientation](/evenements-orientation) (salons, journées portes ouvertes, forums, ateliers) pour découvrir des pistes et poser des questions à des gens du métier.",
         ],
       },
+      {
+        title: 'Étape 4 : choisir une prochaine étape, pas toute ta vie',
+        paragraphs: [
+          "L'objectif après le bac n'est pas de décider de ta carrière, mais de choisir une étape cohérente : une formation, une alternance, une césure structurée, une immersion longue ou une première année quitte à te réorienter ensuite.",
+          "Beaucoup d'étudiants se réorientent après une première année et ça ne pénalise pas leur parcours, à condition d'en tirer quelque chose. Tu avanceras mieux avec un plan court et révisable qu'avec une grande décision abstraite.",
+        ],
+      },
+      {
+        title: "Et si tu n'as vraiment rien trouvé avant la rentrée ?",
+        paragraphs: [
+          "Plusieurs options existent hors du calendrier classique : rentrées décalées en janvier/février, formations hors Parcoursup, alternance qui recrute toute l'année, ou année terrain structurée (PMSMP, service civique, jobs, bénévolat ciblé). Le guide [orientation post-bac sans Parcoursup](/blog/orientation-post-bac-sans-parcoursup) détaille ces chemins.",
+          "L'important est de ne pas rester immobile : même une année \"sans formation\" peut être utile si elle est remplie d'expériences qui t'aident à choisir.",
+        ],
+      },
+      {
+        title: 'Questions fréquentes',
+        paragraphs: [
+          "Est-ce grave de ne pas savoir quoi faire après le bac ? Non, c'est la situation de beaucoup de bacheliers. Ce qui compte, c'est d'explorer plutôt que de subir un choix par défaut.",
+          "Faut-il absolument s'inscrire quelque part en septembre ? Non. Une rentrée décalée, une alternance ou une année terrain structurée sont des options valables si elles sont préparées.",
+          "Un test d'orientation suffit-il à décider ? Non. Il sert à ouvrir des pistes ; c'est le terrain (immersions, échanges) qui permet de trancher.",
+        ],
+      },
+    ],
+    checklist: [
+      "J'ai éliminé les environnements qui ne me conviennent pas.",
+      "J'ai identifié 2 ou 3 familles de métiers à explorer.",
+      "J'ai prévu au moins une action terrain (immersion, échange, événement).",
+      "J'ai choisi une prochaine étape réaliste, pas une décision définitive.",
+      "Je connais les options hors calendrier si besoin (rentrée décalée, alternance, année terrain).",
     ],
     cta: {
       href: '/que-faire-apres-le-bac',
@@ -314,62 +459,124 @@ export const supportArticleContent: SupportArticleContent[] = [
   {
     slug: 'utiliser-profil-riasec-orientation',
     intro:
-      "Un profil RIASEC n'est pas une étiquette. C'est une grille pour comprendre les environnements de travail qui risquent de te donner ou de te prendre de l'énergie.",
+      "Un profil RIASEC n'est pas une étiquette qui décide de ton métier. C'est une grille de lecture : elle t'aide à repérer les types d'environnements de travail qui risquent de te donner de l'énergie, et ceux qui risquent de te la prendre. Bien utilisé, c'est un point de départ ; mal utilisé, ça devient une case dans laquelle on s'enferme.",
+    introNote:
+      "Tu n'as pas encore ton profil ? Tu peux passer le [test d'orientation Jobmi](/test), basé sur la logique RIASEC, en quelques minutes et sans inscription.",
     sections: [
       {
-        title: 'Lire ton profil comme une tendance',
+        title: 'Ce que veulent dire les 6 lettres',
         paragraphs: [
-          "RIASEC distingue plusieurs intérêts professionnels : réaliste, investigateur, artistique, social, entreprenant et conventionnel.",
-          "Ton résultat sert à ouvrir des pistes, pas à te dire que tu dois faire un métier unique.",
+          "RIASEC distingue six grands types d'intérêts professionnels : Réaliste (concret, manuel, technique, extérieur), Investigateur (analyse, recherche, résolution de problèmes), Artistique (création, expression, originalité), Social (aide, transmission, contact humain), Entreprenant (persuasion, direction, initiative, vente) et Conventionnel (organisation, rigueur, données, procédures).",
+          "Personne n'est \"une seule lettre\". Ton résultat est un dosage : le plus souvent, 2 ou 3 dimensions ressortent plus fort. C'est la combinaison qui est parlante, pas la lettre dominante seule.",
+        ],
+      },
+      {
+        title: 'Lire ton profil comme une tendance, pas un verdict',
+        paragraphs: [
+          "Ton résultat sert à ouvrir des pistes, pas à te dire \"tu dois faire ce métier\". Deux personnes avec le même profil peuvent s'épanouir dans des métiers très différents.",
+          "Regarde surtout les écarts : une dimension très basse t'indique un type d'environnement à éviter (par exemple un score Conventionnel très bas = tu supporteras mal un poste très procédurier). C'est souvent l'info la plus utile.",
         ],
       },
       {
         title: 'Transformer le résultat en actions',
         paragraphs: [
-          "Choisis 2 familles de métiers liées à ton profil, puis vérifie-les avec des contenus, échanges, événements ou immersions.",
-          "Si ton profil est social et artistique, par exemple, compare plusieurs environnements au lieu de chercher un intitulé parfait.",
+          "Choisis 2 familles de métiers liées à ton profil. Pour chacune, note 2 ou 3 métiers réels, puis vérifie-les avec des contenus de terrain, des échanges avec des professionnels, des [événements d'orientation](/evenements-orientation) ou une [immersion courte](/tester-un-metier).",
+          "Exemple : un profil Social + Artistique peut mener vers l'animation, l'enseignement, l'ergothérapie, le design d'expérience, la médiation culturelle… Compare les environnements concrets plutôt que de chercher l'intitulé parfait.",
+        ],
+      },
+      {
+        title: 'Croiser RIASEC avec tes contraintes réelles',
+        paragraphs: [
+          "Un profil d'intérêts ne dit rien de ton niveau d'études, de ton budget, de ta mobilité ou du temps que tu peux investir. Une fois tes 2-3 familles identifiées, filtre avec ces contraintes : durée de formation acceptable, alternance possible ou non, secteur qui recrute près de chez toi.",
+          "C'est le croisement \"ce qui m'intéresse\" × \"ce qui est réaliste pour moi maintenant\" qui donne un plan actionnable.",
         ],
       },
       {
         title: 'Éviter le piège du test magique',
         paragraphs: [
-          "Un test ne remplace pas le terrain. Il t'aide à choisir quoi explorer ensuite.",
-          "La bonne séquence : résultat, hypothèses, exploration, immersion, décision.",
+          "Un test ne remplace pas le terrain. Il te dit quoi explorer en priorité, pas quoi choisir. La bonne séquence : résultat → hypothèses (2-3 familles) → exploration (contenus, échanges) → immersion → décision.",
+          "Si tu refais le test à quelques mois d'intervalle et que le résultat bouge un peu, c'est normal : tes intérêts évoluent avec tes expériences. Ce qui compte, c'est la tendance générale.",
         ],
       },
+      {
+        title: 'Questions fréquentes',
+        paragraphs: [
+          "Mon profil peut-il changer ? Oui, légèrement, au fil de tes expériences. Les grandes tendances restent en général stables.",
+          "Que faire si toutes mes dimensions sont proches ? Ça arrive. Dans ce cas, appuie-toi davantage sur le terrain : teste plusieurs environnements pour voir lequel te parle vraiment.",
+          "Le RIASEC donne-t-il une liste de métiers fiable ? Il donne des familles cohérentes, pas une liste fermée. Sers-t'en pour explorer, pas pour te limiter.",
+        ],
+      },
+    ],
+    checklist: [
+      "J'ai repéré mes 2 ou 3 dimensions dominantes et mes dimensions basses.",
+      "J'ai choisi 2 familles de métiers à explorer.",
+      "J'ai listé 2-3 métiers réels par famille.",
+      "J'ai filtré avec mes contraintes (durée, budget, mobilité).",
+      "J'ai prévu une action terrain avant de décider.",
     ],
     cta: {
       href: '/test',
       label: "Comprendre le test d'orientation",
-      text: 'La page test explique comment Jobmi utilise RIASEC pour les 18–25 ans.',
+      text: 'La page test explique comment Jobmi utilise la logique RIASEC pour les 18–25 ans.',
     },
   },
   {
     slug: 'mission-locale-orientation-jeune',
     intro:
-      "La Mission Locale accompagne les jeunes de 16 à 25 ans sur l'emploi, la formation, l'orientation, la mobilité et parfois les freins du quotidien. C'est souvent un très bon relais quand tu veux avancer concrètement.",
+      "La Mission Locale accompagne gratuitement les jeunes de 16 à 25 ans sortis du système scolaire, sur l'emploi, la formation, l'orientation, la mobilité, le logement et parfois les difficultés du quotidien. C'est souvent le meilleur relais quand tu veux passer de la réflexion à l'action concrète, surtout si tu n'es plus étudiant.",
+    introNote:
+      "Tu peux préparer ton rendez-vous en clarifiant d'abord ton profil avec le [test d'orientation Jobmi](/test) : tu arriveras avec des pistes, ce qui rend l'accompagnement beaucoup plus efficace.",
     sections: [
       {
         title: "Ce que la Mission Locale peut t'apporter",
         paragraphs: [
-          "Un conseiller peut t'aider à clarifier ton projet, trouver une immersion, comprendre les aides possibles ou reprendre confiance dans une période floue.",
-          "Ce n'est pas réservé aux jeunes qui ont déjà un projet parfait. Justement, tu peux y aller avec des questions.",
+          "Un conseiller référent peut t'aider à clarifier ton projet, à trouver une immersion ou une [PMSMP](/blog/pmsmp-18-25-tester-metier-immersion), à identifier des formations financées, à comprendre les aides auxquelles tu as droit, ou simplement à reprendre confiance dans une période floue.",
+          "Ce n'est pas réservé aux jeunes qui ont déjà un projet clair : au contraire, tu peux y aller avec des questions et sans savoir ce que tu veux faire. C'est même à ça que ça sert.",
+        ],
+      },
+      {
+        title: "Qui peut s'inscrire et comment",
+        paragraphs: [
+          "Il faut avoir entre 16 et 25 ans et être sorti de formation initiale (même sans diplôme). L'inscription est gratuite. Tu trouves la Mission Locale dont tu dépends selon ta commune ; le premier rendez-vous se prend par téléphone, en ligne ou en te présentant à l'accueil.",
+          "Après l'inscription, tu as un conseiller référent que tu revois régulièrement. L'accompagnement peut durer plusieurs mois et s'adapte à ta situation.",
+        ],
+      },
+      {
+        title: 'Les dispositifs possibles',
+        paragraphs: [
+          "Selon ton profil, un conseiller peut te proposer des ateliers (CV, entretien, projet), des immersions en entreprise, des formations financées, un accompagnement intensif type contrat d'engagement jeune, ou des aides ponctuelles (mobilité, permis, équipement, aide alimentaire).",
+          "Tout n'est pas automatique : ces dispositifs dépendent de ta situation, de ton implication et des places disponibles. Plus ton projet est précis, plus il est facile de t'orienter vers le bon dispositif.",
         ],
       },
       {
         title: 'Préparer ton premier rendez-vous',
         paragraphs: [
-          "Arrive avec ton parcours, tes contraintes, ce que tu ne veux plus et 2 ou 3 pistes même imparfaites.",
-          "Plus tu es concret, plus l'accompagnement peut devenir utile rapidement.",
+          "Arrive avec : ton parcours (études, jobs, stages), tes contraintes (mobilité, budget, santé, logement), ce que tu ne veux plus faire, et 2 ou 3 pistes même imparfaites. Apporte une pièce d'identité et, si tu les as, tes diplômes ou attestations.",
+          "Formule tes questions à l'avance : \"Comment tester tel métier ?\", \"Quelles formations sont financées près de chez moi ?\", \"Ai-je droit à une aide pour le permis ?\". Plus tu es concret, plus l'accompagnement devient utile vite.",
         ],
       },
       {
-        title: 'Faire le lien avec Jobmi',
+        title: 'Combiner Mission Locale et exploration en ligne',
         paragraphs: [
-          "Tu peux utiliser Jobmi avant ton rendez-vous pour clarifier ton profil, puis utiliser la Mission Locale pour trouver les dispositifs et contacts réels.",
-          "Les deux approches se complètent : exploration en ligne, puis action accompagnée.",
+          "Les deux approches se complètent bien : utilise Jobmi en amont pour clarifier ton profil et repérer des familles de métiers, puis la Mission Locale pour trouver les dispositifs, les contacts et les financements réels.",
+          "Tu peux aussi préparer une demande précise en regardant d'abord les [stages et formations](/stage-et-formation) et les [événements d'orientation](/evenements-orientation) près de chez toi, puis en arrivant au rendez-vous avec \"voilà ce que je veux tester, comment on fait ?\".",
         ],
       },
+      {
+        title: 'Questions fréquentes',
+        paragraphs: [
+          "Faut-il être au chômage pour aller à la Mission Locale ? Non. Il suffit d'avoir 16–25 ans et d'être sorti de formation initiale. Tu peux y aller juste pour t'orienter.",
+          "Est-ce payant ? Non, l'accompagnement est entièrement gratuit.",
+          "Et si je ne sais pas du tout quoi faire ? C'est une raison valable d'y aller. Le conseiller est là pour t'aider à défricher, pas seulement pour valider un projet déjà ficelé.",
+        ],
+      },
+    ],
+    checklist: [
+      "J'ai trouvé la Mission Locale dont je dépends et pris un premier rendez-vous.",
+      "J'ai préparé mon parcours, mes contraintes et 2-3 pistes.",
+      "J'ai clarifié mon profil en amont (test, familles de métiers).",
+      "J'ai listé mes questions concrètes pour le conseiller.",
+      "Je sais quelle première action je veux enclencher (immersion, formation, aide).",
     ],
     cta: {
       href: '/stage-et-formation',
