@@ -3,7 +3,13 @@
 **Date:** 2026-09-03 (re-run after DNS fix)
 **Target:** https://jobmi.fr
 **Audit type:** Full site audit (LLM-first + script-backed)
-**Overall score:** **79 / 100 — Good**
+**Overall score at audit time:** **79 / 100 — Good**
+
+> **Update 2026-09-04:** F1 (HowTo), F3 (logo), F4 (og:image), F5 (og:title),
+> F6 (security headers), F8 (author `<h2>`) and F11 (Node 24) are **fixed and
+> deployed**. Email DNS restored. See `ACTION-PLAN.md` for what remains
+> (Search Console resubmit, images/CLS, robots AI blocks, llms.txt line,
+> per-article pass, CWV measurement).
 
 > ✅ **The P0 blocker from the earlier run is resolved.** `jobmi.fr` now serves
 > the real Next.js app from Vercel over a valid, auto-renewing Let's Encrypt

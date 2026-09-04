@@ -29,25 +29,62 @@ import { InternalLinksSection } from '../../../components/InternalLinksSection';
 import { getInternalLinksForArticle } from '../../../data/internalLinks';
 
 const BASE_URL = 'https://jobmi.fr';
+// SEO <title> per article (before the " | Jobmi" template suffix).
+// Kept short (~52 chars max) so the rendered title isn't truncated in SERPs.
+// The on-page H1 stays the longer, reader-facing `article.title`.
 const articleSeoTitleOverrides: Record<string, string> = {
+  'comment-commencer-ta-reconversion-professionnelle':
+    'Reconversion : 5 questions avant de te lancer',
+  'comment-trouver-le-job-de-tes-reves-a-20-ans-guide-ultime-pour-jeunes-en-reconversion':
+    'Trouver le job de tes rêves à 20 ans : le guide',
+  'top-10-des-metiers-cool-pour-2026-que-tu-dois-connaitre':
+    'Top 10 des métiers cool pour 2026',
   'reconversion-professionnelle-20-ans-guide-complet':
-    'Plan d’action reconversion à 20 ans : quoi faire en 30 jours',
-  'metiers-ia-ne-remplacera-pas-2030':
-    '10 métiers que l’IA ne remplacera pas en 2026–2030 (salaires + formations)',
-  'nouveaux-metiers-crees-par-ia':
-    "10 nouveaux métiers créés par l'IA 2026 (salaires + formations accessibles)",
-  'comment-ia-booste-ton-futur-metier':
-    "Comment l'IA booste 15 métiers concrets (exemples 2026)",
+    'Reconversion à 20 ans : ton plan en 30 jours',
+  'metiers-sans-diplome-qui-paient-bien':
+    'Métiers sans diplôme qui paient bien (2026)',
+  'bilan-de-competences-gratuit-guide':
+    'Bilan de compétences gratuit : le guide 2026',
+  'financer-sa-formation-sans-cpf':
+    'Financer sa formation sans CPF : 8 solutions',
+  'alternance-ou-formation-continue-que-choisir':
+    'Alternance ou formation continue : que choisir ?',
+  'metiers-avenir-2026-qui-recrutent':
+    '15 métiers d’avenir en 2026 qui recrutent',
+  'devenir-developpeur-web-sans-diplome':
+    'Développeur web sans diplôme : le guide 2026',
+  'utiliser-cpf-compte-personnel-formation':
+    'Utiliser son CPF en 2026 : le guide complet',
+  'trouver-stage-reconversion-methode':
+    'Trouver un stage en reconversion : la méthode',
   'pmsmp-18-25-tester-metier-immersion':
-    'PMSMP 18–25 ans : comment tester un métier en immersion avant de te reconvertir',
+    'PMSMP 18–25 ans : tester un métier en immersion',
+  'reconversion-apres-une-l1':
+    'Réorientation après une L1 : que faire ?',
+  'erreurs-reconversion-jeune':
+    'Reconversion jeune : les erreurs à éviter',
+  'financer-reconversion-jeune':
+    'Financer sa reconversion quand on est jeune',
+  'comment-preparer-une-immersion-metier':
+    'Préparer une immersion métier : le guide',
   'orientation-post-bac-sans-parcoursup':
-    'Orientation post‑bac sans Parcoursup : 6 vraies options en 2026',
+    'Orientation post-bac sans Parcoursup : 6 options',
+  'utiliser-profil-riasec-orientation':
+    'Profil RIASEC : comment choisir ta voie',
+  'mission-locale-orientation-jeune':
+    'Mission Locale et orientation : mode d’emploi',
+  'metiers-ia-ne-remplacera-pas-2030':
+    'Métiers que l’IA ne remplacera pas d’ici 2030',
+  'nouveaux-metiers-crees-par-ia':
+    '10 nouveaux métiers créés par l’IA (2026)',
+  'comment-ia-booste-ton-futur-metier':
+    'Comment l’IA va booster ton futur métier',
   'resultats-parcoursup-2026':
-    'Résultats Parcoursup 2026 : que faire si tu es en attente, refusé ou sans réponse ?',
+    'Résultats Parcoursup 2026 : en attente ou refusé ?',
   'resultats-mon-master-2026':
-    "Résultats Mon Master 2026 : que faire si tu n'as aucune proposition (ou que des refus) ?",
+    'Résultats Mon Master 2026 : aucune proposition ?',
   'parcoursup-gerer-stress-resultats':
-    "Parcoursup : comment gérer le stress des résultats (et la pression autour)",
+    'Parcoursup : gérer le stress des résultats',
 };
 
 const articleFaqSchemaBySlug: Record<string, { '@context': string; '@type': string; mainEntity: Array<{ '@type': string; name: string; acceptedAnswer: { '@type': string; text: string } }> }> = {
