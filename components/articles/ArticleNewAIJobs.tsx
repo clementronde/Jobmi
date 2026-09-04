@@ -129,8 +129,16 @@ export function ArticleNewAIJobs() {
           Ces métiers tournent autour de trois besoins : faire marcher l’IA,
           l’intégrer dans les entreprises, et la rendre sûre, utile et humaine.
           Bonne nouvelle si tu as 18–25 ans : tu peux commencer maintenant par un
-          mini-projet, une formation courte, une alternance, un stage ou une
-          mission freelance ciblée.
+          mini-projet, une formation courte, une{' '}
+          <Link href="/blog/alternance-ou-formation-continue-que-choisir" className="font-semibold text-[#6500FF] underline decoration-[#C9B6FF] underline-offset-4">
+            alternance
+          </Link>
+          , un stage ou une mission freelance ciblée. Si tu hésites encore sur ta
+          direction, commence par le{' '}
+          <Link href="/test" className="font-semibold text-[#6500FF] underline decoration-[#C9B6FF] underline-offset-4">
+            test d’orientation
+          </Link>
+          .
         </p>
         <div className="mt-6 rounded-2xl bg-[#F8F7FF] p-5">
           <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#6500FF]">
@@ -214,7 +222,12 @@ export function ArticleNewAIJobs() {
           <p>Si tu aimes justice, règles et impact humain : regarde data ethicist ou conformité IA.</p>
           <p>
             Le bon choix ne se fait pas seulement avec un salaire. Il se teste
-            avec un projet, un portfolio et un premier contact terrain.
+            avec un projet, un portfolio et un premier contact terrain — par
+            exemple via une{' '}
+            <Link href="/tester-un-metier" className="font-semibold text-[#6500FF] underline decoration-[#C9B6FF] underline-offset-4">
+              immersion ou un échange métier
+            </Link>
+            .
           </p>
         </div>
       </section>

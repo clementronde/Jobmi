@@ -46,8 +46,8 @@ Audit score at re-run: 79/100 (Good) — several items below now fixed.
 | # | Action | Effort | Impact |
 |---|---|---|---|
 | A8 | **Images** — set `alt="Jobmi"` on the logo (currently `alt="Logo"`); add explicit `width`/`height` (or `next/image`) to non-decorative images to kill layout shift; keep `alt=""` + `aria-hidden` only on decorative SVGs. | Medium | Medium (CLS, image search) |
-| A9 | **robots.txt** — add explicit `User-agent` blocks for `GPTBot`, `ClaudeBot`, `PerplexityBot`, `Google-Extended` (etc.) with `Allow: /`, mirroring the `*` disallows. Makes AI-crawler intent deliberate (you already ship a good `llms.txt`). | Low | Low |
-| A10 | **llms.txt** — add the `> one-line description` blockquote under `# Jobmi`. Optionally generate `llms-full.txt`. | Low | Low |
+| ~~A9~~ ✅ | ~~**robots.txt** — add explicit `User-agent` blocks for `GPTBot`, `ClaudeBot`, `PerplexityBot`, `Google-Extended` (etc.) with `Allow: /`, mirroring the `*` disallows.~~ **DONE 2026-09-04** — GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-Web, PerplexityBot, Google-Extended all explicitly `Allow: /`. | Low | Low |
+| ~~A10~~ ✅ | ~~**llms.txt** — add the `> description` blockquote.~~ **DONE 2026-09-04**. `llms-full.txt` still optional. | Low | Low |
 | A11 | **Core Web Vitals** — re-run `scripts/pagespeed.py https://jobmi.fr --strategy mobile` (was API-rate-limited during the audit), then track field data in Search Console. Targets: LCP < 2.5s, INP < 200ms, CLS < 0.1. | Low | Diagnostic |
 | A12 | **Per-article SEO pass** — run `/seo article https://jobmi.fr/blog/<slug>` on the 29 blog URLs: title/meta length, one H1, heading hierarchy, target-keyword coverage, 2+ internal links, `dateModified` freshness, answer-engine-friendly intro. | High | Medium-High |
 

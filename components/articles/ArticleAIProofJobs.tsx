@@ -200,9 +200,16 @@ export function ArticleAIProofJobs() {
           qui fait la force humaine : empathie, débrouille terrain, créativité
           personnelle et jugement complexe. Ces métiers sont accessibles sans
           bac+5 pour beaucoup d’entre eux, souvent via apprentissage, diplôme
-          d’État, CAP, BPJEPS ou formations courtes. Et surtout : tu peux les
-          tester avec une PMSMP, un stage d’observation, une journée découverte
-          ou un échange métier avant de t’engager.
+          d’État, CAP, BPJEPS ou formations courtes. Et surtout : tu peux les{' '}
+          <Link href="/tester-un-metier" className="font-semibold text-[#6500FF] underline decoration-[#C9B6FF] underline-offset-4">
+            tester sur le terrain
+          </Link>{' '}
+          avec une{' '}
+          <Link href="/blog/pmsmp-18-25-tester-metier-immersion" className="font-semibold text-[#6500FF] underline decoration-[#C9B6FF] underline-offset-4">
+            PMSMP
+          </Link>
+          , un stage d’observation, une journée découverte ou un échange métier
+          avant de t’engager.
         </p>
         <div className="mt-6 rounded-2xl bg-[#F8F7FF] p-5">
           <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#6500FF]">
@@ -298,9 +305,16 @@ export function ArticleAIProofJobs() {
             créativité ou le terrain comptent vraiment.
           </p>
           <p>
-            Prochaine étape : choisis 2 ou 3 métiers dans cette liste, puis teste
-            si l’un d’eux te correspond avec une immersion, une PMSMP ou un
-            échange professionnel.
+            Prochaine étape : fais le{' '}
+            <Link href="/test" className="font-semibold text-[#6500FF] underline decoration-[#C9B6FF] underline-offset-4">
+              test d’orientation
+            </Link>{' '}
+            pour dégager 2 ou 3 familles de métiers, puis teste si l’un d’eux te
+            correspond avec une{' '}
+            <Link href="/tester-un-metier" className="font-semibold text-[#6500FF] underline decoration-[#C9B6FF] underline-offset-4">
+              immersion
+            </Link>{' '}
+            ou un échange professionnel.
           </p>
         </div>
       </section>

@@ -12,4 +12,61 @@ Disallow: /me-connecter/
 Disallow: /*?callbackUrl=
 Disallow: /*?error=
 
+# AI / LLM crawlers — explicitly allowed (see /llms.txt)
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /profil
+Disallow: /profile
+Disallow: /inscription
+Disallow: /me-connecter
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /profil
+Disallow: /profile
+Disallow: /inscription
+Disallow: /me-connecter
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Disallow: /profil
+Disallow: /profile
+Disallow: /inscription
+Disallow: /me-connecter
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /profil
+Disallow: /profile
+Disallow: /inscription
+Disallow: /me-connecter
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /api/
+Disallow: /profil
+Disallow: /profile
+Disallow: /inscription
+Disallow: /me-connecter
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /profil
+Disallow: /profile
+Disallow: /inscription
+Disallow: /me-connecter
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /api/
+Disallow: /profil
+Disallow: /profile
+Disallow: /inscription
+Disallow: /me-connecter
+
 Sitemap: https://jobmi.fr/sitemap.xml

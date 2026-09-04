@@ -81,7 +81,12 @@ The 7 `GenericSupportArticle` pages were expanded (~+85% each) in
 
 ---
 
-## Fix 4 — Add in-body contextual internal links
+## Fix 4 — Add in-body contextual internal links — ✅ DONE 2026-09-04
+
+The two AI articles (`metiers-ia-ne-remplacera-pas-2030`, `nouveaux-metiers-crees-par-ia`)
+now carry 3–4 contextual links in the prose (`/test`, `/tester-un-metier`,
+`/blog/pmsmp-18-25-tester-metier-immersion`, `/blog/alternance-ou-formation-continue-que-choisir`).
+The other rows below are lower priority (1 in-body link, footer blocks compensate).
 
 Footer link blocks exist, but these long articles have **0–1 contextual links**
 inside the prose. Add 2–3 links from the body to a relevant pillar

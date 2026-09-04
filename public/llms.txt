@@ -1,5 +1,7 @@
 # Jobmi
 
+> French orientation and reconversion platform for 18–25 year-olds: a free RIASEC-style orientation test, real-world job immersions (PMSMP, stages d'observation, jobshadowing), an orientation events map, and practical editorial guides. Method: clarify your profile first, test the field before committing.
+
 Jobmi is a French orientation, reorientation, and early-career guidance platform for people aged 18 to 25. The product helps users understand their profile, explore career paths, test jobs in real life before committing, and compare training or immersion options with less guesswork.
 
 The platform is designed for young adults who are still searching for direction, considering a change after a first study choice, or starting a reconversion early. Typical users include high-school graduates, students in doubt, young professionals, job seekers, and people who want to avoid committing to a training program or career path they do not really understand yet.
