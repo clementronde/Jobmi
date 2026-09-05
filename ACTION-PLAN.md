@@ -40,7 +40,7 @@ Audit score at re-run: 79/100 (Good) — several items below now fixed.
 ### P1 — verify (probably a 5-min check)
 | # | Action | Notes |
 |---|---|---|
-| A13 | **Google Search Console** | Confirm `jobmi.fr` property is verified (the 3 `google-site-verification` TXT are in DNS). Sitemaps → resubmit `https://jobmi.fr/sitemap.xml`. URL Inspection → "Request indexing" for the homepage + top articles (the site served an error page to Googlebot for several days). Watch the Pages/Coverage report over 1–2 weeks. |
+| A13 | **Google Search Console** | ⚠️ The 3 `google-site-verification` TXT records were LOST in the 2026-09 nameserver migration and not re-added — the property may now be unverified. Re-verify (DNS TXT or HTML method). Sitemaps → resubmit `https://jobmi.fr/sitemap.xml`. URL Inspection → "Request indexing" for the homepage + top articles (the site served an error page to Googlebot for several days). Watch the Pages/Coverage report over 1–2 weeks. |
 
 ### P3 — optimization (code, batchable into one deploy)
 | # | Action | Effort | Impact |
