@@ -22,6 +22,7 @@ import { GenericSupportArticle } from '../../../components/articles/GenericSuppo
 import { ArticleParcoursup } from '../../../components/articles/ArticleParcoursup';
 import { ArticleMonMaster } from '../../../components/articles/ArticleMonMaster';
 import { ArticleParcoursupStress } from '../../../components/articles/ArticleParcoursupStress';
+import { ArticleParcoursupCalendrier2027 } from '../../../components/articles/ArticleParcoursupCalendrier2027';
 import { RelatedArticles } from '../../../components/RelatedArticles';
 import ArticleTOC from '../../../components/ArticleTOC';
 import { ArticleAuthorBox, ARTICLE_AUTHOR } from '../../../components/ArticleAuthorBox';
@@ -33,6 +34,8 @@ const BASE_URL = 'https://jobmi.fr';
 // Kept short (~52 chars max) so the rendered title isn't truncated in SERPs.
 // The on-page H1 stays the longer, reader-facing `article.title`.
 const articleSeoTitleOverrides: Record<string, string> = {
+  'calendrier-parcoursup-2027':
+    'Calendrier Parcoursup 2027 : toutes les dates',
   'comment-commencer-ta-reconversion-professionnelle':
     'Reconversion : 5 questions avant de te lancer',
   'comment-trouver-le-job-de-tes-reves-a-20-ans-guide-ultime-pour-jeunes-en-reconversion':
@@ -88,6 +91,60 @@ const articleSeoTitleOverrides: Record<string, string> = {
 };
 
 const articleFaqSchemaBySlug: Record<string, { '@context': string; '@type': string; mainEntity: Array<{ '@type': string; name: string; acceptedAnswer: { '@type': string; text: string } }> }> = {
+  'calendrier-parcoursup-2027': {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Quand ouvre Parcoursup 2027 ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Le site d'information sur les formations ouvre vers mi-novembre 2026. Les inscriptions et la formulation des vœux commencent vers mi-janvier 2027 (dates prévisionnelles, à confirmer avec le calendrier officiel publié par le ministère fin 2026).",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Combien de vœux peut-on faire sur Parcoursup ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "10 vœux maximum pour des formations sous statut étudiant, plus jusqu'à 10 vœux en apprentissage qui ne sont pas décomptés. Pour les vœux multiples, la limite est de 20 sous-vœux au total.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Quand tombent les résultats Parcoursup 2027 ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Les premières réponses arrivent vers début juin 2027, puis en continu tout l'été au fil des désistements. La phase principale se termine mi-juillet, la phase complémentaire mi-septembre.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Que se passe-t-il si je ne réponds pas dans les délais ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Sans réponse dans le délai imparti, tu perds la proposition et les vœux en attente qui y sont liés. Le répondeur automatique permet de répondre à ta place selon un ordre de préférence que tu as défini.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Peut-on s'inscrire sur Parcoursup après la date limite des vœux ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Non pour la phase principale. Mais la phase complémentaire, ouverte de mi-juin à mi-septembre, permet de formuler de nouveaux vœux sur les places encore disponibles.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Je n'ai que des refus, que faire ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Tu peux saisir la commission d'accès à l'enseignement supérieur (CAES) de ton académie via Parcoursup, candidater dans des formations hors Parcoursup (écoles, bachelors, BTS en école, titres RNCP) ou construire une année terrain structurée (PMSMP, service civique, stages).",
+        },
+      },
+    ],
+  },
   'orientation-post-bac-sans-parcoursup': {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -509,6 +566,7 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
           {slug === "trouver-stage-reconversion-methode" && <Article13 />}
           {slug === "pmsmp-18-25-tester-metier-immersion" && <Article14 />}
           {slug === "resultats-parcoursup-2026" && <ArticleParcoursup />}
+          {slug === "calendrier-parcoursup-2027" && <ArticleParcoursupCalendrier2027 />}
           {slug === "resultats-mon-master-2026" && <ArticleMonMaster />}
           {slug === "parcoursup-gerer-stress-resultats" && <ArticleParcoursupStress />}
           {slug === "metiers-ia-ne-remplacera-pas-2030" && <ArticleAIProofJobs />}
