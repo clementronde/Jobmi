@@ -7,22 +7,22 @@ const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/reconversion`;
 
 export const metadata: Metadata = {
-  title: "Reconversion professionnelle à 20 ans — Guide complet pour jeunes",
+  title: "Réorientation & reconversion professionnelle : le guide",
   description:
-    "Changer de voie à 20 ans, c'est possible et souvent le meilleur moment. Guide complet : par où commencer, comment financer, erreurs à éviter.",
+    "Réorientation professionnelle, reconversion, changement de carrière à 18-25 ans : par où commencer, comment financer, quoi tester avant de te lancer.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: 'website',
     url: PAGE_URL,
-    title: "Reconversion professionnelle à 20 ans | Jobmi",
+    title: "Réorientation & reconversion professionnelle | Jobmi",
     description:
-      "Guide complet pour les 18–25 ans qui veulent changer de voie sans se tromper.",
+      "Le guide complet pour te réorienter ou te reconvertir à 18-25 ans sans te tromper.",
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Reconversion professionnelle à 20 ans | Jobmi",
+    title: "Réorientation & reconversion professionnelle | Jobmi",
     description:
-      "Guide complet pour changer de voie à 20 ans sans se tromper.",
+      "Le guide complet pour te réorienter ou te reconvertir sans te tromper.",
   },
 };
 
@@ -76,6 +76,14 @@ const faqJsonLd = {
       acceptedAnswer: {
         '@type': 'Answer',
         text: "Dans la plupart des cas, non. Essaie d’abord de clarifier ton projet, de tester le métier et d’identifier les solutions de financement ou de formation avant de couper les ponts. Quitter trop tôt sans plan peut te mettre sous pression et te pousser vers une décision précipitée. Quand c’est possible, prépare ta reconversion en parallèle de ta situation actuelle, puis bascule seulement quand ton projet devient plus solide.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Réorientation professionnelle et reconversion, est-ce la même chose ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Dans le langage courant, les deux termes se recoupent largement : on parle de réorientation professionnelle plutôt en début de parcours (après le bac, une licence ou une première expérience courte), et de reconversion plutôt après plusieurs années dans un métier. Sur le fond, la méthode est la même : faire le point sur toi, explorer des pistes, tester avant de t'engager, puis financer ton nouveau parcours. Jobmi s'adresse en priorité aux 18–25 ans, mais les étapes de cette page restent valables à tout âge.",
       },
     },
     {
@@ -304,20 +312,20 @@ export default function ReconversionPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-24">
           <div className="max-w-5xl">
             <span className="fade-up font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF] mb-8 block">
-              Guide 18–25 ans
+              Réorientation & reconversion — 18–25 ans
             </span>
 
             <h1 className="fade-up fade-delay-1 font-sans font-bold text-[#04192F] text-[2.9rem] sm:text-[4rem] lg:text-[5rem] leading-[0.96] text-balance">
-              Se reconvertir à 20 ans, pourquoi c’est souvent le meilleur moment
+              Réorientation professionnelle : se reconvertir à 20 ans, pourquoi c’est souvent le meilleur moment
             </h1>
 
             <div className="fade-up fade-delay-2 mt-8 max-w-2xl space-y-5">
               <p className="font-sans text-gray-500 text-lg sm:text-xl leading-relaxed">
-                Changer de voie, ça se prépare. Guide complet pour les 18–25 ans qui veulent avancer sans se tromper, ni perdre des années dans une direction qui ne leur correspond pas.
+                Envie de te réorienter ou de changer de métier ? Ça se prépare. Guide complet pour les 18–25 ans qui veulent avancer sans se tromper, ni perdre des années dans une direction qui ne leur correspond pas.
               </p>
 
               <p className="font-sans text-gray-500 text-lg sm:text-xl leading-relaxed">
-                Par où commencer, comment financer, quoi tester, quelles erreurs éviter : voici une méthode simple pour remettre ton projet professionnel sur de bons rails.
+                Par où commencer ta réorientation professionnelle, comment la financer, quoi tester, quelles erreurs éviter : voici une méthode simple pour remettre ton projet professionnel sur de bons rails.
               </p>
             </div>
 
@@ -378,16 +386,16 @@ export default function ReconversionPage() {
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-12 items-start">
           <div className="flex-1">
             <h2 className="font-sans font-bold text-3xl sm:text-4xl text-[#04192F] leading-tight mb-6">
-              Non, se reconvertir jeune n’est pas une erreur
+              Non, vouloir te réorienter jeune n’est pas une erreur
             </h2>
 
             <div className="font-sans text-gray-600 space-y-4 text-lg leading-relaxed">
               <p>
-                Le système scolaire demande souvent de choisir très tôt, parfois avant même d’avoir eu le temps de se connaître vraiment. Résultat : beaucoup de jeunes avancent dans une voie choisie trop vite, mal testée ou simplement pas faite pour eux.
+                Le système scolaire demande souvent de choisir très tôt, parfois avant même d’avoir eu le temps de se connaître vraiment. Résultat : beaucoup de jeunes avancent dans une voie choisie trop vite, mal testée ou simplement pas faite pour eux — et se retrouvent à chercher une vraie réorientation professionnelle dès 20 ans.
               </p>
 
               <p>
-                Se reconvertir à 20 ans, ce n’est pas “repartir de zéro” : c’est corriger une direction trop hâtive. Et c’est souvent beaucoup plus simple à 20 ans qu’à 35, parce que tu as encore de la souplesse pour tester, ajuster et rebondir.
+                Se reconvertir ou se réorienter à 20 ans, ce n’est pas “repartir de zéro” : c’est corriger une direction trop hâtive. Et c’est souvent beaucoup plus simple à 20 ans qu’à 35, parce que tu as encore de la souplesse pour tester, ajuster et rebondir.
               </p>
 
               <p>
@@ -703,7 +711,7 @@ export default function ReconversionPage() {
         <div className="max-w-4xl mx-auto">
           <div className="max-w-3xl">
             <h2 className="fade-up font-sans font-bold text-3xl text-[#04192F] mb-10">
-              Questions fréquentes sur la reconversion à 20 ans
+              Questions fréquentes sur la réorientation et la reconversion à 20 ans
             </h2>
 
             <div className="space-y-3">
