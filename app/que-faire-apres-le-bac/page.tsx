@@ -199,6 +199,18 @@ const links = [
     label: 'Terrain',
   },
   {
+    href: '/blog/que-faire-apres-le-bac-sans-idee',
+    title: "Aucune idée de métier après le bac ?",
+    description: 'La méthode pour avancer sans choisir une voie par défaut, étape par étape.',
+    label: 'Guide',
+  },
+  {
+    href: '/blog/orientation-post-bac-sans-parcoursup',
+    title: 'Se réorienter sans (ou hors) Parcoursup',
+    description: '6 options concrètes si tu ne veux plus dépendre de la plateforme.',
+    label: 'Guide',
+  },
+  {
     href: '/evenements-orientation',
     title: "Agenda des événements d'orientation",
     description: 'Repère les salons, JPO, forums et ateliers utiles selon ta ville et ton niveau de clarté.',
