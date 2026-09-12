@@ -15,22 +15,22 @@ const WAITINGLIST_URL =
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Stages et immersions pour les 18–25 ans | Tester un métier",
+  title: "Stage d'immersion, PMSMP, alternance : tester un métier",
   description:
-    "Stages d'observation, PMSMP, immersions métier, alternance : compare les formats pour tester un métier et choisir une formation utile quand tu as 18–25 ans.",
+    "Stage d'immersion, PMSMP ou alternance : compare les formats pour découvrir un métier avant de choisir ta formation, avec les offres à explorer dès maintenant.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: 'website',
     url: PAGE_URL,
-    title: "Stages et immersions pour les 18–25 ans | Jobmi",
+    title: "Stage d'immersion, PMSMP, alternance | Jobmi",
     description:
-      "Jobmi prépare ses premières immersions avec des entreprises partenaires. En attendant, explore les secteurs et les bonnes étapes pour tester un métier.",
+      "Compare les formats d'immersion et les pistes de formation pour tester un métier avant de t'engager.",
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Stages et immersions métier | Jobmi",
+    title: "Stage d'immersion, PMSMP, alternance | Jobmi",
     description:
-      "Explore les formats d'immersion et les pistes de formation pour choisir avec plus de concret.",
+      "Compare les formats d'immersion pour tester un métier avant de choisir ta formation.",
   },
 };
 
@@ -39,9 +39,9 @@ const collectionJsonLd = {
   '@type': 'CollectionPage',
   '@id': `${PAGE_URL}/#webpage`,
   url: PAGE_URL,
-  name: 'Immersions métier et pistes de formation | Jobmi',
+  name: "Stage d'immersion, PMSMP et pistes de formation | Jobmi",
   description:
-    "Ressources pour découvrir les secteurs, préparer une immersion métier et choisir une formation avec plus de concret.",
+    "Ressources pour découvrir les secteurs, préparer un stage d'immersion ou une PMSMP, et choisir une formation avec plus de concret.",
   isPartOf: { '@id': `${BASE_URL}/#website` },
   inLanguage: 'fr-FR',
 };
@@ -106,6 +106,14 @@ const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
+    {
+      '@type': 'Question',
+      name: "Qu’est-ce qu’un stage d’immersion professionnelle exactement ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Un stage d’immersion (souvent organisé sous forme de PMSMP, période de mise en situation en milieu professionnel) te permet d’observer le quotidien d’un métier en entreprise, sur quelques jours, sans engagement ni contrat de travail. Ce n’est ni un stage diplômant classique ni une embauche : le but est uniquement de vérifier que le métier te correspond avant de t’engager dans une formation ou une reconversion.",
+      },
+    },
     {
       '@type': 'Question',
       name: "Comment savoir si j’ai besoin d’une immersion avant de choisir une formation ?",
@@ -320,10 +328,10 @@ export default function StageEtFormation() {
         <section className="mx-auto max-w-screen-xl px-6 pb-12 pt-4 sm:px-10">
           <div className="mx-auto max-w-[820px] text-center">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.22em] text-[#6500FF]">
-              Immersions bientôt disponibles
+              Stage d'immersion, PMSMP & alternance
             </p>
             <h1 className="text-4xl font-bold leading-tight text-[#04192F] sm:text-5xl lg:text-6xl">
-              Stages et immersions pour tester un métier avant ta formation
+              Stage d'immersion, PMSMP, alternance : teste un métier avant ta formation
             </h1>
           <img
             src="/media/home-temoignage-soulignage-titre.svg"
