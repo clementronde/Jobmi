@@ -23,6 +23,7 @@ import { ArticleParcoursup } from '../../../components/articles/ArticleParcoursu
 import { ArticleMonMaster } from '../../../components/articles/ArticleMonMaster';
 import { ArticleParcoursupStress } from '../../../components/articles/ArticleParcoursupStress';
 import { ArticleParcoursupCalendrier2027 } from '../../../components/articles/ArticleParcoursupCalendrier2027';
+import { ArticleAlternanceSansContrat2026 } from '../../../components/articles/ArticleAlternanceSansContrat2026';
 import { RelatedArticles } from '../../../components/RelatedArticles';
 import ArticleTOC from '../../../components/ArticleTOC';
 import { ArticleAuthorBox, ARTICLE_AUTHOR } from '../../../components/ArticleAuthorBox';
@@ -36,6 +37,8 @@ const BASE_URL = 'https://jobmi.fr';
 const articleSeoTitleOverrides: Record<string, string> = {
   'calendrier-parcoursup-2027':
     'Calendrier Parcoursup 2027 : toutes les dates',
+  'alternance-sans-contrat-rentree-2026':
+    'Alternance sans contrat à la rentrée : que faire',
   'comment-commencer-ta-reconversion-professionnelle':
     'Reconversion : 5 questions avant de te lancer',
   'comment-trouver-le-job-de-tes-reves-a-20-ans-guide-ultime-pour-jeunes-en-reconversion':
@@ -367,6 +370,52 @@ const articleFaqSchemaBySlug: Record<string, { '@context': string; '@type': stri
       },
     ],
   },
+  'alternance-sans-contrat-rentree-2026': {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: "Je n'ai pas de contrat d'alternance à la rentrée, est-ce grave ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Non. La rentrée 2026 est particulièrement tendue (offres en baisse, plus de candidats), et beaucoup d'étudiants sont dans ta situation. La plupart des CFA laissent plusieurs semaines, parfois jusqu'à 3 mois, pour trouver une entreprise après le début des cours.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Peut-on commencer sa formation en CFA sans avoir signé de contrat ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Dans beaucoup de cas oui, sous certaines conditions qui varient selon l'établissement (durée maximale, justificatifs de recherche active). Renseigne-toi directement auprès de ton CFA sur ses règles précises.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Jusqu'à quand peut-on trouver une entreprise d'alternance après la rentrée ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "De nouvelles offres continuent d'être publiées entre septembre et novembre selon les besoins des entreprises. Le délai maximum accepté par la plupart des CFA tourne autour de 3 mois après la rentrée, mais vérifie toujours la règle exacte de ton établissement.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Qui peut m'aider gratuitement à trouver une alternance ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "La Mission Locale (16-25 ans), France Travail et certains dispositifs régionaux proposent un accompagnement gratuit : aide à la candidature, mise en relation avec des entreprises, suivi personnalisé.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Que faire si je ne trouve vraiment aucune entreprise ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "Regarde les alternatives : une formation initiale avec stage plutôt qu'en alternance, un contrat de professionnalisation, ou l'utilisation de ton CPF si tu as déjà travaillé. Si la recherche traîne depuis plusieurs mois malgré une méthode sérieuse, ça vaut aussi le coup de vérifier que le métier visé est le bon avant de continuer.",
+        },
+      },
+    ],
+  },
 };
 
 const genericSupportArticleSlugs = new Set([
@@ -567,6 +616,7 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
           {slug === "pmsmp-18-25-tester-metier-immersion" && <Article14 />}
           {slug === "resultats-parcoursup-2026" && <ArticleParcoursup />}
           {slug === "calendrier-parcoursup-2027" && <ArticleParcoursupCalendrier2027 />}
+          {slug === "alternance-sans-contrat-rentree-2026" && <ArticleAlternanceSansContrat2026 />}
           {slug === "resultats-mon-master-2026" && <ArticleMonMaster />}
           {slug === "parcoursup-gerer-stress-resultats" && <ArticleParcoursupStress />}
           {slug === "metiers-ia-ne-remplacera-pas-2030" && <ArticleAIProofJobs />}
