@@ -60,7 +60,7 @@ export const HomeHero = () => {
         {/* ── Colonne droite — image pleine hauteur ──────────────────── */}
         <div className="relative lg:w-[45%] min-h-[380px] lg:min-h-0 overflow-hidden">
           <Image
-            src="/media/accueil-femmes-1.svg"
+            src="/media/accueil-femmes-1.webp"
             alt="Jeunes de 18 à 25 ans trouvant leur orientation et reconversion professionnelle avec Jobmi"
             fill
             className="object-cover"
@@ -70,7 +70,7 @@ export const HomeHero = () => {
 
           {/* Badge flottant */}
           <div className="absolute bottom-8 left-6 bg-white rounded-2xl px-5 py-4 shadow-xl max-w-[210px]">
-            <p className="text-3xl font-bold text-[#04192F] leading-none mb-1">15 min</p>
+            <p className="text-3xl font-bold text-[#04192F] leading-none mb-1">6-8 min</p>
             <p className="text-[11px] text-gray-400 leading-snug">
               Pour découvrir les métiers faits pour toi — gratuitement.
             </p>

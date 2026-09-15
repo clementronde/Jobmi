@@ -7,7 +7,7 @@ const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/ateliers-decouverte`;
 
 export const metadata: Metadata = {
-  title: 'Ateliers, semaines découverte et immersions métier — Jobmi',
+  title: 'Ateliers, semaines découverte et immersions métier',
   description:
     "Ateliers artisanat, semaines découverte métiers, journées en école, stages d'immersion : toutes les expériences pour tester un métier avant de choisir une formation.",
   alternates: { canonical: PAGE_URL },

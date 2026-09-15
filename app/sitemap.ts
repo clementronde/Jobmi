@@ -133,6 +133,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/ateliers-decouverte`,
+      lastModified: new Date('2026-04-01'),
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    },
+    {
       url: `${baseUrl}/que-faire-apres-le-bac`,
       lastModified: new Date('2026-04-01'),
       changeFrequency: 'weekly',
@@ -163,12 +169,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const eventPages: MetadataRoute.Sitemap = orientationEvents
     .filter((event) => event.seo_indexable)
-    .map((event) => ({
-      url: `${baseUrl}/evenements/${event.slug}`,
-      lastModified: new Date(event.date_end || event.date_start),
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-    }));
+    .map((event) => {
+      const eventDate = new Date(event.date_end || event.date_start);
+      return {
+        url: `${baseUrl}/evenements/${event.slug}`,
+        lastModified: eventDate < today ? eventDate : today,
+        changeFrequency: 'weekly' as const,
+        priority: 0.7,
+      };
+    });
 
   const geoSeoPages: MetadataRoute.Sitemap = geoPages.map((page) => ({
     url: `${baseUrl}/${page.slug}`,

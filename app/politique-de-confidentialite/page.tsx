@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Politique de Confidentialité | Jobmi',
+  title: 'Politique de Confidentialité',
   description: 'Consultez la politique de confidentialité du site Jobmi.',
   alternates: { canonical: 'https://jobmi.fr/politique-de-confidentialite' },
   robots: { index: false, follow: false },

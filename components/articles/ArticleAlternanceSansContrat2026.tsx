@@ -107,7 +107,7 @@ export const ArticleAlternanceSansContrat2026 = () => {
           <p className="mt-3 text-base leading-8 text-[#465160]">
             Une recherche qui traîne est parfois le signe que le métier ciblé ne te
             correspond pas complètement — ou que tu candidates sans conviction, ce
-            qui se sent en entretien. Si le doute s&apos;installe, prends 15 minutes
+            qui se sent en entretien. Si le doute s&apos;installe, prends 6 à 8 minutes
             pour faire un{' '}
             <Link href="/test" className={extLink}>
               test d&apos;orientation gratuit

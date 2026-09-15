@@ -1,45 +1,9 @@
 import Link from 'next/link';
 import type { ImmersionOffer } from '@/data/immersionOffers';
 
-const BASE_URL = 'https://jobmi.fr';
-
 export function ImmersionOfferPageTemplate({ offer }: { offer: ImmersionOffer }) {
-  const jobPostingJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'JobPosting',
-    title: offer.title,
-    description: offer.context,
-    employmentType: 'INTERN',
-    hiringOrganization: {
-      '@type': 'Organization',
-      name: 'Jobmi',
-      sameAs: BASE_URL,
-    },
-    jobLocation:
-      offer.city === 'En ligne'
-        ? {
-            '@type': 'Place',
-            address: {
-              '@type': 'PostalAddress',
-              addressCountry: 'FR',
-            },
-          }
-        : {
-            '@type': 'Place',
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: offer.city,
-              addressCountry: 'FR',
-            },
-          },
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingJsonLd) }}
-      />
       <main className="mt-[90px] font-sans">
         <section className="bg-[#FCFCFF] px-6 py-16 sm:px-10 sm:py-20">
           <div className="mx-auto max-w-5xl">

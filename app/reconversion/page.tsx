@@ -744,7 +744,7 @@ export default function ReconversionPage() {
               Le meilleur moment, c’est maintenant
             </p>
             <h2 className="font-sans font-bold text-white text-4xl sm:text-5xl mb-4 leading-tight">
-              15 minutes pour commencer à voir plus clair
+              6 à 8 minutes pour commencer à voir plus clair
             </h2>
             <p className="font-sans text-white/40 mb-10 text-lg">
               Une mauvaise orientation peut prendre des années. Une meilleure décision peut commencer aujourd’hui.

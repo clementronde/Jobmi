@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Conditions Générales d'Utilisation | Jobmi",
+  title: "Conditions Générales d'Utilisation",
   description: "Consultez les conditions générales d'utilisation du site Jobmi.",
   alternates: { canonical: 'https://jobmi.fr/cgu' },
   robots: { index: false, follow: false },

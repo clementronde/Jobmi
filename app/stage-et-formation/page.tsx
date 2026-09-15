@@ -46,62 +46,6 @@ const collectionJsonLd = {
   inLanguage: 'fr-FR',
 };
 
-const jobPostingJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Exemples de stages, immersions et formations à préparer',
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      item: {
-        '@type': 'JobPosting',
-        title: "Stage d'observation développeur web",
-        description:
-          "Découverte du quotidien d'une équipe produit : observation des rituels, compréhension des missions d'un développeur web junior et préparation des questions à poser avant une formation tech.",
-        employmentType: 'INTERN',
-        jobLocation: {
-          '@type': 'Place',
-          address: {
-            '@type': 'PostalAddress',
-            addressLocality: 'Paris',
-            addressCountry: 'FR',
-          },
-        },
-        hiringOrganization: {
-          '@type': 'Organization',
-          name: 'Jobmi',
-          sameAs: BASE_URL,
-        },
-      },
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      item: {
-        '@type': 'JobPosting',
-        title: 'Immersion métier santé-social',
-        description:
-          "Observation encadrée d'un environnement santé ou social pour vérifier le rythme, la relation humaine et les contraintes avant de viser une formation longue.",
-        employmentType: 'INTERN',
-        jobLocation: {
-          '@type': 'Place',
-          address: {
-            '@type': 'PostalAddress',
-            addressLocality: 'Lyon',
-            addressCountry: 'FR',
-          },
-        },
-        hiringOrganization: {
-          '@type': 'Organization',
-          name: 'Jobmi',
-          sameAs: BASE_URL,
-        },
-      },
-    },
-  ],
-};
-
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -318,10 +262,6 @@ export default function StageEtFormation() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingJsonLd) }}
       />
 
       <div className="mt-[120px] font-sans">

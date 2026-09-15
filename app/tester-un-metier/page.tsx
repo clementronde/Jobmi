@@ -612,7 +612,7 @@ export default function TesterUnMetierPage() {
                 n: '01',
                 titre: 'Passe le test',
                 detail:
-                  '15 min pour identifier les métiers qui te correspondent.',
+                  '6 à 8 min pour identifier les métiers qui te correspondent.',
                 alt: false,
               },
               {
@@ -1022,7 +1022,7 @@ export default function TesterUnMetierPage() {
           </h2>
 
           <p className="font-sans text-gray-400 mb-10 text-lg">
-            Commence par le test d'orientation — gratuit, 15 minutes, résultats
+            Commence par le test d'orientation — gratuit, 6 à 8 minutes, résultats
             personnalisés.
           </p>
 

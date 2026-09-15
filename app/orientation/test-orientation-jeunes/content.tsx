@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     url: PAGE_URL,
     title: "Test d'orientation gratuit 18–25 ans | Jobmi",
     description:
-      "Trouve ta voie en 15 min. Test gratuit, résultats personnalisés.",
+      "Trouve ta voie en 6 à 8 min. Test gratuit, résultats personnalisés.",
   },
   twitter: {
     card: 'summary_large_image',
     title: "Test d'orientation gratuit 18–25 ans | Jobmi",
     description:
-      "Trouve ta voie en 15 min. Test gratuit, résultats personnalisés.",
+      "Trouve ta voie en 6 à 8 min. Test gratuit, résultats personnalisés.",
   },
 };
 
@@ -59,7 +59,7 @@ const faqJsonLd = {
       name: "Combien de temps ça prend ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "En général, entre 10 et 15 minutes. Le test a été conçu pour être rapide, lisible et faisable depuis un téléphone comme depuis un ordinateur. Tu n'as pas besoin d'y consacrer une heure pour obtenir un premier niveau de clarté utile.",
+        text: "En général, entre 6 et 8 minutes. Le test a été conçu pour être rapide, lisible et faisable depuis un téléphone comme depuis un ordinateur. Tu n'as pas besoin d'y consacrer une heure pour obtenir un premier niveau de clarté utile.",
       },
     },
     {
@@ -83,7 +83,7 @@ const faqJsonLd = {
 
 const heroStats = [
   {
-    n: '15 min',
+    n: '6-8 min',
     label: 'pour faire émerger des pistes concrètes',
     sub: "centres d'intérêt, façon de travailler, familles de métiers",
     bg: 'bg-[#F3F3F3]',
@@ -289,7 +289,7 @@ export default function TestOrientationJeunesPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-24">
           <div className="max-w-5xl">
             <span className="fade-up font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF] mb-8 block">
-              Gratuit · 15 minutes · Résultats immédiats
+              Gratuit · 6 à 8 minutes · Résultats immédiats
             </span>
 
             <h1 className="fade-up fade-delay-1 font-sans font-bold text-[#04192F] text-[2.9rem] sm:text-[4rem] lg:text-[5rem] leading-[0.96] text-balance">
@@ -643,7 +643,7 @@ export default function TestOrientationJeunesPage() {
             Prêt·e à voir plus clair ?
           </p>
           <h2 className="font-sans font-bold text-[#04192F] text-4xl sm:text-5xl mb-4 leading-tight">
-            Le test prend 15 minutes.
+            Le test prend 6 à 8 minutes.
             <br />
             <span className="text-gray-300">Les mauvaises orientations,</span>
             <br />
