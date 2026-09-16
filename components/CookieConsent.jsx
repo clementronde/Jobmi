@@ -42,7 +42,7 @@ export const CookieConsentBanner = () => {
       guiOptions: {
         consentModal: {
           layout: "box",
-          position: "bottom left",
+          position: "bottom right",
           equalWeightButtons: true,
           flipButtons: false,
         },

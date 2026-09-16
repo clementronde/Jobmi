@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import type { GeoPage } from '@/data/geoPages';
+import { geoPages, type GeoPage } from '@/data/geoPages';
 
 export function GeoPageTemplate({ page }: { page: GeoPage }) {
   const faqItems =
@@ -29,6 +29,7 @@ export function GeoPageTemplate({ page }: { page: GeoPage }) {
     })),
   };
 
+  const otherCities = geoPages.filter((item) => item.slug !== page.slug);
   const isParis = page.slug === 'orientation-paris';
   const stepCtas = isParis
     ? [
@@ -250,6 +251,37 @@ export function GeoPageTemplate({ page }: { page: GeoPage }) {
             </div>
           </div>
         </section>
+
+        {otherCities.length > 0 ? (
+          <section className="px-6 pb-16 sm:px-10">
+            <div className="mx-auto max-w-5xl">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
+                Autres villes
+              </p>
+              <h2 className="mt-3 text-2xl font-bold text-[#04192F] sm:text-3xl">
+                Tu n&apos;es pas à {page.city} ?
+              </h2>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                {otherCities.map((city) => (
+                  <Link
+                    key={city.slug}
+                    href={`/${city.slug}`}
+                    className="geo-card rounded-lg border border-[#E9E1FF] bg-white p-5 shadow-[0_14px_35px_rgba(4,25,47,0.05)]"
+                  >
+                    <p className="font-bold text-[#04192F]">{city.title}</p>
+                    <p className="mt-2 text-sm leading-6 text-[#465160]">{city.description}</p>
+                  </Link>
+                ))}
+              </div>
+              <Link
+                href="/carte-orientation"
+                className="mt-6 inline-flex text-sm font-bold text-[#6500FF] underline decoration-[#C9B6FF] underline-offset-4 transition hover:text-[#04192F]"
+              >
+                Voir tous les événements sur la carte
+              </Link>
+            </div>
+          </section>
+        ) : null}
 
         <section className="bg-[#04192F] px-6 py-14 text-white sm:px-10">
           <div className="mx-auto flex max-w-5xl flex-col gap-5 md:flex-row md:items-center md:justify-between">

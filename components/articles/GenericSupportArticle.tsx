@@ -1,5 +1,7 @@
+import { Fragment } from 'react';
 import Link from 'next/link';
 import { getSupportArticleContent } from '@/data/supportArticleContent';
+import { InlineTestCTA } from './InlineTestCTA';
 
 const renderInlineLinks = (text: string) => {
   const parts = text.split(/(\[[^\]]+\]\(\/[^)]+\))/g);
@@ -39,17 +41,20 @@ export function GenericSupportArticle({ slug }: { slug: string }) {
       ) : null}
 
       <div className="space-y-12">
-        {article.sections.map((section) => (
-          <section key={section.title}>
-            <h2 className="text-3xl font-bold leading-tight text-[#04192F]">
-              {section.title}
-            </h2>
-            <div className="mt-5 space-y-4 text-base leading-8 text-[#465160]">
-              {section.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{renderInlineLinks(paragraph)}</p>
-              ))}
-            </div>
-          </section>
+        {article.sections.map((section, index) => (
+          <Fragment key={section.title}>
+            <section>
+              <h2 className="text-3xl font-bold leading-tight text-[#04192F]">
+                {section.title}
+              </h2>
+              <div className="mt-5 space-y-4 text-base leading-8 text-[#465160]">
+                {section.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{renderInlineLinks(paragraph)}</p>
+                ))}
+              </div>
+            </section>
+            {index === 0 && article.sections.length > 1 ? <InlineTestCTA /> : null}
+          </Fragment>
         ))}
       </div>
 

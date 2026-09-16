@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { InlineTestCTA } from './InlineTestCTA';
 
 export const ArticleMonMaster = () => {
   return (
@@ -50,6 +51,10 @@ export const ArticleMonMaster = () => {
             </li>
           </ul>
         </section>
+
+        <InlineTestCTA
+          text="Un refus ou une réponse en attente peut aussi être l'occasion de vérifier que tu vises la bonne voie. Le test d'orientation gratuit t'aide à identifier d'autres pistes cohérentes avec ton profil."
+        />
 
         {/* H2 – Dates */}
         <section>

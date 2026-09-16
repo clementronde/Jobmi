@@ -159,6 +159,12 @@ export const internalLinkGroups = {
       label: 'Métier',
     },
     {
+      href: '/tester-metier/ux-designer',
+      title: 'Tester le métier de UX designer',
+      description: 'Recherche utilisateur, prototypage et terrain avant de te former.',
+      label: 'Métier',
+    },
+    {
       href: blogPath('metiers-avenir-2026-qui-recrutent'),
       title: "Métiers d'avenir qui recrutent",
       description: 'Secteurs porteurs, salaires, formations et perspectives.',

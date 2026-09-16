@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { InlineTestCTA } from './InlineTestCTA';
 
 const extLink =
   'font-semibold text-[#6500FF] underline decoration-[#C9B6FF] underline-offset-4 transition hover:text-[#04192F]';
@@ -92,6 +93,8 @@ export const ArticleParcoursupCalendrier2027 = () => {
             Dates prévisionnelles tant que le calendrier officiel 2027 n&apos;est pas publié.
           </p>
         </section>
+
+        <InlineTestCTA />
 
         {/* H2 – Phase 1 */}
         <section>

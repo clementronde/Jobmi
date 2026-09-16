@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { EventMapExplorer } from '@/components/events/EventMapExplorer';
 import { getActiveEvents } from '@/services/eventsService';
+import { geoPages } from '@/data/geoPages';
 
 const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/carte-orientation`;
@@ -75,6 +76,34 @@ export default function CarteOrientationPage() {
         <section className="px-6 sm:px-10">
           <div className="mx-auto max-w-6xl">
             <EventMapExplorer events={events} />
+          </div>
+        </section>
+
+        <section className="border-t border-[#ECE7FF] bg-white px-6 py-14 sm:px-10">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">Guides locaux</p>
+            <h2 className="mt-4 text-3xl font-bold text-[#04192F] sm:text-4xl">
+              Un guide complet pour ta ville
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-[#465160]">
+              Au-delà de la carte, chaque grande ville a son propre guide : méthode locale en 3 étapes,
+              angles à explorer selon ta situation et FAQ pour avancer sans te disperser.
+            </p>
+            <div className="mt-8 grid gap-5 md:grid-cols-3">
+              {geoPages.map((page) => (
+                <Link
+                  key={page.slug}
+                  href={`/${page.slug}`}
+                  className="rounded-lg border border-[#E9E1FF] bg-[#FCFCFF] p-6 shadow-[0_14px_35px_rgba(4,25,47,0.05)] transition hover:-translate-y-1 hover:border-[#6500FF]/30 hover:shadow-[0_18px_45px_rgba(101,0,255,0.10)]"
+                >
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#6500FF]">
+                    {page.city}
+                  </p>
+                  <p className="mt-2 font-bold text-[#04192F]">{page.title}</p>
+                  <p className="mt-2 text-sm leading-6 text-[#465160]">{page.description}</p>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 

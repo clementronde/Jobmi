@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { InlineTestCTA } from './InlineTestCTA';
 
 export const ArticleParcoursupStress = () => {
   return (
@@ -127,6 +128,8 @@ export const ArticleParcoursupStress = () => {
             protèges du rouleau compresseur mental.
           </p>
         </section>
+
+        <InlineTestCTA />
 
         {/* H2 – 3 réflexes */}
         <section>
