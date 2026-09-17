@@ -193,7 +193,7 @@ export const Article4 = () => {
           </Link>
           <Link href="/test" className='flex-1 bg-white border border-gray-100 rounded-xl p-5 hover:border-[#6500FF] transition group'>
             <p className='font-bold text-[#04192F] group-hover:text-[#6500FF] transition text-sm'>Test d'orientation gratuit</p>
-            <p className='text-xs text-gray-500 mt-1'>15 minutes pour identifier les métiers qui correspondent vraiment à ton profil.</p>
+            <p className='text-xs text-gray-500 mt-1'>6 à 8 minutes pour identifier les métiers qui correspondent vraiment à ton profil.</p>
           </Link>
         </div>
       </div>
