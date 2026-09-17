@@ -7,7 +7,6 @@ const metiers = [
     domaine: "Tech & numérique",
     titre: "Développeur web",
     format: "Stage d'observation · 1 à 3 jours",
-    niveau: "Débutant accepté",
     ville: "Paris, Lyon, Remote",
   },
   {
@@ -15,7 +14,6 @@ const metiers = [
     domaine: "Santé & social",
     titre: "Infirmier · Éducateur spécialisé",
     format: "Immersion · 1 jour à 1 semaine",
-    niveau: "Projet à clarifier",
     ville: "Lyon, Bordeaux, Nantes",
   },
   {
@@ -23,7 +21,6 @@ const metiers = [
     domaine: "Création & design",
     titre: "Designer UX / graphiste",
     format: "Atelier découverte · 1 jour",
-    niveau: "Débutant accepté",
     ville: "Paris, Toulouse",
   },
   {
@@ -31,7 +28,6 @@ const metiers = [
     domaine: "Droit & conseil",
     titre: "Juriste · Assistant juridique",
     format: "Jobshadowing · ½ journée à 2 jours",
-    niveau: "Lycée / Post-bac",
     ville: "Paris, Strasbourg",
   },
 ];
@@ -75,40 +71,25 @@ export const HomeCatalogPreview = () => {
         </div>
 
         {/* Grille de cartes */}
-        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {metiers.map((m) => (
             <Link
               key={m.titre}
               href={m.slug}
-              className="group flex flex-col rounded-xl border border-[#E9E1FF] bg-white p-6 shadow-[0_14px_35px_rgba(4,25,47,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#6500FF]/30 hover:shadow-[0_20px_45px_rgba(101,0,255,0.10)]"
+              className="group rounded-lg border border-[#E9E1FF] bg-white p-6 shadow-[0_14px_35px_rgba(4,25,47,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#6500FF]/35 hover:shadow-[0_20px_45px_rgba(101,0,255,0.10)]"
             >
-              {/* Domaine */}
-              <div className="mb-4 flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#6500FF]" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#6500FF]">
-                  {m.domaine}
-                </span>
-              </div>
-
-              {/* Titre métier */}
-              <h3 className="text-lg font-bold text-[#04192F] leading-snug mb-3 group-hover:text-[#6500FF] transition-colors">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
+                {m.domaine}
+              </p>
+              <h3 className="mt-3 text-xl font-bold text-[#04192F] transition-colors group-hover:text-[#6500FF]">
                 {m.titre}
               </h3>
-
-              {/* Tags */}
-              <div className="mt-auto flex flex-col gap-2 pt-4 border-t border-[#F3F3F3]">
-                <p className="text-xs text-gray-500 flex items-center gap-1.5">
-                  <span className="text-[#6500FF] font-bold">↗</span>
-                  {m.format}
-                </p>
-                <p className="text-xs text-gray-400 flex items-center gap-1.5">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
-                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                  {m.ville}
-                </p>
-              </div>
+              <p className="mt-3 text-sm leading-7 text-[#465160]">
+                {m.format} — {m.ville}
+              </p>
+              <p className="mt-5 text-sm font-bold text-[#6500FF]">
+                Découvrir ce format <span aria-hidden="true">→</span>
+              </p>
             </Link>
           ))}
         </div>
