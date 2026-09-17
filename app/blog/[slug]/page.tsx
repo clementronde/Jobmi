@@ -24,6 +24,7 @@ import { ArticleMonMaster } from '../../../components/articles/ArticleMonMaster'
 import { ArticleParcoursupStress } from '../../../components/articles/ArticleParcoursupStress';
 import { ArticleParcoursupCalendrier2027 } from '../../../components/articles/ArticleParcoursupCalendrier2027';
 import { ArticleAlternanceSansContrat2026 } from '../../../components/articles/ArticleAlternanceSansContrat2026';
+import { ArticleJeNaimePasMonTravail } from '../../../components/articles/ArticleJeNaimePasMonTravail';
 import { RelatedArticles } from '../../../components/RelatedArticles';
 import ArticleTOC from '../../../components/ArticleTOC';
 import { ArticleAuthorBox, ARTICLE_AUTHOR } from '../../../components/ArticleAuthorBox';
@@ -39,6 +40,8 @@ const articleSeoTitleOverrides: Record<string, string> = {
     'Calendrier Parcoursup 2027 : toutes les dates',
   'alternance-sans-contrat-rentree-2026':
     'Alternance sans contrat à la rentrée : que faire',
+  'je-naime-pas-mon-travail':
+    'Je n’aime pas mon travail : que faire avant de partir ?',
   'comment-commencer-ta-reconversion-professionnelle':
     'Reconversion : 5 questions avant de te lancer',
   'comment-trouver-le-job-de-tes-reves-a-20-ans-guide-ultime-pour-jeunes-en-reconversion':
@@ -617,6 +620,7 @@ const ArticlePage = async ({ params }: { params: Promise<{ slug: string }> }) =>
           {slug === "resultats-parcoursup-2026" && <ArticleParcoursup />}
           {slug === "calendrier-parcoursup-2027" && <ArticleParcoursupCalendrier2027 />}
           {slug === "alternance-sans-contrat-rentree-2026" && <ArticleAlternanceSansContrat2026 />}
+          {slug === "je-naime-pas-mon-travail" && <ArticleJeNaimePasMonTravail />}
           {slug === "resultats-mon-master-2026" && <ArticleMonMaster />}
           {slug === "parcoursup-gerer-stress-resultats" && <ArticleParcoursupStress />}
           {slug === "metiers-ia-ne-remplacera-pas-2030" && <ArticleAIProofJobs />}
