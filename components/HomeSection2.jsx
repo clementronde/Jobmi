@@ -7,7 +7,7 @@ const steps = [
     num: "01",
     titleOddlini: "Test d'orientation",
     titleSept: "& gratuit !",
-    tag: "15 min · Gratuit",
+    tag: "6-8 min · Gratuit",
     body: "Réponds à quelques questions sur tes valeurs et ton style de travail. Découvre les métiers qui te correspondent (méthode RIASEC).",
     href: "/test",
   },

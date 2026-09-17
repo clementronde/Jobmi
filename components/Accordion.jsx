@@ -30,17 +30,17 @@ export const Accordion = () => {
     {
       title: 'Dynamique',
       content:
-        "Chez Jobmi, on n'arrête jamais ! Toujours en train de bouger, d'innover, de s'adapter. On est comme des piles Duracell, toujours prêts à réagir et à proposer les meilleures solutions, même quand ça change tout le temps.",
+        "On préfère livrer une version imparfaite du test ou d'une fiche métier et l'améliorer avec de vrais retours, plutôt que d'attendre d'avoir « la » solution parfaite avant de la sortir.",
     },
     {
-      title: 'Engager',
+      title: 'Engagé',
       content:
-        "Chez Jobmi, on n'arrête jamais ! Toujours en train de bouger, d'innover, de s'adapter. On est comme des piles Duracell, toujours prêts à réagir et à proposer les meilleures solutions, même quand ça change tout le temps.",
+        "On n'est pas neutres sur le sujet : on a tous connu le flou de l'orientation ou d'une reconversion. Jobmi existe pour que les 18-25 ans d'aujourd'hui perdent moins de temps qu'on en a perdu nous-mêmes.",
     },
     {
       title: 'Ouvert',
       content:
-        "Chez Jobmi, on n'arrête jamais ! Toujours en train de bouger, d'innover, de s'adapter. On est comme des piles Duracell, toujours prêts à réagir et à proposer les meilleures solutions, même quand ça change tout le temps.",
+        "Le test RIASEC donne des pistes, pas des vérités. On le dit clairement plutôt que de vendre une promesse magique : c'est à toi de comparer, tester et décider.",
     },
   ];
 
