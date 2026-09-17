@@ -3,8 +3,7 @@ import Link from "next/link";
 
 const metiers = [
   {
-    slug: "/stage-et-formation",
-    emoji: "💻",
+    slug: "/tester-metier/developpeur-web",
     domaine: "Tech & numérique",
     titre: "Développeur web",
     format: "Stage d'observation · 1 à 3 jours",
@@ -12,8 +11,7 @@ const metiers = [
     ville: "Paris, Lyon, Remote",
   },
   {
-    slug: "/stage-et-formation",
-    emoji: "🏥",
+    slug: "/tester-metier/infirmier",
     domaine: "Santé & social",
     titre: "Infirmier · Éducateur spécialisé",
     format: "Immersion · 1 jour à 1 semaine",
@@ -21,8 +19,7 @@ const metiers = [
     ville: "Lyon, Bordeaux, Nantes",
   },
   {
-    slug: "/stage-et-formation",
-    emoji: "🎨",
+    slug: "/tester-metier/ux-designer",
     domaine: "Création & design",
     titre: "Designer UX / graphiste",
     format: "Atelier découverte · 1 jour",
@@ -31,7 +28,6 @@ const metiers = [
   },
   {
     slug: "/stage-et-formation",
-    emoji: "⚖️",
     domaine: "Droit & conseil",
     titre: "Juriste · Assistant juridique",
     format: "Jobshadowing · ½ journée à 2 jours",
@@ -86,9 +82,9 @@ export const HomeCatalogPreview = () => {
               href={m.slug}
               className="group flex flex-col rounded-xl border border-[#E9E1FF] bg-white p-6 shadow-[0_14px_35px_rgba(4,25,47,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#6500FF]/30 hover:shadow-[0_20px_45px_rgba(101,0,255,0.10)]"
             >
-              {/* Emoji + domaine */}
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-2xl">{m.emoji}</span>
+              {/* Domaine */}
+              <div className="mb-4 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#6500FF]" />
                 <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#6500FF]">
                   {m.domaine}
                 </span>
@@ -106,7 +102,10 @@ export const HomeCatalogPreview = () => {
                   {m.format}
                 </p>
                 <p className="text-xs text-gray-400 flex items-center gap-1.5">
-                  <span>📍</span>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
                   {m.ville}
                 </p>
               </div>
