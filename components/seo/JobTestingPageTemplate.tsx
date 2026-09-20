@@ -26,7 +26,7 @@ export function JobTestingPageTemplate({ page }: { page: JobTestingPage }) {
       />
       <main className="mt-[90px] font-sans">
         <section className="bg-[#FCFCFF] px-6 py-16 sm:px-10 sm:py-20">
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-5xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
               Tester un métier
             </p>
@@ -152,7 +152,7 @@ export function JobTestingPageTemplate({ page }: { page: JobTestingPage }) {
         </section>
 
         <section className="px-6 py-16 sm:px-10">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-5xl">
             <h2 className="text-3xl font-bold text-[#04192F] sm:text-4xl">
               Questions à poser pendant une immersion
             </h2>

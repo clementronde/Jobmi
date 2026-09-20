@@ -203,6 +203,12 @@ export const internalLinkGroups = {
       label: 'Page pilier',
     },
     {
+      href: '/dates-parcoursup-2027',
+      title: 'Dates Parcoursup 2027',
+      description: 'Toutes les échéances à retenir, en un coup d’œil.',
+      label: 'Outil',
+    },
+    {
       href: '/test',
       title: "Test d'orientation 18–25 ans",
       description: 'Identifie des familles de métiers avant de choisir une formation.',

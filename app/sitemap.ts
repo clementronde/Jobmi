@@ -145,6 +145,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${baseUrl}/dates-parcoursup-2027`,
+      lastModified: new Date('2026-09-20'),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/a-propos`,
       lastModified: new Date('2026-01-15'),
       changeFrequency: 'monthly',

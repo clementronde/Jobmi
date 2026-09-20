@@ -266,7 +266,7 @@ export default function StageEtFormation() {
 
       <div className="mt-[120px] font-sans">
         <section className="mx-auto max-w-screen-xl px-6 pb-12 pt-4 sm:px-10">
-          <div className="mx-auto max-w-[820px] text-center">
+          <div className="max-w-[820px]">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.22em] text-[#6500FF]">
               Stage d'immersion, PMSMP & alternance
             </p>
@@ -276,9 +276,9 @@ export default function StageEtFormation() {
           <img
             src="/media/home-temoignage-soulignage-titre.svg"
             alt="Trait soulignant le titre"
-              className="mx-auto mt-3"
+              className="mt-3"
           />
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
               Jobmi construit son réseau d'entreprises partenaires pour les
               18–25 ans. En attendant les premières immersions, compare les
               formats utiles : stage d'observation, PMSMP, alternance, formation
@@ -292,7 +292,7 @@ export default function StageEtFormation() {
               </Link>{' '}
               pour clarifier la direction avant de chercher une immersion.
             </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row">
               <a
                 href={WAITINGLIST_URL}
                 target="_blank"
@@ -344,8 +344,8 @@ export default function StageEtFormation() {
           </div>
         </section>
 
-        <section className="bg-[#F7F6FF] px-6 py-14 sm:px-10">
-          <div className="mx-auto max-w-screen-xl">
+        <section className="bg-[#F7F6FF]">
+          <div className="mx-auto max-w-screen-xl px-6 py-14 sm:px-10">
             <div className="mb-8 max-w-2xl">
               <p className="mb-2 text-sm font-bold uppercase tracking-[0.18em] text-[#6500FF]">
                 Secteurs à explorer
@@ -534,13 +534,14 @@ export default function StageEtFormation() {
 
         <InternalLinksSection
           className="bg-[#F8F7FF]"
+          padded="inner"
           eyebrow="Formation & financement"
           title="Guides utiles avant de choisir une formation"
           description="Un bon parcours commence par une piste claire, puis un format réaliste : alternance, CPF, formation courte ou immersion."
           links={internalLinks}
         />
 
-        <section className="mx-auto max-w-4xl px-6 py-16">
+        <section className="mx-auto max-w-screen-xl px-6 py-16 sm:px-10">
           <h2 className="font-bold text-2xl text-[#04192F] mb-4">
             Pourquoi tester un métier avant de choisir une formation ?
           </h2>
@@ -590,8 +591,8 @@ export default function StageEtFormation() {
           </div>
         </section>
 
-        <section className="bg-[#F3F3F3] px-6 py-16 sm:px-10">
-          <div className="mx-auto max-w-4xl">
+        <section className="bg-[#F3F3F3]">
+          <div className="mx-auto max-w-screen-xl px-6 py-16 sm:px-10">
             <div className="max-w-3xl">
               <h2 className="font-bold text-2xl text-[#04192F] mb-8 sm:text-3xl">
                 Questions fréquentes sur les immersions et les formations

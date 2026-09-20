@@ -143,7 +143,7 @@ export default async function EventPage({ params }: Props) {
 
       <main className="mt-[90px] bg-[#FCFCFF] font-sans">
         <section className="border-b border-[#ECE7FF] bg-[linear-gradient(180deg,#FBFAFF_0%,#FFFFFF_100%)] px-6 py-16 sm:px-10 sm:py-20">
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-6xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
               {EVENT_TYPE_LABELS[event.event_type]}
             </p>

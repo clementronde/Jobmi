@@ -19,7 +19,7 @@ export const InlineTestCTA = ({
       <p className="text-base leading-7 text-[#04192F]">{text}</p>
       <Link
         href="/test"
-        className="inline-flex shrink-0 rounded-xl bg-[#6500FF] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#5200CC]"
+        className="article-cta-link shrink-0"
       >
         {ctaLabel}
       </Link>

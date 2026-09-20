@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { InlineTestCTA } from './InlineTestCTA';
+import { parcoursupCalendarSteps, parcoursupCalendarNote } from '../../data/parcoursupCalendar';
 
 const extLink =
   'font-semibold text-[#6500FF] underline decoration-[#C9B6FF] underline-offset-4 transition hover:text-[#04192F]';
@@ -51,46 +52,27 @@ export const ArticleParcoursupCalendrier2027 = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-[#E9E1FF]">
-                  <td className="py-3 pr-4">Nov. – déc. 2026</td>
-                  <td className="py-3 pr-4">Ouverture des infos formations</td>
-                  <td className="py-3">Explorer les fiches, aller aux journées portes ouvertes</td>
-                </tr>
-                <tr className="border-b border-[#E9E1FF]">
-                  <td className="py-3 pr-4"><strong>Mi-janvier 2027</strong></td>
-                  <td className="py-3 pr-4">Ouverture des inscriptions</td>
-                  <td className="py-3">Créer ton dossier et ton profil</td>
-                </tr>
-                <tr className="border-b border-[#E9E1FF]">
-                  <td className="py-3 pr-4"><strong>Mi-mars 2027</strong></td>
-                  <td className="py-3 pr-4">Date limite des vœux</td>
-                  <td className="py-3">Formuler tes 10 vœux maximum</td>
-                </tr>
-                <tr className="border-b border-[#E9E1FF]">
-                  <td className="py-3 pr-4"><strong>Début avril 2027</strong></td>
-                  <td className="py-3 pr-4">Date limite de confirmation</td>
-                  <td className="py-3">Compléter chaque dossier et confirmer tes vœux</td>
-                </tr>
-                <tr className="border-b border-[#E9E1FF]">
-                  <td className="py-3 pr-4"><strong>Début juin 2027</strong></td>
-                  <td className="py-3 pr-4">Début des réponses</td>
-                  <td className="py-3">Consulter tes réponses, répondre dans les délais</td>
-                </tr>
-                <tr className="border-b border-[#E9E1FF]">
-                  <td className="py-3 pr-4"><strong>Mi-juillet 2027</strong></td>
-                  <td className="py-3 pr-4">Point d&apos;étape obligatoire</td>
-                  <td className="py-3">Confirmer les vœux en attente que tu veux garder</td>
-                </tr>
-                <tr>
-                  <td className="py-3 pr-4">Juin – sept. 2027</td>
-                  <td className="py-3 pr-4">Phase complémentaire</td>
-                  <td className="py-3">Formuler de nouveaux vœux sur les places vacantes</td>
-                </tr>
+                {parcoursupCalendarSteps.map((step, index) => (
+                  <tr
+                    key={step.label}
+                    className={index < parcoursupCalendarSteps.length - 1 ? 'border-b border-[#E9E1FF]' : ''}
+                  >
+                    <td className="py-3 pr-4">
+                      {index === 0 || index === parcoursupCalendarSteps.length - 1 ? (
+                        step.period
+                      ) : (
+                        <strong>{step.period}</strong>
+                      )}
+                    </td>
+                    <td className="py-3 pr-4">{step.label}</td>
+                    <td className="py-3">{step.action}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
           <p className="mt-3 text-sm italic text-[#6b7280]">
-            Dates prévisionnelles tant que le calendrier officiel 2027 n&apos;est pas publié.
+            {parcoursupCalendarNote}
           </p>
         </section>
 
@@ -450,13 +432,13 @@ export const ArticleParcoursupCalendrier2027 = () => {
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/test"
-            className="inline-flex rounded-xl bg-white px-5 py-3 text-sm font-bold text-[#04192F] transition hover:bg-[#AFA1FF]"
+            className="inline-flex rounded-xl bg-white px-5 py-3 text-sm font-bold !text-[#04192F] transition hover:bg-[#AFA1FF]"
           >
             Faire le test d&apos;orientation
           </Link>
           <Link
             href="/que-faire-apres-le-bac"
-            className="inline-flex rounded-xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            className="inline-flex rounded-xl border border-white/30 px-5 py-3 text-sm font-semibold !text-white transition hover:bg-white/10"
           >
             Voir le guide post-bac
           </Link>

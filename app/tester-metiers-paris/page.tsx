@@ -115,38 +115,36 @@ export default function TesterMetiersParisPage() {
       />
 
       <div className="mt-[90px] font-sans">
-        <section className="border-b border-gray-100 bg-[#F7F7F8]">
-          <div className="mx-auto max-w-7xl px-6 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-24">
-            <div className="max-w-5xl">
-              <p className="mb-5 text-sm font-bold uppercase tracking-[0.2em] text-[#6500FF]">
-                Ateliers, immersions, PMSMP et stages d’observation à Paris
-              </p>
-              <h1 className="text-[2.8rem] font-bold leading-[0.96] text-[#04192F] sm:text-[4rem] lg:text-[5rem]">
-                Tester des métiers à Paris quand tu as 18–25 ans
-              </h1>
-              <p className="mt-8 max-w-3xl text-lg leading-relaxed text-gray-600 sm:text-xl">
-                Paris est l’un des meilleurs endroits pour explorer des métiers
-                quand tu hésites encore sur ta voie. Digital, santé, social,
-                commerce, culture, artisanat, restauration : tu peux y croiser
-                beaucoup d’environnements professionnels différents. L’objectif
-                n’est pas de collectionner des idées sur le papier, mais de voir
-                la réalité d’un métier avant de choisir une formation, une
-                alternance ou une reconversion.
-              </p>
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <Link
-                  href="/test"
-                  className="inline-flex w-fit items-center justify-center rounded-2xl bg-[#6500FF] px-7 py-4 font-bold text-white transition hover:bg-[#5200cc]"
-                >
-                  Commencer par le test Jobmi
-                </Link>
-                <Link
-                  href="/tester-un-metier"
-                  className="inline-flex w-fit items-center justify-center rounded-2xl border-2 border-[#04192F] px-7 py-4 font-semibold text-[#04192F] transition hover:bg-[#04192F] hover:text-white"
-                >
-                  Voir les autres formats
-                </Link>
-              </div>
+        <section className="border-b border-gray-100 bg-[#F7F7F8] px-6 py-16 sm:px-10 sm:py-20 lg:py-24">
+          <div className="mx-auto max-w-4xl">
+            <p className="mb-5 text-sm font-bold uppercase tracking-[0.2em] text-[#6500FF]">
+              Ateliers, immersions, PMSMP et stages d’observation à Paris
+            </p>
+            <h1 className="text-[2.8rem] font-bold leading-[0.96] text-[#04192F] sm:text-[4rem] lg:text-[5rem]">
+              Tester des métiers à Paris quand tu as 18–25 ans
+            </h1>
+            <p className="mt-8 max-w-3xl text-lg leading-relaxed text-gray-600 sm:text-xl">
+              Paris est l’un des meilleurs endroits pour explorer des métiers
+              quand tu hésites encore sur ta voie. Digital, santé, social,
+              commerce, culture, artisanat, restauration : tu peux y croiser
+              beaucoup d’environnements professionnels différents. L’objectif
+              n’est pas de collectionner des idées sur le papier, mais de voir
+              la réalité d’un métier avant de choisir une formation, une
+              alternance ou une reconversion.
+            </p>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="/test"
+                className="inline-flex w-fit items-center justify-center rounded-2xl bg-[#6500FF] px-7 py-4 font-bold text-white transition hover:bg-[#5200cc]"
+              >
+                Commencer par le test Jobmi
+              </Link>
+              <Link
+                href="/tester-un-metier"
+                className="inline-flex w-fit items-center justify-center rounded-2xl border-2 border-[#04192F] px-7 py-4 font-semibold text-[#04192F] transition hover:bg-[#04192F] hover:text-white"
+              >
+                Voir les autres formats
+              </Link>
             </div>
           </div>
         </section>
@@ -189,7 +187,7 @@ export default function TesterMetiersParisPage() {
         </section>
 
         <section className="bg-[#F7F6FF] px-6 py-20 sm:px-10">
-          <div className="mx-auto max-w-screen-xl">
+          <div className="mx-auto max-w-4xl">
             <div className="mb-8 max-w-3xl">
               <h2 className="text-3xl font-bold text-[#04192F] sm:text-4xl">
                 Les formats pour tester un métier à Paris
@@ -347,7 +345,7 @@ export default function TesterMetiersParisPage() {
         </section>
 
         <section className="bg-[#04192F] px-6 py-20 text-white sm:px-10">
-          <div className="mx-auto max-w-screen-xl">
+          <div className="mx-auto max-w-4xl">
             <h2 className="text-3xl font-bold sm:text-4xl">
               Exemples de secteurs à tester à Paris
             </h2>

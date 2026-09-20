@@ -7,7 +7,12 @@
       "WebFetch(domain:jobmi.fr)",
       "Bash(npx next *)",
       "Bash(python3 *)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(git pull *)",
+      "Bash(git stash *)",
+      "Bash(git add *)",
+      "Bash(npm install *)",
+      "Bash(taskkill //IM node.exe //F)"
     ]
   }
 }

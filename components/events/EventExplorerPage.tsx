@@ -58,7 +58,7 @@ export function EventExplorerPage({
       </section>
 
       <section className="px-6 py-14 sm:px-10">
-        <div className="mx-auto max-w-5xl space-y-4 text-base leading-8 text-[#465160] sm:text-lg">
+        <div className="mx-auto max-w-6xl space-y-4 text-base leading-8 text-[#465160] sm:text-lg">
           {intro.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}

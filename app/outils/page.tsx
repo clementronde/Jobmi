@@ -47,7 +47,7 @@ export default function OutilsPage() {
   return (
     <main className="mt-[90px] bg-[#FCFCFF]">
       <section className="border-b border-[#ECE7FF] bg-[linear-gradient(180deg,#FBFAFF_0%,#FFFFFF_100%)] px-6 py-16 sm:px-10">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-6xl">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">Boîte à outils</p>
           <h1 className="mt-4 text-balance text-4xl font-bold text-[#04192F] sm:text-5xl">
             Les outils Jobmi pour y voir plus clair

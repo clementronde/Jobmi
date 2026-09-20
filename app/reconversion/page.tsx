@@ -308,43 +308,41 @@ export default function ReconversionPage() {
       `}</style>
 
       {/* ── HERO ── */}
-      <section className="mt-[90px] w-full bg-[#F7F7F8] border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-24">
-          <div className="max-w-5xl">
-            <span className="fade-up font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF] mb-8 block">
-              Réorientation & reconversion — 18–25 ans
-            </span>
+      <section className="mt-[90px] w-full border-b border-gray-100 bg-[#F7F7F8] px-6 py-16 sm:px-10 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-4xl">
+          <span className="fade-up font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF] mb-8 block">
+            Réorientation & reconversion — 18–25 ans
+          </span>
 
-            <h1 className="fade-up fade-delay-1 font-sans font-bold text-[#04192F] text-[2.9rem] sm:text-[4rem] lg:text-[5rem] leading-[0.96] text-balance">
-              Réorientation professionnelle : se reconvertir à 20 ans, pourquoi c’est souvent le meilleur moment
-            </h1>
+          <h1 className="fade-up fade-delay-1 font-sans font-bold text-[#04192F] text-[2.9rem] sm:text-[4rem] lg:text-[5rem] leading-[0.96] text-balance">
+            Réorientation professionnelle : se reconvertir à 20 ans, pourquoi c’est souvent le meilleur moment
+          </h1>
 
-            <div className="fade-up fade-delay-2 mt-8 max-w-2xl space-y-5">
-              <p className="font-sans text-gray-500 text-lg sm:text-xl leading-relaxed">
-                Envie de te réorienter ou de changer de métier ? Ça se prépare. Guide complet pour les 18–25 ans qui veulent avancer sans se tromper, ni perdre des années dans une direction qui ne leur correspond pas.
-              </p>
+          <div className="fade-up fade-delay-2 mt-8 max-w-2xl space-y-5">
+            <p className="font-sans text-gray-500 text-lg sm:text-xl leading-relaxed">
+              Envie de te réorienter ou de changer de métier ? Ça se prépare. Guide complet pour les 18–25 ans qui veulent avancer sans se tromper, ni perdre des années dans une direction qui ne leur correspond pas.
+            </p>
 
-              <p className="font-sans text-gray-500 text-lg sm:text-xl leading-relaxed">
-                Par où commencer ta réorientation professionnelle, comment la financer, quoi tester, quelles erreurs éviter : voici une méthode simple pour remettre ton projet professionnel sur de bons rails.
-              </p>
-            </div>
+            <p className="font-sans text-gray-500 text-lg sm:text-xl leading-relaxed">
+              Par où commencer ta réorientation professionnelle, comment la financer, quoi tester, quelles erreurs éviter : voici une méthode simple pour remettre ton projet professionnel sur de bons rails.
+            </p>
+          </div>
 
-            <div className="fade-up fade-delay-3 flex flex-col sm:flex-row gap-4 mt-10">
-              <Link
-                href="/test"
-                className="btn-lift font-sans inline-flex items-center justify-center gap-2 px-7 py-4 bg-[#6500FF] text-white rounded-2xl font-bold hover:bg-purple-700 transition w-fit"
-              >
-                Passer le test d'orientation
-                <img src="/media/cta-blog-arrow.svg" alt="" className="w-5" />
-              </Link>
+          <div className="fade-up fade-delay-3 flex flex-col sm:flex-row gap-4 mt-10">
+            <Link
+              href="/test"
+              className="btn-lift font-sans inline-flex items-center justify-center gap-2 px-7 py-4 bg-[#6500FF] text-white rounded-2xl font-bold hover:bg-purple-700 transition w-fit"
+            >
+              Passer le test d'orientation
+              <img src="/media/cta-blog-arrow.svg" alt="" className="w-5" />
+            </Link>
 
-              <Link
-                href="/tester-un-metier"
-                className="btn-lift font-sans inline-flex items-center justify-center px-7 py-4 border-2 border-[#04192F] text-[#04192F] rounded-2xl font-semibold hover:bg-[#04192F] hover:text-white transition w-fit"
-              >
-                Tester un métier d'abord
-              </Link>
-            </div>
+            <Link
+              href="/tester-un-metier"
+              className="btn-lift font-sans inline-flex items-center justify-center px-7 py-4 border-2 border-[#04192F] text-[#04192F] rounded-2xl font-semibold hover:bg-[#04192F] hover:text-white transition w-fit"
+            >
+              Tester un métier d'abord
+            </Link>
           </div>
 
           <div className="fade-up fade-delay-3 grid md:grid-cols-3 gap-4 mt-14">
@@ -422,7 +420,7 @@ export default function ReconversionPage() {
       </section>
 
       <section className="bg-[#04192F] px-6 py-16 sm:px-10">
-        <div className="mx-auto grid max-w-5xl gap-8 rounded-[2rem] border border-white/10 bg-white/6 p-8 text-white backdrop-blur lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:p-10">
+        <div className="mx-auto grid max-w-4xl gap-8 rounded-[2rem] border border-white/10 bg-white/6 p-8 text-white backdrop-blur lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:p-10">
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[#C4B5FD]">
               Outil visuel
@@ -700,6 +698,7 @@ export default function ReconversionPage() {
 
       <InternalLinksSection
         className="fade-up bg-[#F8F7FF]"
+        containerClassName="max-w-4xl"
         eyebrow="Guides reconversion"
         title="Continue avec les bons contenus"
         description="Des ressources liées à cette page pour passer du doute au plan d'action : bilan, métiers, test terrain et premières étapes."

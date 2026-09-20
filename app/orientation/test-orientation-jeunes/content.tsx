@@ -285,41 +285,39 @@ export default function TestOrientationJeunesPage() {
       `}</style>
 
       {/* ── HERO ── */}
-      <section className="mt-[90px] w-full bg-[#F7F7F8] border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-24">
-          <div className="max-w-5xl">
-            <span className="fade-up font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF] mb-8 block">
-              Gratuit · 6 à 8 minutes · Résultats immédiats
-            </span>
+      <section className="mt-[90px] w-full border-b border-gray-100 bg-[#F7F7F8] px-6 py-16 sm:px-10 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-4xl">
+          <span className="fade-up font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF] mb-8 block">
+            Gratuit · 6 à 8 minutes · Résultats immédiats
+          </span>
 
-            <h1 className="fade-up fade-delay-1 font-sans font-bold text-[#04192F] text-[2.9rem] sm:text-[4rem] lg:text-[5rem] leading-[0.96] text-balance">
-              Quel métier est vraiment fait pour toi ?
-            </h1>
+          <h1 className="fade-up fade-delay-1 font-sans font-bold text-[#04192F] text-[2.9rem] sm:text-[4rem] lg:text-[5rem] leading-[0.96] text-balance">
+            Quel métier est vraiment fait pour toi ?
+          </h1>
 
-            <div className="fade-up fade-delay-2 mt-8 max-w-2xl space-y-5">
-              <p className="font-sans text-gray-500 text-lg sm:text-xl leading-relaxed">
-                Test d’orientation conçu pour les 18–25 ans, pour enfin voir clair, avec des pistes concrètes, pas des généralités.
-              </p>
+          <div className="fade-up fade-delay-2 mt-8 max-w-2xl space-y-5">
+            <p className="font-sans text-gray-500 text-lg sm:text-xl leading-relaxed">
+              Test d’orientation conçu pour les 18–25 ans, pour enfin voir clair, avec des pistes concrètes, pas des généralités.
+            </p>
 
-              <p className="font-sans text-gray-500 text-lg sm:text-xl leading-relaxed">
-                Tu n’as pas besoin d’avoir déjà “la réponse”. Tu as juste besoin d’un point de départ fiable pour mieux te comprendre et explorer des directions réalistes.
-              </p>
-            </div>
-
-            <div className="fade-up fade-delay-3 flex flex-col sm:flex-row gap-4 mt-10">
-              <Link
-                href="/test"
-                className="btn-lift font-sans inline-flex items-center justify-center gap-2 px-7 py-4 bg-[#6500FF] text-white rounded-2xl font-bold hover:bg-purple-700 transition w-fit"
-              >
-                Passer le test, c’est gratuit
-                <img src="/media/cta-blog-arrow.svg" alt="" className="w-5" />
-              </Link>
-            </div>
-
-            <p className="fade-up fade-delay-3 font-sans text-gray-400 text-sm mt-4">
-              Pas de carte bancaire · Pas d’abonnement
+            <p className="font-sans text-gray-500 text-lg sm:text-xl leading-relaxed">
+              Tu n’as pas besoin d’avoir déjà “la réponse”. Tu as juste besoin d’un point de départ fiable pour mieux te comprendre et explorer des directions réalistes.
             </p>
           </div>
+
+          <div className="fade-up fade-delay-3 flex flex-col sm:flex-row gap-4 mt-10">
+            <Link
+              href="/test"
+              className="btn-lift font-sans inline-flex items-center justify-center gap-2 px-7 py-4 bg-[#6500FF] text-white rounded-2xl font-bold hover:bg-purple-700 transition w-fit"
+            >
+              Passer le test, c’est gratuit
+              <img src="/media/cta-blog-arrow.svg" alt="" className="w-5" />
+            </Link>
+          </div>
+
+          <p className="fade-up fade-delay-3 font-sans text-gray-400 text-sm mt-4">
+            Pas de carte bancaire · Pas d’abonnement
+          </p>
 
           <div className="fade-up fade-delay-3 grid md:grid-cols-3 gap-4 mt-14">
             {heroStats.map((s, index) => (
@@ -566,6 +564,7 @@ export default function TestOrientationJeunesPage() {
 
       <InternalLinksSection
         className="fade-up bg-[#F8F7FF]"
+        containerClassName="max-w-4xl"
         eyebrow="Après le test"
         title="Les meilleurs contenus pour transformer tes résultats en action"
         description="Une fois tes pistes identifiées, ces guides t'aident à comparer, tester et avancer sans choisir par défaut."
@@ -573,7 +572,7 @@ export default function TestOrientationJeunesPage() {
       />
 
       <section className="bg-white px-6 py-16 sm:px-10">
-        <div className="mx-auto grid max-w-5xl gap-6 rounded-[2rem] border border-[#04192F]/8 bg-[#F8F7FF] p-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div className="mx-auto grid max-w-4xl gap-6 rounded-[2rem] border border-[#04192F]/8 bg-[#F8F7FF] p-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[#6500FF]">
               Outil mental
@@ -638,7 +637,7 @@ export default function TestOrientationJeunesPage() {
 
       {/* ── CTA FINAL ── */}
       <section className="fade-up py-24 px-6 sm:px-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto">
           <p className="font-sans font-bold text-[#6500FF] text-sm uppercase tracking-widest mb-4">
             Prêt·e à voir plus clair ?
           </p>

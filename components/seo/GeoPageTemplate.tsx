@@ -99,7 +99,7 @@ export function GeoPageTemplate({ page }: { page: GeoPage }) {
           }
         `}</style>
         <section className="border-b border-[#ECE7FF] bg-[#FCFCFF] px-6 py-16 sm:px-10 sm:py-20">
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-5xl">
             <p className="geo-fade-up text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
               {page.eyebrow}
             </p>
@@ -225,7 +225,7 @@ export function GeoPageTemplate({ page }: { page: GeoPage }) {
         </section>
 
         <section className="bg-[#F3F3F3] px-6 py-16 sm:px-10">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-5xl">
             <h2 className="text-3xl font-bold text-[#04192F] sm:text-4xl">
               {isParis
                 ? 'Questions fréquentes sur l’orientation à Paris quand tu as 18–25 ans'

@@ -64,6 +64,7 @@ export const Footer = () => {
                 { href: '/carte-orientation', label: 'Carte orientation' },
                 { href: '/evenements-orientation', label: 'Événements orientation' },
                 { href: '/que-faire-apres-le-bac', label: 'Que faire après le bac ?' },
+                { href: '/dates-parcoursup-2027', label: 'Dates Parcoursup 2027' },
                 { href: '/tester-un-metier', label: 'Tester un métier' },
                 { href: '/tester-metiers-paris', label: 'Tester des métiers à Paris' },
                 { href: '/outil/temps-devant-toi', label: 'Outil temps devant toi' },

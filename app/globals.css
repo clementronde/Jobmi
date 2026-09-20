@@ -626,7 +626,7 @@
   text-decoration: none;
 }
 
-.article-content .article-cta-link {
+.article-cta-link.article-cta-link {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
@@ -644,13 +644,13 @@
     box-shadow 180ms ease;
 }
 
-.article-content .article-cta-link:hover {
+.article-cta-link:hover {
   background: #04192f;
   transform: translateY(-2px);
   box-shadow: 0 16px 34px rgba(4, 25, 47, 0.18);
 }
 
-.article-content .article-cta-link img {
+.article-cta-link img {
   filter: brightness(0) invert(1);
 }
 

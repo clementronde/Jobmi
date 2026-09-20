@@ -240,7 +240,7 @@ export default function QueFaireApresLeBacPage() {
 
       <main className="mt-[90px] bg-[#FCFCFF] font-sans">
         <section className="border-b border-[#ECE7FF] bg-[linear-gradient(180deg,#FBFAFF_0%,#FFFFFF_100%)] px-6 py-16 sm:px-10 sm:py-20">
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-5xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF]">
               Orientation post-bac
             </p>
@@ -274,7 +274,7 @@ export default function QueFaireApresLeBacPage() {
         </section>
 
         <section className="px-6 py-14 sm:px-10">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-5xl">
             <h2 className="text-3xl font-bold text-[#04192F] sm:text-4xl">
               Normal de ne pas savoir quoi faire après le bac
             </h2>
@@ -371,7 +371,7 @@ export default function QueFaireApresLeBacPage() {
         </section>
 
         <section className="bg-[#04192F] px-6 py-16 text-white sm:px-10">
-          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[1.1fr_0.9fr]">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/65">
                 Si tu n’as aucune idée
@@ -473,7 +473,7 @@ export default function QueFaireApresLeBacPage() {
         />
 
         <section className="bg-[#F3F3F3] px-6 py-16 sm:px-10">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-5xl">
             <h2 className="text-3xl font-bold text-[#04192F] sm:text-4xl">
               Ton plan d’action post-bac en 30 jours
             </h2>
@@ -513,7 +513,7 @@ export default function QueFaireApresLeBacPage() {
         </section>
 
         <section className="px-6 py-16 sm:px-10">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-5xl">
             <h2 className="text-3xl font-bold text-[#04192F] sm:text-4xl">
               FAQ – Questions fréquentes après le bac
             </h2>
@@ -534,19 +534,19 @@ export default function QueFaireApresLeBacPage() {
         </section>
 
         <section className="bg-[#04192F] px-6 py-16 text-white sm:px-10">
-          <div className="mx-auto max-w-5xl text-center">
+          <div className="mx-auto max-w-5xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/70">
               Dernier pas
             </p>
             <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
               Tu n’as pas besoin d’avoir toute ta vie en tête pour faire un bon prochain choix
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/75 sm:text-lg">
+            <p className="mt-5 max-w-3xl text-base leading-8 text-white/75 sm:text-lg">
               Commence par clarifier ton profil, confronte quelques pistes au réel, puis choisis
               une prochaine étape cohérente. C’est déjà largement suffisant pour avancer beaucoup
               mieux qu’au hasard.
             </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row">
               <Link
                 href="/test"
                 className={`${primaryButtonClass} bg-white text-[#04192F] hover:bg-[#F4F0FF]`}
