@@ -7,22 +7,22 @@ const BASE_URL = 'https://jobmi.fr';
 const PAGE_URL = `${BASE_URL}/test-orientation`;
 
 export const metadata: Metadata = {
-  title: "Test d'orientation gratuit pour 18–25 ans, trouve ta voie",
+  title: "Comment fonctionne un test d'orientation RIASEC ?",
   description:
-    "Tu ne sais pas quel métier te correspond ? Passe le test d'orientation Jobmi, conçu pour les 18–25 ans. Résultats personnalisés, pistes concrètes, 100 % gratuit.",
+    "Sur quoi se base un test d'orientation RIASEC, comment il fonctionne, pour qui il est pensé et comment interpréter tes résultats : la méthode derrière le test Jobmi, expliquée simplement.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: 'website',
     url: PAGE_URL,
-    title: "Test d'orientation gratuit 18–25 ans | Jobmi",
+    title: "Comment fonctionne un test d'orientation RIASEC ? | Jobmi",
     description:
-      "Trouve ta voie en 6 à 8 min. Test gratuit, résultats personnalisés.",
+      "La méthode RIASEC expliquée simplement : sur quoi elle se base, comment elle fonctionne, et comment interpréter tes résultats.",
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Test d'orientation gratuit 18–25 ans | Jobmi",
+    title: "Comment fonctionne un test d'orientation RIASEC ? | Jobmi",
     description:
-      "Trouve ta voie en 6 à 8 min. Test gratuit, résultats personnalisés.",
+      "La méthode RIASEC expliquée simplement : sur quoi elle se base, comment elle fonctionne, et comment interpréter tes résultats.",
   },
 };
 
@@ -288,16 +288,16 @@ export default function TestOrientationJeunesPage() {
       <section className="mt-[90px] w-full border-b border-gray-100 bg-[#F7F7F8] px-6 py-16 sm:px-10 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-4xl">
           <span className="fade-up font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#6500FF] mb-8 block">
-            Gratuit · 6 à 8 minutes · Résultats immédiats
+            La méthode derrière le test
           </span>
 
           <h1 className="fade-up fade-delay-1 font-sans font-bold text-[#04192F] text-[2.9rem] sm:text-[4rem] lg:text-[5rem] leading-[0.96] text-balance">
-            Quel métier est vraiment fait pour toi ?
+            Comment fonctionne un test d’orientation RIASEC ?
           </h1>
 
           <div className="fade-up fade-delay-2 mt-8 max-w-2xl space-y-5">
             <p className="font-sans text-gray-500 text-lg sm:text-xl leading-relaxed">
-              Test d’orientation conçu pour les 18–25 ans, pour enfin voir clair, avec des pistes concrètes, pas des généralités.
+              Avant de passer un test, tu as le droit de savoir sur quoi il se base. Voici comment fonctionne le modèle RIASEC, pourquoi il est utile pour les 18–25 ans, et comment lire tes résultats une fois que tu les as.
             </p>
 
             <p className="font-sans text-gray-500 text-lg sm:text-xl leading-relaxed">
@@ -310,7 +310,7 @@ export default function TestOrientationJeunesPage() {
               href="/test"
               className="btn-lift font-sans inline-flex items-center justify-center gap-2 px-7 py-4 bg-[#6500FF] text-white rounded-2xl font-bold hover:bg-purple-700 transition w-fit"
             >
-              Passer le test, c’est gratuit
+              Voir le test en action
               <img src="/media/cta-blog-arrow.svg" alt="" className="w-5" />
             </Link>
           </div>
