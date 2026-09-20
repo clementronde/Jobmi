@@ -251,7 +251,7 @@ function ExplorerSkeleton() {
 }
 
 export default function StageEtFormation() {
-  const internalLinks = getInternalLinksForContext('formation', '/stage-et-formation');
+  const internalLinks = getInternalLinksForContext('formation', '/stage-et-formation', 5);
 
   return (
     <>

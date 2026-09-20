@@ -201,7 +201,7 @@ const checklist = [
 ];
 
 export default function ReconversionPage() {
-  const internalLinks = getInternalLinksForContext('reconversion', '/reconversion');
+  const internalLinks = getInternalLinksForContext('reconversion', '/reconversion', 5);
 
   return (
     <>

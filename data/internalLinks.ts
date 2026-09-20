@@ -45,6 +45,12 @@ export const internalLinkGroups = {
       label: 'Action',
     },
     {
+      href: blogPath('utiliser-profil-riasec-orientation'),
+      title: 'Comment utiliser ton profil RIASEC pour choisir une voie',
+      description: 'Interprète tes résultats et transforme-les en familles de métiers à explorer.',
+      label: 'Après le test',
+    },
+    {
       href: blogPath('comment-trouver-le-job-de-tes-reves-a-20-ans-guide-ultime-pour-jeunes-en-reconversion'),
       title: 'Trouver le job de tes rêves à 20 ans',
       description: 'Un guide pratique pour transformer le flou en premières pistes réalistes.',
@@ -69,6 +75,12 @@ export const internalLinkGroups = {
       title: 'Reconversion professionnelle à 20 ans',
       description: 'La page pilier pour comprendre les étapes, les erreurs à éviter et les aides possibles.',
       label: 'Page pilier',
+    },
+    {
+      href: blogPath('comment-commencer-ta-reconversion-professionnelle'),
+      title: 'Reconversion : 5 questions à te poser avant de te lancer',
+      description: 'Le point de départ pour vérifier que tu te reconvertis pour les bonnes raisons.',
+      label: 'Premier pas',
     },
     {
       href: blogPath('pmsmp-18-25-tester-metier-immersion'),
@@ -113,6 +125,12 @@ export const internalLinkGroups = {
       title: "Stage d'observation développeur web",
       description: "Une fiche structurée pour vérifier une piste tech avant une formation.",
       label: 'Fiche',
+    },
+    {
+      href: blogPath('utiliser-cpf-compte-personnel-formation'),
+      title: 'Utiliser son CPF sans se tromper',
+      description: 'Démarches, meilleures formations éligibles et arnaques à éviter.',
+      label: 'Financement',
     },
     {
       href: blogPath('alternance-ou-formation-continue-que-choisir'),
@@ -225,6 +243,12 @@ export const internalLinkGroups = {
       title: 'Tester un métier avant les études',
       description: "Découvre comment vérifier une piste avant de t'engager.",
       label: 'Terrain',
+    },
+    {
+      href: blogPath('parcoursup-gerer-stress-resultats'),
+      title: 'Gérer le stress des résultats Parcoursup',
+      description: "L'attente, la pression des parents, les refus : comment reprendre la main.",
+      label: 'Résultats',
     },
   ],
   geo: [

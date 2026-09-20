@@ -107,6 +107,12 @@ const links = [
     description: 'Les options si tu ne veux pas ou plus dépendre de la plateforme.',
     label: 'Guide',
   },
+  {
+    href: '/blog/parcoursup-gerer-stress-resultats',
+    title: 'Gérer le stress des résultats Parcoursup',
+    description: "L'attente, la pression des parents, les refus : comment reprendre la main.",
+    label: 'Résultats',
+  },
 ];
 
 const primaryButtonClass =

@@ -177,7 +177,8 @@ const temoignages = [
 export default function TestOrientationJeunesPage() {
   const internalLinks = getInternalLinksForContext(
     'orientation',
-    '/test-orientation'
+    '/test-orientation',
+    5
   );
 
   return (
@@ -297,7 +298,11 @@ export default function TestOrientationJeunesPage() {
 
           <div className="fade-up fade-delay-2 mt-8 max-w-2xl space-y-5">
             <p className="font-sans text-gray-500 text-lg sm:text-xl leading-relaxed">
-              Avant de passer un test, tu as le droit de savoir sur quoi il se base. Voici comment fonctionne le modèle RIASEC, pourquoi il est utile pour les 18–25 ans, et comment lire tes résultats une fois que tu les as.
+              Avant de passer un test, tu as le droit de savoir sur quoi il se base. Voici comment fonctionne le modèle RIASEC, pourquoi il est utile pour les 18–25 ans, et{' '}
+              <Link href="/blog/utiliser-profil-riasec-orientation" className="link-underline font-semibold text-[#6500FF]">
+                comment lire tes résultats
+              </Link>{' '}
+              une fois que tu les as.
             </p>
 
             <p className="font-sans text-gray-500 text-lg sm:text-xl leading-relaxed">
